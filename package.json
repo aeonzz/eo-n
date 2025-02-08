@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "eo-n",
   "private": true,
   "scripts": {
     "build": "turbo build",
