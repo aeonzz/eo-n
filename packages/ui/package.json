@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "exports": {
-    "./base-ui": "./src/components/base-ui.ts",
-    "./lib": "./src/lib/utils.ts"
+    ".": "./src/index.ts",
+    "./avatar": "./src/components/avatar.ts"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
