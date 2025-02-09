@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { Button } from "@eo-n/ui/components/button"
 
 export default function HomePage() {
   return (
@@ -14,7 +13,6 @@ export default function HomePage() {
           /docs
         </Link>{" "}
         and see the documentation.
-        <Button>yawa</Button>
       </p>
     </main>
   )

@@ -1,1 +1,7 @@
-export { default } from "@eo-n/ui/postcss.config"
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+
+export default config;
