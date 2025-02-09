@@ -2,5 +2,18 @@
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "acme",
   "homepage": "https://acme.com",
-  "items": []
+  "items": [
+    {
+      "name": "button",
+      "type": "registry:component",
+      "title": "Button",
+      "description": "A simple hello world component.",
+      "files": [
+        {
+          "path": "registry/default/ui/button.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
 }

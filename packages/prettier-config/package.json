@@ -1,0 +1,9 @@
+{
+  "name": "@eo-n/prettier-config",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "index.js",
+  "dependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.1"
+  }
+}

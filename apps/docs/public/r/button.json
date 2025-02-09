@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button",
+  "type": "registry:component",
+  "title": "Button",
+  "description": "A simple hello world component.",
+  "files": [
+    {
+      "path": "registry/default/ui/button.tsx",
+      "content": "import React from 'react'\n\nexport default function button() {\n  return (\n    <div>button</div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}

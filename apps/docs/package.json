@@ -2,31 +2,39 @@
   "name": "docs",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack --port 3001",
     "build": "next build",
     "start": "next start",
-    "postinstall": "fumadocs-mdx"
+    "postinstall": "fumadocs-mdx",
+    "registry:build": "shadcn build"
   },
   "dependencies": {
     "@eo-n/ui": "workspace:*",
+    "@eo-n/prettier-config": "workspace:*",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "fumadocs-core": "15.0.4",
+    "fumadocs-mdx": "11.5.1",
+    "fumadocs-ui": "15.0.4",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "fumadocs-ui": "15.0.4",
-    "fumadocs-core": "15.0.4",
-    "fumadocs-mdx": "11.5.1"
+    "shadcn": "2.4.0-canary.2",
+    "tailwind-merge": "^3.0.1"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.3",
+    "@types/mdx": "^2.0.13",
     "@types/node": "22.13.1",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
-    "typescript": "^5.7.3",
-    "@types/mdx": "^2.0.13",
-    "@tailwindcss/postcss": "^4.0.3",
-    "tailwindcss": "^4.0.3",
-    "postcss": "^8.5.1",
     "eslint": "^8",
-    "eslint-config-next": "15.1.6"
+    "eslint-config-next": "15.1.6",
+    "postcss": "^8.5.1",
+    "prettier": "^3.4.2",
+    "tailwindcss": "^4.0.3",
+    "typescript": "^5.7.3"
   }
 }
