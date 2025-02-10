@@ -7,10 +7,22 @@
       "name": "button",
       "type": "registry:component",
       "title": "Button",
-      "description": "A simple hello world component.",
+      "description": "A simple button component.",
       "files": [
         {
           "path": "registry/default/ui/button.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:component",
+      "title": "Avatar",
+      "description": "A simple avatar component.",
+      "files": [
+        {
+          "path": "registry/default/ui/avatar.tsx",
           "type": "registry:component"
         }
       ]
