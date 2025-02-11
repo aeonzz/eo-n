@@ -5,7 +5,7 @@ import {
 } from "fumadocs-mdx/config";
 import * as z from "zod";
 
-export const docs = defineDocs({
+export const { docs, meta } = defineDocs({
   dir: "content/docs",
   docs: {
     schema: frontmatterSchema.extend({

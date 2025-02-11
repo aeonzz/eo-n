@@ -1,5 +1,5 @@
 import { ComponentSource } from "@/components/component-source";
-// import { ComponentTabs } from "@/components/component-tabs";
+import { ComponentTabs } from "@/components/component-tabs";
 // import { CSSVariablesTable } from "@/components/css-variables-table";
 // import { DataAttributesTable } from "@/components/data-attributes-table";
 // import { Kbd } from "@/components/kbd";
@@ -49,7 +49,7 @@ export function useMdxComponents(
       </CodeBlock>
     ),
     // kbd: (props) => <Kbd variant="outline" {...props} />,
-    // ComponentTabs,
+    ComponentTabs,
     ComponentSource,
     Steps,
     Step,
