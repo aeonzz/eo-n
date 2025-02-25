@@ -1,29 +1,18 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "acme",
-  "homepage": "https://acme.com",
+  "name": "eo-n",
+  "homepage": "https://eo-n.com",
   "items": [
     {
       "name": "button",
-      "type": "registry:component",
+      "type": "registry:ui",
       "title": "Button",
       "description": "A simple button component.",
+      "dependencies": ["@radix-ui/react-slot"],
       "files": [
         {
           "path": "registry/default/ui/button.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "avatar",
-      "type": "registry:component",
-      "title": "Avatar",
-      "description": "A simple avatar component.",
-      "files": [
-        {
-          "path": "registry/default/ui/avatar.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ]
     }
