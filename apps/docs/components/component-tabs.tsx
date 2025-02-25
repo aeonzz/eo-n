@@ -48,6 +48,7 @@ export function ComponentTabs({
     return <Component />;
   }, [name, config.style]);
 
+
   return (
     <Tabs items={["Preview", "Code"]} className="rounded-md">
       <Tab

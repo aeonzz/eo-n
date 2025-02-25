@@ -1,11 +1,3 @@
-import { ComponentSource } from "@/components/component-source";
-import { ComponentTabs } from "@/components/component-tabs";
-// import { CSSVariablesTable } from "@/components/css-variables-table";
-// import { DataAttributesTable } from "@/components/data-attributes-table";
-// import { Kbd } from "@/components/kbd";
-// import { KeyboardShortcutsTable } from "@/components/keyboard-shortcuts-table";
-// import { Table, TableCell, TableHead, TableRow } from "@/components/ui/table";
-import { cn } from "@/lib/utils";
 import type { Page } from "fumadocs-core/source";
 import { createTypeTable } from "fumadocs-typescript/ui";
 import { CodeBlock, Pre } from "fumadocs-ui/components/codeblock";
@@ -15,30 +7,47 @@ import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import defaultComponents from "fumadocs-ui/mdx";
 import type { MDXComponents } from "mdx/types";
 
+import { cn } from "@/lib/utils";
+import { Table, TableCell, TableHead, TableRow } from "@/components/ui/table";
+import { ComponentSource } from "@/components/component-source";
+import { ComponentTabs } from "@/components/component-tabs";
+import { CSSVariablesTable } from "@/components/css-variables-table";
+import { DataAttributesTable } from "@/components/data-attributes-table";
+import { Kbd } from "@/components/kbd";
+import { KeyboardShortcutsTable } from "@/components/keyboard-shortcuts-table";
+
 const { AutoTypeTable } = createTypeTable();
 
 export function useMdxComponents(
-  components: Partial<MDXComponents>,
+  components: Partial<MDXComponents>
 ): MDXComponents {
   const headings = Object.fromEntries(
-    ["h1", "h2", "h3", "h4", "h5", "h6"].map((level) => [
-      level,
-      (props: React.ComponentProps<typeof Heading>) => (
-        <Heading
-          as={level as React.ComponentProps<typeof Heading>["as"]}
-          {...props}
-        />
-      ),
-    ]),
+    ["h1", "h2", "h3", "h4", "h5", "h6"].map((level) => {
+      const extraClasses = level === "h2" ? "border-b pb-2" : "";
+
+      return [
+        level,
+        (props: React.ComponentProps<typeof Heading>) => (
+          <Heading
+            as={level as React.ComponentProps<typeof Heading>["as"]}
+            className={extraClasses}
+            {...props}
+          />
+        ),
+      ];
+    })
   );
 
   return {
     ...defaultComponents,
     ...components,
     ...headings,
-    // table: ({ className, ...props }) => (
-    //   <Table className={cn(className)} mdx {...props} />
-    // ),
+    table: ({ className, ...props }) => (
+      <Table className={cn(className)} mdx {...props} />
+    ),
+    tr: TableRow,
+    th: TableHead,
+    td: TableCell,
     Tabs: ({ className, ...props }) => (
       <Tabs className={cn("rounded-md", className)} {...props} />
     ),
@@ -48,7 +57,7 @@ export function useMdxComponents(
         <Pre>{children}</Pre>
       </CodeBlock>
     ),
-    // kbd: (props) => <Kbd variant="outline" {...props} />,
+    kbd: (props) => <Kbd variant="outline" {...props} />,
     ComponentTabs,
     ComponentSource,
     Steps,
@@ -58,9 +67,9 @@ export function useMdxComponents(
         <AutoTypeTable {...props} />
       </div>
     ),
-    // CSSVariablesTable,
-    // DataAttributesTable,
-    // KeyboardShortcutsTable,
+    CSSVariablesTable,
+    DataAttributesTable,
+    KeyboardShortcutsTable,
   };
 }
 

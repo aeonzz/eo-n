@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
   DocsBody,
@@ -10,16 +11,25 @@ import { source } from "@/lib/source";
 import { DynamicLink } from "@/components/dynamic-link";
 import { Mdx } from "@/components/mdx-components";
 
-export async function generateStaticParams() {
-  return source.generateParams();
+interface DocPageParams {
+  params: Promise<{
+    slug?: string[];
+  }>;
 }
 
-export async function generateMetadata(props: {
-  params: Promise<{ slug?: string[] }>;
-}) {
+export async function generateStaticParams() {
+  return source.getPages().map((page) => ({
+    slug: page.slugs,
+  }));
+}
+
+export async function generateMetadata(
+  props: DocPageParams
+): Promise<Metadata> {
   const params = await props.params;
   const page = source.getPage(params.slug);
-  if (!page) notFound();
+
+  if (!page) return {};
 
   return {
     title: page.data.title,
@@ -27,16 +37,11 @@ export async function generateMetadata(props: {
   };
 }
 
-export default async function Page(props: {
-  params: Promise<{ slug?: string[] }>;
-}) {
+export default async function DocPage(props: DocPageParams) {
   const params = await props.params;
   const page = source.getPage(params.slug);
+
   if (!page) notFound();
-
-  console.log(page);
-
-  // const MDX = page.data.body;
 
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>

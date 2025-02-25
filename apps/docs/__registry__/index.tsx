@@ -21,6 +21,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "utils": {
+      name: "utils",
+      description: "",
+      type: "registry:lib",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/lib/utils.ts",
+        type: "registry:lib",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/lib/utils.ts")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "button-demo": {
       name: "button-demo",
       description: "",
@@ -32,6 +48,134 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/button-demo.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "button-as-child": {
+      name: "button-as-child",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/default/examples/button-as-child.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/button-as-child.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "button-destructive": {
+      name: "button-destructive",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/default/examples/button-destructive.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/button-destructive.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "button-ghost": {
+      name: "button-ghost",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/default/examples/button-ghost.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/button-ghost.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "button-icon": {
+      name: "button-icon",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/default/examples/button-icon.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/button-icon.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "button-link": {
+      name: "button-link",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/default/examples/button-link.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/button-link.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "button-loading": {
+      name: "button-loading",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/default/examples/button-loading.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/button-loading.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "button-outline": {
+      name: "button-outline",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/default/examples/button-outline.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/button-outline.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "button-secondary": {
+      name: "button-secondary",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/default/examples/button-secondary.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/button-secondary.tsx")),
       source: "",
       category: "",
       subcategory: "",
