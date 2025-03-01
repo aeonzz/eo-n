@@ -12,7 +12,6 @@
     "registry:build": "shadcn build"
   },
   "dependencies": {
-    "@eo-n/ui": "workspace:*",
     "@radix-ui/react-avatar": "^1.1.3",
     "@radix-ui/react-collapsible": "^1.1.3",
     "@radix-ui/react-dialog": "^1.1.6",
@@ -38,7 +37,7 @@
     "remark-code-import": "^1.2.0",
     "remark-math": "^6.0.0",
     "rimraf": "^6.0.1",
-    "shadcn": "2.4.0-canary.2",
+    "shadcn": "2.4.0-canary.10",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
     "tsx": "^4.19.2",

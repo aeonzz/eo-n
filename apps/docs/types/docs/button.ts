@@ -14,4 +14,16 @@ export interface RootProps extends EmptyProps<"button">, CompositionProps {
    * @default "default"
    */
   variant?: ButtonVariants["variant"];
+
+  /**
+   *
+   * @default undefined
+   */
+  icon?: React.ReactElement<SVGElement>;
+
+  /**
+   * Sets the icon position relative to the button text.
+   * @default "left"
+   */
+  iconPlacement?: "left" | "right";
 }

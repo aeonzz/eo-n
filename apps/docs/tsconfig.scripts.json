@@ -6,7 +6,7 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "isolatedModules": false,
+    "isolatedModules": false
   },
   "include": ["scripts/**/*.ts"],
   "exclude": ["node_modules"]

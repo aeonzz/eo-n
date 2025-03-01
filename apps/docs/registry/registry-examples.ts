@@ -100,6 +100,17 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "button-with-icon",
+    type: "registry:example",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "examples/button-with-icon.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
   // {
   //   name: "checkbox-group-demo",
   //   type: "registry:example",
