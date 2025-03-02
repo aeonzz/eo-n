@@ -100,4 +100,15 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "dialog-demo",
+    type: "registry:example",
+    registryDependencies: ["dialog"],
+    files: [
+      {
+        path: "examples/dialog-demo.tsx",
+        type: "registry:example",
+      },
+    ]
+  }
 ];
