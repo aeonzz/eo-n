@@ -181,21 +181,5 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
-    "button-with-icon": {
-      name: "button-with-icon",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["button"],
-      files: [{
-        path: "registry/default/examples/button-with-icon.tsx",
-        type: "registry:example",
-        target: ""
-      }],
-      component: React.lazy(() => import("@/registry/default/examples/button-with-icon.tsx")),
-      source: "",
-      category: "",
-      subcategory: "",
-      chunks: []
-    },
   },
 }

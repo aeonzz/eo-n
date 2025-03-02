@@ -8,8 +8,7 @@
     "build": "next build",
     "start": "next start",
     "postinstall": "fumadocs-mdx",
-    "build:registry": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-registry.mts",
-    "registry:build": "shadcn build"
+    "build:registry": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-registry.mts"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.3",
