@@ -1,4 +1,6 @@
-import { Button } from "@/registry/default/ui/button"
+import Image from "next/image.js";
+
+import { Button } from "@/registry/default/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -7,35 +9,48 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/registry/default/ui/dialog"
-import { Input } from "@/registry/default/ui/input"
-import { Label } from "@/registry/default/ui/label"
+} from "@/registry/default/ui/dialog";
+import { Input } from "@/registry/default/ui/input";
+import { Label } from "@/registry/default/ui/label";
 
 export default function DialogDemo() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
+        <Button variant="outline">Open dialog</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
+          <DialogTitle>Edit Content</DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when you&apos;re done.
+            Update the details below and click save to apply changes.
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input id="name" value="Pedro Duarte" className="col-span-3" />
+        <div className="relative aspect-video w-full">
+          <Image
+            src="/images/dialog-demo-image.jpg"
+            alt="dialog-placeholder"
+            priority
+            objectFit="cover"
+            fill
+          />
+        </div>
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3">
+            <Label htmlFor="title">Title</Label>
+            <Input
+              id="title"
+              defaultValue="Sample Title"
+              className="col-span-3"
+            />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input id="username" value="@peduarte" className="col-span-3" />
+          <div className="flex flex-col gap-3">
+            <Label htmlFor="description">Description</Label>
+            <Input
+              id="description"
+              defaultValue="Sample Description"
+              className="col-span-3"
+            />
           </div>
         </div>
         <DialogFooter>
@@ -43,5 +58,5 @@ export default function DialogDemo() {
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  )
+  );
 }

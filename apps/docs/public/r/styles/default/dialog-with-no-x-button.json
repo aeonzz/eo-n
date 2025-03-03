@@ -1,0 +1,15 @@
+{
+  "name": "dialog-with-no-x-button",
+  "type": "registry:example",
+  "registryDependencies": [
+    "dialog"
+  ],
+  "files": [
+    {
+      "path": "examples/dialog-with-no-x-button.tsx",
+      "content": "import { ChevronDown } from \"lucide-react\";\r\n\r\nimport {\r\n  Dialog,\r\n  DialogClose,\r\n  DialogContent,\r\n  DialogDescription,\r\n  DialogFooter,\r\n  DialogHeader,\r\n  DialogTitle,\r\n  DialogTrigger,\r\n} from \"@/registry/default/ui/dialog\";\r\n\r\nimport { Button } from \"../ui/button\";\r\nimport { Input } from \"../ui/input\";\r\nimport { Label } from \"../ui/label\";\r\n\r\nexport default function DialogWithNoXButton() {\r\n  return (\r\n    <Dialog>\r\n      <DialogTrigger asChild>\r\n        <Button variant=\"default\">Sign in</Button>\r\n      </DialogTrigger>\r\n      <DialogContent className=\"sm:max-w-[359px] [&_svg]:hidden\">\r\n        <DialogHeader className=\"items-center p-2\">\r\n          <DialogTitle>Welcome back</DialogTitle>\r\n          <DialogDescription className=\"text-center\">\r\n            Enter your credentials to login to your account.\r\n          </DialogDescription>\r\n        </DialogHeader>\r\n        <div className=\"flex flex-col gap-4\">\r\n          <div className=\"flex flex-col gap-3\">\r\n            <Label htmlFor=\"username\">Username</Label>\r\n            <Input\r\n              id=\"username\"\r\n              placeholder=\"Sample Username\"\r\n              className=\"col-span-3\"\r\n            />\r\n          </div>\r\n          <div className=\"flex flex-col gap-3\">\r\n            <Label htmlFor=\"password\">Password</Label>\r\n            <Input id=\"password\" placeholder=\"*******\" className=\"col-span-3\" />\r\n          </div>\r\n        </div>\r\n        <DialogFooter className=\"gap-3 sm:flex-col\">\r\n          <Button variant=\"default\" className=\"w-full\">\r\n            Sign in\r\n          </Button>\r\n          <div className=\"before:bg-border after:bg-border flex items-center gap-3 before:h-px before:flex-1 after:h-px after:flex-1\">\r\n            <span className=\"text-muted-foreground text-xs\">Or</span>\r\n          </div>\r\n          <Button variant=\"outline\" className=\"w-full\">\r\n            Login with Google\r\n          </Button>\r\n        </DialogFooter>\r\n      </DialogContent>\r\n    </Dialog>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

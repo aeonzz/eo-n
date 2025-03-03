@@ -4,8 +4,8 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 import { cn, getIsExternalLink } from "@/lib/utils";
 import { buttonVariants } from "@/registry/default/ui/button";
 
-// interface DynamicLinkProps
-//   extends React.ComponentPropsWithoutRef<typeof Link> {}
+interface DynamicLinkProps
+  extends React.ComponentPropsWithoutRef<typeof Link> {}
 
 export function DynamicLink({
   href,

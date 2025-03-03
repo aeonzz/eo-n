@@ -1,0 +1,15 @@
+{
+  "name": "dialog-with-close-button",
+  "type": "registry:example",
+  "registryDependencies": [
+    "dialog"
+  ],
+  "files": [
+    {
+      "path": "examples/dialog-with-close-button.tsx",
+      "content": "import {\r\n  Dialog,\r\n  DialogClose,\r\n  DialogContent,\r\n  DialogDescription,\r\n  DialogFooter,\r\n  DialogHeader,\r\n  DialogTitle,\r\n  DialogTrigger,\r\n} from \"@/registry/default/ui/dialog\";\r\n\r\nimport { Button } from \"../ui/button\";\r\n\r\nexport default function DialogWithCloseButton() {\r\n  return (\r\n    <Dialog>\r\n      <DialogTrigger asChild>\r\n        <Button variant=\"outline\">Open Dialog</Button>\r\n      </DialogTrigger>\r\n      <DialogContent>\r\n        <DialogHeader>\r\n          <DialogTitle>Confirm Your Action</DialogTitle>\r\n          <DialogDescription>\r\n            This operation will update your settings and may affect your current\r\n            configuration. Please confirm if you wish to proceed.\r\n          </DialogDescription>\r\n        </DialogHeader>\r\n        <DialogFooter>\r\n          <DialogClose asChild>\r\n            <Button variant=\"outline\">Cancel</Button>\r\n          </DialogClose>\r\n          <Button variant=\"default\">Confirm</Button>\r\n        </DialogFooter>\r\n      </DialogContent>\r\n    </Dialog>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

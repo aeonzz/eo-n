@@ -1,9 +1,10 @@
 ---
 title: Dialog
-description: A UI component for triggering actions or navigation.
+description: A UI component for displaying modal dialogs to capture user input or confirm actions.
 preview: true
 links:
-  api: /docs/components/dialog#api-reference
+  doc: https://www.radix-ui.com/primitives/docs/components/dialog
+  api: https://www.radix-ui.com/primitives/docs/components/dialog#api-reference
 ---
 
 <ComponentTabs name="dialog-demo" />
@@ -15,3 +16,63 @@ links:
 ```package-install
 npx shadcn@latest add "https://eo-n.vercel.app/r/dialog"
 ```
+
+### Manual
+
+<Steps>
+  <Step>
+    Install the following dependencies:
+
+    ```package-install
+    @radix-ui/react-slot
+    ```
+
+  </Step>
+  <Step>
+    Copy and paste the following code into your project.
+
+    <ComponentSource name="dialog" />
+
+  </Step>
+  
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+```
+
+```tsx
+<Dialog>
+  <DialogTrigger>Open</DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Are you sure you want to proceed?</DialogTitle>
+      <DialogDescription>
+        This action may have permanent effects. Please confirm if you want to
+        continue.
+      </DialogDescription>
+    </DialogHeader>
+  </DialogContent>
+</Dialog>
+```
+
+## Examples
+
+### With close button
+
+<ComponentTabs name="dialog-with-close-button" />
+
+### Without x icon
+
+<ComponentTabs name="dialog-with-no-x-button" />

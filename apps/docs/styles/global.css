@@ -192,12 +192,12 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--border));
+    background: var(--border);
     border-radius: 5px;
   }
   * {
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--border)) transparent;
+    scrollbar-color: var(--border) transparent;
   }
 }
 
@@ -207,13 +207,13 @@
   }
 
   [data-rehype-pretty-code-figure] figure {
-    @apply rounded-none! my-4!;
+    @apply my-4! rounded-none!;
   }
 }
 
 @utility preview-block {
   & kbd {
-    @apply shadow-none! border-none!;
+    @apply border-none! shadow-none!;
   }
 }
 
@@ -255,7 +255,7 @@
 
 @layer components {
   [data-rehype-pretty-code-figure] figure {
-    @apply border-none bg-secondary/50!;
+    @apply bg-secondary/50! border-none;
   }
 
   [data-line] span {

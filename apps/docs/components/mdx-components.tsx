@@ -22,20 +22,15 @@ export function useMdxComponents(
   components: Partial<MDXComponents>
 ): MDXComponents {
   const headings = Object.fromEntries(
-    ["h1", "h2", "h3", "h4", "h5", "h6"].map((level) => {
-      const extraClasses = level === "h2" ? "border-b pb-2" : "";
-
-      return [
-        level,
-        (props: React.ComponentProps<typeof Heading>) => (
-          <Heading
-            as={level as React.ComponentProps<typeof Heading>["as"]}
-            className={extraClasses}
-            {...props}
-          />
-        ),
-      ];
-    })
+    ["h1", "h2", "h3", "h4", "h5", "h6"].map((level) => [
+      level,
+      (props: React.ComponentProps<typeof Heading>) => (
+        <Heading
+          as={level as React.ComponentProps<typeof Heading>["as"]}
+          {...props}
+        />
+      ),
+    ])
   );
 
   return {

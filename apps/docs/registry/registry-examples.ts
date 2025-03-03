@@ -109,6 +109,28 @@ export const examples: Registry = [
         path: "examples/dialog-demo.tsx",
         type: "registry:example",
       },
-    ]
-  }
+    ],
+  },
+  {
+    name: "dialog-with-close-button",
+    type: "registry:example",
+    registryDependencies: ["dialog"],
+    files: [
+      {
+        path: "examples/dialog-with-close-button.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "dialog-with-no-x-button",
+    type: "registry:example",
+    registryDependencies: ["dialog"],
+    files: [
+      {
+        path: "examples/dialog-with-no-x-button.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];

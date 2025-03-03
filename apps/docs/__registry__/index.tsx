@@ -213,5 +213,37 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "dialog-with-close-button": {
+      name: "dialog-with-close-button",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["dialog"],
+      files: [{
+        path: "registry/default/examples/dialog-with-close-button.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/dialog-with-close-button.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "dialog-with-no-x-button": {
+      name: "dialog-with-no-x-button",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["dialog"],
+      files: [{
+        path: "registry/default/examples/dialog-with-no-x-button.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/dialog-with-no-x-button.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
   },
 }
