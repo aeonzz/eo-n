@@ -22,7 +22,7 @@ export default function DialogWithNoXButton() {
       <DialogTrigger asChild>
         <Button variant="default">Sign in</Button>
       </DialogTrigger>
-      <DialogContent hideClose className="sm:max-w-[415px]">
+      <DialogContent hideCloseIcon className="sm:max-w-[415px]">
         <DialogHeader className="items-center px-10">
           <div className="mb-2 grid place-items-center rounded-full border-2 p-3">
             <Radius />

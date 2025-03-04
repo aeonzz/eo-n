@@ -7,5 +7,5 @@ export interface ContentProps extends EmptyProps<"button"> {
    *
    * @default false
    */
-  hideClose?: boolean;
+  hideCloseIcon?: boolean;
 }
