@@ -112,12 +112,12 @@ export const examples: Registry = [
     ],
   },
   {
-    name: "dialog-with-close-button",
+    name: "dialog-custom-close-button",
     type: "registry:example",
     registryDependencies: ["dialog"],
     files: [
       {
-        path: "examples/dialog-with-close-button.tsx",
+        path: "examples/dialog-custom-close-button.tsx",
         type: "registry:example",
       },
     ],
@@ -129,6 +129,61 @@ export const examples: Registry = [
     files: [
       {
         path: "examples/dialog-with-no-x-button.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "input-demo",
+    type: "registry:example",
+    registryDependencies: ["input"],
+    files: [
+      {
+        path: "examples/input-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "input-with-label",
+    type: "registry:example",
+    registryDependencies: ["input"],
+    files: [
+      {
+        path: "examples/input-with-label.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "input-with-floating-label",
+    type: "registry:example",
+    registryDependencies: ["input"],
+    files: [
+      {
+        path: "examples/input-with-floating-label.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "input-secondary",
+    type: "registry:example",
+    registryDependencies: ["input"],
+    files: [
+      {
+        path: "examples/input-secondary.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "input-disabled",
+    type: "registry:example",
+    registryDependencies: ["input"],
+    files: [
+      {
+        path: "examples/input-disabled.tsx",
         type: "registry:example",
       },
     ],

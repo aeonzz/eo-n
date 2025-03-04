@@ -9,9 +9,9 @@ import {
   DialogTrigger,
 } from "@/registry/default/ui/dialog";
 
-import { Button } from "../ui/button";
+import { Button } from "@/registry/default/ui/button";
 
-export default function DialogWithCloseButton() {
+export default function DialogCustomCloseButton() {
   return (
     <Dialog>
       <DialogTrigger asChild>

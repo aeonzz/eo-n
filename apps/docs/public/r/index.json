@@ -25,5 +25,15 @@
         "type": "registry:ui"
       }
     ]
+  },
+  {
+    "name": "input",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "ui/input.tsx",
+        "type": "registry:ui"
+      }
+    ]
   }
 ]

@@ -1,0 +1,15 @@
+{
+  "name": "input-with-label",
+  "type": "registry:example",
+  "registryDependencies": [
+    "input"
+  ],
+  "files": [
+    {
+      "path": "examples/input-with-label.tsx",
+      "content": "import { Input } from \"@/registry/default/ui/input\";\r\nimport { Label } from \"@/registry/default/ui/label\";\r\n\r\nexport default function InputWithLabel() {\r\n  return (\r\n    <div className=\"min-w-xs\">\r\n      <Label>Username</Label>\r\n      <Input\r\n        id=\"username\"\r\n        name=\"username\"\r\n        type=\"text\"\r\n        placeholder=\"Username\"\r\n        autoComplete=\"off\"\r\n      />\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

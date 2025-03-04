@@ -1,0 +1,12 @@
+{
+  "name": "input",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "ui/input.tsx",
+      "content": "import * as React from \"react\";\r\nimport { cva, type VariantProps } from \"class-variance-authority\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nconst inputVariants = cva(\r\n  \"border-input file:text-foreground placeholder:text-muted-foreground focus-visible:ring-border focus-visible:outline-primary/30 flex h-9 w-full rounded-md border px-3 py-1 text-base transition-all ease-out file:border-0 t file:text-sm file:font-medium focus-visible:ring-4 focus-visible:outline-[1px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm\",\r\n  {\r\n    variants: {\r\n      variant: {\r\n        default: \"bg-transparent file:bg-transparent\",\r\n        secondary: \"bg-secondary file:bg-secondary border-secondary-foreground/5\",\r\n      },\r\n    },\r\n    defaultVariants: {\r\n      variant: \"default\",\r\n    },\r\n  }\r\n);\r\n\r\nexport type InputVariants = VariantProps<typeof inputVariants>;\r\n\r\ninterface InputProps extends InputVariants, React.ComponentProps<\"input\"> {\r\n  hideSpinButtons?: boolean;\r\n}\r\n\r\nfunction Input({\r\n  className,\r\n  type,\r\n  variant,\r\n  hideSpinButtons,\r\n  ...props\r\n}: InputProps) {\r\n  return (\r\n    <input\r\n      type={type}\r\n      className={cn(\r\n        inputVariants({ className, variant }),\r\n        hideSpinButtons &&\r\n          \"[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none\"\r\n      )}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport { Input };\r\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

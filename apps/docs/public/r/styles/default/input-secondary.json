@@ -1,0 +1,15 @@
+{
+  "name": "input-secondary",
+  "type": "registry:example",
+  "registryDependencies": [
+    "input"
+  ],
+  "files": [
+    {
+      "path": "examples/input-secondary.tsx",
+      "content": "import { Input } from \"@/registry/default/ui/input\";\r\n\r\nexport default function InputSecondary() {\r\n  return (\r\n    <Input\r\n      id=\"username\"\r\n      name=\"username\"\r\n      type=\"text\"\r\n      placeholder=\"Username\"\r\n      autoComplete=\"off\"\r\n      className=\"max-w-xs\"\r\n      variant=\"secondary\"\r\n    />\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

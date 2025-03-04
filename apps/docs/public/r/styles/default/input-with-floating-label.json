@@ -1,0 +1,15 @@
+{
+  "name": "input-with-floating-label",
+  "type": "registry:example",
+  "registryDependencies": [
+    "input"
+  ],
+  "files": [
+    {
+      "path": "examples/input-with-floating-label.tsx",
+      "content": "import { Input } from \"@/registry/default/ui/input\";\r\nimport { Label } from \"@/registry/default/ui/label\";\r\n\r\nexport default function InputWithFloatingLabel() {\r\n  return (\r\n    <div className=\"relative min-w-xs\">\r\n      <Input\r\n        id=\"email\"\r\n        type=\"email\"\r\n        name=\"email\"\r\n        placeholder=\"Email\"\r\n        autoComplete=\"off\"\r\n        className=\"peer placeholder:text-transparent\"\r\n      />\r\n      <div className=\"bg-background peer-placeholder-shown:text-muted-foreground peer-focus:bg-background peer-focus:text-foreground absolute -top-2.5 left-1.5 grid place-items-center px-2 transition-all ease-out peer-placeholder-shown:top-[0.6875rem] peer-placeholder-shown:left-3 peer-placeholder-shown:bg-transparent peer-placeholder-shown:px-0 peer-focus:-top-2.5 peer-focus:left-1.5 peer-focus:px-2\">\r\n        <Label htmlFor=\"email\" className=\"cursor-text\">\r\n          Email\r\n        </Label>\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

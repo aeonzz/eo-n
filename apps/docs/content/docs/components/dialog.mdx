@@ -41,6 +41,8 @@ npx shadcn@latest add "https://eo-n.vercel.app/r/dialog"
 
 ## Usage
 
+Import all parts and piece them together.
+
 ```tsx
 import {
   Dialog,
@@ -69,10 +71,24 @@ import {
 
 ## Examples
 
-### With close button
+### With Custom Close Button
 
-<ComponentTabs name="dialog-with-close-button" />
+<ComponentTabs name="dialog-custom-close-button" />
 
-### Without x icon
+### Without Close Icon
 
 <ComponentTabs name="dialog-with-no-x-button" />
+
+## API Reference
+
+### Content
+
+Contains content to be rendered in the open dialog.
+
+<AutoTypeTable path="./types/docs/dialog.ts" name="ContentProps" />
+
+### Additional Resources
+
+#### API
+
+For complete details on all available props and configuration options, see the [Radix UI Dialog API Reference](https://www.radix-ui.com/primitives/docs/components/dialog#api-reference).

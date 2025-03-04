@@ -23,6 +23,16 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "input",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/input.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
   // {
   //   name: "combobox",
   //   type: "registry:ui",
