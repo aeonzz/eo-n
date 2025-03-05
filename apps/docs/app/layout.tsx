@@ -1,13 +1,13 @@
-import { Providers } from "@/components/providers";
-import { TailwindIndicator } from "@/components/tailwind-indicator";
-// import { Toaster } from "@/components/ui/sonner";
 import { siteConfig } from "@/config/site";
 import { fontMono, fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
+import { Providers } from "@/components/providers";
+import { TailwindIndicator } from "@/components/tailwind-indicator";
+
 import "@/styles/global.css";
-import type { Metadata, Viewport } from "next";
-import Script from "next/script";
+
 import type * as React from "react";
+import type { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -69,7 +69,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         className={cn(
           "isolate min-h-screen font-sans antialiased",
           fontSans.variable,
-          fontMono.variable,
+          fontMono.variable
         )}
       >
         <TailwindIndicator />
