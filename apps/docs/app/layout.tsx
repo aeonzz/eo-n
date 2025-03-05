@@ -26,11 +26,11 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: "sadmann7",
-      url: "https://www.sadmn.com",
+      name: "aeonz",
+      url: "https://christian-aeonzz.vercel.app/",
     },
   ],
-  creator: "sadmann7",
+  creator: "aeonz",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [`${siteConfig.url}/og.jpg`],
-    creator: "@sadmann17",
+    creator: "@ChristianCaneo5",
   },
   icons: {
     icon: "/icon.png",
@@ -72,11 +72,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontMono.variable,
         )}
       >
-        <Script
-          defer
-          data-site-id="diceui.com"
-          src="https://assets.onedollarstats.com/tracker.js"
-        />
         <TailwindIndicator />
         {/* <Toaster /> */}
         <Providers
