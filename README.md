@@ -1,6 +1,6 @@
 # EO-N UI
 
-- Enhanced UI Components: Leveraging shadcn’s trusted design system, our components are meticulously crafted to deliver a refined user experience. They blend aesthetic finesse with robust functionality, ensuring consistency and responsiveness across devices.
+- Enhanced UI Components: Built on shadcn’s robust foundation.
 
 ## Documentation
 
