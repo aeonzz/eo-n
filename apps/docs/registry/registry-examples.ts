@@ -188,4 +188,37 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "kbd-demo",
+    type: "registry:example",
+    registryDependencies: ["kbd"],
+    files: [
+      {
+        path: "examples/kbd-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "kbd-outline",
+    type: "registry:example",
+    registryDependencies: ["input"],
+    files: [
+      {
+        path: "examples/kbd-outline.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "kbd-ghost",
+    type: "registry:example",
+    registryDependencies: ["kbd"],
+    files: [
+      {
+        path: "examples/kbd-ghost.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];

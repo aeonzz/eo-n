@@ -53,6 +53,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "kbd": {
+      name: "kbd",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/kbd.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/kbd.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       description: "",
@@ -336,6 +352,54 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/input-disabled.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "kbd-demo": {
+      name: "kbd-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["kbd"],
+      files: [{
+        path: "registry/default/examples/kbd-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/kbd-demo.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "kbd-outline": {
+      name: "kbd-outline",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input"],
+      files: [{
+        path: "registry/default/examples/kbd-outline.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/kbd-outline.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "kbd-ghost": {
+      name: "kbd-ghost",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["kbd"],
+      files: [{
+        path: "registry/default/examples/kbd-ghost.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/kbd-ghost.tsx")),
       source: "",
       category: "",
       subcategory: "",

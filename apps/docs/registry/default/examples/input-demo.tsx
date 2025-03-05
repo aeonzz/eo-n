@@ -9,6 +9,7 @@ export default function InputDemo() {
       placeholder="Username"
       autoComplete="off"
       className="max-w-xs"
+      data-touched
     />
   );
 }

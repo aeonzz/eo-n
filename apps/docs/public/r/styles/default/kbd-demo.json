@@ -1,0 +1,15 @@
+{
+  "name": "kbd-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "kbd"
+  ],
+  "files": [
+    {
+      "path": "examples/kbd-demo.tsx",
+      "content": "import { Kbd, KbdKey, KbdSeparator } from \"@/registry/default/ui/kbd\";\r\n\r\nexport default function Kbddemo() {\r\n  return (\r\n    <Kbd>\r\n      <KbdKey>⌘</KbdKey>\r\n      <KbdSeparator />\r\n      <KbdKey title=\"Search\">K</KbdKey>\r\n    </Kbd>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

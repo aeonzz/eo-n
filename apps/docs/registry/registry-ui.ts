@@ -33,6 +33,16 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "kbd",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/kbd.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
   // {
   //   name: "combobox",
   //   type: "registry:ui",
