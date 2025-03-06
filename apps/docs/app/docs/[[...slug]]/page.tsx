@@ -44,7 +44,17 @@ export default async function DocPage(props: DocPageParams) {
   if (!page) notFound();
 
   return (
-    <DocsPage toc={page.data.toc} full={page.data.full}>
+    <DocsPage
+      toc={page.data.toc}
+      tableOfContent={{
+        style: "clerk",
+        single: false,
+      }}
+      full={page.data.full}
+      breadcrumb={{
+        enabled: true,
+      }}
+    >
       <div className="flex flex-col gap-2">
         <DocsTitle>{page.data.title}</DocsTitle>
         <DocsDescription className="mb-2.5">

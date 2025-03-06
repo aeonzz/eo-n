@@ -31,7 +31,7 @@ export const baseOptions: BaseLayoutProps = {
   links: [
     {
       text: "Docs",
-      url: "/docs/introduction",
+      url: "/docs/ui",
     },
     {
       type: "icon",
