@@ -9,7 +9,8 @@ const inputVariants = cva(
     variants: {
       variant: {
         default: "bg-transparent file:bg-transparent",
-        secondary: "bg-secondary file:bg-secondary border-secondary-foreground/5",
+        secondary:
+          "bg-secondary file:bg-secondary border-secondary-foreground/5",
       },
     },
     defaultVariants: {
@@ -33,6 +34,7 @@ function Input({
 }: InputProps) {
   return (
     <input
+      data-slot="input"
       type={type}
       className={cn(
         inputVariants({ className, variant }),
