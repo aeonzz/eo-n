@@ -69,6 +69,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "number-input": {
+      name: "number-input",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/number-input.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/number-input.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       description: "",
@@ -400,6 +416,22 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/kbd-ghost.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "number-input-demo": {
+      name: "number-input-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["number-input"],
+      files: [{
+        path: "registry/default/examples/number-input-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/number-input-demo.tsx")),
       source: "",
       category: "",
       subcategory: "",

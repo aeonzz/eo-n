@@ -221,4 +221,15 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "number-input-demo",
+    type: "registry:example",
+    registryDependencies: ["number-input"],
+    files: [
+      {
+        path: "examples/number-input-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];

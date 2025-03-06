@@ -43,6 +43,17 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "number-input",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/number-input.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
   // {
   //   name: "combobox",
   //   type: "registry:ui",

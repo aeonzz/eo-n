@@ -1,0 +1,15 @@
+{
+  "name": "number-input-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "number-input"
+  ],
+  "files": [
+    {
+      "path": "examples/number-input-demo.tsx",
+      "content": "import { Minus, Plus } from \"lucide-react\";\r\n\r\nimport {\r\n  NumberInput,\r\n  NumberInputDecrement,\r\n  NumberInputField,\r\n  NumberInputGroup,\r\n  NumberInputIncrement,\r\n  NumberInputScrubArea,\r\n  NumberInputScrubAreaCursor,\r\n} from \"@/registry/default/ui/number-input\";\r\n\r\nimport { Label } from \"../ui/label\";\r\n\r\nexport default function NumberInputDemo() {\r\n  return (\r\n    <NumberInput>\r\n      <NumberInputScrubArea>\r\n        <Label>Age</Label>\r\n      </NumberInputScrubArea>\r\n      <NumberInputGroup>\r\n        <NumberInputDecrement>\r\n          <Minus />\r\n        </NumberInputDecrement>\r\n        <NumberInputField />\r\n        <NumberInputIncrement>\r\n          <Plus />\r\n        </NumberInputIncrement>\r\n      </NumberInputGroup>\r\n    </NumberInput>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

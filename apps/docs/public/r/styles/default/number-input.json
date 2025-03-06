@@ -1,0 +1,15 @@
+{
+  "name": "number-input",
+  "type": "registry:ui",
+  "dependencies": [
+    "@base-ui-components/react"
+  ],
+  "files": [
+    {
+      "path": "ui/number-input.tsx",
+      "content": "import * as React from \"react\";\r\nimport { NumberField as NumberInputPrimitive } from \"@base-ui-components/react/number-field\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nfunction NumberInput({\r\n  className,\r\n  ...props\r\n}: React.ComponentProps<typeof NumberInputPrimitive.Root>) {\r\n  return (\r\n    <NumberInputPrimitive.Root\r\n      data-slot=\"number-input\"\r\n      className={cn(\"flex flex-col items-start gap-1\", className)}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nfunction NumberInputScrubArea({\r\n  className,\r\n  ...props\r\n}: React.ComponentProps<typeof NumberInputPrimitive.ScrubArea>) {\r\n  return (\r\n    <NumberInputPrimitive.ScrubArea\r\n      data-slot=\"number-input-scrub-area\"\r\n      className={cn(\"cursor-ew-resize\", className)}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nfunction NumberInputScrubAreaCursor({\r\n  ...props\r\n}: React.ComponentProps<typeof NumberInputPrimitive.ScrubAreaCursor>) {\r\n  return (\r\n    <NumberInputPrimitive.ScrubAreaCursor\r\n      data-slot=\"number-input-scrub-area-cursor\"\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nfunction NumberInputGroup({\r\n  className,\r\n  ...props\r\n}: React.ComponentProps<typeof NumberInputPrimitive.Group>) {\r\n  return (\r\n    <NumberInputPrimitive.Group\r\n      data-slot=\"number-input-group\"\r\n      className={cn(\"\", className)}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\nfunction NumberInputField({\r\n  className,\r\n  ...props\r\n}: React.ComponentProps<typeof NumberInputPrimitive.Input>) {\r\n  return (\r\n    <NumberInputPrimitive.Input\r\n      data-slot=\"number-input-field\"\r\n      className={cn(\"\", className)}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nfunction NumberInputDecrement({\r\n  className,\r\n  ...props\r\n}: React.ComponentProps<typeof NumberInputPrimitive.Decrement>) {\r\n  return (\r\n    <NumberInputPrimitive.Decrement\r\n      data-slot=\"number-input-decrement\"\r\n      className={cn(\"\", className)}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nfunction NumberInputIncrement({\r\n  className,\r\n  ...props\r\n}: React.ComponentProps<typeof NumberInputPrimitive.Increment>) {\r\n  return (\r\n    <NumberInputPrimitive.Increment\r\n      data-slot=\"number-input-increment\"\r\n      className={cn(\"\", className)}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport {\r\n  NumberInput,\r\n  NumberInputScrubArea,\r\n  NumberInputScrubAreaCursor,\r\n  NumberInputGroup,\r\n  NumberInputField,\r\n  NumberInputDecrement,\r\n  NumberInputIncrement,\r\n};\r\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}
