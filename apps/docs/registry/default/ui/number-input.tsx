@@ -10,7 +10,10 @@ function NumberInput({
   return (
     <NumberInputPrimitive.Root
       data-slot="number-input"
-      className={cn("flex flex-col items-start gap-1", className)}
+      className={cn(
+        "flex w-full flex-col items-start gap-1 disabled:cursor-not-allowed disabled:opacity-50",
+        className
+      )}
       {...props}
     />
   );
@@ -47,7 +50,10 @@ function NumberInputGroup({
   return (
     <NumberInputPrimitive.Group
       data-slot="number-input-group"
-      className={cn("", className)}
+      className={cn(
+        "flex h-10 w-full items-center rounded-md border",
+        className
+      )}
       {...props}
     />
   );
@@ -59,7 +65,10 @@ function NumberInputField({
   return (
     <NumberInputPrimitive.Input
       data-slot="number-input-field"
-      className={cn("", className)}
+      className={cn(
+        "h-full w-full border-x text-center text-base tabular-nums focus:outline-none",
+        className
+      )}
       {...props}
     />
   );
@@ -72,7 +81,10 @@ function NumberInputDecrement({
   return (
     <NumberInputPrimitive.Decrement
       data-slot="number-input-decrement"
-      className={cn("", className)}
+      className={cn(
+        "flex aspect-square h-full cursor-pointer items-center justify-center [&_svg]:size-5 [&_svg]:shrink-0",
+        className
+      )}
       {...props}
     />
   );
@@ -85,7 +97,10 @@ function NumberInputIncrement({
   return (
     <NumberInputPrimitive.Increment
       data-slot="number-input-increment"
-      className={cn("", className)}
+      className={cn(
+        "flex aspect-square h-full cursor-pointer items-center justify-center [&_svg]:size-5 [&_svg]:shrink-0",
+        className
+      )}
       {...props}
     />
   );

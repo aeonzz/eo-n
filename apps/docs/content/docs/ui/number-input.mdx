@@ -3,7 +3,8 @@ title: Number Input
 description: A UI component for triggering actions or navigation.
 preview: true
 links:
-  api: /docs/components/number-input#api-reference
+  doc: https://base-ui.com/react/components/number-field
+  api: /docs/ui/number-input#api-reference
 ---
 
 <ComponentTabs name="number-input-demo" />
@@ -37,3 +38,43 @@ npx shadcn@latest add "https://eo-n.vercel.app/r/number-input"
   <Step>Update the import paths to match your project setup.</Step>
 
 </Steps>
+
+## Usage
+
+Import all parts and piece them together.
+
+```tsx
+import {
+  NumberInput,
+  NumberInputDecrement,
+  NumberInputField,
+  NumberInputGroup,
+  NumberInputIncrement,
+  NumberInputScrubArea,
+  NumberInputScrubAreaCursor,
+} from "@/components/ui/number-input";
+```
+
+```tsx
+<NumberInput>
+  <NumberInputScrubArea>
+    <Label>Age</Label>
+    <NumberInputScrubAreaCursor />
+  </NumberInputScrubArea>
+  <NumberInputGroup>
+    <NumberInputDecrement />
+    <NumberInputField />
+    <NumberInputIncrement />
+  </NumberInputGroup>
+</NumberInput>
+```
+
+## Examples
+
+### Bounded Number Input
+
+<ComponentTabs name="number-input-min-max" />
+
+### Disabled
+
+<ComponentTabs name="number-input-disabled" />

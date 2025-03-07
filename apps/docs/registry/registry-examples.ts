@@ -232,4 +232,26 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "number-input-min-max",
+    type: "registry:example",
+    registryDependencies: ["number-input"],
+    files: [
+      {
+        path: "examples/number-input-min-max.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "number-input-disabled",
+    type: "registry:example",
+    registryDependencies: ["number-input"],
+    files: [
+      {
+        path: "examples/number-input-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];

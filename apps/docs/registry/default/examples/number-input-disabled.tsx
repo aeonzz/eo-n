@@ -12,9 +12,9 @@ import {
 
 import { Label } from "../ui/label";
 
-export default function NumberInputDemo() {
+export default function NumberInputDisabled() {
   return (
-    <NumberInput defaultValue={0} className="max-w-3xs">
+    <NumberInput defaultValue={23} disabled className="max-w-3xs">
       <NumberInputScrubArea>
         <Label className="cursor-ew-resize">Age</Label>
         <NumberInputScrubAreaCursor>

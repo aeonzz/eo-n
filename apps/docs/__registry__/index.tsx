@@ -437,5 +437,37 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "number-input-min-max": {
+      name: "number-input-min-max",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["number-input"],
+      files: [{
+        path: "registry/default/examples/number-input-min-max.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/number-input-min-max.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "number-input-disabled": {
+      name: "number-input-disabled",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["number-input"],
+      files: [{
+        path: "registry/default/examples/number-input-disabled.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/number-input-disabled.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
   },
 }

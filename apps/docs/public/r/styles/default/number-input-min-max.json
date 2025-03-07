@@ -1,0 +1,15 @@
+{
+  "name": "number-input-min-max",
+  "type": "registry:example",
+  "registryDependencies": [
+    "number-input"
+  ],
+  "files": [
+    {
+      "path": "examples/number-input-min-max.tsx",
+      "content": "import { Minus, MoveHorizontal, Plus } from \"lucide-react\";\n\nimport {\n  NumberInput,\n  NumberInputDecrement,\n  NumberInputField,\n  NumberInputGroup,\n  NumberInputIncrement,\n  NumberInputScrubArea,\n  NumberInputScrubAreaCursor,\n} from \"@/registry/default/ui/number-input\";\n\nimport { Label } from \"../ui/label\";\n\nexport default function NumberInputMinMax() {\n  return (\n    <NumberInput min={0} max={100} defaultValue={0} className=\"max-w-3xs\">\n      <NumberInputScrubArea>\n        <Label className=\"cursor-ew-resize\">Rating</Label>\n        <NumberInputScrubAreaCursor>\n          <MoveHorizontal className=\"size-5\" />\n        </NumberInputScrubAreaCursor>\n      </NumberInputScrubArea>\n      <NumberInputGroup>\n        <NumberInputDecrement>\n          <Minus />\n        </NumberInputDecrement>\n        <NumberInputField />\n        <NumberInputIncrement>\n          <Plus />\n        </NumberInputIncrement>\n      </NumberInputGroup>\n    </NumberInput>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
