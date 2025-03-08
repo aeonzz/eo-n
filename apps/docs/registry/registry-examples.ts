@@ -254,4 +254,15 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "number-input-scrub-direction",
+    type: "registry:example",
+    registryDependencies: ["number-input"],
+    files: [
+      {
+        path: "examples/number-input-scrub-direction.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];

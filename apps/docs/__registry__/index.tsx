@@ -469,5 +469,21 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "number-input-scrub-direction": {
+      name: "number-input-scrub-direction",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["number-input"],
+      files: [{
+        path: "registry/default/examples/number-input-scrub-direction.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/number-input-scrub-direction.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
   },
 }

@@ -1,4 +1,4 @@
-import { Minus, MoveHorizontal, Plus } from "lucide-react";
+import { Minus, Plus } from "lucide-react";
 
 import {
   NumberInput,
@@ -7,7 +7,6 @@ import {
   NumberInputGroup,
   NumberInputIncrement,
   NumberInputScrubArea,
-  NumberInputScrubAreaCursor,
 } from "@/registry/default/ui/number-input";
 
 import { Label } from "../ui/label";
@@ -17,9 +16,6 @@ export default function NumberInputDisabled() {
     <NumberInput defaultValue={23} disabled className="max-w-3xs">
       <NumberInputScrubArea>
         <Label className="cursor-ew-resize">Age</Label>
-        <NumberInputScrubAreaCursor>
-          <MoveHorizontal className="size-5" />
-        </NumberInputScrubAreaCursor>
       </NumberInputScrubArea>
       <NumberInputGroup>
         <NumberInputDecrement>
