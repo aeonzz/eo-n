@@ -1,0 +1,86 @@
+---
+title: Installation
+description: Learn how to set up dependencies and organize your application structure.
+---
+
+<Callout title="Note">
+  Eo-N UI utilizes the shadcn cli, making it easy to install and customize
+  components effortlessly.
+</Callout>
+
+<Steps>
+  <Step>
+    ### Setup shadcn.
+
+    Refer to the [shadcn installation guide](https://ui.shadcn.com/docs/installation) to configure your project.
+
+  </Step>
+
+  <Step>
+    ### Install Base UI using a package manager.
+
+    ```package-install
+    npm i @base-ui-components/react
+    ```
+
+<Callout>
+  All components are in one package, and Base UI includes only what you use.
+  [learn more](https://base-ui.com/react/overview/quick-start#set-up-portals)
+</Callout>
+
+  </Step>
+  
+  <Step>
+    ### Setup portals
+
+    Apply the ``Root`` class to your app layout.
+
+    ```html title="layout.tsx"
+    <body>
+      <div className="Root">  <!-- [!code highlight] -->
+        {children} <!-- [!code highlight] -->
+      </div>  <!-- [!code highlight] -->
+    </body>
+    ```
+
+    Modify the ```globals.css``` file.
+
+    ```css title="globals.css"
+    @import "tailwindcss";
+
+    @layer base {
+
+      * {
+        @apply border-border;
+      }
+
+      body {
+        @apply bg-background text-foreground;
+      }
+
+      .Root { /*[!code highlight]*/
+        @apply isolate; /*[!code highlight]*/
+      } /*[!code highlight]*/
+
+    }
+    ```
+
+<Callout>
+  Learn more about
+  [portals](https://base-ui.com/react/overview/quick-start#set-up-portals).
+</Callout>
+
+  </Step>
+
+  <Step>
+    ### 🎉 That's it!
+
+    You can now start adding components to your project.
+
+    ```package-install
+    npx shadcn@latest add "https://eo-n.vercel.app/r/button"
+    ```
+
+  </Step>
+  
+</Steps>
