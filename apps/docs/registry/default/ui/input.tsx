@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Input as InputPrimitive } from "@base-ui-components/react/input";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
@@ -21,26 +22,13 @@ const inputVariants = cva(
 
 export type InputVariants = VariantProps<typeof inputVariants>;
 
-interface InputProps extends InputVariants, React.ComponentProps<"input"> {
-  hideSpinButtons?: boolean;
-}
+interface InputProps extends InputVariants, React.ComponentProps<"input"> {}
 
-function Input({
-  className,
-  type,
-  variant,
-  hideSpinButtons,
-  ...props
-}: InputProps) {
+function Input({ className, type, variant, ...props }: InputProps) {
   return (
-    <input
+    <Input
       data-slot="input"
-      type={type}
-      className={cn(
-        inputVariants({ className, variant }),
-        hideSpinButtons &&
-          "[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
-      )}
+      className={cn(inputVariants({ className, variant }))}
       {...props}
     />
   );
