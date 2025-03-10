@@ -293,6 +293,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "dialog-nested": {
+      name: "dialog-nested",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["dialog"],
+      files: [{
+        path: "registry/default/examples/dialog-nested.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/dialog-nested.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "input-demo": {
       name: "input-demo",
       description: "",

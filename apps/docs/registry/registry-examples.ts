@@ -134,6 +134,17 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "dialog-nested",
+    type: "registry:example",
+    registryDependencies: ["dialog"],
+    files: [
+      {
+        path: "examples/dialog-nested.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "input-demo",
     type: "registry:example",
     registryDependencies: ["input"],
