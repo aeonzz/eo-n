@@ -19,9 +19,7 @@ import { Label } from "@/registry/default/ui/label";
 export default function DialogWithNoXButton() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="default">Sign in</Button>
-      </DialogTrigger>
+      <DialogTrigger render={<Button variant="default">Sign in</Button>} />
       <DialogContent hideCloseIcon className="sm:max-w-[415px]">
         <DialogHeader className="items-center px-10">
           <div className="mb-2 grid place-items-center rounded-full border-2 p-3">
@@ -64,7 +62,7 @@ export default function DialogWithNoXButton() {
             <Link
               prefetch
               href="/"
-              className="text-sm underline underline-offset-4 text-blue-400"
+              className="text-sm text-blue-400 underline underline-offset-4"
             >
               Forgot password?
             </Link>
@@ -92,7 +90,11 @@ export default function DialogWithNoXButton() {
           </Button>
           <div className="text-muted-foreground text-center text-sm">
             Don&apos;t have an account?{" "}
-            <Link prefetch href="/" className="underline underline-offset-4 text-blue-400">
+            <Link
+              prefetch
+              href="/"
+              className="text-blue-400 underline underline-offset-4"
+            >
               Sign up
             </Link>
           </div>

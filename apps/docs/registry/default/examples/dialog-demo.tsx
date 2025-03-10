@@ -16,9 +16,7 @@ import { Label } from "@/registry/default/ui/label";
 export default function DialogDemo() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Open dialog</Button>
-      </DialogTrigger>
+      <DialogTrigger render={<Button variant="outline">Open dialog</Button>} />
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Edit Content</DialogTitle>

@@ -1,3 +1,4 @@
+import { Button } from "@/registry/default/ui/button";
 import {
   Dialog,
   DialogClose,
@@ -9,14 +10,10 @@ import {
   DialogTrigger,
 } from "@/registry/default/ui/dialog";
 
-import { Button } from "@/registry/default/ui/button";
-
 export default function DialogCustomCloseButton() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Open Dialog</Button>
-      </DialogTrigger>
+      <DialogTrigger render={<Button variant="outline">Open dialog</Button>} />
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Confirm Your Action</DialogTitle>
@@ -26,9 +23,7 @@ export default function DialogCustomCloseButton() {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <DialogClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DialogClose>
+          <DialogClose render={<Button variant="outline">Cancel</Button>} />
           <Button variant="default">Confirm</Button>
         </DialogFooter>
       </DialogContent>
