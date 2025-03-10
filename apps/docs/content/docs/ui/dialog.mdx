@@ -4,6 +4,7 @@ description: A UI component for displaying modal dialogs to capture user input o
 preview: true
 links:
   doc: https://base-ui.com/react/components/dialog
+  api: /docs/ui/dialog#api-reference
 ---
 
 <ComponentTabs name="dialog-demo" />
@@ -19,14 +20,6 @@ npx shadcn@latest add "https://eo-n.vercel.app/r/dialog"
 ### Manual
 
 <Steps>
-  <Step>
-    Install the following dependencies:
-
-    ```package-install
-    @radix-ui/react-slot
-    ```
-
-  </Step>
   <Step>
     Copy and paste the following code into your project.
 
@@ -81,3 +74,11 @@ import {
 ### Nested Dialogs
 
 <ComponentTabs name="dialog-nested" />
+
+## API Reference
+
+### Content
+
+Contains content to be rendered in the open dialog.
+
+<AutoTypeTable path="./types/docs/dialog.ts" name="ContentProps" />

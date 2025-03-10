@@ -1,15 +1,3 @@
-{
-  "name": "input-with-label",
-  "type": "registry:example",
-  "registryDependencies": [
-    "input"
-  ],
-  "files": [
-    {
-      "path": "examples/input-with-label.tsx",
-      "content": "import { Input } from \"@/registry/default/ui/input\";\r\nimport { Label } from \"@/registry/default/ui/label\";\r\n\r\nexport default function InputWithLabel() {\r\n  return (\r\n    <div className=\"min-w-xs\">\r\n      <Label>Username</Label>\r\n      <Input\r\n        id=\"username\"\r\n        name=\"username\"\r\n        type=\"text\"\r\n        placeholder=\"Username\"\r\n        autoComplete=\"off\"\r\n      />\r\n    </div>\r\n  );\r\n}\r\n",
-      "type": "registry:example",
-      "target": ""
-    }
-  ]
-}
+R,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAa,EAAA,CAAA,CAAA;IACb,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAe,EAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA;IACf,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAgB,EAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA;AAClB,CAAA,CAAA","ignoreList":[0],"debugId":null}},
+    {"offset": {"line": 49, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
+    {"offset": {"line": 55, "column": 0}, "map": {"version":3,"file":"Icon.js","sources":["file://D%3A/christian/eo-n/node_modules/.pnpm/lucide-react%400.475.0_react%4019.0.0/node_modules/lucide-react/src/Icon.ts"],"sourcesContent":["import { createElement, forwardR

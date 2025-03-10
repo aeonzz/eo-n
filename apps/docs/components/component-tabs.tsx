@@ -37,7 +37,7 @@ export function ComponentTabs({
       return (
         <p className="text-muted-foreground text-sm">
           Component{" "}
-          <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
+          <code className="bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm">
             {name}
           </code>{" "}
           not found in registry.
@@ -53,7 +53,7 @@ export function ComponentTabs({
       <Tab
         value="Preview"
         className={cn("preview-block", {
-          "focus-visible:outline-hidden focus-visible:ring-0":
+          "focus-visible:ring-0 focus-visible:outline-hidden":
             preventPreviewFocus,
         })}
         tabIndex={preventPreviewFocus ? -1 : 0}

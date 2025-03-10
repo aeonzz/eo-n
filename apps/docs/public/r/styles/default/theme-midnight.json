@@ -1,59 +1,21 @@
-{
-  "name": "theme-midnight",
-  "type": "registry:theme",
-  "files": [],
-  "cssVars": {
-    "light": {
-      "background": "240 5% 6%",
-      "foreground": "60 5% 90%",
-      "primary": "240 0% 90%",
-      "primary-foreground": "60 0% 0%",
-      "secondary": "240 4% 15%",
-      "secondary-foreground": "60 5% 85%",
-      "accent": "240 0% 13%",
-      "accent-foreground": "60 0% 100%",
-      "destructive": "0 60% 50%",
-      "destructive-foreground": "0 0% 98%",
-      "muted": "240 5% 25%",
-      "muted-foreground": "60 5% 85%",
-      "card": "240 4% 10%",
-      "card-foreground": "60 5% 90%",
-      "popover": "240 5% 15%",
-      "popover-foreground": "60 5% 85%",
-      "border": "240 6% 20%",
-      "input": "240 6% 20%",
-      "ring": "240 5% 90%",
-      "chart-1": "359 2% 90%",
-      "chart-2": "240 1% 74%",
-      "chart-3": "240 1% 58%",
-      "chart-4": "240 1% 42%",
-      "chart-5": "240 2% 26%"
-    },
-    "dark": {
-      "background": "240 5% 6%",
-      "foreground": "60 5% 90%",
-      "primary": "240 0% 90%",
-      "primary-foreground": "60 0% 0%",
-      "secondary": "240 4% 15%",
-      "secondary-foreground": "60 5% 85%",
-      "accent": "240 0% 13%",
-      "accent-foreground": "60 0% 100%",
-      "destructive": "0 60% 50%",
-      "destructive-foreground": "0 0% 98%",
-      "muted": "240 5% 25%",
-      "muted-foreground": "60 5% 85%",
-      "card": "240 4% 10%",
-      "card-foreground": "60 5% 90%",
-      "popover": "240 5% 15%",
-      "popover-foreground": "60 5% 85%",
-      "border": "240 6% 20%",
-      "input": "240 6% 20%",
-      "ring": "240 5% 90%",
-      "chart-1": "359 2% 90%",
-      "chart-2": "240 1% 74%",
-      "chart-3": "240 1% 58%",
-      "chart-4": "240 1% 42%",
-      "chart-5": "240 2% 26%"
-    }
-  }
+cript$29$__$3c$export__$2a$__as__Menu$3e$__["Menu"].Root, {
+        "data-slot": "dropdown-menu-menu",
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/apps/docs/registry/default/ui/dropdown-menu.tsx",
+        lineNumber: 13,
+        columnNumber: 5
+    }, this);
 }
+function DropdownMenuTrigger({ ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$2$2e$1_$40$babel$2b$core$40$7$2e$26$2e$9_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$base$2d$ui$2d$components$2b$react$40$1$2e$0$2e$0$2d$alpha$2e$6_$40$types$2b$react$40$19$2e$0$2e$10_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f40$base$2d$ui$2d$components$2f$react$2f$esm$2f$menu$2f$index$2e$parts$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__Menu$3e$__["Menu"].Trigger, {
+        "data-slot": "dropdown-menu-trigger",
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/apps/docs/registry/default/ui/dropdown-menu.tsx",
+        lineNumber: 21,
+        columnNumber: 5
+    }, this);
+}
+function DropdownMenuSubMenuTrigger({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$2$2e$1_$40$babel$2b$core$40$7$2e$26$2e$9_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored

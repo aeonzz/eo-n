@@ -1,15 +1,5 @@
 {
-  "name": "number-input-demo",
-  "type": "registry:example",
-  "registryDependencies": [
-    "number-input"
-  ],
-  "files": [
-    {
-      "path": "examples/number-input-demo.tsx",
-      "content": "import { Minus, Plus } from \"lucide-react\";\r\n\r\nimport {\r\n  NumberInput,\r\n  NumberInputDecrement,\r\n  NumberInputField,\r\n  NumberInputGroup,\r\n  NumberInputIncrement,\r\n  NumberInputScrubArea,\r\n} from \"@/registry/default/ui/number-input\";\r\n\r\nimport { Label } from \"../ui/label\";\r\n\r\nexport default function NumberInputDemo() {\r\n  return (\r\n    <NumberInput defaultValue={0} className=\"max-w-3xs\">\r\n      <NumberInputScrubArea>\r\n        <Label className=\"cursor-ew-resize\">Age</Label>\r\n      </NumberInputScrubArea>\r\n      <NumberInputGroup>\r\n        <NumberInputDecrement>\r\n          <Minus />\r\n        </NumberInputDecrement>\r\n        <NumberInputField />\r\n        <NumberInputIncrement>\r\n          <Plus />\r\n        </NumberInputIncrement>\r\n      </NumberInputGroup>\r\n    </NumberInput>\r\n  );\r\n}\r\n",
-      "type": "registry:example",
-      "target": ""
-    }
-  ]
-}
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"file":"utils.js","sources":["file://D%3A/christian/eo-n/node_modules/.pnpm/lucide-react%400.475.0_react%4019.0.0/node_modules/shared/src/utils.ts"],"sourcesContent":["import { CamelToPascal } from './utility-types';\n\n/**\n * Converts string to kebab case\n *\n * @param {string} string\n * @returns {string} A kebabized string\n */\nexport const toKebabCase = (string: string) =>\n  string.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();\n\n/**\n * Converts string to camel case\n *\n * @param {string} string\n * @returns {string} A camelized string\n */\nexport const toCamelCase = <T extends string>(string: T) =>\n  string.replace(/^([A-Z])|[\\s-_]+(\\w)/g, (match, p1, p2) =>\n    p2 ? p2.toUpperCase() : p1.toLowerCase(),\n  );\n\n/**\n * Converts string to pascal case\n *\n * @param {string} string\n * @returns {string} A pascalized string\n */\nexport const toPascalCase = <T extends string>(string: T): CamelToPascal<T> => {\n  const camelCase = toCamelCase(string);\n\n  return (camelCase.charAt(0).toUpperCase() +

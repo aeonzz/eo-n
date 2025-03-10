@@ -26,7 +26,7 @@ interface InputProps extends InputVariants, React.ComponentProps<"input"> {}
 
 function Input({ className, type, variant, ...props }: InputProps) {
   return (
-    <Input
+    <InputPrimitive
       data-slot="input"
       className={cn(inputVariants({ className, variant }))}
       {...props}

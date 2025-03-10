@@ -1,15 +1,5 @@
 {
-  "name": "input-with-floating-label",
-  "type": "registry:example",
-  "registryDependencies": [
-    "input"
-  ],
-  "files": [
-    {
-      "path": "examples/input-with-floating-label.tsx",
-      "content": "import { Input } from \"@/registry/default/ui/input\";\r\nimport { Label } from \"@/registry/default/ui/label\";\r\n\r\nexport default function InputWithFloatingLabel() {\r\n  return (\r\n    <div className=\"relative min-w-xs\">\r\n      <Input\r\n        id=\"email\"\r\n        type=\"email\"\r\n        name=\"email\"\r\n        placeholder=\"Email\"\r\n        autoComplete=\"off\"\r\n        className=\"peer placeholder:text-transparent\"\r\n      />\r\n      <div className=\"bg-background peer-placeholder-shown:text-muted-foreground peer-focus:bg-background peer-focus:text-foreground absolute -top-2.5 left-1.5 grid place-items-center px-1.5 transition-all ease-out peer-placeholder-shown:top-[0.6875rem] peer-placeholder-shown:left-3 peer-placeholder-shown:bg-transparent peer-placeholder-shown:px-0 peer-focus:-top-2.5 peer-focus:left-1.5 peer-focus:px-1.5\">\r\n        <Label htmlFor=\"email\" className=\"cursor-text\">\r\n          Email\r\n        </Label>\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n",
-      "type": "registry:example",
-      "target": ""
-    }
-  ]
-}
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"file":"utils.js","sources":["file://D%3A/christian/eo-n/node_modules/.pnpm/lucide-react%400.475.0_react%4019.0.0/node_modules/shared/src/utils.ts"],"sourcesContent":["import { CamelToPascal } from './utility-types';\n\n/**\n * Converts string to kebab case\n *\n * @param {string} string\n * @returns {string} A kebabized string\n */\nexport const toKebabCase = (string: string) =>\n  string.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();\n\n/**\n * Converts string to camel case\n *\n * @param {string} string\n * @returns {string} A camelized string\n */\nexport const toCamelCase = <T extends string>(string: T) =>\n  string.replace(/^([A-Z])|[\\s-_]+(\\w)/g, (match, p1, p2) =>\n    p2 ? p2.toUpperCase() : p1.toLowerCase(),\n  );\n\n/**\n * Converts string to pascal case\n *\n * @param {string} string\n * @returns {string} A pascalized string\n */\nexport const toPascalCase = <T extends string>(string: T): CamelToPascal<T> => {\n  const camelCase = toCamelCase(string);\n\n  return (camelCase.charAt(0).toUpperCase() + camelCase.slice(1)) as CamelToPascal<T>;\n};\n\n/**\n * Merges classes into a single string\n *\n * @param {array} classes\n * @returns {string} A string of classe

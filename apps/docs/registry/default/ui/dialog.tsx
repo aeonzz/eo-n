@@ -38,7 +38,7 @@ function DialogBackdrop({
     <DialogPrimitive.Backdrop
       data-slot="dialog-backdrop"
       className={cn(
-        "fixed inset-0 z-50 bg-black/50 backdrop-blur-[1.5px] transition-all duration-150 ease-out data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",
+        "fixed inset-0 z-50 bg-black/50 backdrop-blur-[1.5px] transition-opacity duration-150 ease-out data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",
         className
       )}
       {...props}
@@ -63,7 +63,8 @@ function DialogContent({
       <DialogPrimitive.Popup
         data-slot="dialog-content"
         className={cn(
-          "bg-background ring-border ring-offset-background fixed top-[calc(50%+1rem*var(--nested-dialogs))] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] scale-[calc(1-0.05*var(--nested-dialogs))] gap-4 rounded-lg border p-6 shadow-lg ring-2 ring-offset-1 transition-all duration-150 ease-out outline-none data-[ending-style]:top-[50.25%] data-[ending-style]:translate-y-[-49.75%] data-[ending-style]:scale-96 data-[ending-style]:opacity-0 data-[starting-style]:top-[50.25%] data-[starting-style]:translate-y-[-49.75%] data-[starting-style]:scale-96 data-[starting-style]:opacity-0 sm:max-w-lg",
+          "bg-background ring-border ring-offset-background fixed left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg ring-2 ring-offset-1 transition-[transform,opacity,scale] duration-150 ease-out outline-none sm:max-w-lg",
+          "top-[calc(50%+1rem*var(--nested-dialogs))] scale-[calc(1-0.05*var(--nested-dialogs))] data-[ending-style]:top-[50.25%] data-[ending-style]:scale-96 data-[ending-style]:opacity-0 data-[starting-style]:top-[50.25%] data-[starting-style]:scale-96 data-[starting-style]:opacity-0",
           className
         )}
         {...props}

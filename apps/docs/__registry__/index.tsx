@@ -85,6 +85,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "dropdown-menu": {
+      name: "dropdown-menu",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/dropdown-menu.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/dropdown-menu.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       description: "",
@@ -496,6 +512,22 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/number-input-scrub-direction.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "dropdown-menu-demo": {
+      name: "dropdown-menu-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["dropdown-menu"],
+      files: [{
+        path: "registry/default/examples/dropdown-menu-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/dropdown-menu-demo.tsx")),
       source: "",
       category: "",
       subcategory: "",
