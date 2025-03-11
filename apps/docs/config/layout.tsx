@@ -11,16 +11,17 @@ export const baseOptions: BaseLayoutProps = {
     title: (
       <>
         <svg
-          width="24"
-          height="24"
-          viewBox="0 0 20 20"
+          width="20"
+          height="20"
+          viewBox="0 0 16 16"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M0 0H20V20H11.5H10H0V0Z" fill="#171717" />
-          <circle cx="10" cy="10" r="7" fill="white" />
-          <circle cx="10" cy="10" r="5" fill="#171717" />
-          <rect x="4" y="9" width="6" height="2" fill="white" />
+          <path d="M4 6H10V10H4V6Z" className="fill-foreground" />
+          <path d="M4 0H12V4H4V0Z" className="fill-foreground" />
+          <path d="M4 12H12V16H4V12Z" className="fill-foreground" />
+          <path d="M4 0V16H0V0H4Z" className="fill-foreground" />
+          <path d="M16 0V16H12V0H16Z" className="fill-foreground" />
         </svg>
         <span className="font-medium [.uwu_&]:hidden [header_&]:text-[15px]">
           {siteConfig.name}
