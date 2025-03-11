@@ -75,6 +75,71 @@ import {
 
 <ComponentTabs name="dialog-nested" />
 
+### Dialog On Menu
+
+In order to open a dialog using a menu, control the dialog state and open it imperatively using the ```onClick``` handler on the menu item.
+
+Make sure to also use the dialog’s ```finalFocus``` prop to return focus back to the menu trigger.
+
+```jsx
+import * as React from "react";
+
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuPositioner,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
+
+export default function DropdownMenuRadio() {
+  const menuTriggerRef = React.useRef < HTMLButtonElement > null;
+  const [dialogOpen, setDialogOpen] = React.useState(false);
+
+  return (
+    <React.Fragment>
+      <DropdownMenu>
+        // [!code highlight:2]
+        {/* Set the trigger ref */}
+        <DropdownMenuTrigger ref={menuTriggerRef}>Open</DropdownMenuTrigger>
+        <DropdownMenuPositioner>
+          <DropdownMenuContent>
+            // [!code highlight:2]
+            {/* Open the dialog when the menu item is clicked */}
+            <DropdownMenuItem onClick={() => setDialogOpen(true)}>
+              Open dialog
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenuPositioner>
+      </DropdownMenu>
+      // [!code highlight:2]
+      {/* Control the dialog state */}
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        // [!code highlight:2]
+        {/* Return focus to the menu trigger when the dialog is closed */}
+        <DialogContent finalFocus={menuTriggerRef}>
+          <DialogHeader>
+            <DialogTitle>Are you sure you want to proceed?</DialogTitle>
+            <DialogDescription>
+              This action may have permanent effects. Please confirm if you want
+              to continue.
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
+    </React.Fragment>
+  );
+}
+```
+
 ## API Reference
 
 ### Content

@@ -51,7 +51,7 @@ export default function DropdownMenuDemo() {
           <DropdownMenu>
             <DropdownMenuSubMenuTrigger
               render={
-                <DropdownMenuItem>
+                <DropdownMenuItem closeOnClick={false}>
                   <Cloud />
                   File Actions
                   <ChevronRight className="ml-auto" />

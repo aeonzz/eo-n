@@ -4,7 +4,6 @@ description: A UI component for adjusting numerical values with buttons, a text 
 preview: true
 links:
   doc: https://base-ui.com/react/components/number-field
-  api: /docs/ui/number-input#api-reference
 ---
 
 <ComponentTabs name="number-input-demo" />
@@ -82,89 +81,3 @@ import {
 ### Scrub Direction
 
 <ComponentTabs name="number-input-scrub-direction" />
-
-## API Reference
-
-### Root
-
-The main wrapper for the number input component.
-
-<DataAttributesTable
-  attributes={[
-    {
-      title: "[data-slot]",
-      value: ["number-input"],
-    },
-  ]}
-/>
-
-### Scrub Area
-
-An interactive area where users can click and drag to change the value.
-
-<DataAttributesTable
-  attributes={[
-    {
-      title: "[data-slot]",
-      value: ["dialog-trigger"],
-    },
-  ]}
-/>
-
-### Group
-
-A wrapper that contains the number input field and controls.
-
-<DataAttributesTable
-  attributes={[
-    {
-      title: "[data-slot]",
-      value: ["number-input-group"],
-    },
-  ]}
-/>
-
-### Field
-
-The input field where users can manually enter a number.
-
-<DataAttributesTable
-  attributes={[
-    {
-      title: "[data-slot]",
-      value: ["number-input-field"],
-    },
-  ]}
-/>
-
-### Decrement
-
-A button to decrease the value.
-
-<DataAttributesTable
-  attributes={[
-    {
-      title: "[data-slot]",
-      value: ["number-input-decrement"],
-    },
-  ]}
-/>
-
-### Increment
-
-A button to increase the value.
-
-<DataAttributesTable
-  attributes={[
-    {
-      title: "[data-slot]",
-      value: ["number-input-increment"],
-    },
-  ]}
-/>
-
-### Additional Resources
-
-#### API
-
-For complete details on all available props and configuration options, see the [Base UI Number Field API Reference](https://base-ui.com/react/components/number-field).

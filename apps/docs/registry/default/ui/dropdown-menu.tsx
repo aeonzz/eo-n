@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Menu as DropdownMenuPrimitive } from "@base-ui-components/react/menu";
-import { ChevronUp, Circle } from "lucide-react";
+import { Check, Circle } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -147,7 +147,7 @@ function DropdownMenuGroupLabel({
     <DropdownMenuPrimitive.GroupLabel
       data-slot="dropdown-menu-groupLabel"
       className={cn(
-        "border-muted text-muted-foreground -mx-1 border-b p-0 px-3 py-1.5 text-sm leading-none",
+        "border-muted -mx-1 border-b px-3 py-2 text-sm leading-none font-semibold",
         className
       )}
       {...props}
@@ -175,27 +175,42 @@ function DropdownMenuRadioItem({
     <DropdownMenuPrimitive.RadioItem
       data-slot="dropdown-menu-radioItem"
       className={cn(
-        "focus:bg-accent focus:text-accent-foreground [&>svg]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1 text-sm transition-colors outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1 pr-2 pl-6 text-sm transition-colors outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         className
       )}
       {...props}
     >
-      <DropdownMenuPrimitive.RadioItemIndicator>
-        <Circle className="h-2 w-2 fill-current" />
-      </DropdownMenuPrimitive.RadioItemIndicator>
+      <span className="absolute left-2 flex h-2 w-2 items-center justify-center">
+        <DropdownMenuPrimitive.RadioItemIndicator>
+          <Circle className="size-2 fill-current" />
+        </DropdownMenuPrimitive.RadioItemIndicator>
+      </span>
       {children}
     </DropdownMenuPrimitive.RadioItem>
   );
 }
 
 function DropdownMenuCheckboxItem({
+  className,
+  children,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) {
   return (
     <DropdownMenuPrimitive.CheckboxItem
       data-slot="dropdown-menu-checkboxItem"
+      className={cn(
+        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1 pr-2 pl-6 text-sm transition-colors outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        className
+      )}
       {...props}
-    />
+    >
+      <span className="absolute left-2 flex h-2 w-2 items-center justify-center">
+        <DropdownMenuPrimitive.CheckboxItemIndicator>
+          <Check className="size-4" />
+        </DropdownMenuPrimitive.CheckboxItemIndicator>
+      </span>
+      {children}
+    </DropdownMenuPrimitive.CheckboxItem>
   );
 }
 

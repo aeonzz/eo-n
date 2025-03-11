@@ -1,0 +1,43 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Users\SZ-Agent\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+1 info using npm@9.8.1
+2 info using node@v20.17.0
+3 timing npm:load:whichnode Completed in 2ms
+4 timing config:load:defaults Completed in 2ms
+5 timing config:load:file:C:\Users\SZ-Agent\AppData\Roaming\npm\node_modules\npm\npmrc Completed in 4ms
+6 timing config:load:builtin Completed in 4ms
+7 timing config:load:cli Completed in 2ms
+8 timing config:load:env Completed in 0ms
+9 timing config:load:file:d:\christian\eo-n\apps\docs\.npmrc Completed in 0ms
+10 timing config:load:project Completed in 3ms
+11 timing config:load:file:C:\Users\SZ-Agent\.npmrc Completed in 0ms
+12 timing config:load:user Completed in 0ms
+13 timing config:load:file:C:\Users\SZ-Agent\AppData\Roaming\npm\etc\npmrc Completed in 0ms
+14 timing config:load:global Completed in 0ms
+15 timing config:load:setEnvs Completed in 0ms
+16 timing config:load Completed in 13ms
+17 timing npm:load:configload Completed in 13ms
+18 timing config:load:flatten Completed in 2ms
+19 timing npm:load:mkdirpcache Completed in 0ms
+20 timing npm:load:mkdirplogs Completed in 0ms
+21 verbose title npm view tailwindcss description dist-tags.latest homepage version time
+22 verbose argv "view" "--json" "--" "tailwindcss" "description" "dist-tags.latest" "homepage" "version" "time"
+23 timing npm:load:setTitle Completed in 1ms
+24 timing npm:load:display Completed in 0ms
+25 verbose logfile logs-max:10 dir:D:\christian\eo-n\apps\docs\npm-cache\_logs\2025-03-11T08_14_51_724Z-
+26 verbose logfile D:\christian\eo-n\apps\docs\npm-cache\_logs\2025-03-11T08_14_51_724Z-debug-0.log
+27 timing npm:load:logFile Completed in 9ms
+28 timing npm:load:timers Completed in 0ms
+29 timing npm:load:configScope Completed in 0ms
+30 timing npm:load Completed in 45ms
+31 silly logfile done cleaning log files
+32 http fetch GET 200 https://registry.npmjs.org/npm 344ms (cache miss)
+33 http fetch GET 200 https://registry.npmjs.org/tailwindcss 445ms (cache miss)
+34 timing command:view Completed in 597ms
+35 notice
+35 notice New major version of npm available! 9.8.1 -> 11.2.0
+35 notice Changelog: <https://github.com/npm/cli/releases/tag/v11.2.0>
+35 notice Run `npm install -g npm@11.2.0` to update!
+35 notice
+36 verbose exit 0
+37 timing npm Completed in 826ms
+38 info ok

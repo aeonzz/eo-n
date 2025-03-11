@@ -298,4 +298,26 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "dropdown-menu-checkbox",
+    type: "registry:example",
+    registryDependencies: ["dropdown-menu"],
+    files: [
+      {
+        path: "examples/dropdown-menu-checkbox.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "dropdown-menu-hover",
+    type: "registry:example",
+    registryDependencies: ["dropdown-menu"],
+    files: [
+      {
+        path: "examples/dropdown-menu-hover.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];

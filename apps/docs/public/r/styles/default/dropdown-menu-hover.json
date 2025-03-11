@@ -1,0 +1,15 @@
+{
+  "name": "dropdown-menu-hover",
+  "type": "registry:example",
+  "registryDependencies": [
+    "dropdown-menu"
+  ],
+  "files": [
+    {
+      "path": "examples/dropdown-menu-hover.tsx",
+      "content": "import { Bell, Home, User } from \"lucide-react\";\r\n\r\nimport { Button } from \"@/registry/default/ui/button\";\r\nimport {\r\n  DropdownMenu,\r\n  DropdownMenuContent,\r\n  DropdownMenuItem,\r\n  DropdownMenuPositioner,\r\n  DropdownMenuTrigger,\r\n} from \"@/registry/default/ui/dropdown-menu\";\r\n\r\nexport default function DropdownMenuHover() {\r\n  return (\r\n    <DropdownMenu openOnHover>\r\n      <DropdownMenuTrigger render={<Button variant=\"outline\">Menu</Button>} />\r\n      <DropdownMenuPositioner>\r\n        <DropdownMenuContent className=\"w-44\">\r\n          <DropdownMenuItem>\r\n            <Home />\r\n            Dashboard\r\n          </DropdownMenuItem>\r\n          <DropdownMenuItem>\r\n            <User />\r\n            Profile\r\n          </DropdownMenuItem>\r\n          <DropdownMenuItem>\r\n            <Bell />\r\n            Notifications\r\n          </DropdownMenuItem>\r\n        </DropdownMenuContent>\r\n      </DropdownMenuPositioner>\r\n    </DropdownMenu>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

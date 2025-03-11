@@ -1,13 +1,1999 @@
-children) {\n    for (let child of children) {\n      let nodes = this.normalize(child, this.last)\n      for (let node of nodes) this.proxyOf.nodes.push(node)\n    }\n\n    this.markDirty()\n\n    return this\n  }\n\n  cleanRaws(keepBetween) {\n    super.cleanRaws(keepBetween)\n    if (this.nodes) {\n      for (let node of this.nodes) node.cleanRaws(keepBetween)\n    }\n  }\n\n  each(callback) {\n    if (!this.proxyOf.nodes) return undefined\n    let iterator = this.getIterator()\n\n    let index, result\n    while (this.indexes[iterator] < this.proxyOf.nodes.length) {\n      index = this.indexes[iterator]\n      result = callback(this.proxyOf.nodes[index], index)\n      if (result === false) break\n\n      this.indexes[iterator] += 1\n    }\n\n    delete this.indexes[iterator]\n    return result\n  }\n\n  every(condition) {\n    return this.nodes.every(condition)\n  }\n\n  getIterator() {\n    if (!this.lastEach) this.lastEach = 0\n    if (!this.indexes) this.indexes = {}\n\n    this.lastEach += 1\n    let iterator = this.lastEach\n    this.indexes[iterator] = 0\n\n    return iterator\n  }\n\n  getProxyProcessor() {\n    return {\n      get(node, prop) {\n        if (prop === 'proxyOf') {\n          return node\n        } else if (!node[prop]) {\n          return node[prop]\n        } else if (\n          prop === 'each' ||\n          (typeof prop === 'string' && prop.startsWith('walk'))\n        ) {\n          return (...args) => {\n            return node[prop](\n              ...args.map(i => {\n                if (typeof i === 'function') {\n                  return (child, index) => i(child.toProxy(), index)\n                } else {\n                  return i\n                }\n              })\n            )\n          }\n        } else if (prop === 'every' || prop === 'some') {\n          return cb => {\n            return node[prop]((child, ...other) =>\n              cb(child.toProxy(), ...other)\n            )\n          }\n        } else if (prop === 'root') {\n          return () => node.root().toProxy()\n        } else if (prop === 'nodes') {\n          return node.nodes.map(i => i.toProxy())\n        } else if (prop === 'first' || prop === 'last') {\n          return node[prop].toProxy()\n        } else {\n          return node[prop]\n        }\n      },\n\n      set(node, prop, value) {\n        if (node[prop] === value) return true\n        node[prop] = value\n        if (prop === 'name' || prop === 'params' || prop === 'selector') {\n          node.markDirty()\n        }\n        return true\n      }\n    }\n  }\n\n  index(child) {\n    if (typeof child === 'number') return child\n    if (child.proxyOf) child = child.proxyOf\n    return this.proxyOf.nodes.indexOf(child)\n  }\n\n  insertAfter(exist, add) {\n    let existIndex = this.index(exist)\n    let nodes = this.normalize(add, this.proxyOf.nodes[existIndex]).reverse()\n    existIndex = this.index(exist)\n    for (let node of nodes) this.proxyOf.nodes.splice(existIndex + 1, 0, node)\n\n    let index\n    for (let id in this.indexes) {\n      index = this.indexes[id]\n      if (existIndex < index) {\n        this.indexes[id] = index + nodes.length\n      }\n    }\n\n    this.markDirty()\n\n    return this\n  }\n\n  insertBefore(exist, add) {\n    let existIndex = this.index(exist)\n    let type = existIndex === 0 ? 'prepend' : false\n    let nodes = this.normalize(\n      add,\n      this.proxyOf.nodes[existIndex],\n      type\n    ).reverse()\n    existIndex = this.index(exist)\n    for (let node of nodes) this.proxyOf.nodes.splice(existIndex, 0, node)\n\n    let index\n    for (let id in this.indexes) {\n      index = this.indexes[id]\n      if (existIndex <= index) {\n        this.indexes[id] = index + nodes.length\n      }\n    }\n\n    this.markDirty()\n\n    return this\n  }\n\n  normalize(nodes, sample) {\n    if (typeof nodes === 'string') {\n      nodes = cleanSource(parse(nodes).nodes)\n    } else if (typeof nodes === 'undefined') {\n      nodes = []\n    } else if (Array.isArray(nodes)) {\n      nodes = nodes.slice(0)\n      for (let i of nodes) {\n        if (i.parent) i.parent.removeChild(i, 'ignore')\n      }\n    } else if (nodes.type === 'root' && this.type !== 'document') {\n      nodes = nodes.nodes.slice(0)\n      for (let i of nodes) {\n        if (i.parent) i.parent.removeChild(i, 'ignore')\n      }\n    } else if (nodes.type) {\n      nodes = [nodes]\n    } else if (nodes.prop) {\n      if (typeof nodes.value === 'undefined') {\n        throw new Error('Value field is missed in node creation')\n      } else if (typeof nodes.value !== 'string') {\n        nodes.value = String(nodes.value)\n      }\n      nodes = [new Declaration(nodes)]\n    } else if (nodes.selector || nodes.selectors) {\n      nodes = [new Rule(nodes)]\n    } else if (nodes.name) {\n      nodes = [new AtRule(nodes)]\n    } else if (nodes.text) {\n      nodes = [new Comment(nodes)]\n    } else {\n      throw new Error('Unknown node type in node creation')\n    }\n\n    let processed = nodes.map(i => {\n      /* c8 ignore next */\n      if (!i[my]) Container.rebuild(i)\n      i = i.proxyOf\n      if (i.parent) i.parent.removeChild(i)\n      if (i[isClean]) markTreeDirty(i)\n\n      if (!i.raws) i.raws = {}\n      if (typeof i.raws.before === 'undefined') {\n        if (sample && typeof sample.raws.before !== 'undefined') {\n          i.raws.before = sample.raws.before.replace(/\\S/g, '')\n        }\n      }\n      i.parent = this.proxyOf\n      return i\n    })\n\n    return processed\n  }\n\n  prepend(...children) {\n    children = children.reverse()\n    for (let child of children) {\n      let nodes = this.normalize(child, this.first, 'prepend').reverse()\n      for (let node of nodes) this.proxyOf.nodes.unshift(node)\n      for (let id in this.indexes) {\n        this.indexes[id] = this.indexes[id] + nodes.length\n      }\n    }\n\n    this.markDirty()\n\n    return this\n  }\n\n  push(child) {\n    child.parent = this\n    this.proxyOf.nodes.push(child)\n    return this\n  }\n\n  removeAll() {\n    for (let node of this.proxyOf.nodes) node.parent = undefined\n    this.proxyOf.nodes = []\n\n    this.markDirty()\n\n    return this\n  }\n\n  removeChild(child) {\n    child = this.index(child)\n    this.proxyOf.nodes[child].parent = undefined\n    this.proxyOf.nodes.splice(child, 1)\n\n    let index\n    for (let id in this.indexes) {\n      index = this.indexes[id]\n      if (index >= child) {\n        this.indexes[id] = index - 1\n      }\n    }\n\n    this.markDirty()\n\n    return this\n  }\n\n  replaceValues(pattern, opts, callback) {\n    if (!callback) {\n      callback = opts\n      opts = {}\n    }\n\n    this.walkDecls(decl => {\n      if (opts.props && !opts.props.includes(decl.prop)) return\n      if (opts.fast && !decl.value.includes(opts.fast)) return\n\n      decl.value = decl.value.replace(pattern, callback)\n    })\n\n    this.markDirty()\n\n    return this\n  }\n\n  some(condition) {\n    return this.nodes.some(condition)\n  }\n\n  walk(callback) {\n    return this.each((child, i) => {\n      let result\n      try {\n        result = callback(child, i)\n      } catch (e) {\n        throw child.addToError(e)\n      }\n      if (result !== false && child.walk) {\n        result = child.walk(callback)\n      }\n\n      return result\n    })\n  }\n\n  walkAtRules(name, callback) {\n    if (!callback) {\n      callback = name\n      return this.walk((child, i) => {\n        if (child.type === 'atrule') {\n          return callback(child, i)\n        }\n      })\n    }\n    if (name instanceof RegExp) {\n      return this.walk((child, i) => {\n        if (child.type === 'atrule' && name.test(child.name)) {\n          return callback(child, i)\n        }\n      })\n    }\n    return this.walk((child, i) => {\n      if (child.type === 'atrule' && child.name === name) {\n        return callback(child, i)\n      }\n    })\n  }\n\n  walkComments(callback) {\n    return this.walk((child, i) => {\n      if (child.type === 'comment') {\n        return callback(child, i)\n      }\n    })\n  }\n\n  walkDecls(prop, callback) {\n    if (!callback) {\n      callback = prop\n      return this.walk((child, i) => {\n        if (child.type === 'decl') {\n          return callback(child, i)\n        }\n      })\n    }\n    if (prop instanceof RegExp) {\n      return this.walk((child, i) => {\n        if (child.type === 'decl' && prop.test(child.prop)) {\n          return callback(child, i)\n        }\n      })\n    }\n    return this.walk((child, i) => {\n      if (child.type === 'decl' && child.prop === prop) {\n        return callback(child, i)\n      }\n    })\n  }\n\n  walkRules(selector, callback) {\n    if (!callback) {\n      callback = selector\n\n      return this.walk((child, i) => {\n        if (child.type === 'rule') {\n          return callback(child, i)\n        }\n      })\n    }\n    if (selector instanceof RegExp) {\n      return this.walk((child, i) => {\n        if (child.type === 'rule' && selector.test(child.selector)) {\n          return callback(child, i)\n        }\n      })\n    }\n    return this.walk((child, i) => {\n      if (child.type === 'rule' && child.selector === selector) {\n        return callback(child, i)\n      }\n    })\n  }\n}\n\nContainer.registerParse = dependant => {\n  parse = dependant\n}\n\nContainer.registerRule = dependant => {\n  Rule = dependant\n}\n\nContainer.registerAtRule = dependant => {\n  AtRule = dependant\n}\n\nContainer.registerRoot = dependant => {\n  Root = dependant\n}\n\nmodule.exports = Container\nContainer.default = Container\n\n/* c8 ignore start */\nContainer.rebuild = node => {\n  if (node.type === 'atrule') {\n    Object.setPrototypeOf(node, AtRule.prototype)\n  } else if (node.type === 'rule') {\n    Object.setPrototypeOf(node, Rule.prototype)\n  } else if (node.type === 'decl') {\n    Object.setPrototypeOf(node, Declaration.prototype)\n  } else if (node.type === 'comment') {\n    Object.setPrototypeOf(node, Comment.prototype)\n  } else if (node.type === 'root') {\n    Object.setPrototypeOf(node, Root.prototype)\n  }\n\n  node[my] = true\n\n  if (node.nodes) {\n    node.nodes.forEach(child => {\n      Container.rebuild(child)\n    })\n  }\n}\n/* c8 ignore stop */\n"],"names":[],"mappings":"AAAA;AAEA,IAAI;AACJ,IAAI;AACJ,IAAI;AACJ,IAAI,EAAE,OAAO,EAAE,EAAE,EAAE;AAEnB,IAAI,QAAQ,OAAO,MAAM;AAEzB,SAAS,YAAY,KAAK;IACxB,OAAO,MAAM,GAAG,CAAC,CAAA;QACf,IAAI,EAAE,KAAK,EAAE,EAAE,KAAK,GAAG,YAAY,EAAE,KAAK;QAC1C,OAAO,EAAE,MAAM;QACf,OAAO;IACT;AACF;AAEA,SAAS,cAAc,IAAI;IACzB,IAAI,CAAC,QAAQ,GAAG;IAChB,IAAI,KAAK,OAAO,CAAC,KAAK,EAAE;QACtB,KAAK,IAAI,KAAK,KAAK,OAAO,CAAC,KAAK,CAAE;YAChC,cAAc;QAChB;IACF;AACF;AAEA,MAAM,kBAAkB;IACtB,IAAI,QAAQ;QACV,IAAI,CAAC,IAAI,CAAC,OAAO,CAAC,KAAK,EAAE,OAAO;QAChC,OAAO,IAAI,CAAC,OAAO,CAAC,KAAK,CAAC,EAAE;IAC9B;IAEA,IAAI,OAAO;QACT,IAAI,CAAC,IAAI,CAAC,OAAO,CAAC,KAAK,EAAE,OAAO;QAChC,OAAO,IAAI,CAAC,OAAO,CAAC,KAAK,CAAC,IAAI,CAAC,OAAO,CAAC,KAAK,CAAC,MAAM,GAAG,EAAE;IAC1D;IAEA,OAAO,GAAG,QAAQ,EAAE;QAClB,KAAK,IAAI,SAAS,SAAU;YAC1B,IAAI,QAAQ,IAAI,CAAC,SAAS,CAAC,OAAO,IAAI,CAAC,IAAI;YAC3C,KAAK,IAAI,QAAQ,MAAO,IAAI,CAAC,OAAO,CAAC,KAAK,CAAC,IAAI,CAAC;QAClD;QAEA,IAAI,CAAC,SAAS;QAEd,OAAO,IAAI;IACb;IAEA,UAAU,WAAW,EAAE;QACrB,KAAK,CAAC,UAAU;QAChB,IAAI,IAAI,CAAC,KAAK,EAAE;YACd,KAAK,IAAI,QAAQ,IAAI,CAAC,KAAK,CAAE,KAAK,SAAS,CAAC;QAC9C;IACF;IAEA,KAAK,QAAQ,EAAE;QACb,IAAI,CAAC,IAAI,CAAC,OAAO,CAAC,KAAK,EAAE,OAAO;QAChC,IAAI,WAAW,IAAI,CAAC,WAAW;QAE/B,IAAI,OAAO;QACX,MAAO,IAAI,CAAC,OAAO,CAAC,SAAS,GAAG,IAAI,CAAC,OAAO,CAAC,KAAK,CAAC,MAAM,CAAE;YACzD,QAAQ,IAAI,CAAC,OAAO,CAAC,SAAS;YAC9B,SAAS,SAAS,IAAI,CAAC,OAAO,CAAC,KAAK,CAAC,MAAM,EAAE;YAC7C,IAAI,WAAW,OAAO;YAEtB,IAAI,CAAC,OAAO,CAAC,SAAS,IAAI;QAC5B;QAEA,OAAO,IAAI,CAAC,OAAO,CAAC,SAAS;QAC7B,OAAO;IACT;IAEA,MAAM,SAAS,EAAE;QACf,OAAO,IAAI,CAAC,KAAK,CAAC,KAAK,CAAC;IAC1B;IAEA,cAAc;QACZ,IAAI,CAAC,IAAI,CAAC,QAAQ,EAAE,IAAI,CAAC,QAAQ,GAAG;QACpC,IAAI,CAAC,IAAI,CAAC,OAAO,EAAE,IAAI,CAAC,OAAO,GAAG,CAAC;QAEnC,IAAI,CAAC,QAAQ,IAAI;QACjB,IAAI,WAAW,IAAI,CAAC,QAAQ;QAC5B,IAAI,CAAC,OAAO,CAAC,SAAS,GAAG;QAEzB,OAAO;IACT;IAEA,oBAAoB;QAClB,OAAO;YACL,KAAI,IAAI,EAAE,IAAI;gBACZ,IAAI,SAAS,WAAW;oBACtB,OAAO;gBACT,OAAO,IAAI,CAAC,IAAI,CAAC,KAAK,EAAE;oBACtB,OAAO,IAAI,CAAC,KAAK;gBACnB,OAAO,IACL,SAAS,UACR,OAAO,SAAS,YAAY,KAAK,UAAU,CAAC,SAC7C;oBACA,OAAO,CAAC,GAAG;wBACT,OAAO,IAAI,CAAC,KAAK,IACZ,KAAK,GAAG,CAAC,CAAA;4BACV,IAAI,OAAO,MAAM,YAAY;gCAC3B,OAAO,CAAC,OAAO,QAAU,EAAE,MAAM,OAAO,IAAI;4BAC9C,OAAO;gCACL,OAAO;4BACT;wBACF;oBAEJ;gBACF,OAAO,IAAI,SAAS,WAAW,SAAS,QAAQ;oBAC9C,OAAO,CAAA;wBACL,OAAO,IAAI,CAAC,KAAK,CAAC,CAAC,OAAO,GAAG,QAC3B,GAAG,MAAM,OAAO,OAAO;oBAE3B;gBACF,OAAO,IAAI,SAAS,QAAQ;oBAC1B,OAAO,IAAM,KAAK,IAAI,GAAG,OAAO;gBAClC,OAAO,IAAI,SAAS,SAAS;oBAC3B,OAAO,KAAK,KAAK,CAAC,GAAG,CAAC,CAAA,IAAK,EAAE,OAAO;gBACtC,OAAO,IAAI,SAAS,WAAW,SAAS,QAAQ;oBAC9C,OAAO,IAAI,CAAC,KAAK,CAAC,OAAO;gBAC3B,OAAO;oBACL,OAAO,IAAI,CAAC,KAAK;gBACnB;YACF;YAEA,KAAI,IAAI,EAAE,IAAI,EAAE,KAAK;gBACnB,IAAI,IAAI,CAAC,KAAK,KAAK,OAAO,OAAO;gBACjC,IAAI,CAAC,KAAK,GAAG;gBACb,IAAI,SAAS,UAAU,SAAS,YAAY,SAAS,YAAY;oBAC/D,KAAK,SAAS;gBAChB;gBACA,OAAO;YACT;QACF;IACF;IAEA,MAAM,KAAK,EAAE;QACX,IAAI,OAAO,UAAU,UAAU,OAAO;QACtC,IAAI,MAAM,OAAO,EAAE,QAAQ,MAAM,OAAO;QACxC,OAAO,IAAI,CAAC,OAAO,CAAC,KAAK,CAAC,OAAO,CAAC;IACpC;IAEA,YAAY,KAAK,EAAE,GAAG,EAAE;QACtB,IAAI,aAAa,IAAI,CAAC,KAAK,CAAC;QAC5B,IAAI,QAAQ,IAAI,CAAC,SAAS,CAAC,KAAK,IAAI,CAAC,OAAO,CAAC,KAAK,CAAC,WAAW,EAAE,OAAO;QACvE,aAAa,IAAI,CAAC,KAAK,CAAC;QACxB,KAAK,IAAI,QAAQ,MAAO,IAAI,CAAC,OAAO,CAAC,KAAK,CAAC,MAAM,CAAC,aAAa,GAAG,GAAG;QAErE,IAAI;QACJ,IAAK,IAAI,MAAM,IAAI,CAAC,OAAO,CAAE;YAC3B,QAAQ,IAAI,CAAC,OAAO,CAAC,GAAG;YACxB,IAAI,aAAa,OAAO;gBACtB,IAAI,CAAC,OAAO,CAAC,GAAG,GAAG,QAAQ,MAAM,MAAM;YACzC;QACF;QAEA,IAAI,CAAC,SAAS;QAEd,OAAO,IAAI;IACb;IAEA,aAAa,KAAK,EAAE,GAAG,EAAE;QACvB,IAAI,aAAa,IAAI,CAAC,KAAK,CAAC;QAC5B,IAAI,OAAO,eAAe,IAAI,YAAY;QAC1C,IAAI,QAAQ,IAAI,CAAC,SAAS,CACxB,KACA,IAAI,CAAC,OAAO,CAAC,KAAK,CAAC,WAAW,EAC9B,MACA,OAAO;QACT,aAAa,IAAI,CAAC,KAAK,CAAC;QACxB,KAAK,IAAI,QAAQ,MAAO,IAAI,CAAC,OAAO,CAAC,KAAK,CAAC,MAAM,CAAC,YAAY,GAAG;QAEjE,IAAI;QACJ,IAAK,IAAI,MAAM,IAAI,CAAC,OAAO,CAAE;YAC3B,QAAQ,IAAI,CAAC,OAAO,CAAC,GAAG;YACxB,IAAI,cAAc,OAAO;gBACvB,IAAI,CAAC,OAAO,CAAC,GAAG,GAAG,QAAQ,MAAM,MAAM;YACzC;QACF;QAEA,IAAI,CAAC,SAAS;QAEd,OAAO,IAAI;IACb;IAEA,UAAU,KAAK,EAAE,MAAM,EAAE;QACvB,IAAI,OAAO,UAAU,UAAU;YAC7B,QAAQ,YAAY,MAAM,OAAO,KAAK;QACxC,OAAO,IAAI,OAAO,UAAU,aAAa;YACvC,QAAQ,EAAE;QACZ,OAAO,IAAI,MAAM,OAAO,CAAC,QAAQ;YAC/B,QAAQ,MAAM,KAAK,CAAC;YACpB,KAAK,IAAI,KAAK,MAAO;gBACnB,IAAI,EAAE,MAAM,EAAE,EAAE,MAAM,CAAC,WAAW,CAAC,GAAG;YACxC;QACF,OAAO,IAAI,MAAM,IAAI,KAAK,UAAU,IAAI,CAAC,IAAI,KAAK,YAAY;YAC5D,QAAQ,MAAM,KAAK,CAAC,KAAK,CAAC;YAC1B,KAAK,IAAI,KAAK,MAAO;gBACnB,IAAI,EAAE,MAAM,EAAE,EAAE,MAAM,CAAC,WAAW,CAAC,GAAG;YACxC;QACF,OAAO,IAAI,MAAM,IAAI,EAAE;YACrB,QAAQ;gBAAC;aAAM;QACjB,OAAO,IAAI,MAAM,IAAI,EAAE;YACrB,IAAI,OAAO,MAAM,KAAK,KAAK,aAAa;gBACtC,MAAM,IAAI,MAAM;YAClB,OAAO,IAAI,OAAO,MAAM,KAAK,KAAK,UAAU;gBAC1C,MAAM,KAAK,GAAG,OAAO,MAAM,KAAK;YAClC;YACA,QAAQ;gBAAC,IAAI,YAAY;aAAO;QAClC,OAAO,IAAI,MAAM,QAAQ,IAAI,MAAM,SAAS,EAAE;YAC5C,QAAQ;gBAAC,IAAI,KAAK;aAAO;QAC3B,OAAO,IAAI,MAAM,IAAI,EAAE;YACrB,QAAQ;gBAAC,IAAI,OAAO;aAAO;QAC7B,OAAO,IAAI,MAAM,IAAI,EAAE;YACrB,QAAQ;gBAAC,IAAI,QAAQ;aAAO;QAC9B,OAAO;YACL,MAAM,IAAI,MAAM;QAClB;QAEA,IAAI,YAAY,MAAM,GAAG,CAAC,CAAA;YACxB,kBAAkB,GAClB,IAAI,CAAC,CAAC,CAAC,GAAG,EAAE,UAAU,OAAO,CAAC;YAC9B,IAAI,EAAE,OAAO;YACb,IAAI,EAAE,MAAM,EAAE,EAAE,MAAM,CAAC,WAAW,CAAC;YACnC,IAAI,CAAC,CAAC,QAAQ,EAAE,cAAc;YAE9B,IAAI,CAAC,EAAE,IAAI,EAAE,EAAE,IAAI,GAAG,CAAC;YACvB,IAAI,OAAO,EAAE,IAAI,CAAC,MAAM,KAAK,aAAa;gBACxC,IAAI,UAAU,OAAO,OAAO,IAAI,CAAC,MAAM,KAAK,aAAa;oBACvD,EAAE,IAAI,CAAC,MAAM,GAAG,OAAO,IAAI,CAAC,MAAM,CAAC,OAAO,CAAC,OAAO;gBACpD;YACF;YACA,EAAE,MAAM,GAAG,IAAI,CAAC,OAAO;YACvB,OAAO;QACT;QAEA,OAAO;IACT;IAEA,QAAQ,GAAG,QAAQ,EAAE;QACnB,WAAW,SAAS,OAAO;QAC3B,KAAK,IAAI,SAAS,SAAU;YAC1B,IAAI,QAAQ,IAAI,CAAC,SAAS,CAAC,OAAO,IAAI,CAAC,KAAK,EAAE,WAAW,OAAO;YAChE,KAAK,IAAI,QAAQ,MAAO,IAAI,CAAC,OAAO,CAAC,KAAK,CAAC,OAAO,CAAC;YACnD,IAAK,IAAI,MAAM,IAAI,CAAC,OAAO,CAAE;gBAC3B,IAAI,CAAC,OAAO,CAAC,GAAG,GAAG,IAAI,CAAC,OAAO,CAAC,GAAG,GAAG,MAAM,MAAM;YACpD;QACF;QAEA,IAAI,CAAC,SAAS;QAEd,OAAO,IAAI;IACb;IAEA,KAAK,KAAK,EAAE;QACV,MAAM,MAAM,GAAG,IAAI;QACnB,IAAI,CAAC,OAAO,CAAC,KAAK,CAAC,IAAI,CAAC;QACxB,OAAO,IAAI;IACb;IAEA,YAAY;QACV,KAAK,IAAI,QAAQ,IAAI,CAAC,OAAO,CAAC,KAAK,CAAE,KAAK,MAAM,GAAG;QACnD,IAAI,CAAC,OAAO,CAAC,KAAK,GAAG,EAAE;QAEvB,IAAI,CAAC,SAAS;QAEd,OAAO,IAAI;IACb;IAEA,YAAY,KAAK,EAAE;QACjB,QAAQ,IAAI,CAAC,KAAK,CAAC;QACnB,IAAI,CAAC,OAAO,CAAC,KAAK,CAAC,MAAM,CAAC,MAAM,GAAG;QACnC,IAAI,CAAC,OAAO,CAAC,KAAK,CAAC,MAAM,CAAC,OAAO;QAEjC,IAAI;QACJ,IAAK,IAAI,MAAM,IAAI,CAAC,OAAO,CAAE;YAC3B,QAAQ,IAAI,CAAC,OAAO,CAAC,GAAG;YACxB,IAAI,SAAS,OAAO;gBAClB,IAAI,CAAC,OAAO,CAAC,GAAG,GAAG,QAAQ;YAC7B;QACF;QAEA,IAAI,CAAC,SAAS;QAEd,OAAO,IAAI;IACb;IAEA,cAAc,OAAO,EAAE,IAAI,EAAE,QAAQ,EAAE;QACrC,IAAI,CAAC,UAAU;YACb,WAAW;YACX,OAAO,CAAC;QACV;QAEA,IAAI,CAAC,SAAS,CAAC,CAAA;YACb,IAAI,KAAK,KAAK,IAAI,CAAC,KAAK,KAAK,CAAC,QAAQ,CAAC,KAAK,IAAI,GAAG;YACnD,IAAI,KAAK,IAAI,IAAI,CAAC,KAAK,KAAK,CAAC,QAAQ,CAAC,KAAK,IAAI,GAAG;YAElD,KAAK,KAAK,GAAG,KAAK,KAAK,CAAC,OAAO,CAAC,SAAS;QAC3C;QAEA,IAAI,CAAC,SAAS;QAEd,OAAO,IAAI;IACb;IAEA,KAAK,SAAS,EAAE;QACd,OAAO,IAAI,CAAC,KAAK,CAAC,IAAI,CAAC;IACzB;IAEA,KAAK,QAAQ,EAAE;QACb,OAAO,IAAI,CAAC,IAAI,CAAC,CAAC,OAAO;YACvB,IAAI;YACJ,IAAI;gBACF,SAAS,SAAS,OAAO;YAC3B,EAAE,OAAO,GAAG;gBACV,MAAM,MAAM,UAAU,CAAC;YACzB;YACA,IAAI,WAAW,SAAS,MAAM,IAAI,EAAE;gBAClC,SAAS,MAAM,IAAI,CAAC;YACtB;YAEA,OAAO;QACT;IACF;IAEA,YAAY,IAAI,EAAE,QAAQ,EAAE;QAC1B,IAAI,CAAC,UAAU;YACb,WAAW;YACX,OAAO,IAAI,CAAC,IAAI,CAAC,CAAC,OAAO;gBACvB,IAAI,MAAM,IAAI,KAAK,UAAU;oBAC3B,OAAO,SAAS,OAAO;gBACzB;YACF;QACF;QACA,IAAI,gBAAgB,QAAQ;YAC1B,OAAO,IAAI,CAAC,IAAI,CAAC,CAAC,OAAO;gBACvB,IAAI,MAAM,IAAI,KAAK,YAAY,KAAK,IAAI,CAAC,MAAM,IAAI,GAAG;oBACpD,OAAO,SAAS,OAAO;gBACzB;YACF;QACF;QACA,OAAO,IAAI,CAAC,IAAI,CAAC,CAAC,OAAO;YACvB,IAAI,MAAM,IAAI,KAAK,YAAY,MAAM,IAAI,KAAK,MAAM;gBAClD,OAAO,SAAS,OAAO;YACzB;QACF;IACF;IAEA,aAAa,QAAQ,EAAE;QACrB,OAAO,IAAI,CAAC,IAAI,CAAC,CAAC,OAAO;YACvB,IAAI,MAAM,IAAI,KAAK,WAAW;gBAC5B,OAAO,SAAS,OAAO;YACzB;QACF;IACF;IAEA,UAAU,IAAI,EAAE,QAAQ,EAAE;QACxB,IAAI,CAAC,UAAU;YACb,WAAW;YACX,OAAO,IAAI,CAAC,IAAI,CAAC,CAAC,OAAO;gBACvB,IAAI,MAAM,IAAI,KAAK,QAAQ;oBACzB,OAAO,SAAS,OAAO;gBACzB;YACF;QACF;QACA,IAAI,gBAAgB,QAAQ;YAC1B,OAAO,IAAI,CAAC,IAAI,CAAC,CAAC,OAAO;gBACvB,IAAI,MAAM,IAAI,KAAK,UAAU,KAAK,IAAI,CAAC,MAAM,IAAI,GAAG;oBAClD,OAAO,SAAS,OAAO;gBACzB;YACF;QACF;QACA,OAAO,IAAI,CAAC,IAAI,CAAC,CAAC,OAAO;YACvB,IAAI,MAAM,IAAI,KAAK,UAAU,MAAM,IAAI,KAAK,MAAM;gBAChD,OAAO,SAAS,OAAO;YACzB;QACF;IACF;IAEA,UAAU,QAAQ,EAAE,QAAQ,EAAE;QAC5B,IAAI,CAAC,UAAU;YACb,WAAW;YAEX,OAAO,IAAI,CAAC,IAAI,CAAC,CAAC,OAAO;gBACvB,IAAI,MAAM,IAAI,KAAK,QAAQ;oBACzB,OAAO,SAAS,OAAO;gBACzB;YACF;QACF;QACA,IAAI,oBAAoB,QAAQ;YAC9B,OAAO,IAAI,CAAC,IAAI,CAAC,CAAC,OAAO;gBACvB,IAAI,MAAM,IAAI,KAAK,UAAU,SAAS,IAAI,CAAC,MAAM,QAAQ,GAAG;oBAC1D,OAAO,SAAS,OAAO;gBACzB;YACF;QACF;QACA,OAAO,IAAI,CAAC,IAAI,CAAC,CAAC,OAAO;YACvB,IAAI,MAAM,IAAI,KAAK,UAAU,MAAM,QAAQ,KAAK,UAAU;gBACxD,OAAO,SAAS,OAAO;YACzB;QACF;IACF;AACF;AAEA,UAAU,aAAa,GAAG,CAAA;IACxB,QAAQ;AACV;AAEA,UAAU,YAAY,GAAG,CAAA;IACvB,OAAO;AACT;AAEA,UAAU,cAAc,GAAG,CAAA;IACzB,SAAS;AACX;AAEA,UAAU,YAAY,GAAG,CAAA;IACvB,OAAO;AACT;AAEA,OAAO,OAAO,GAAG;AACjB,UAAU,OAAO,GAAG;AAEpB,mBAAmB,GACnB,UAAU,OAAO,GAAG,CAAA;IAClB,IAAI,KAAK,IAAI,KAAK,UAAU;QAC1B,OAAO,cAAc,CAAC,MAAM,OAAO,SAAS;IAC9C,OAAO,IAAI,KAAK,IAAI,KAAK,QAAQ;QAC/B,OAAO,cAAc,CAAC,MAAM,KAAK,SAAS;IAC5C,OAAO,IAAI,KAAK,IAAI,KAAK,QAAQ;QAC/B,OAAO,cAAc,CAAC,MAAM,YAAY,SAAS;IACnD,OAAO,IAAI,KAAK,IAAI,KAAK,WAAW;QAClC,OAAO,cAAc,CAAC,MAAM,QAAQ,SAAS;IAC/C,OAAO,IAAI,KAAK,IAAI,KAAK,QAAQ;QAC/B,OAAO,cAAc,CAAC,MAAM,KAAK,SAAS;IAC5C;IAEA,IAAI,CAAC,GAAG,GAAG;IAEX,IAAI,KAAK,KAAK,EAAE;QACd,KAAK,KAAK,CAAC,OAAO,CAAC,CAAA;YACjB,UAAU,OAAO,CAAC;QACpB;IACF;AACF,EACA,kBAAkB","ignoreList":[0]}},
-    {"offset": {"line": 1607, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
-    {"offset": {"line": 1612, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/node_modules/.pnpm/postcss@8.5.3/node_modules/postcss/lib/at-rule.js"],"sourcesContent":["'use strict'\n\nlet Container = require('./container')\n\nclass AtRule extends Container {\n  constructor(defaults) {\n    super(defaults)\n    this.type = 'atrule'\n  }\n\n  append(...children) {\n    if (!this.proxyOf.nodes) this.nodes = []\n    return super.append(...children)\n  }\n\n  prepend(...children) {\n    if (!this.proxyOf.nodes) this.nodes = []\n    return super.prepend(...children)\n  }\n}\n\nmodule.exports = AtRule\nAtRule.default = AtRule\n\nContainer.registerAtRule(AtRule)\n"],"names":[],"mappings":"AAAA;AAEA,IAAI;AAEJ,MAAM,eAAe;IACnB,YAAY,QAAQ,CAAE;QACpB,KAAK,CAAC;QACN,IAAI,CAAC,IAAI,GAAG;IACd;IAEA,OAAO,GAAG,QAAQ,EAAE;QAClB,IAAI,CAAC,IAAI,CAAC,OAAO,CAAC,KAAK,EAAE,IAAI,CAAC,KAAK,GAAG,EAAE;QACxC,OAAO,KAAK,CAAC,UAAU;IACzB;IAEA,QAAQ,GAAG,QAAQ,EAAE;QACnB,IAAI,CAAC,IAAI,CAAC,OAAO,CAAC,KAAK,EAAE,IAAI,CAAC,KAAK,GAAG,EAAE;QACxC,OAAO,KAAK,CAAC,WAAW;IAC1B;AACF;AAEA,OAAO,OAAO,GAAG;AACjB,OAAO,OAAO,GAAG;AAEjB,UAAU,cAAc,CAAC","ignoreList":[0]}},
-    {"offset": {"line": 1631, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
-    {"offset": {"line": 1636, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/node_modules/.pnpm/postcss@8.5.3/node_modules/postcss/lib/document.js"],"sourcesContent":["'use strict'\n\nlet Container = require('./container')\n\nlet LazyResult, Processor\n\nclass Document extends Container {\n  constructor(defaults) {\n    // type needs to be passed to super, otherwise child roots won't be normalized correctly\n    super({ type: 'document', ...defaults })\n\n    if (!this.nodes) {\n      this.nodes = []\n    }\n  }\n\n  toResult(opts = {}) {\n    let lazy = new LazyResult(new Processor(), this, opts)\n\n    return lazy.stringify()\n  }\n}\n\nDocument.registerLazyResult = dependant => {\n  LazyResult = dependant\n}\n\nDocument.registerProcessor = dependant => {\n  Processor = dependant\n}\n\nmodule.exports = Document\nDocument.default = Document\n"],"names":[],"mappings":"AAAA;AAEA,IAAI;AAEJ,IAAI,YAAY;AAEhB,MAAM,iBAAiB;IACrB,YAAY,QAAQ,CAAE;QACpB,wFAAwF;QACxF,KAAK,CAAC;YAAE,MAAM;YAAY,GAAG,QAAQ;QAAC;QAEtC,IAAI,CAAC,IAAI,CAAC,KAAK,EAAE;YACf,IAAI,CAAC,KAAK,GAAG,EAAE;QACjB;IACF;IAEA,SAAS,OAAO,CAAC,CAAC,EAAE;QAClB,IAAI,OAAO,IAAI,WAAW,IAAI,aAAa,IAAI,EAAE;QAEjD,OAAO,KAAK,SAAS;IACvB;AACF;AAEA,SAAS,kBAAkB,GAAG,CAAA;IAC5B,aAAa;AACf;AAEA,SAAS,iBAAiB,GAAG,CAAA;IAC3B,YAAY;AACd;AAEA,OAAO,OAAO,GAAG;AACjB,SAAS,OAAO,GAAG","ignoreList":[0]}},
-    {"offset": {"line": 1663, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
-    {"offset": {"line": 1668, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/node_modules/.pnpm/nanoid@3.3.8/node_modules/nanoid/non-secure/index.cjs"],"sourcesContent":["// This alphabet uses `A-Za-z0-9_-` symbols.\n// The order of characters is optimized for better gzip and brotli compression.\n// References to the same file (works both for gzip and brotli):\n// `'use`, `andom`, and `rict'`\n// References to the brotli default dictionary:\n// `-26T`, `1983`, `40px`, `75px`, `bush`, `jack`, `mind`, `very`, and `wolf`\nlet urlAlphabet =\n  'useandom-26T198340PX75pxJACKVERYMINDBUSHWOLF_GQZbfghjklqvwyzrict'\n\nlet customAlphabet = (alphabet, defaultSize = 21) => {\n  return (size = defaultSize) => {\n    let id = ''\n    // A compact alternative for `for (var i = 0; i < step; i++)`.\n    let i = size | 0\n    while (i--) {\n      // `| 0` is more compact and faster than `Math.floor()`.\n      id += alphabet[(Math.random() * alphabet.length) | 0]\n    }\n    return id\n  }\n}\n\nlet nanoid = (size = 21) => {\n  let id = ''\n  // A compact alternative for `for (var i = 0; i < step; i++)`.\n  let i = size | 0\n  while (i--) {\n    // `| 0` is more compact and faster than `Math.floor()`.\n    id += urlAlphabet[(Math.random() * 64) | 0]\n  }\n  return id\n}\n\nmodule.exports = { nanoid, customAlphabet }\n"],"names":[],"mappings":"AAAA,4CAA4C;AAC5C,+EAA+E;AAC/E,gEAAgE;AAChE,+BAA+B;AAC/B,+CAA+C;AAC/C,6EAA6E;AAC7E,IAAI,cACF;AAEF,IAAI,iBAAiB,CAAC,UAAU,cAAc,EAAE;IAC9C,OAAO,CAAC,OAAO,WAAW;QACxB,IAAI,KAAK;QACT,8DAA8D;QAC9D,IAAI,IAAI,OAAO;QACf,MAAO,IAAK;YACV,wDAAwD;YACxD,MAAM,QAAQ,CAAC,AAAC,KAAK,MAAM,KAAK,SAAS,MAAM,GAAI,EAAE;QACvD;QACA,OAAO;IACT;AACF;AAEA,IAAI,SAAS,CAAC,OAAO,EAAE;IACrB,IAAI,KAAK;IACT,8DAA8D;IAC9D,IAAI,IAAI,OAAO;IACf,MAAO,IAAK;QACV,wDAAwD;QACxD,MAAM,WAAW,CAAC,AAAC,KAAK,MAAM,KAAK,KAAM,EAAE;IAC7C;IACA,OAAO;AACT;AAEA,OAAO,OAAO,GAAG;IAAE;IAAQ;AAAe","ignoreList":[0]}},
-    {"offset": {"line": 1701, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
-    {"offset": {"line": 1706, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/base64.js"],"sourcesContent":["/* -*- Mode: js; js-indent-level: 2; -*- */\n/*\n * Copyright 2011 Mozilla Foundation and contributors\n * Licensed under the New BSD license. See LICENSE or:\n * http://opensource.org/licenses/BSD-3-Clause\n */\n\nvar intToCharMap = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'.split('');\n\n/**\n * Encode an integer in the range of 0 to 63 to a single base 64 digit.\n */\nexports.encode = function (number) {\n  if (0 <= number && number < intToCharMap.length) {\n    return intToCharMap[number];\n  }\n  throw new TypeError(\"Must be between 0 and 63: \" + number);\n};\n\n/**\n * Decode a single base 64 character code digit to an integer. Returns -1 on\n * failure.\n */\nexports.decode = function (charCode) {\n  var bigA = 65;     // 'A'\n  var bigZ = 90;     // 'Z'\n\n  var littleA = 97;  // 'a'\n  var littleZ = 122; // 'z'\n\n  var zero = 48;     // '0'\n  var nine = 57;     // '9'\n\n  var plus = 43;     // '+'\n  var slash = 47;    // '/'\n\n  var littleOffset = 26;\n  var numberOffset = 52;\n\n  // 0 - 25: ABCDEFGHIJKLMNOPQRSTUVWXYZ\n  if (bigA <= charCode && charCode <= bigZ) {\n    return (charCode - bigA);\n  }\n\n  // 26 - 51: abcdefghijklmnopqrstuvwxyz\n  if (littleA <= charCode && charCode <= littleZ) {\n    return (charCode - littleA + littleOffset);\n  }\n\n  // 52 - 61: 0123456789\n  if (zero <= charCode && charCode <= nine) {\n    return (charCode - zero + numberOffset);\n  }\n\n  // 62: +\n  if (charCode == plus) {\n    return 62;\n  }\n\n  // 63: /\n  if (charCode == slash) {\n    return 63;\n  }\n\n  // Invalid base64 digit.\n  return -1;\n};\n"],"names":[],"mappings":"AAAA,yCAAyC,GACzC;;;;CAIC,GAED,IAAI,eAAe,mEAAmE,KAAK,CAAC;AAE5F;;CAEC,GACD,QAAQ,MAAM,GAAG,SAAU,MAAM;IAC/B,IAAI,KAAK,UAAU,SAAS,aAAa,MAAM,EAAE;QAC/C,OAAO,YAAY,CAAC,OAAO;IAC7B;IACA,MAAM,IAAI,UAAU,+BAA+B;AACrD;AAEA;;;CAGC,GACD,QAAQ,MAAM,GAAG,SAAU,QAAQ;IACjC,IAAI,OAAO,IAAQ,MAAM;IACzB,IAAI,OAAO,IAAQ,MAAM;IAEzB,IAAI,UAAU,IAAK,MAAM;IACzB,IAAI,UAAU,KAAK,MAAM;IAEzB,IAAI,OAAO,IAAQ,MAAM;IACzB,IAAI,OAAO,IAAQ,MAAM;IAEzB,IAAI,OAAO,IAAQ,MAAM;IACzB,IAAI,QAAQ,IAAO,MAAM;IAEzB,IAAI,eAAe;IACnB,IAAI,eAAe;IAEnB,qCAAqC;IACrC,IAAI,QAAQ,YAAY,YAAY,MAAM;QACxC,OAAQ,WAAW;IACrB;IAEA,sCAAsC;IACtC,IAAI,WAAW,YAAY,YAAY,SAAS;QAC9C,OAAQ,WAAW,UAAU;IAC/B;IAEA,sBAAsB;IACtB,IAAI,QAAQ,YAAY,YAAY,MAAM;QACxC,OAAQ,WAAW,OAAO;IAC5B;IAEA,QAAQ;IACR,IAAI,YAAY,MAAM;QACpB,OAAO;IACT;IAEA,QAAQ;IACR,IAAI,YAAY,OAAO;QACrB,OAAO;IACT;IAEA,wBAAwB;IACxB,OAAO,CAAC;AACV","ignoreList":[0]}},
-    {"offset": {"line": 1756, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
-    {"offset": {"line": 1761, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/base64-vlq.js"],"sourcesContent":["/* -*- Mode: js; js-indent-level: 2; -*- */\n/*\n * Copyright 2011 Mozilla Foundation and contributors\n * Licensed under the New BSD license. See LICENSE or:\n * http://opensource.org/licenses/BSD-3-Clause\n *\n * Based on the Base 64 VLQ implementation in Closure Compiler:\n * https://code.google.com/p/closure-compiler/source/browse/trunk/src/com/google/debugging/sourcemap/Base64VLQ.java\n *\n * Copyright 2011 The Closure Compiler Authors. All rights reserved.\n * Redistribution and use in source and binary forms, with or without\n * modification, are permitted provided that the following conditions are\n * met:\n *\n *  * Redistributions of source code must retain the above copyright\n *    notice, this list of conditions and the following disclaimer.\n *  * Redistributions in binary form must reproduce the above\n *    copyright notice, this list of conditions and the following\n *    disclaimer in the documentation and/or other materials provided\n *    with the distribution.\n *  * Neither the name of Google Inc. nor the names of its\n *    contributors may be used to endorse or promote products derived\n *    from this software without specific prior written permission.\n *\n * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n * \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\n * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR\n * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT\n * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,\n * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT\n * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,\n * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY\n * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n */\n\nvar base64 = require('./base64');\n\n// A single base 64 digit can contain 6 bits of data. For the base 64 variable\n// length quantities we use in the source map spec, the first bit is the sign,\n// the next four bits are the actual value, and the 6th bit is the\n// continuation bit. The continuation bit tells us whether there are more\n// digits in this value following this digit.\n//\n//   Continuation\n//   |    Sign\n//   |    |\n//   V    V\n//   101011\n\nvar VLQ_BASE_SHIFT = 5;\n\n// binary: 100000\nvar VLQ_BASE = 1 << VLQ_BASE_SHIFT;\n\n// binary: 011111\nvar VLQ_BASE_MASK = VLQ_BASE - 1;\n\n// binary: 100000\nvar VLQ_CONTINUATION_BIT = VLQ_BASE;\n\n/**\n * Converts from a two-complement value to a value where the sign bit is\n * placed in the least significant bit.  For example, as decimals:\n *   1 becomes 2 (10 binary), -1 becomes 3 (11 binary)\n *   2 becomes 4 (100 binary), -2 becomes 5 (101 binary)\n */\nfunction toVLQSigned(aValue) {\n  return aValue < 0\n    ? ((-aValue) << 1) + 1\n    : (aValue << 1) + 0;\n}\n\n/**\n * Converts to a two-complement value from a value where the sign bit is\n * placed in the least significant bit.  For example, as decimals:\n *   2 (10 binary) becomes 1, 3 (11 binary) becomes -1\n *   4 (100 binary) becomes 2, 5 (101 binary) becomes -2\n */\nfunction fromVLQSigned(aValue) {\n  var isNegative = (aValue & 1) === 1;\n  var shifted = aValue >> 1;\n  return isNegative\n    ? -shifted\n    : shifted;\n}\n\n/**\n * Returns the base 64 VLQ encoded value.\n */\nexports.encode = function base64VLQ_encode(aValue) {\n  var encoded = \"\";\n  var digit;\n\n  var vlq = toVLQSigned(aValue);\n\n  do {\n    digit = vlq & VLQ_BASE_MASK;\n    vlq >>>= VLQ_BASE_SHIFT;\n    if (vlq > 0) {\n      // There are still more digits in this value, so we must make sure the\n      // continuation bit is marked.\n      digit |= VLQ_CONTINUATION_BIT;\n    }\n    encoded += base64.encode(digit);\n  } while (vlq > 0);\n\n  return encoded;\n};\n\n/**\n * Decodes the next base 64 VLQ value from the given string and returns the\n * value and the rest of the string via the out parameter.\n */\nexports.decode = function base64VLQ_decode(aStr, aIndex, aOutParam) {\n  var strLen = aStr.length;\n  var result = 0;\n  var shift = 0;\n  var continuation, digit;\n\n  do {\n    if (aIndex >= strLen) {\n      throw new Error(\"Expected more digits in base 64 VLQ value.\");\n    }\n\n    digit = base64.decode(aStr.charCodeAt(aIndex++));\n    if (digit === -1) {\n      throw new Error(\"Invalid base64 digit: \" + aStr.charAt(aIndex - 1));\n    }\n\n    continuation = !!(digit & VLQ_CONTINUATION_BIT);\n    digit &= VLQ_BASE_MASK;\n    result = result + (digit << shift);\n    shift += VLQ_BASE_SHIFT;\n  } while (continuation);\n\n  aOutParam.value = fromVLQSigned(result);\n  aOutParam.rest = aIndex;\n};\n"],"names":[],"mappings":"AAAA,yCAAyC,GACzC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;CAkCC,GAED,IAAI;AAEJ,8EAA8E;AAC9E,8EAA8E;AAC9E,kEAAkE;AAClE,yEAAyE;AACzE,6CAA6C;AAC7C,EAAE;AACF,iBAAiB;AACjB,cAAc;AACd,WAAW;AACX,WAAW;AACX,WAAW;AAEX,IAAI,iBAAiB;AAErB,iBAAiB;AACjB,IAAI,WAAW,KAAK;AAEpB,iBAAiB;AACjB,IAAI,gBAAgB,WAAW;AAE/B,iBAAiB;AACjB,IAAI,uBAAuB;AAE3B;;;;;CAKC,GACD,SAAS,YAAY,MAAM;IACzB,OAAO,SAAS,IACZ,CAAC,AAAC,CAAC,UAAW,CAAC,IAAI,IACnB,CAAC,UAAU,CAAC,IAAI;AACtB;AAEA;;;;;CAKC,GACD,SAAS,cAAc,MAAM;IAC3B,IAAI,aAAa,CAAC,SAAS,CAAC,MAAM;IAClC,IAAI,UAAU,UAAU;IACxB,OAAO,aACH,CAAC,UACD;AACN;AAEA;;CAEC,GACD,QAAQ,MAAM,GAAG,SAAS,iBAAiB,MAAM;IAC/C,IAAI,UAAU;IACd,IAAI;IAEJ,IAAI,MAAM,YAAY;IAEtB,GAAG;QACD,QAAQ,MAAM;QACd,SAAS;QACT,IAAI,MAAM,GAAG;YACX,sEAAsE;YACtE,8BAA8B;YAC9B,SAAS;QACX;QACA,WAAW,OAAO,MAAM,CAAC;IAC3B,QAAS,MAAM,EAAG;IAElB,OAAO;AACT;AAEA;;;CAGC,GACD,QAAQ,MAAM,GAAG,SAAS,iBAAiB,IAAI,EAAE,MAAM,EAAE,SAAS;IAChE,IAAI,SAAS,KAAK,MAAM;IACxB,IAAI,SAAS;IACb,IAAI,QAAQ;IACZ,IAAI,cAAc;IAElB,GAAG;QACD,IAAI,UAAU,QAAQ;YACpB,MAAM,IAAI,MAAM;QAClB;QAEA,QAAQ,OAAO,MAAM,CAAC,KAAK,UAAU,CAAC;QACtC,IAAI,UAAU,CAAC,GAAG;YAChB,MAAM,IAAI,MAAM,2BAA2B,KAAK,MAAM,CAAC,SAAS;QAClE;QAEA,eAAe,CAAC,CAAC,CAAC,QAAQ,oBAAoB;QAC9C,SAAS;QACT,SAAS,SAAS,CAAC,SAAS,KAAK;QACjC,SAAS;IACX,QAAS,aAAc;IAEvB,UAAU,KAAK,GAAG,cAAc;IAChC,UAAU,IAAI,GAAG;AACnB","ignoreList":[0]}},
-    {"offset": {"line": 1874, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
-    {"offset": {"line": 1879, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/util.js"],"sourcesContent":["/* -*- Mode: js; js-indent-level: 2; -*- */\n/*\n * Copyright 2011 Mozilla Foundation and contributors\n * Licensed under the New BSD license. See LICENSE or:\n * http://opensource.org/licenses/BSD-3-Clause\n */\n\n/**\n * This is a helper function for getting values from parameter/options\n * objects.\n *\n * @param args The object we are extracting values from\n * @param name The name of the property we are getting.\n * @param defaultValue An optional value to return if the property is missing\n * from the object. If this is not specified and the property is missing, an\n * error will be thrown.\n */\nfunction getArg(aArgs, aName, aDefaultValue) {\n  if (aName in aArgs) {\n    return aArgs[aName];\n  } else if (arguments.length === 3) {\n    return aDefaultValue;\n  } else {\n    throw new Error('\"' + aName + '\" is a required argument.');\n  }\n}\nexports.getArg = getArg;\n\nvar urlRegexp = /^(?:([\\w+\\-.]+):)?\\/\\/(?:(\\w+:\\w+)@)?([\\w.-]*)(?::(\\d+))?(.*)$/;\nvar dataUrlRegexp = /^data:.+\\,.+$/;\n\nfunction urlParse(aUrl) {\n  var match = aUrl.match(urlRegexp);\n  if (!match) {\n    return null;\n  }\n  return {\n    scheme: match[1],\n    auth: match[2],\n    host: match[3],\n    port: match[4],\n    path: match[5]\n  };\n}\nexports.urlParse = urlParse;\n\nfunction urlGenerate(aParsedUrl) {\n  var url = '';\n  if (aParsedUrl.scheme) {\n    url += aParsedUrl.scheme + ':';\n  }\n  url += '//';\n  if (aParsedUrl.auth) {\n    url += aParsedUrl.auth + '@';\n  }\n  if (aParsedUrl.host) {\n    url += aParsedUrl.host;\n  }\n  if (aParsedUrl.port) {\n    url += \":\" + aParsedUrl.port\n  }\n  if (aParsedUrl.path) {\n    url += aParsedUrl.path;\n  }\n  return url;\n}\nexports.urlGenerate = urlGenerate;\n\nvar MAX_CACHED_INPUTS = 32;\n\n/**\n * Takes some function `f(input) -> result` and returns a memoized version of\n * `f`.\n *\n * We keep at most `MAX_CACHED_INPUTS` memoized results of `f` alive. The\n * memoization is a dumb-simple, linear least-recently-used cache.\n */\nfunction lruMemoize(f) {\n  var cache = [];\n\n  return function(input) {\n    for (var i = 0; i < cache.length; i++) {\n      if (cache[i].input === input) {\n        var temp = cache[0];\n        cache[0] = cache[i];\n        cache[i] = temp;\n        return cache[0].result;\n      }\n    }\n\n    var result = f(input);\n\n    cache.unshift({\n      input,\n      result,\n    });\n\n    if (cache.length > MAX_CACHED_INPUTS) {\n      cache.pop();\n    }\n\n    return result;\n  };\n}\n\n/**\n * Normalizes a path, or the path portion of a URL:\n *\n * - Replaces consecutive slashes with one slash.\n * - Removes unnecessary '.' parts.\n * - Removes unnecessary '<dir>/..' parts.\n *\n * Based on code in the Node.js 'path' core module.\n *\n * @param aPath The path or url to normalize.\n */\nvar normalize = lruMemoize(function normalize(aPath) {\n  var path = aPath;\n  var url = urlParse(aPath);\n  if (url) {\n    if (!url.path) {\n      return aPath;\n    }\n    path = url.path;\n  }\n  var isAbsolute = exports.isAbsolute(path);\n  // Split the path into parts between `/` characters. This is much faster than\n  // using `.split(/\\/+/g)`.\n  var parts = [];\n  var start = 0;\n  var i = 0;\n  while (true) {\n    start = i;\n    i = path.indexOf(\"/\", start);\n    if (i === -1) {\n      parts.push(path.slice(start));\n      break;\n    } else {\n      parts.push(path.slice(start, i));\n      while (i < path.length && path[i] === \"/\") {\n        i++;\n      }\n    }\n  }\n\n  for (var part, up = 0, i = parts.length - 1; i >= 0; i--) {\n    part = parts[i];\n    if (part === '.') {\n      parts.splice(i, 1);\n    } else if (part === '..') {\n      up++;\n    } else if (up > 0) {\n      if (part === '') {\n        // The first part is blank if the path is absolute. Trying to go\n        // above the root is a no-op. Therefore we can remove all '..' parts\n        // directly after the root.\n        parts.splice(i + 1, up);\n        up = 0;\n      } else {\n        parts.splice(i, 2);\n        up--;\n      }\n    }\n  }\n  path = parts.join('/');\n\n  if (path === '') {\n    path = isAbsolute ? '/' : '.';\n  }\n\n  if (url) {\n    url.path = path;\n    return urlGenerate(url);\n  }\n  return path;\n});\nexports.normalize = normalize;\n\n/**\n * Joins two paths/URLs.\n *\n * @param aRoot The root path or URL.\n * @param aPath The path or URL to be joined with the root.\n *\n * - If aPath is a URL or a data URI, aPath is returned, unless aPath is a\n *   scheme-relative URL: Then the scheme of aRoot, if any, is prepended\n *   first.\n * - Otherwise aPath is a path. If aRoot is a URL, then its path portion\n *   is updated with the result and aRoot is returned. Otherwise the result\n *   is returned.\n *   - If aPath is absolute, the result is aPath.\n *   - Otherwise the two paths are joined with a slash.\n * - Joining for example 'http://' and 'www.example.com' is also supported.\n */\nfunction join(aRoot, aPath) {\n  if (aRoot === \"\") {\n    aRoot = \".\";\n  }\n  if (aPath === \"\") {\n    aPath = \".\";\n  }\n  var aPathUrl = urlParse(aPath);\n  var aRootUrl = urlParse(aRoot);\n  if (aRootUrl) {\n    aRoot = aRootUrl.path || '/';\n  }\n\n  // `join(foo, '//www.example.org')`\n  if (aPathUrl && !aPathUrl.scheme) {\n    if (aRootUrl) {\n      aPathUrl.scheme = aRootUrl.scheme;\n    }\n    return urlGenerate(aPathUrl);\n  }\n\n  if (aPathUrl || aPath.match(dataUrlRegexp)) {\n    return aPath;\n  }\n\n  // `join('http://', 'www.example.com')`\n  if (aRootUrl && !aRootUrl.host && !aRootUrl.path) {\n    aRootUrl.host = aPath;\n    return urlGenerate(aRootUrl);\n  }\n\n  var joined = aPath.charAt(0) === '/'\n    ? aPath\n    : normalize(aRoot.replace(/\\/+$/, '') + '/' + aPath);\n\n  if (aRootUrl) {\n    aRootUrl.path = joined;\n    return urlGenerate(aRootUrl);\n  }\n  return joined;\n}\nexports.join = join;\n\nexports.isAbsolute = function (aPath) {\n  return aPath.charAt(0) === '/' || urlRegexp.test(aPath);\n};\n\n/**\n * Make a path relative to a URL or another path.\n *\n * @param aRoot The root path or URL.\n * @param aPath The path or URL to be made relative to aRoot.\n */\nfunction relative(aRoot, aPath) {\n  if (aRoot === \"\") {\n    aRoot = \".\";\n  }\n\n  aRoot = aRoot.replace(/\\/$/, '');\n\n  // It is possible for the path to be above the root. In this case, simply\n  // checking whether the root is a prefix of the path won't work. Instead, we\n  // need to remove components from the root one by one, until either we find\n  // a prefix that fits, or we run out of components to remove.\n  var level = 0;\n  while (aPath.indexOf(aRoot + '/') !== 0) {\n    var index = aRoot.lastIndexOf(\"/\");\n    if (index < 0) {\n      return aPath;\n    }\n\n    // If the only part of the root that is left is the scheme (i.e. http://,\n    // file:///, etc.), one or more slashes (/), or simply nothing at all, we\n    // have exhausted all components, so the path is not relative to the root.\n    aRoot = aRoot.slice(0, index);\n    if (aRoot.match(/^([^\\/]+:\\/)?\\/*$/)) {\n      return aPath;\n    }\n\n    ++level;\n  }\n\n  // Make sure we add a \"../\" for each component we removed from the root.\n  return Array(level + 1).join(\"../\") + aPath.substr(aRoot.length + 1);\n}\nexports.relative = relative;\n\nvar supportsNullProto = (function () {\n  var obj = Object.create(null);\n  return !('__proto__' in obj);\n}());\n\nfunction identity (s) {\n  return s;\n}\n\n/**\n * Because behavior goes wacky when you set `__proto__` on objects, we\n * have to prefix all the strings in our set with an arbitrary character.\n *\n * See https://github.com/mozilla/source-map/pull/31 and\n * https://github.com/mozilla/source-map/issues/30\n *\n * @param String aStr\n */\nfunction toSetString(aStr) {\n  if (isProtoString(aStr)) {\n    return '$' + aStr;\n  }\n\n  return aStr;\n}\nexports.toSetString = supportsNullProto ? identity : toSetString;\n\nfunction fromSetString(aStr) {\n  if (isProtoString(aStr)) {\n    return aStr.slice(1);\n  }\n\n  return aStr;\n}\nexports.fromSetString = supportsNullProto ? identity : fromSetString;\n\nfunction isProtoString(s) {\n  if (!s) {\n    return false;\n  }\n\n  var length = s.length;\n\n  if (length < 9 /* \"__proto__\".length */) {\n    return false;\n  }\n\n  if (s.charCodeAt(length - 1) !== 95  /* '_' */ ||\n      s.charCodeAt(length - 2) !== 95  /* '_' */ ||\n      s.charCodeAt(length - 3) !== 111 /* 'o' */ ||\n      s.charCodeAt(length - 4) !== 116 /* 't' */ ||\n      s.charCodeAt(length - 5) !== 111 /* 'o' */ ||\n      s.charCodeAt(length - 6) !== 114 /* 'r' */ ||\n      s.charCodeAt(length - 7) !== 112 /* 'p' */ ||\n      s.charCodeAt(length - 8) !== 95  /* '_' */ ||\n      s.charCodeAt(length - 9) !== 95  /* '_' */) {\n    return false;\n  }\n\n  for (var i = length - 10; i >= 0; i--) {\n    if (s.charCodeAt(i) !== 36 /* '$' */) {\n      return false;\n    }\n  }\n\n  return true;\n}\n\n/**\n * Comparator between two mappings where the original positions are compared.\n *\n * Optionally pass in `true` as `onlyCompareGenerated` to consider two\n * mappings with the same original source/line/column, but different generated\n * line and column the same. Useful when searching for a mapping with a\n * stubbed out mapping.\n */\nfunction compareByOriginalPositions(mappingA, mappingB, onlyCompareOriginal) {\n  var cmp = strcmp(mappingA.source, mappingB.source);\n  if (cmp !== 0) {\n    return cmp;\n  }\n\n  cmp = mappingA.originalLine - mappingB.originalLine;\n  if (cmp !== 0) {\n    return cmp;\n  }\n\n  cmp = mappingA.originalColumn - mappingB.originalColumn;\n  if (cmp !== 0 || onlyCompareOriginal) {\n    return cmp;\n  }\n\n  cmp = mappingA.generatedColumn - mappingB.generatedColumn;\n  if (cmp !== 0) {\n    return cmp;\n  }\n\n  cmp = mappingA.generatedLine - mappingB.generatedLine;\n  if (cmp !== 0) {\n    return cmp;\n  }\n\n  return strcmp(mappingA.name, mappingB.name);\n}\nexports.compareByOriginalPositions = compareByOriginalPositions;\n\nfunction compareByOriginalPositionsNoSource(mappingA, mappingB, onlyCompareOriginal) {\n  var cmp\n\n  cmp = mappingA.originalLine - mappingB.originalLine;\n  if (cmp !== 0) {\n    return cmp;\n  }\n\n  cmp = mappingA.originalColumn - mappingB.originalColumn;\n  if (cmp !== 0 || onlyCompareOriginal) {\n    return cmp;\n  }\n\n  cmp = mappingA.generatedColumn - mappingB.generatedColumn;\n  if (cmp !== 0) {\n    return cmp;\n  }\n\n  cmp = mappingA.generatedLine - mappingB.generatedLine;\n  if (cmp !== 0) {\n    return cmp;\n  }\n\n  return strcmp(mappingA.name, mappingB.name);\n}\nexports.compareByOriginalPositionsNoSource = compareByOriginalPositionsNoSource;\n\n/**\n * Comparator between two mappings with deflated source and name indices where\n * the generated positions are compared.\n *\n * Optionally pass in `true` as `onlyCompareGenerated` to consider two\n * mappings with the same generated line and column, but different\n * source/name/original line and column the same. Useful when searching for a\n * mapping with a stubbed out mapping.\n */\nfunction compareByGeneratedPositionsDeflated(mappingA, mappingB, onlyCompareGenerated) {\n  var cmp = mappingA.generatedLine - mappingB.generatedLine;\n  if (cmp !== 0) {\n    return cmp;\n  }\n\n  cmp = mappingA.generatedColumn - mappingB.generatedColumn;\n  if (cmp !== 0 || onlyCompareGenerated) {\n    return cmp;\n  }\n\n  cmp = strcmp(mappingA.source, mappingB.source);\n  if (cmp !== 0) {\n    return cmp;\n  }\n\n  cmp = mappingA.originalLine - mappingB.originalLine;\n  if (cmp !== 0) {\n    return cmp;\n  }\n\n  cmp = mappingA.originalColumn - mappingB.originalColumn;\n  if (cmp !== 0) {\n    return cmp;\n  }\n\n  return strcmp(mappingA.name, mappingB.name);\n}\nexports.compareByGeneratedPositionsDeflated = compareByGeneratedPositionsDeflated;\n\nfunction compareByGeneratedPositionsDeflatedNoLine(mappingA, mappingB, onlyCompareGenerated) {\n  var cmp = mappingA.generatedColumn - mappingB.generatedColumn;\n  if (cmp !== 0 || onlyCompareGenerated) {\n    return cmp;\n  }\n\n  cmp = strcmp(mappingA.source, mappingB.source);\n  if (cmp !== 0) {\n    return cmp;\n  }\n\n  cmp = mappingA.originalLine - mappingB.originalLine;\n  if (cmp !== 0) {\n    return cmp;\n  }\n\n  cmp = mappingA.originalColumn - mappingB.originalColumn;\n  if (cmp !== 0) {\n    return cmp;\n  }\n\n  return strcmp(mappingA.name, mappingB.name);\n}\nexports.compareByGeneratedPositionsDeflatedNoLine = compareByGeneratedPositionsDeflatedNoLine;\n\nfunction strcmp(aStr1, aStr2) {\n  if (aStr1 === aStr2) {\n    return 0;\n  }\n\n  if (aStr1 === null) {\n    return 1; // aStr2 !== null\n  }\n\n  if (aStr2 === null) {\n    return -1; // aStr1 !== null\n  }\n\n  if (aStr1 > aStr2) {\n    return 1;\n  }\n\n  return -1;\n}\n\n/**\n * Comparator between two mappings with inflated source and name strings where\n * the generated positions are compared.\n */\nfunction compareByGeneratedPositionsInflated(mappingA, mappingB) {\n  var cmp = mappingA.generatedLine - mappingB.generatedLine;\n  if (cmp !== 0) {\n    return cmp;\n  }\n\n  cmp = mappingA.generatedColumn - mappingB.generatedColumn;\n  if (cmp !== 0) {\n    return cmp;\n  }\n\n  cmp = strcmp(mappingA.source, mappingB.source);\n  if (cmp !== 0) {\n    return cmp;\n  }\n\n  cmp = mappingA.originalLine - mappingB.originalLine;\n  if (cmp !== 0) {\n    return cmp;\n  }\n\n  cmp = mappingA.originalColumn - mappingB.originalColumn;\n  if (cmp !== 0) {\n    return cmp;\n  }\n\n  return strcmp(mappingA.name, mappingB.name);\n}\nexports.compareByGeneratedPositionsInflated = compareByGeneratedPositionsInflated;\n\n/**\n * Strip any JSON XSSI avoidance prefix from the string (as documented\n * in the source maps specification), and then parse the string as\n * JSON.\n */\nfunction parseSourceMapInput(str) {\n  return JSON.parse(str.replace(/^\\)]}'[^\\n]*\\n/, ''));\n}\nexports.parseSourceMapInput = parseSourceMapInput;\n\n/**\n * Compute the URL of a source given the the source root, the source's\n * URL, and the source map's URL.\n */\nfunction computeSourceURL(sourceRoot, sourceURL, sourceMapURL) {\n  sourceURL = sourceURL || '';\n\n  if (sourceRoot) {\n    // This follows what Chrome does.\n    if (sourceRoot[sourceRoot.length - 1] !== '/' && sourceURL[0] !== '/') {\n      sourceRoot += '/';\n    }\n    // The spec says:\n    //   Line 4: An optional source root, useful for relocating source\n    //   files on a server or removing repeated values in the\n    //   “sources” entry.  This value is prepended to the individual\n    //   entries in the “source�
+{
+  "inherit": "inherit",
+  "current": "currentColor",
+  "transparent": "transparent",
+  "black": {
+    "hex": "#000000",
+    "rgb": "rgb(0,0,0)",
+    "hsl": "hsl(0,0%,0%)",
+    "rgbChannel": "0 0 0",
+    "hslChannel": "0 0% 0%"
+  },
+  "white": {
+    "hex": "#ffffff",
+    "rgb": "rgb(255,255,255)",
+    "hsl": "hsl(0,0%,100%)",
+    "rgbChannel": "255 255 255",
+    "hslChannel": "0 0% 100%"
+  },
+  "slate": [
+    {
+      "scale": 50,
+      "hex": "#f8fafc",
+      "rgb": "rgb(248,250,252)",
+      "hsl": "hsl(210,40%,98%)",
+      "rgbChannel": "248 250 252",
+      "hslChannel": "210 40% 98%"
+    },
+    {
+      "scale": 100,
+      "hex": "#f1f5f9",
+      "rgb": "rgb(241,245,249)",
+      "hsl": "hsl(210,40%,96.1%)",
+      "rgbChannel": "241 245 249",
+      "hslChannel": "210 40% 96.1%"
+    },
+    {
+      "scale": 200,
+      "hex": "#e2e8f0",
+      "rgb": "rgb(226,232,240)",
+      "hsl": "hsl(214.3,31.8%,91.4%)",
+      "rgbChannel": "226 232 240",
+      "hslChannel": "214.3 31.8% 91.4%"
+    },
+    {
+      "scale": 300,
+      "hex": "#cbd5e1",
+      "rgb": "rgb(203,213,225)",
+      "hsl": "hsl(212.7,26.8%,83.9%)",
+      "rgbChannel": "203 213 225",
+      "hslChannel": "212.7 26.8% 83.9%"
+    },
+    {
+      "scale": 400,
+      "hex": "#94a3b8",
+      "rgb": "rgb(148,163,184)",
+      "hsl": "hsl(215,20.2%,65.1%)",
+      "rgbChannel": "148 163 184",
+      "hslChannel": "215 20.2% 65.1%"
+    },
+    {
+      "scale": 500,
+      "hex": "#64748b",
+      "rgb": "rgb(100,116,139)",
+      "hsl": "hsl(215.4,16.3%,46.9%)",
+      "rgbChannel": "100 116 139",
+      "hslChannel": "215.4 16.3% 46.9%"
+    },
+    {
+      "scale": 600,
+      "hex": "#475569",
+      "rgb": "rgb(71,85,105)",
+      "hsl": "hsl(215.3,19.3%,34.5%)",
+      "rgbChannel": "71 85 105",
+      "hslChannel": "215.3 19.3% 34.5%"
+    },
+    {
+      "scale": 700,
+      "hex": "#334155",
+      "rgb": "rgb(51,65,85)",
+      "hsl": "hsl(215.3,25%,26.7%)",
+      "rgbChannel": "51 65 85",
+      "hslChannel": "215.3 25% 26.7%"
+    },
+    {
+      "scale": 800,
+      "hex": "#1e293b",
+      "rgb": "rgb(30,41,59)",
+      "hsl": "hsl(217.2,32.6%,17.5%)",
+      "rgbChannel": "30 41 59",
+      "hslChannel": "217.2 32.6% 17.5%"
+    },
+    {
+      "scale": 900,
+      "hex": "#0f172a",
+      "rgb": "rgb(15,23,42)",
+      "hsl": "hsl(222.2,47.4%,11.2%)",
+      "rgbChannel": "15 23 42",
+      "hslChannel": "222.2 47.4% 11.2%"
+    },
+    {
+      "scale": 950,
+      "hex": "#020617",
+      "rgb": "rgb(2,6,23)",
+      "hsl": "hsl(222.2,84%,4.9%)",
+      "rgbChannel": "2 6 23",
+      "hslChannel": "222.2 84% 4.9%"
+    }
+  ],
+  "gray": [
+    {
+      "scale": 50,
+      "hex": "#f9fafb",
+      "rgb": "rgb(249,250,251)",
+      "hsl": "hsl(210,20%,98%)",
+      "rgbChannel": "249 250 251",
+      "hslChannel": "210 20% 98%"
+    },
+    {
+      "scale": 100,
+      "hex": "#f3f4f6",
+      "rgb": "rgb(243,244,246)",
+      "hsl": "hsl(220,14.3%,95.9%)",
+      "rgbChannel": "243 244 246",
+      "hslChannel": "220 14.3% 95.9%"
+    },
+    {
+      "scale": 200,
+      "hex": "#e5e7eb",
+      "rgb": "rgb(229,231,235)",
+      "hsl": "hsl(220,13%,91%)",
+      "rgbChannel": "229 231 235",
+      "hslChannel": "220 13% 91%"
+    },
+    {
+      "scale": 300,
+      "hex": "#d1d5db",
+      "rgb": "rgb(209,213,219)",
+      "hsl": "hsl(216,12.2%,83.9%)",
+      "rgbChannel": "209 213 219",
+      "hslChannel": "216 12.2% 83.9%"
+    },
+    {
+      "scale": 400,
+      "hex": "#9ca3af",
+      "rgb": "rgb(156,163,175)",
+      "hsl": "hsl(217.9,10.6%,64.9%)",
+      "rgbChannel": "156 163 175",
+      "hslChannel": "217.9 10.6% 64.9%"
+    },
+    {
+      "scale": 500,
+      "hex": "#6b7280",
+      "rgb": "rgb(107,114,128)",
+      "hsl": "hsl(220,8.9%,46.1%)",
+      "rgbChannel": "107 114 128",
+      "hslChannel": "220 8.9% 46.1%"
+    },
+    {
+      "scale": 600,
+      "hex": "#4b5563",
+      "rgb": "rgb(75,85,99)",
+      "hsl": "hsl(215,13.8%,34.1%)",
+      "rgbChannel": "75 85 99",
+      "hslChannel": "215 13.8% 34.1%"
+    },
+    {
+      "scale": 700,
+      "hex": "#374151",
+      "rgb": "rgb(55,65,81)",
+      "hsl": "hsl(216.9,19.1%,26.7%)",
+      "rgbChannel": "55 65 81",
+      "hslChannel": "216.9 19.1% 26.7%"
+    },
+    {
+      "scale": 800,
+      "hex": "#1f2937",
+      "rgb": "rgb(31,41,55)",
+      "hsl": "hsl(215,27.9%,16.9%)",
+      "rgbChannel": "31 41 55",
+      "hslChannel": "215 27.9% 16.9%"
+    },
+    {
+      "scale": 900,
+      "hex": "#111827",
+      "rgb": "rgb(17,24,39)",
+      "hsl": "hsl(220.9,39.3%,11%)",
+      "rgbChannel": "17 24 39",
+      "hslChannel": "220.9 39.3% 11%"
+    },
+    {
+      "scale": 950,
+      "hex": "#030712",
+      "rgb": "rgb(3,7,18)",
+      "hsl": "hsl(224,71.4%,4.1%)",
+      "rgbChannel": "3 7 18",
+      "hslChannel": "224 71.4% 4.1%"
+    }
+  ],
+  "zinc": [
+    {
+      "scale": 50,
+      "hex": "#fafafa",
+      "rgb": "rgb(250,250,250)",
+      "hsl": "hsl(0,0%,98%)",
+      "rgbChannel": "250 250 250",
+      "hslChannel": "0 0% 98%"
+    },
+    {
+      "scale": 100,
+      "hex": "#f4f4f5",
+      "rgb": "rgb(244,244,245)",
+      "hsl": "hsl(240,4.8%,95.9%)",
+      "rgbChannel": "244 244 245",
+      "hslChannel": "240 4.8% 95.9%"
+    },
+    {
+      "scale": 200,
+      "hex": "#e4e4e7",
+      "rgb": "rgb(228,228,231)",
+      "hsl": "hsl(240,5.9%,90%)",
+      "rgbChannel": "228 228 231",
+      "hslChannel": "240 5.9% 90%"
+    },
+    {
+      "scale": 300,
+      "hex": "#d4d4d8",
+      "rgb": "rgb(212,212,216)",
+      "hsl": "hsl(240,4.9%,83.9%)",
+      "rgbChannel": "212 212 216",
+      "hslChannel": "240 4.9% 83.9%"
+    },
+    {
+      "scale": 400,
+      "hex": "#a1a1aa",
+      "rgb": "rgb(161,161,170)",
+      "hsl": "hsl(240,5%,64.9%)",
+      "rgbChannel": "161 161 170",
+      "hslChannel": "240 5% 64.9%"
+    },
+    {
+      "scale": 500,
+      "hex": "#71717a",
+      "rgb": "rgb(113,113,122)",
+      "hsl": "hsl(240,3.8%,46.1%)",
+      "rgbChannel": "113 113 122",
+      "hslChannel": "240 3.8% 46.1%"
+    },
+    {
+      "scale": 600,
+      "hex": "#52525b",
+      "rgb": "rgb(82,82,91)",
+      "hsl": "hsl(240,5.2%,33.9%)",
+      "rgbChannel": "82 82 91",
+      "hslChannel": "240 5.2% 33.9%"
+    },
+    {
+      "scale": 700,
+      "hex": "#3f3f46",
+      "rgb": "rgb(63,63,70)",
+      "hsl": "hsl(240,5.3%,26.1%)",
+      "rgbChannel": "63 63 70",
+      "hslChannel": "240 5.3% 26.1%"
+    },
+    {
+      "scale": 800,
+      "hex": "#27272a",
+      "rgb": "rgb(39,39,42)",
+      "hsl": "hsl(240,3.7%,15.9%)",
+      "rgbChannel": "39 39 42",
+      "hslChannel": "240 3.7% 15.9%"
+    },
+    {
+      "scale": 900,
+      "hex": "#18181b",
+      "rgb": "rgb(24,24,27)",
+      "hsl": "hsl(240,5.9%,10%)",
+      "rgbChannel": "24 24 27",
+      "hslChannel": "240 5.9% 10%"
+    },
+    {
+      "scale": 950,
+      "hex": "#09090b",
+      "rgb": "rgb(9,9,11)",
+      "hsl": "hsl(240,10%,3.9%)",
+      "rgbChannel": "9 9 11",
+      "hslChannel": "240 10% 3.9%"
+    }
+  ],
+  "neutral": [
+    {
+      "scale": 50,
+      "hex": "#fafafa",
+      "rgb": "rgb(250,250,250)",
+      "hsl": "hsl(0,0%,98%)",
+      "rgbChannel": "250 250 250",
+      "hslChannel": "0 0% 98%"
+    },
+    {
+      "scale": 100,
+      "hex": "#f5f5f5",
+      "rgb": "rgb(245,245,245)",
+      "hsl": "hsl(0,0%,96.1%)",
+      "rgbChannel": "245 245 245",
+      "hslChannel": "0 0% 96.1%"
+    },
+    {
+      "scale": 200,
+      "hex": "#e5e5e5",
+      "rgb": "rgb(229,229,229)",
+      "hsl": "hsl(0,0%,89.8%)",
+      "rgbChannel": "229 229 229",
+      "hslChannel": "0 0% 89.8%"
+    },
+    {
+      "scale": 300,
+      "hex": "#d4d4d4",
+      "rgb": "rgb(212,212,212)",
+      "hsl": "hsl(0,0%,83.1%)",
+      "rgbChannel": "212 212 212",
+      "hslChannel": "0 0% 83.1%"
+    },
+    {
+      "scale": 400,
+      "hex": "#a3a3a3",
+      "rgb": "rgb(163,163,163)",
+      "hsl": "hsl(0,0%,63.9%)",
+      "rgbChannel": "163 163 163",
+      "hslChannel": "0 0% 63.9%"
+    },
+    {
+      "scale": 500,
+      "hex": "#737373",
+      "rgb": "rgb(115,115,115)",
+      "hsl": "hsl(0,0%,45.1%)",
+      "rgbChannel": "115 115 115",
+      "hslChannel": "0 0% 45.1%"
+    },
+    {
+      "scale": 600,
+      "hex": "#525252",
+      "rgb": "rgb(82,82,82)",
+      "hsl": "hsl(0,0%,32.2%)",
+      "rgbChannel": "82 82 82",
+      "hslChannel": "0 0% 32.2%"
+    },
+    {
+      "scale": 700,
+      "hex": "#404040",
+      "rgb": "rgb(64,64,64)",
+      "hsl": "hsl(0,0%,25.1%)",
+      "rgbChannel": "64 64 64",
+      "hslChannel": "0 0% 25.1%"
+    },
+    {
+      "scale": 800,
+      "hex": "#262626",
+      "rgb": "rgb(38,38,38)",
+      "hsl": "hsl(0,0%,14.9%)",
+      "rgbChannel": "38 38 38",
+      "hslChannel": "0 0% 14.9%"
+    },
+    {
+      "scale": 900,
+      "hex": "#171717",
+      "rgb": "rgb(23,23,23)",
+      "hsl": "hsl(0,0%,9%)",
+      "rgbChannel": "23 23 23",
+      "hslChannel": "0 0% 9%"
+    },
+    {
+      "scale": 950,
+      "hex": "#0a0a0a",
+      "rgb": "rgb(10,10,10)",
+      "hsl": "hsl(0,0%,3.9%)",
+      "rgbChannel": "10 10 10",
+      "hslChannel": "0 0% 3.9%"
+    }
+  ],
+  "stone": [
+    {
+      "scale": 50,
+      "hex": "#fafaf9",
+      "rgb": "rgb(250,250,249)",
+      "hsl": "hsl(60,9.1%,97.8%)",
+      "rgbChannel": "250 250 249",
+      "hslChannel": "60 9.1% 97.8%"
+    },
+    {
+      "scale": 100,
+      "hex": "#f5f5f4",
+      "rgb": "rgb(245,245,244)",
+      "hsl": "hsl(60,4.8%,95.9%)",
+      "rgbChannel": "245 245 244",
+      "hslChannel": "60 4.8% 95.9%"
+    },
+    {
+      "scale": 200,
+      "hex": "#e7e5e4",
+      "rgb": "rgb(231,229,228)",
+      "hsl": "hsl(20,5.9%,90%)",
+      "rgbChannel": "231 229 228",
+      "hslChannel": "20 5.9% 90%"
+    },
+    {
+      "scale": 300,
+      "hex": "#d6d3d1",
+      "rgb": "rgb(214,211,209)",
+      "hsl": "hsl(24,5.7%,82.9%)",
+      "rgbChannel": "214 211 209",
+      "hslChannel": "24 5.7% 82.9%"
+    },
+    {
+      "scale": 400,
+      "hex": "#a8a29e",
+      "rgb": "rgb(168,162,158)",
+      "hsl": "hsl(24,5.4%,63.9%)",
+      "rgbChannel": "168 162 158",
+      "hslChannel": "24 5.4% 63.9%"
+    },
+    {
+      "scale": 500,
+      "hex": "#78716c",
+      "rgb": "rgb(120,113,108)",
+      "hsl": "hsl(25,5.3%,44.7%)",
+      "rgbChannel": "120 113 108",
+      "hslChannel": "25 5.3% 44.7%"
+    },
+    {
+      "scale": 600,
+      "hex": "#57534e",
+      "rgb": "rgb(87,83,78)",
+      "hsl": "hsl(33.3,5.5%,32.4%)",
+      "rgbChannel": "87 83 78",
+      "hslChannel": "33.3 5.5% 32.4%"
+    },
+    {
+      "scale": 700,
+      "hex": "#44403c",
+      "rgb": "rgb(68,64,60)",
+      "hsl": "hsl(30,6.3%,25.1%)",
+      "rgbChannel": "68 64 60",
+      "hslChannel": "30 6.3% 25.1%"
+    },
+    {
+      "scale": 800,
+      "hex": "#292524",
+      "rgb": "rgb(41,37,36)",
+      "hsl": "hsl(12,6.5%,15.1%)",
+      "rgbChannel": "41 37 36",
+      "hslChannel": "12 6.5% 15.1%"
+    },
+    {
+      "scale": 900,
+      "hex": "#1c1917",
+      "rgb": "rgb(28,25,23)",
+      "hsl": "hsl(24,9.8%,10%)",
+      "rgbChannel": "28 25 23",
+      "hslChannel": "24 9.8% 10%"
+    },
+    {
+      "scale": 950,
+      "hex": "#0c0a09",
+      "rgb": "rgb(12,10,9)",
+      "hsl": "hsl(20,14.3%,4.1%)",
+      "rgbChannel": "12 10 9",
+      "hslChannel": "20 14.3% 4.1%"
+    }
+  ],
+  "red": [
+    {
+      "scale": 50,
+      "hex": "#fef2f2",
+      "rgb": "rgb(254,242,242)",
+      "hsl": "hsl(0,85.7%,97.3%)",
+      "rgbChannel": "254 242 242",
+      "hslChannel": "0 85.7% 97.3%"
+    },
+    {
+      "scale": 100,
+      "hex": "#fee2e2",
+      "rgb": "rgb(254,226,226)",
+      "hsl": "hsl(0,93.3%,94.1%)",
+      "rgbChannel": "254 226 226",
+      "hslChannel": "0 93.3% 94.1%"
+    },
+    {
+      "scale": 200,
+      "hex": "#fecaca",
+      "rgb": "rgb(254,202,202)",
+      "hsl": "hsl(0,96.3%,89.4%)",
+      "rgbChannel": "254 202 202",
+      "hslChannel": "0 96.3% 89.4%"
+    },
+    {
+      "scale": 300,
+      "hex": "#fca5a5",
+      "rgb": "rgb(252,165,165)",
+      "hsl": "hsl(0,93.5%,81.8%)",
+      "rgbChannel": "252 165 165",
+      "hslChannel": "0 93.5% 81.8%"
+    },
+    {
+      "scale": 400,
+      "hex": "#f87171",
+      "rgb": "rgb(248,113,113)",
+      "hsl": "hsl(0,90.6%,70.8%)",
+      "rgbChannel": "248 113 113",
+      "hslChannel": "0 90.6% 70.8%"
+    },
+    {
+      "scale": 500,
+      "hex": "#ef4444",
+      "rgb": "rgb(239,68,68)",
+      "hsl": "hsl(0,84.2%,60.2%)",
+      "rgbChannel": "239 68 68",
+      "hslChannel": "0 84.2% 60.2%"
+    },
+    {
+      "scale": 600,
+      "hex": "#dc2626",
+      "rgb": "rgb(220,38,38)",
+      "hsl": "hsl(0,72.2%,50.6%)",
+      "rgbChannel": "220 38 38",
+      "hslChannel": "0 72.2% 50.6%"
+    },
+    {
+      "scale": 700,
+      "hex": "#b91c1c",
+      "rgb": "rgb(185,28,28)",
+      "hsl": "hsl(0,73.7%,41.8%)",
+      "rgbChannel": "185 28 28",
+      "hslChannel": "0 73.7% 41.8%"
+    },
+    {
+      "scale": 800,
+      "hex": "#991b1b",
+      "rgb": "rgb(153,27,27)",
+      "hsl": "hsl(0,70%,35.3%)",
+      "rgbChannel": "153 27 27",
+      "hslChannel": "0 70% 35.3%"
+    },
+    {
+      "scale": 900,
+      "hex": "#7f1d1d",
+      "rgb": "rgb(127,29,29)",
+      "hsl": "hsl(0,62.8%,30.6%)",
+      "rgbChannel": "127 29 29",
+      "hslChannel": "0 62.8% 30.6%"
+    },
+    {
+      "scale": 950,
+      "hex": "#450a0a",
+      "rgb": "rgb(69,10,10)",
+      "hsl": "hsl(0,74.7%,15.5%)",
+      "rgbChannel": "69 10 10",
+      "hslChannel": "0 74.7% 15.5%"
+    }
+  ],
+  "orange": [
+    {
+      "scale": 50,
+      "hex": "#fff7ed",
+      "rgb": "rgb(255,247,237)",
+      "hsl": "hsl(33.3,100%,96.5%)",
+      "rgbChannel": "255 247 237",
+      "hslChannel": "33.3 100% 96.5%"
+    },
+    {
+      "scale": 100,
+      "hex": "#ffedd5",
+      "rgb": "rgb(255,237,213)",
+      "hsl": "hsl(34.3,100%,91.8%)",
+      "rgbChannel": "255 237 213",
+      "hslChannel": "34.3 100% 91.8%"
+    },
+    {
+      "scale": 200,
+      "hex": "#fed7aa",
+      "rgb": "rgb(254,215,170)",
+      "hsl": "hsl(32.1,97.7%,83.1%)",
+      "rgbChannel": "254 215 170",
+      "hslChannel": "32.1 97.7% 83.1%"
+    },
+    {
+      "scale": 300,
+      "hex": "#fdba74",
+      "rgb": "rgb(253,186,116)",
+      "hsl": "hsl(30.7,97.2%,72.4%)",
+      "rgbChannel": "253 186 116",
+      "hslChannel": "30.7 97.2% 72.4%"
+    },
+    {
+      "scale": 400,
+      "hex": "#fb923c",
+      "rgb": "rgb(251,146,60)",
+      "hsl": "hsl(27,96%,61%)",
+      "rgbChannel": "251 146 60",
+      "hslChannel": "27 96% 61%"
+    },
+    {
+      "scale": 500,
+      "hex": "#f97316",
+      "rgb": "rgb(249,115,22)",
+      "hsl": "hsl(24.6,95%,53.1%)",
+      "rgbChannel": "249 115 22",
+      "hslChannel": "24.6 95% 53.1%"
+    },
+    {
+      "scale": 600,
+      "hex": "#ea580c",
+      "rgb": "rgb(234,88,12)",
+      "hsl": "hsl(20.5,90.2%,48.2%)",
+      "rgbChannel": "234 88 12",
+      "hslChannel": "20.5 90.2% 48.2%"
+    },
+    {
+      "scale": 700,
+      "hex": "#c2410c",
+      "rgb": "rgb(194,65,12)",
+      "hsl": "hsl(17.5,88.3%,40.4%)",
+      "rgbChannel": "194 65 12",
+      "hslChannel": "17.5 88.3% 40.4%"
+    },
+    {
+      "scale": 800,
+      "hex": "#9a3412",
+      "rgb": "rgb(154,52,18)",
+      "hsl": "hsl(15,79.1%,33.7%)",
+      "rgbChannel": "154 52 18",
+      "hslChannel": "15 79.1% 33.7%"
+    },
+    {
+      "scale": 900,
+      "hex": "#7c2d12",
+      "rgb": "rgb(124,45,18)",
+      "hsl": "hsl(15.3,74.6%,27.8%)",
+      "rgbChannel": "124 45 18",
+      "hslChannel": "15.3 74.6% 27.8%"
+    },
+    {
+      "scale": 950,
+      "hex": "#431407",
+      "rgb": "rgb(67,20,7)",
+      "hsl": "hsl(13,81.1%,14.5%)",
+      "rgbChannel": "67 20 7",
+      "hslChannel": "13 81.1% 14.5%"
+    }
+  ],
+  "amber": [
+    {
+      "scale": 50,
+      "hex": "#fffbeb",
+      "rgb": "rgb(255,251,235)",
+      "hsl": "hsl(48,100%,96.1%)",
+      "rgbChannel": "255 251 235",
+      "hslChannel": "48 100% 96.1%"
+    },
+    {
+      "scale": 100,
+      "hex": "#fef3c7",
+      "rgb": "rgb(254,243,199)",
+      "hsl": "hsl(48,96.5%,88.8%)",
+      "rgbChannel": "254 243 199",
+      "hslChannel": "48 96.5% 88.8%"
+    },
+    {
+      "scale": 200,
+      "hex": "#fde68a",
+      "rgb": "rgb(253,230,138)",
+      "hsl": "hsl(48,96.6%,76.7%)",
+      "rgbChannel": "253 230 138",
+      "hslChannel": "48 96.6% 76.7%"
+    },
+    {
+      "scale": 300,
+      "hex": "#fcd34d",
+      "rgb": "rgb(252,211,77)",
+      "hsl": "hsl(45.9,96.7%,64.5%)",
+      "rgbChannel": "252 211 77",
+      "hslChannel": "45.9 96.7% 64.5%"
+    },
+    {
+      "scale": 400,
+      "hex": "#fbbf24",
+      "rgb": "rgb(251,191,36)",
+      "hsl": "hsl(43.3,96.4%,56.3%)",
+      "rgbChannel": "251 191 36",
+      "hslChannel": "43.3 96.4% 56.3%"
+    },
+    {
+      "scale": 500,
+      "hex": "#f59e0b",
+      "rgb": "rgb(245,158,11)",
+      "hsl": "hsl(37.7,92.1%,50.2%)",
+      "rgbChannel": "245 158 11",
+      "hslChannel": "37.7 92.1% 50.2%"
+    },
+    {
+      "scale": 600,
+      "hex": "#d97706",
+      "rgb": "rgb(217,119,6)",
+      "hsl": "hsl(32.1,94.6%,43.7%)",
+      "rgbChannel": "217 119 6",
+      "hslChannel": "32.1 94.6% 43.7%"
+    },
+    {
+      "scale": 700,
+      "hex": "#b45309",
+      "rgb": "rgb(180,83,9)",
+      "hsl": "hsl(26,90.5%,37.1%)",
+      "rgbChannel": "180 83 9",
+      "hslChannel": "26 90.5% 37.1%"
+    },
+    {
+      "scale": 800,
+      "hex": "#92400e",
+      "rgb": "rgb(146,64,14)",
+      "hsl": "hsl(22.7,82.5%,31.4%)",
+      "rgbChannel": "146 64 14",
+      "hslChannel": "22.7 82.5% 31.4%"
+    },
+    {
+      "scale": 900,
+      "hex": "#78350f",
+      "rgb": "rgb(120,53,15)",
+      "hsl": "hsl(21.7,77.8%,26.5%)",
+      "rgbChannel": "120 53 15",
+      "hslChannel": "21.7 77.8% 26.5%"
+    },
+    {
+      "scale": 950,
+      "hex": "#451a03",
+      "rgb": "rgb(69,26,3)",
+      "hsl": "hsl(20.9,91.7%,14.1%)",
+      "rgbChannel": "69 26 3",
+      "hslChannel": "20.9 91.7% 14.1%"
+    }
+  ],
+  "yellow": [
+    {
+      "scale": 50,
+      "hex": "#fefce8",
+      "rgb": "rgb(254,252,232)",
+      "hsl": "hsl(54.5,91.7%,95.3%)",
+      "rgbChannel": "254 252 232",
+      "hslChannel": "54.5 91.7% 95.3%"
+    },
+    {
+      "scale": 100,
+      "hex": "#fef9c3",
+      "rgb": "rgb(254,249,195)",
+      "hsl": "hsl(54.9,96.7%,88%)",
+      "rgbChannel": "254 249 195",
+      "hslChannel": "54.9 96.7% 88%"
+    },
+    {
+      "scale": 200,
+      "hex": "#fef08a",
+      "rgb": "rgb(254,240,138)",
+      "hsl": "hsl(52.8,98.3%,76.9%)",
+      "rgbChannel": "254 240 138",
+      "hslChannel": "52.8 98.3% 76.9%"
+    },
+    {
+      "scale": 300,
+      "hex": "#fde047",
+      "rgb": "rgb(253,224,71)",
+      "hsl": "hsl(50.4,97.8%,63.5%)",
+      "rgbChannel": "253 224 71",
+      "hslChannel": "50.4 97.8% 63.5%"
+    },
+    {
+      "scale": 400,
+      "hex": "#facc15",
+      "rgb": "rgb(250,204,21)",
+      "hsl": "hsl(47.9,95.8%,53.1%)",
+      "rgbChannel": "250 204 21",
+      "hslChannel": "47.9 95.8% 53.1%"
+    },
+    {
+      "scale": 500,
+      "hex": "#eab308",
+      "rgb": "rgb(234,179,8)",
+      "hsl": "hsl(45.4,93.4%,47.5%)",
+      "rgbChannel": "234 179 8",
+      "hslChannel": "45.4 93.4% 47.5%"
+    },
+    {
+      "scale": 600,
+      "hex": "#ca8a04",
+      "rgb": "rgb(202,138,4)",
+      "hsl": "hsl(40.6,96.1%,40.4%)",
+      "rgbChannel": "202 138 4",
+      "hslChannel": "40.6 96.1% 40.4%"
+    },
+    {
+      "scale": 700,
+      "hex": "#a16207",
+      "rgb": "rgb(161,98,7)",
+      "hsl": "hsl(35.5,91.7%,32.9%)",
+      "rgbChannel": "161 98 7",
+      "hslChannel": "35.5 91.7% 32.9%"
+    },
+    {
+      "scale": 800,
+      "hex": "#854d0e",
+      "rgb": "rgb(133,77,14)",
+      "hsl": "hsl(31.8,81%,28.8%)",
+      "rgbChannel": "133 77 14",
+      "hslChannel": "31.8 81% 28.8%"
+    },
+    {
+      "scale": 900,
+      "hex": "#713f12",
+      "rgb": "rgb(113,63,18)",
+      "hsl": "hsl(28.4,72.5%,25.7%)",
+      "rgbChannel": "113 63 18",
+      "hslChannel": "28.4 72.5% 25.7%"
+    },
+    {
+      "scale": 950,
+      "hex": "#422006",
+      "rgb": "rgb(66,32,6)",
+      "hsl": "hsl(26,83.3%,14.1%)",
+      "rgbChannel": "66 32 6",
+      "hslChannel": "26 83.3% 14.1%"
+    }
+  ],
+  "lime": [
+    {
+      "scale": 50,
+      "hex": "#f7fee7",
+      "rgb": "rgb(247,254,231)",
+      "hsl": "hsl(78.3,92%,95.1%)",
+      "rgbChannel": "247 254 231",
+      "hslChannel": "78.3 92% 95.1%"
+    },
+    {
+      "scale": 100,
+      "hex": "#ecfccb",
+      "rgb": "rgb(236,252,203)",
+      "hsl": "hsl(79.6,89.1%,89.2%)",
+      "rgbChannel": "236 252 203",
+      "hslChannel": "79.6 89.1% 89.2%"
+    },
+    {
+      "scale": 200,
+      "hex": "#d9f99d",
+      "rgb": "rgb(217,249,157)",
+      "hsl": "hsl(80.9,88.5%,79.6%)",
+      "rgbChannel": "217 249 157",
+      "hslChannel": "80.9 88.5% 79.6%"
+    },
+    {
+      "scale": 300,
+      "hex": "#bef264",
+      "rgb": "rgb(190,242,100)",
+      "hsl": "hsl(82,84.5%,67.1%)",
+      "rgbChannel": "190 242 100",
+      "hslChannel": "82 84.5% 67.1%"
+    },
+    {
+      "scale": 400,
+      "hex": "#a3e635",
+      "rgb": "rgb(163,230,53)",
+      "hsl": "hsl(82.7,78%,55.5%)",
+      "rgbChannel": "163 230 53",
+      "hslChannel": "82.7 78% 55.5%"
+    },
+    {
+      "scale": 500,
+      "hex": "#84cc16",
+      "rgb": "rgb(132,204,22)",
+      "hsl": "hsl(83.7,80.5%,44.3%)",
+      "rgbChannel": "132 204 22",
+      "hslChannel": "83.7 80.5% 44.3%"
+    },
+    {
+      "scale": 600,
+      "hex": "#65a30d",
+      "rgb": "rgb(101,163,13)",
+      "hsl": "hsl(84.8,85.2%,34.5%)",
+      "rgbChannel": "101 163 13",
+      "hslChannel": "84.8 85.2% 34.5%"
+    },
+    {
+      "scale": 700,
+      "hex": "#4d7c0f",
+      "rgb": "rgb(77,124,15)",
+      "hsl": "hsl(85.9,78.4%,27.3%)",
+      "rgbChannel": "77 124 15",
+      "hslChannel": "85.9 78.4% 27.3%"
+    },
+    {
+      "scale": 800,
+      "hex": "#3f6212",
+      "rgb": "rgb(63,98,18)",
+      "hsl": "hsl(86.3,69%,22.7%)",
+      "rgbChannel": "63 98 18",
+      "hslChannel": "86.3 69% 22.7%"
+    },
+    {
+      "scale": 900,
+      "hex": "#365314",
+      "rgb": "rgb(54,83,20)",
+      "hsl": "hsl(87.6,61.2%,20.2%)",
+      "rgbChannel": "54 83 20",
+      "hslChannel": "87.6 61.2% 20.2%"
+    },
+    {
+      "scale": 950,
+      "hex": "#1a2e05",
+      "rgb": "rgb(26,46,5)",
+      "hsl": "hsl(89.3,80.4%,10%)",
+      "rgbChannel": "26 46 5",
+      "hslChannel": "89.3 80.4% 10%"
+    }
+  ],
+  "green": [
+    {
+      "scale": 50,
+      "hex": "#f0fdf4",
+      "rgb": "rgb(240,253,244)",
+      "hsl": "hsl(138.5,76.5%,96.7%)",
+      "rgbChannel": "240 253 244",
+      "hslChannel": "138.5 76.5% 96.7%"
+    },
+    {
+      "scale": 100,
+      "hex": "#dcfce7",
+      "rgb": "rgb(220,252,231)",
+      "hsl": "hsl(140.6,84.2%,92.5%)",
+      "rgbChannel": "220 252 231",
+      "hslChannel": "140.6 84.2% 92.5%"
+    },
+    {
+      "scale": 200,
+      "hex": "#bbf7d0",
+      "rgb": "rgb(187,247,208)",
+      "hsl": "hsl(141,78.9%,85.1%)",
+      "rgbChannel": "187 247 208",
+      "hslChannel": "141 78.9% 85.1%"
+    },
+    {
+      "scale": 300,
+      "hex": "#86efac",
+      "rgb": "rgb(134,239,172)",
+      "hsl": "hsl(141.7,76.6%,73.1%)",
+      "rgbChannel": "134 239 172",
+      "hslChannel": "141.7 76.6% 73.1%"
+    },
+    {
+      "scale": 400,
+      "hex": "#4ade80",
+      "rgb": "rgb(74,222,128)",
+      "hsl": "hsl(141.9,69.2%,58%)",
+      "rgbChannel": "74 222 128",
+      "hslChannel": "141.9 69.2% 58%"
+    },
+    {
+      "scale": 500,
+      "hex": "#22c55e",
+      "rgb": "rgb(34,197,94)",
+      "hsl": "hsl(142.1,70.6%,45.3%)",
+      "rgbChannel": "34 197 94",
+      "hslChannel": "142.1 70.6% 45.3%"
+    },
+    {
+      "scale": 600,
+      "hex": "#16a34a",
+      "rgb": "rgb(22,163,74)",
+      "hsl": "hsl(142.1,76.2%,36.3%)",
+      "rgbChannel": "22 163 74",
+      "hslChannel": "142.1 76.2% 36.3%"
+    },
+    {
+      "scale": 700,
+      "hex": "#15803d",
+      "rgb": "rgb(21,128,61)",
+      "hsl": "hsl(142.4,71.8%,29.2%)",
+      "rgbChannel": "21 128 61",
+      "hslChannel": "142.4 71.8% 29.2%"
+    },
+    {
+      "scale": 800,
+      "hex": "#166534",
+      "rgb": "rgb(22,101,52)",
+      "hsl": "hsl(142.8,64.2%,24.1%)",
+      "rgbChannel": "22 101 52",
+      "hslChannel": "142.8 64.2% 24.1%"
+    },
+    {
+      "scale": 900,
+      "hex": "#14532d",
+      "rgb": "rgb(20,83,45)",
+      "hsl": "hsl(143.8,61.2%,20.2%)",
+      "rgbChannel": "20 83 45",
+      "hslChannel": "143.8 61.2% 20.2%"
+    },
+    {
+      "scale": 950,
+      "hex": "#052e16",
+      "rgb": "rgb(5,46,22)",
+      "hsl": "hsl(144.9,80.4%,10%)",
+      "rgbChannel": "5 46 22",
+      "hslChannel": "144.9 80.4% 10%"
+    }
+  ],
+  "emerald": [
+    {
+      "scale": 50,
+      "hex": "#ecfdf5",
+      "rgb": "rgb(236,253,245)",
+      "hsl": "hsl(151.8,81%,95.9%)",
+      "rgbChannel": "236 253 245",
+      "hslChannel": "151.8 81% 95.9%"
+    },
+    {
+      "scale": 100,
+      "hex": "#d1fae5",
+      "rgb": "rgb(209,250,229)",
+      "hsl": "hsl(149.3,80.4%,90%)",
+      "rgbChannel": "209 250 229",
+      "hslChannel": "149.3 80.4% 90%"
+    },
+    {
+      "scale": 200,
+      "hex": "#a7f3d0",
+      "rgb": "rgb(167,243,208)",
+      "hsl": "hsl(152.4,76%,80.4%)",
+      "rgbChannel": "167 243 208",
+      "hslChannel": "152.4 76% 80.4%"
+    },
+    {
+      "scale": 300,
+      "hex": "#6ee7b7",
+      "rgb": "rgb(110,231,183)",
+      "hsl": "hsl(156.2,71.6%,66.9%)",
+      "rgbChannel": "110 231 183",
+      "hslChannel": "156.2 71.6% 66.9%"
+    },
+    {
+      "scale": 400,
+      "hex": "#34d399",
+      "rgb": "rgb(52,211,153)",
+      "hsl": "hsl(158.1,64.4%,51.6%)",
+      "rgbChannel": "52 211 153",
+      "hslChannel": "158.1 64.4% 51.6%"
+    },
+    {
+      "scale": 500,
+      "hex": "#10b981",
+      "rgb": "rgb(16,185,129)",
+      "hsl": "hsl(160.1,84.1%,39.4%)",
+      "rgbChannel": "16 185 129",
+      "hslChannel": "160.1 84.1% 39.4%"
+    },
+    {
+      "scale": 600,
+      "hex": "#059669",
+      "rgb": "rgb(5,150,105)",
+      "hsl": "hsl(161.4,93.5%,30.4%)",
+      "rgbChannel": "5 150 105",
+      "hslChannel": "161.4 93.5% 30.4%"
+    },
+    {
+      "scale": 700,
+      "hex": "#047857",
+      "rgb": "rgb(4,120,87)",
+      "hsl": "hsl(162.9,93.5%,24.3%)",
+      "rgbChannel": "4 120 87",
+      "hslChannel": "162.9 93.5% 24.3%"
+    },
+    {
+      "scale": 800,
+      "hex": "#065f46",
+      "rgb": "rgb(6,95,70)",
+      "hsl": "hsl(163.1,88.1%,19.8%)",
+      "rgbChannel": "6 95 70",
+      "hslChannel": "163.1 88.1% 19.8%"
+    },
+    {
+      "scale": 900,
+      "hex": "#064e3b",
+      "rgb": "rgb(6,78,59)",
+      "hsl": "hsl(164.2,85.7%,16.5%)",
+      "rgbChannel": "6 78 59",
+      "hslChannel": "164.2 85.7% 16.5%"
+    },
+    {
+      "scale": 950,
+      "hex": "#022c22",
+      "rgb": "rgb(2,44,34)",
+      "hsl": "hsl(165.7,91.3%,9%)",
+      "rgbChannel": "2 44 34",
+      "hslChannel": "165.7 91.3% 9%"
+    }
+  ],
+  "teal": [
+    {
+      "scale": 50,
+      "hex": "#f0fdfa",
+      "rgb": "rgb(240,253,250)",
+      "hsl": "hsl(166.2,76.5%,96.7%)",
+      "rgbChannel": "240 253 250",
+      "hslChannel": "166.2 76.5% 96.7%"
+    },
+    {
+      "scale": 100,
+      "hex": "#ccfbf1",
+      "rgb": "rgb(204,251,241)",
+      "hsl": "hsl(167.2,85.5%,89.2%)",
+      "rgbChannel": "204 251 241",
+      "hslChannel": "167.2 85.5% 89.2%"
+    },
+    {
+      "scale": 200,
+      "hex": "#99f6e4",
+      "rgb": "rgb(153,246,228)",
+      "hsl": "hsl(168.4,83.8%,78.2%)",
+      "rgbChannel": "153 246 228",
+      "hslChannel": "168.4 83.8% 78.2%"
+    },
+    {
+      "scale": 300,
+      "hex": "#5eead4",
+      "rgb": "rgb(94,234,212)",
+      "hsl": "hsl(170.6,76.9%,64.3%)",
+      "rgbChannel": "94 234 212",
+      "hslChannel": "170.6 76.9% 64.3%"
+    },
+    {
+      "scale": 400,
+      "hex": "#2dd4bf",
+      "rgb": "rgb(45,212,191)",
+      "hsl": "hsl(172.5,66%,50.4%)",
+      "rgbChannel": "45 212 191",
+      "hslChannel": "172.5 66% 50.4%"
+    },
+    {
+      "scale": 500,
+      "hex": "#14b8a6",
+      "rgb": "rgb(20,184,166)",
+      "hsl": "hsl(173.4,80.4%,40%)",
+      "rgbChannel": "20 184 166",
+      "hslChannel": "173.4 80.4% 40%"
+    },
+    {
+      "scale": 600,
+      "hex": "#0d9488",
+      "rgb": "rgb(13,148,136)",
+      "hsl": "hsl(174.7,83.9%,31.6%)",
+      "rgbChannel": "13 148 136",
+      "hslChannel": "174.7 83.9% 31.6%"
+    },
+    {
+      "scale": 700,
+      "hex": "#0f766e",
+      "rgb": "rgb(15,118,110)",
+      "hsl": "hsl(175.3,77.4%,26.1%)",
+      "rgbChannel": "15 118 110",
+      "hslChannel": "175.3 77.4% 26.1%"
+    },
+    {
+      "scale": 800,
+      "hex": "#115e59",
+      "rgb": "rgb(17,94,89)",
+      "hsl": "hsl(176.1,69.4%,21.8%)",
+      "rgbChannel": "17 94 89",
+      "hslChannel": "176.1 69.4% 21.8%"
+    },
+    {
+      "scale": 900,
+      "hex": "#134e4a",
+      "rgb": "rgb(19,78,74)",
+      "hsl": "hsl(175.9,60.8%,19%)",
+      "rgbChannel": "19 78 74",
+      "hslChannel": "175.9 60.8% 19%"
+    },
+    {
+      "scale": 950,
+      "hex": "#042f2e",
+      "rgb": "rgb(4,47,46)",
+      "hsl": "hsl(178.6,84.3%,10%)",
+      "rgbChannel": "4 47 46",
+      "hslChannel": "178.6 84.3% 10%"
+    }
+  ],
+  "cyan": [
+    {
+      "scale": 50,
+      "hex": "#ecfeff",
+      "rgb": "rgb(236,254,255)",
+      "hsl": "hsl(183.2,100%,96.3%)",
+      "rgbChannel": "236 254 255",
+      "hslChannel": "183.2 100% 96.3%"
+    },
+    {
+      "scale": 100,
+      "hex": "#cffafe",
+      "rgb": "rgb(207,250,254)",
+      "hsl": "hsl(185.1,95.9%,90.4%)",
+      "rgbChannel": "207 250 254",
+      "hslChannel": "185.1 95.9% 90.4%"
+    },
+    {
+      "scale": 200,
+      "hex": "#a5f3fc",
+      "rgb": "rgb(165,243,252)",
+      "hsl": "hsl(186.2,93.5%,81.8%)",
+      "rgbChannel": "165 243 252",
+      "hslChannel": "186.2 93.5% 81.8%"
+    },
+    {
+      "scale": 300,
+      "hex": "#67e8f9",
+      "rgb": "rgb(103,232,249)",
+      "hsl": "hsl(187,92.4%,69%)",
+      "rgbChannel": "103 232 249",
+      "hslChannel": "187 92.4% 69%"
+    },
+    {
+      "scale": 400,
+      "hex": "#22d3ee",
+      "rgb": "rgb(34,211,238)",
+      "hsl": "hsl(187.9,85.7%,53.3%)",
+      "rgbChannel": "34 211 238",
+      "hslChannel": "187.9 85.7% 53.3%"
+    },
+    {
+      "scale": 500,
+      "hex": "#06b6d4",
+      "rgb": "rgb(6,182,212)",
+      "hsl": "hsl(188.7,94.5%,42.7%)",
+      "rgbChannel": "6 182 212",
+      "hslChannel": "188.7 94.5% 42.7%"
+    },
+    {
+      "scale": 600,
+      "hex": "#0891b2",
+      "rgb": "rgb(8,145,178)",
+      "hsl": "hsl(191.6,91.4%,36.5%)",
+      "rgbChannel": "8 145 178",
+      "hslChannel": "191.6 91.4% 36.5%"
+    },
+    {
+      "scale": 700,
+      "hex": "#0e7490",
+      "rgb": "rgb(14,116,144)",
+      "hsl": "hsl(192.9,82.3%,31%)",
+      "rgbChannel": "14 116 144",
+      "hslChannel": "192.9 82.3% 31%"
+    },
+    {
+      "scale": 800,
+      "hex": "#155e75",
+      "rgb": "rgb(21,94,117)",
+      "hsl": "hsl(194.4,69.6%,27.1%)",
+      "rgbChannel": "21 94 117",
+      "hslChannel": "194.4 69.6% 27.1%"
+    },
+    {
+      "scale": 900,
+      "hex": "#164e63",
+      "rgb": "rgb(22,78,99)",
+      "hsl": "hsl(196.4,63.6%,23.7%)",
+      "rgbChannel": "22 78 99",
+      "hslChannel": "196.4 63.6% 23.7%"
+    },
+    {
+      "scale": 950,
+      "hex": "#083344",
+      "rgb": "rgb(8,51,68)",
+      "hsl": "hsl(197,78.9%,14.9%)",
+      "rgbChannel": "8 51 68",
+      "hslChannel": "197 78.9% 14.9%"
+    }
+  ],
+  "sky": [
+    {
+      "scale": 50,
+      "hex": "#f0f9ff",
+      "rgb": "rgb(240,249,255)",
+      "hsl": "hsl(204,100%,97.1%)",
+      "rgbChannel": "240 249 255",
+      "hslChannel": "204 100% 97.1%"
+    },
+    {
+      "scale": 100,
+      "hex": "#e0f2fe",
+      "rgb": "rgb(224,242,254)",
+      "hsl": "hsl(204,93.8%,93.7%)",
+      "rgbChannel": "224 242 254",
+      "hslChannel": "204 93.8% 93.7%"
+    },
+    {
+      "scale": 200,
+      "hex": "#bae6fd",
+      "rgb": "rgb(186,230,253)",
+      "hsl": "hsl(200.6,94.4%,86.1%)",
+      "rgbChannel": "186 230 253",
+      "hslChannel": "200.6 94.4% 86.1%"
+    },
+    {
+      "scale": 300,
+      "hex": "#7dd3fc",
+      "rgb": "rgb(125,211,252)",
+      "hsl": "hsl(199.4,95.5%,73.9%)",
+      "rgbChannel": "125 211 252",
+      "hslChannel": "199.4 95.5% 73.9%"
+    },
+    {
+      "scale": 400,
+      "hex": "#38bdf8",
+      "rgb": "rgb(56,189,248)",
+      "hsl": "hsl(198.4,93.2%,59.6%)",
+      "rgbChannel": "56 189 248",
+      "hslChannel": "198.4 93.2% 59.6%"
+    },
+    {
+      "scale": 500,
+      "hex": "#0ea5e9",
+      "rgb": "rgb(14,165,233)",
+      "hsl": "hsl(198.6,88.7%,48.4%)",
+      "rgbChannel": "14 165 233",
+      "hslChannel": "198.6 88.7% 48.4%"
+    },
+    {
+      "scale": 600,
+      "hex": "#0284c7",
+      "rgb": "rgb(2,132,199)",
+      "hsl": "hsl(200.4,98%,39.4%)",
+      "rgbChannel": "2 132 199",
+      "hslChannel": "200.4 98% 39.4%"
+    },
+    {
+      "scale": 700,
+      "hex": "#0369a1",
+      "rgb": "rgb(3,105,161)",
+      "hsl": "hsl(201.3,96.3%,32.2%)",
+      "rgbChannel": "3 105 161",
+      "hslChannel": "201.3 96.3% 32.2%"
+    },
+    {
+      "scale": 800,
+      "hex": "#075985",
+      "rgb": "rgb(7,89,133)",
+      "hsl": "hsl(201,90%,27.5%)",
+      "rgbChannel": "7 89 133",
+      "hslChannel": "201 90% 27.5%"
+    },
+    {
+      "scale": 900,
+      "hex": "#0c4a6e",
+      "rgb": "rgb(12,74,110)",
+      "hsl": "hsl(202,80.3%,23.9%)",
+      "rgbChannel": "12 74 110",
+      "hslChannel": "202 80.3% 23.9%"
+    },
+    {
+      "scale": 950,
+      "hex": "#082f49",
+      "rgb": "rgb(8,47,73)",
+      "hsl": "hsl(204,80.2%,15.9%)",
+      "rgbChannel": "8 47 73",
+      "hslChannel": "204 80.2% 15.9%"
+    }
+  ],
+  "blue": [
+    {
+      "scale": 50,
+      "hex": "#eff6ff",
+      "rgb": "rgb(239,246,255)",
+      "hsl": "hsl(213.8,100%,96.9%)",
+      "rgbChannel": "239 246 255",
+      "hslChannel": "213.8 100% 96.9%"
+    },
+    {
+      "scale": 100,
+      "hex": "#dbeafe",
+      "rgb": "rgb(219,234,254)",
+      "hsl": "hsl(214.3,94.6%,92.7%)",
+      "rgbChannel": "219 234 254",
+      "hslChannel": "214.3 94.6% 92.7%"
+    },
+    {
+      "scale": 200,
+      "hex": "#bfdbfe",
+      "rgb": "rgb(191,219,254)",
+      "hsl": "hsl(213.3,96.9%,87.3%)",
+      "rgbChannel": "191 219 254",
+      "hslChannel": "213.3 96.9% 87.3%"
+    },
+    {
+      "scale": 300,
+      "hex": "#93c5fd",
+      "rgb": "rgb(147,197,253)",
+      "hsl": "hsl(211.7,96.4%,78.4%)",
+      "rgbChannel": "147 197 253",
+      "hslChannel": "211.7 96.4% 78.4%"
+    },
+    {
+      "scale": 400,
+      "hex": "#60a5fa",
+      "rgb": "rgb(96,165,250)",
+      "hsl": "hsl(213.1,93.9%,67.8%)",
+      "rgbChannel": "96 165 250",
+      "hslChannel": "213.1 93.9% 67.8%"
+    },
+    {
+      "scale": 500,
+      "hex": "#3b82f6",
+      "rgb": "rgb(59,130,246)",
+      "hsl": "hsl(217.2,91.2%,59.8%)",
+      "rgbChannel": "59 130 246",
+      "hslChannel": "217.2 91.2% 59.8%"
+    },
+    {
+      "scale": 600,
+      "hex": "#2563eb",
+      "rgb": "rgb(37,99,235)",
+      "hsl": "hsl(221.2,83.2%,53.3%)",
+      "rgbChannel": "37 99 235",
+      "hslChannel": "221.2 83.2% 53.3%"
+    },
+    {
+      "scale": 700,
+      "hex": "#1d4ed8",
+      "rgb": "rgb(29,78,216)",
+      "hsl": "hsl(224.3,76.3%,48%)",
+      "rgbChannel": "29 78 216",
+      "hslChannel": "224.3 76.3% 48%"
+    },
+    {
+      "scale": 800,
+      "hex": "#1e40af",
+      "rgb": "rgb(30,64,175)",
+      "hsl": "hsl(225.9,70.7%,40.2%)",
+      "rgbChannel": "30 64 175",
+      "hslChannel": "225.9 70.7% 40.2%"
+    },
+    {
+      "scale": 900,
+      "hex": "#1e3a8a",
+      "rgb": "rgb(30,58,138)",
+      "hsl": "hsl(224.4,64.3%,32.9%)",
+      "rgbChannel": "30 58 138",
+      "hslChannel": "224.4 64.3% 32.9%"
+    },
+    {
+      "scale": 950,
+      "hex": "#172554",
+      "rgb": "rgb(23,37,84)",
+      "hsl": "hsl(226.2,57%,21%)",
+      "rgbChannel": "23 37 84",
+      "hslChannel": "226.2 57% 21%"
+    }
+  ],
+  "indigo": [
+    {
+      "scale": 50,
+      "hex": "#eef2ff",
+      "rgb": "rgb(238,242,255)",
+      "hsl": "hsl(225.9,100%,96.7%)",
+      "rgbChannel": "238 242 255",
+      "hslChannel": "225.9 100% 96.7%"
+    },
+    {
+      "scale": 100,
+      "hex": "#e0e7ff",
+      "rgb": "rgb(224,231,255)",
+      "hsl": "hsl(226.5,100%,93.9%)",
+      "rgbChannel": "224 231 255",
+      "hslChannel": "226.5 100% 93.9%"
+    },
+    {
+      "scale": 200,
+      "hex": "#c7d2fe",
+      "rgb": "rgb(199,210,254)",
+      "hsl": "hsl(228,96.5%,88.8%)",
+      "rgbChannel": "199 210 254",
+      "hslChannel": "228 96.5% 88.8%"
+    },
+    {
+      "scale": 300,
+      "hex": "#a5b4fc",
+      "rgb": "rgb(165,180,252)",
+      "hsl": "hsl(229.7,93.5%,81.8%)",
+      "rgbChannel": "165 180 252",
+      "hslChannel": "229.7 93.5% 81.8%"
+    },
+    {
+      "scale": 400,
+      "hex": "#818cf8",
+      "rgb": "rgb(129,140,248)",
+      "hsl": "hsl(234.5,89.5%,73.9%)",
+      "rgbChannel": "129 140 248",
+      "hslChannel": "234.5 89.5% 73.9%"
+    },
+    {
+      "scale": 500,
+      "hex": "#6366f1",
+      "rgb": "rgb(99,102,241)",
+      "hsl": "hsl(238.7,83.5%,66.7%)",
+      "rgbChannel": "99 102 241",
+      "hslChannel": "238.7 83.5% 66.7%"
+    },
+    {
+      "scale": 600,
+      "hex": "#4f46e5",
+      "rgb": "rgb(79,70,229)",
+      "hsl": "hsl(243.4,75.4%,58.6%)",
+      "rgbChannel": "79 70 229",
+      "hslChannel": "243.4 75.4% 58.6%"
+    },
+    {
+      "scale": 700,
+      "hex": "#4338ca",
+      "rgb": "rgb(67,56,202)",
+      "hsl": "hsl(244.5,57.9%,50.6%)",
+      "rgbChannel": "67 56 202",
+      "hslChannel": "244.5 57.9% 50.6%"
+    },
+    {
+      "scale": 800,
+      "hex": "#3730a3",
+      "rgb": "rgb(55,48,163)",
+      "hsl": "hsl(243.7,54.5%,41.4%)",
+      "rgbChannel": "55 48 163",
+      "hslChannel": "243.7 54.5% 41.4%"
+    },
+    {
+      "scale": 900,
+      "hex": "#312e81",
+      "rgb": "rgb(49,46,129)",
+      "hsl": "hsl(242.2,47.4%,34.3%)",
+      "rgbChannel": "49 46 129",
+      "hslChannel": "242.2 47.4% 34.3%"
+    },
+    {
+      "scale": 950,
+      "hex": "#1e1b4b",
+      "rgb": "rgb(30,27,75)",
+      "hsl": "hsl(243.8,47.1%,20%)",
+      "rgbChannel": "30 27 75",
+      "hslChannel": "243.8 47.1% 20%"
+    }
+  ],
+  "violet": [
+    {
+      "scale": 50,
+      "hex": "#f5f3ff",
+      "rgb": "rgb(245,243,255)",
+      "hsl": "hsl(250,100%,97.6%)",
+      "rgbChannel": "245 243 255",
+      "hslChannel": "250 100% 97.6%"
+    },
+    {
+      "scale": 100,
+      "hex": "#ede9fe",
+      "rgb": "rgb(237,233,254)",
+      "hsl": "hsl(251.4,91.3%,95.5%)",
+      "rgbChannel": "237 233 254",
+      "hslChannel": "251.4 91.3% 95.5%"
+    },
+    {
+      "scale": 200,
+      "hex": "#ddd6fe",
+      "rgb": "rgb(221,214,254)",
+      "hsl": "hsl(250.5,95.2%,91.8%)",
+      "rgbChannel": "221 214 254",
+      "hslChannel": "250.5 95.2% 91.8%"
+    },
+    {
+      "scale": 300,
+      "hex": "#c4b5fd",
+      "rgb": "rgb(196,181,253)",
+      "hsl": "hsl(252.5,94.7%,85.1%)",
+      "rgbChannel": "196 181 253",
+      "hslChannel": "252.5 94.7% 85.1%"
+    },
+    {
+      "scale": 400,
+      "hex": "#a78bfa",
+      "rgb": "rgb(167,139,250)",
+      "hsl": "hsl(255.1,91.7%,76.3%)",
+      "rgbChannel": "167 139 250",
+      "hslChannel": "255.1 91.7% 76.3%"
+    },
+    {
+      "scale": 500,
+      "hex": "#8b5cf6",
+      "rgb": "rgb(139,92,246)",
+      "hsl": "hsl(258.3,89.5%,66.3%)",
+      "rgbChannel": "139 92 246",
+      "hslChannel": "258.3 89.5% 66.3%"
+    },
+    {
+      "scale": 600,
+      "hex": "#7c3aed",
+      "rgb": "rgb(124,58,237)",
+      "hsl": "hsl(262.1,83.3%,57.8%)",
+      "rgbChannel": "124 58 237",
+      "hslChannel": "262.1 83.3% 57.8%"
+    },
+    {
+      "scale": 700,
+      "hex": "#6d28d9",
+      "rgb": "rgb(109,40,217)",
+      "hsl": "hsl(263.4,70%,50.4%)",
+      "rgbChannel": "109 40 217",
+      "hslChannel": "263.4 70% 50.4%"
+    },
+    {
+      "scale": 800,
+      "hex": "#5b21b6",
+      "rgb": "rgb(91,33,182)",
+      "hsl": "hsl(263.4,69.3%,42.2%)",
+      "rgbChannel": "91 33 182",
+      "hslChannel": "263.4 69.3% 42.2%"
+    },
+    {
+      "scale": 900,
+      "hex": "#4c1d95",
+      "rgb": "rgb(76,29,149)",
+      "hsl": "hsl(263.5,67.4%,34.9%)",
+      "rgbChannel": "76 29 149",
+      "hslChannel": "263.5 67.4% 34.9%"
+    },
+    {
+      "scale": 950,
+      "hex": "#1e1b4b",
+      "rgb": "rgb(46,16,101)",
+      "hsl": "hsl(261.2,72.6%,22.9%)",
+      "rgbChannel": "46 16 101",
+      "hslChannel": "261.2 72.6% 22.9%"
+    }
+  ],
+  "purple": [
+    {
+      "scale": 50,
+      "hex": "#faf5ff",
+      "rgb": "rgb(250,245,255)",
+      "hsl": "hsl(270,100%,98%)",
+      "rgbChannel": "250 245 255",
+      "hslChannel": "270 100% 98%"
+    },
+    {
+      "scale": 100,
+      "hex": "#f3e8ff",
+      "rgb": "rgb(243,232,255)",
+      "hsl": "hsl(268.7,100%,95.5%)",
+      "rgbChannel": "243 232 255",
+      "hslChannel": "268.7 100% 95.5%"
+    },
+    {
+      "scale": 200,
+      "hex": "#e9d5ff",
+      "rgb": "rgb(233,213,255)",
+      "hsl": "hsl(268.6,100%,91.8%)",
+      "rgbChannel": "233 213 255",
+      "hslChannel": "268.6 100% 91.8%"
+    },
+    {
+      "scale": 300,
+      "hex": "#d8b4fe",
+      "rgb": "rgb(216,180,254)",
+      "hsl": "hsl(269.2,97.4%,85.1%)",
+      "rgbChannel": "216 180 254",
+      "hslChannel": "269.2 97.4% 85.1%"
+    },
+    {
+      "scale": 400,
+      "hex": "#c084fc",
+      "rgb": "rgb(192,132,252)",
+      "hsl": "hsl(270,95.2%,75.3%)",
+      "rgbChannel": "192 132 252",
+      "hslChannel": "270 95.2% 75.3%"
+    },
+    {
+      "scale": 500,
+      "hex": "#a855f7",
+      "rgb": "rgb(168,85,247)",
+      "hsl": "hsl(270.7,91%,65.1%)",
+      "rgbChannel": "168 85 247",
+      "hslChannel": "270.7 91% 65.1%"
+    },
+    {
+      "scale": 600,
+      "hex": "#9333ea",
+      "rgb": "rgb(147,51,234)",
+      "hsl": "hsl(271.5,81.3%,55.9%)",
+      "rgbChannel": "147 51 234",
+      "hslChannel": "271.5 81.3% 55.9%"
+    },
+    {
+      "scale": 700,
+      "hex": "#7e22ce",
+      "rgb": "rgb(126,34,206)",
+      "hsl": "hsl(272.1,71.7%,47.1%)",
+      "rgbChannel": "126 34 206",
+      "hslChannel": "272.1 71.7% 47.1%"
+    },
+    {
+      "scale": 800,
+      "hex": "#6b21a8",
+      "rgb": "rgb(107,33,168)",
+      "hsl": "hsl(272.9,67.2%,39.4%)",
+      "rgbChannel": "107 33 168",
+      "hslChannel": "272.9 67.2% 39.4%"
+    },
+    {
+      "scale": 900,
+      "hex": "#581c87",
+      "rgb": "rgb(88,28,135)",
+      "hsl": "hsl(273.6,65.6%,32%)",
+      "rgbChannel": "88 28 135",
+      "hslChannel": "273.6 65.6% 32%"
+    },
+    {
+      "scale": 950,
+      "hex": "#3b0764",
+      "rgb": "rgb(59,7,100)",
+      "hsl": "hsl(273.5,86.9%,21%)",
+      "rgbChannel": "59 7 100",
+      "hslChannel": "273.5 86.9% 21%"
+    }
+  ],
+  "fuchsia": [
+    {
+      "scale": 50,
+      "hex": "#fdf4ff",
+      "rgb": "rgb(253,244,255)",
+      "hsl": "hsl(289.1,100%,97.8%)",
+      "rgbChannel": "253 244 255",
+      "hslChannel": "289.1 100% 97.8%"
+    },
+    {
+      "scale": 100,
+      "hex": "#fae8ff",
+      "rgb": "rgb(250,232,255)",
+      "hsl": "hsl(287,100%,95.5%)",
+      "rgbChannel": "250 232 255",
+      "hslChannel": "287 100% 95.5%"
+    },
+    {
+      "scale": 200,
+      "hex": "#f5d0fe",
+      "rgb": "rgb(245,208,254)",
+      "hsl": "hsl(288.3,95.8%,90.6%)",
+      "rgbChannel": "245 208 254",
+      "hslChannel": "288.3 95.8% 90.6%"
+    },
+    {
+      "scale": 300,
+      "hex": "#f0abfc",
+      "rgb": "rgb(240,171,252)",
+      "hsl": "hsl(291.1,93.1%,82.9%)",
+      "rgbChannel": "240 171 252",
+      "hslChannel": "291.1 93.1% 82.9%"
+    },
+    {
+      "scale": 400,
+      "hex": "#e879f9",
+      "rgb": "rgb(232,121,249)",
+      "hsl": "hsl(292,91.4%,72.5%)",
+      "rgbChannel": "232 121 249",
+      "hslChannel": "292 91.4% 72.5%"
+    },
+    {
+      "scale": 500,
+      "hex": "#d946ef",
+      "rgb": "rgb(217,70,239)",
+      "hsl": "hsl(292.2,84.1%,60.6%)",
+      "rgbChannel": "217 70 239",
+      "hslChannel": "292.2 84.1% 60.6%"
+    },
+    {
+      "scale": 600,
+      "hex": "#c026d3",
+      "rgb": "rgb(192,38,211)",
+      "hsl": "hsl(293.4,69.5%,48.8%)",
+      "rgbChannel": "192 38 211",
+      "hslChannel": "293.4 69.5% 48.8%"
+    },
+    {
+      "scale": 700,
+      "hex": "#a21caf",
+      "rgb": "rgb(162,28,175)",
+      "hsl": "hsl(294.7,72.4%,39.8%)",
+      "rgbChannel": "162 28 175",
+      "hslChannel": "294.7 72.4% 39.8%"
+    },
+    {
+      "scale": 800,
+      "hex": "#86198f",
+      "rgb": "rgb(134,25,143)",
+      "hsl": "hsl(295.4,70.2%,32.9%)",
+      "rgbChannel": "134 25 143",
+      "hslChannel": "295.4 70.2% 32.9%"
+    },
+    {
+      "scale": 900,
+      "hex": "#701a75",
+      "rgb": "rgb(112,26,117)",
+      "hsl": "hsl(296.7,63.6%,28%)",
+      "rgbChannel": "112 26 117",
+      "hslChannel": "296.7 63.6% 28%"
+    },
+    {
+      "scale": 950,
+      "hex": "#4a044e",
+      "rgb": "rgb(74,4,78)",
+      "hsl": "hsl(296.8,90.2%,16.1%)",
+      "rgbChannel": "74 4 78",
+      "hslChannel": "296.8 90.2% 16.1%"
+    }
+  ],
+  "pink": [
+    {
+      "scale": 50,
+      "hex": "#fdf2f8",
+      "rgb": "rgb(253,242,248)",
+      "hsl": "hsl(327.3,73.3%,97.1%)",
+      "rgbChannel": "253 242 248",
+      "hslChannel": "327.3 73.3% 97.1%"
+    },
+    {
+      "scale": 100,
+      "hex": "#fce7f3",
+      "rgb": "rgb(252,231,243)",
+      "hsl": "hsl(325.7,77.8%,94.7%)",
+      "rgbChannel": "252 231 243",
+      "hslChannel": "325.7 77.8% 94.7%"
+    },
+    {
+      "scale": 200,
+      "hex": "#fbcfe8",
+      "rgb": "rgb(251,207,232)",
+      "hsl": "hsl(325.9,84.6%,89.8%)",
+      "rgbChannel": "251 207 232",
+      "hslChannel": "325.9 84.6% 89.8%"
+    },
+    {
+      "scale": 300,
+      "hex": "#f9a8d4",
+      "rgb": "rgb(249,168,212)",
+      "hsl": "hsl(327.4,87.1%,81.8%)",
+      "rgbChannel": "249 168 212",
+      "hslChannel": "327.4 87.1% 81.8%"
+    },
+    {
+      "scale": 400,
+      "hex": "#f472b6",
+      "rgb": "rgb(244,114,182)",
+      "hsl": "hsl(328.6,85.5%,70.2%)",
+      "rgbChannel": "244 114 182",
+      "hslChannel": "328.6 85.5% 70.2%"
+    },
+    {
+      "scale": 500,
+      "hex": "#ec4899",
+      "rgb": "rgb(236,72,153)",
+      "hsl": "hsl(330.4,81.2%,60.4%)",
+      "rgbChannel": "236 72 153",
+      "hslChannel": "330.4 81.2% 60.4%"
+    },
+    {
+      "scale": 600,
+      "hex": "#db2777",
+      "rgb": "rgb(219,39,119)",
+      "hsl": "hsl(333.3,71.4%,50.6%)",
+      "rgbChannel": "219 39 119",
+      "hslChannel": "333.3 71.4% 50.6%"
+    },
+    {
+      "scale": 700,
+      "hex": "#be185d",
+      "rgb": "rgb(190,24,93)",
+      "hsl": "hsl(335.1,77.6%,42%)",
+      "rgbChannel": "190 24 93",
+      "hslChannel": "335.1 77.6% 42%"
+    },
+    {
+      "scale": 800,
+      "hex": "#9d174d",
+      "rgb": "rgb(157,23,77)",
+      "hsl": "hsl(335.8,74.4%,35.3%)",
+      "rgbChannel": "157 23 77",
+      "hslChannel": "335.8 74.4% 35.3%"
+    },
+    {
+      "scale": 900,
+      "hex": "#831843",
+      "rgb": "rgb(131,24,67)",
+      "hsl": "hsl(335.9,69%,30.4%)",
+      "rgbChannel": "131 24 67",
+      "hslChannel": "335.9 69% 30.4%"
+    },
+    {
+      "scale": 950,
+      "hex": "#500724",
+      "rgb": "rgb(80,7,36)",
+      "hsl": "hsl(336.2,83.9%,17.1%)",
+      "rgbChannel": "80 7 36",
+      "hslChannel": "336.2 83.9% 17.1%"
+    }
+  ],
+  "rose": [
+    {
+      "scale": 50,
+      "hex": "#fff1f2",
+      "rgb": "rgb(255,241,242)",
+      "hsl": "hsl(355.7,100%,97.3%)",
+      "rgbChannel": "255 241 242",
+      "hslChannel": "355.7 100% 97.3%"
+    },
+    {
+      "scale": 100,
+      "hex": "#ffe4e6",
+      "rgb": "rgb(255,228,230)",
+      "hsl": "hsl(355.6,100%,94.7%)",
+      "rgbChannel": "255 228 230",
+      "hslChannel": "355.6 100% 94.7%"
+    },
+    {
+      "scale": 200,
+      "hex": "#fecdd3",
+      "rgb": "rgb(254,205,211)",
+      "hsl": "hsl(352.7,96.1%,90%)",
+      "rgbChannel": "254 205 211",
+      "hslChannel": "352.7 96.1% 90%"
+    },
+    {
+      "scale": 300,
+      "hex": "#fda4af",
+      "rgb": "rgb(253,164,175)",
+      "hsl": "hsl(352.6,95.7%,81.8%)",
+      "rgbChannel": "253 164 175",
+      "hslChannel": "352.6 95.7% 81.8%"
+    },
+    {
+      "scale": 400,
+      "hex": "#fb7185",
+      "rgb": "rgb(251,113,133)",
+      "hsl": "hsl(351.3,94.5%,71.4%)",
+      "rgbChannel": "251 113 133",
+      "hslChannel": "351.3 94.5% 71.4%"
+    },
+    {
+      "scale": 500,
+      "hex": "#f43f5e",
+      "rgb": "rgb(244,63,94)",
+      "hsl": "hsl(349.7,89.2%,60.2%)",
+      "rgbChannel": "244 63 94",
+      "hslChannel": "349.7 89.2% 60.2%"
+    },
+    {
+      "scale": 600,
+      "hex": "#e11d48",
+      "rgb": "rgb(225,29,72)",
+      "hsl": "hsl(346.8,77.2%,49.8%)",
+      "rgbChannel": "225 29 72",
+      "hslChannel": "346.8 77.2% 49.8%"
+    },
+    {
+      "scale": 700,
+      "hex": "#be123c",
+      "rgb": "rgb(190,18,60)",
+      "hsl": "hsl(345.3,82.7%,40.8%)",
+      "rgbChannel": "190 18 60",
+      "hslChannel": "345.3 82.7% 40.8%"
+    },
+    {
+      "scale": 800,
+      "hex": "#9f1239",
+      "rgb": "rgb(159,18,57)",
+      "hsl": "hsl(343.4,79.7%,34.7%)",
+      "rgbChannel": "159 18 57",
+      "hslChannel": "343.4 79.7% 34.7%"
+    },
+    {
+      "scale": 900,
+      "hex": "#881337",
+      "rgb": "rgb(136,19,55)",
+      "hsl": "hsl(341.5,75.5%,30.4%)",
+      "rgbChannel": "136 19 55",
+      "hslChannel": "341.5 75.5% 30.4%"
+    },
+    {
+      "scale": 950,
+      "hex": "#4c0519",
+      "rgb": "rgb(76,5,25)",
+      "hsl": "hsl(343.1,87.7%,15.9%)",
+      "rgbChannel": "76 5 25",
+      "hslChannel": "343.1 87.7% 15.9%"
+    }
+  ]
+}

@@ -11,7 +11,7 @@ export function DynamicLink({
   href,
   children,
   ...props
-}: React.ComponentPropsWithoutRef<typeof Link>) {
+}: DynamicLinkProps) {
   const isExternal = getIsExternalLink(href.toString());
 
   return (
