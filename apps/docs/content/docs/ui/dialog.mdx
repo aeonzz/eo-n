@@ -77,9 +77,12 @@ import {
 
 ### Dialog On Menu
 
-In order to open a dialog using a menu, control the dialog state and open it imperatively using the ```onClick``` handler on the menu item.
+In order to open a dialog using a menu, control the dialog state and open it imperatively using the `onClick` handler on the menu item.
 
-Make sure to also use the dialog’s ```finalFocus``` prop to return focus back to the menu trigger.
+<Callout title="Return Focus Properly" type="warn">
+  Make sure to also use the dialog’s ```finalFocus``` prop to return focus back
+  to the menu trigger.
+</Callout>
 
 ```jsx
 import * as React from "react";
