@@ -1,19 +1,15 @@
-module.exports = {
-
-"[externals]/shiki [external] (shiki, esm_import, async loader)": ((__turbopack_context__) => {
-
-var { g: global, d: __dirname } = __turbopack_context__;
 {
-__turbopack_context__.v((parentImport) => {
-    return Promise.resolve().then(() => {
-        return parentImport("[externals]/shiki [external] (shiki, esm_import)");
-    });
-});
-}}),
-"[externals]/shiki/engine/oniguruma [external] (shiki/engine/oniguruma, esm_import, async loader)": ((__turbopack_context__) => {
-
-var { g: global, d: __dirname } = __turbopack_context__;
-{
-__turbopack_context__.v((parentImport) => {
-    return Promise.resolve().then(() => {
-        return parentImport("[externals]/shiki/engine/oniguruma [external] (shiki/engine/oniguruma, esm_
+  "name": "input-disabled",
+  "type": "registry:example",
+  "registryDependencies": [
+    "input"
+  ],
+  "files": [
+    {
+      "path": "examples/input-disabled.tsx",
+      "content": "import { Input } from \"@/registry/default/ui/input\";\r\nimport { Label } from \"@/registry/default/ui/label\";\r\n\r\nexport default function DisabledInput() {\r\n  return (\r\n    <div className=\"min-w-xs\">\r\n      <Label>Username</Label>\r\n      <Input\r\n        id=\"username\"\r\n        name=\"username\"\r\n        type=\"text\"\r\n        disabled\r\n        placeholder=\"Username\"\r\n        autoComplete=\"off\"\r\n      />\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

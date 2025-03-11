@@ -533,5 +533,21 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "dropdown-menu-radio": {
+      name: "dropdown-menu-radio",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["dropdown-menu"],
+      files: [{
+        path: "registry/default/examples/dropdown-menu-radio.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/dropdown-menu-radio.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
   },
 }

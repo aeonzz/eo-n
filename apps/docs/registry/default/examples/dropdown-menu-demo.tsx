@@ -1,5 +1,6 @@
 import {
   Bell,
+  ChevronRight,
   Cloud,
   Download,
   FileText,
@@ -53,23 +54,24 @@ export default function DropdownMenuDemo() {
                 <DropdownMenuItem>
                   <Cloud />
                   File Actions
+                  <ChevronRight className="ml-auto" />
                 </DropdownMenuItem>
               }
             />
             <DropdownMenuPositioner>
               <DropdownMenuContent className="w-44">
-    <DropdownMenuItem>
-      <Upload  />
-      Upload Files
-    </DropdownMenuItem>
-    <DropdownMenuItem>
-      <Download  />
-      Download Files
-    </DropdownMenuItem>
-    <DropdownMenuItem>
-      <Share2  />
-      Share Files
-    </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Upload />
+                  Upload Files
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Download />
+                  Download Files
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Share2 />
+                  Share Files
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenuPositioner>
           </DropdownMenu>

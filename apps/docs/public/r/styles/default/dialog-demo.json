@@ -1,48 +1,15 @@
-              var $$typeof = object.$$typeof;
-                switch($$typeof){
-                    case REACT_ELEMENT_TYPE:
-                        var type = object.type;
-                        switch(type){
-                            case REACT_ASYNC_MODE_TYPE:
-                            case REACT_CONCURRENT_MODE_TYPE:
-                            case REACT_FRAGMENT_TYPE:
-                            case REACT_PROFILER_TYPE:
-                            case REACT_STRICT_MODE_TYPE:
-                            case REACT_SUSPENSE_TYPE:
-                                return type;
-                            default:
-                                var $$typeofType = type && type.$$typeof;
-                                switch($$typeofType){
-                                    case REACT_CONTEXT_TYPE:
-                                    case REACT_FORWARD_REF_TYPE:
-                                    case REACT_LAZY_TYPE:
-                                    case REACT_MEMO_TYPE:
-                                    case REACT_PROVIDER_TYPE:
-                                        return $$typeofType;
-                                    default:
-                                        return $$typeof;
-                                }
-                        }
-                    case REACT_PORTAL_TYPE:
-                        return $$typeof;
-                }
-            }
-            return undefined;
-        } // AsyncMode is deprecated along with isAsyncMode
-        var AsyncMode = REACT_ASYNC_MODE_TYPE;
-        var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
-        var ContextConsumer = REACT_CONTEXT_TYPE;
-        var ContextProvider = REACT_PROVIDER_TYPE;
-        var Element = REACT_ELEMENT_TYPE;
-        var ForwardRef = REACT_FORWARD_REF_TYPE;
-        var Fragment = REACT_FRAGMENT_TYPE;
-        var Lazy = REACT_LAZY_TYPE;
-        var Memo = REACT_MEMO_TYPE;
-        var Portal = REACT_PORTAL_TYPE;
-        var Profiler = REACT_PROFILER_TYPE;
-        var StrictMode = REACT_STRICT_MODE_TYPE;
-        var Suspense = REACT_SUSPENSE_TYPE;
-        var hasWarnedAboutDeprecatedIsAsyncMode = false; // AsyncMode should be deprecated
-        function isAsyncMode(object) {
-            {
-                if (!hasWarnedAb
+{
+  "name": "dialog-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "dialog"
+  ],
+  "files": [
+    {
+      "path": "examples/dialog-demo.tsx",
+      "content": "import Image from \"next/image.js\";\r\n\r\nimport { Button } from \"@/registry/default/ui/button\";\r\nimport {\r\n  Dialog,\r\n  DialogContent,\r\n  DialogDescription,\r\n  DialogFooter,\r\n  DialogHeader,\r\n  DialogTitle,\r\n  DialogTrigger,\r\n} from \"@/registry/default/ui/dialog\";\r\nimport { Input } from \"@/registry/default/ui/input\";\r\nimport { Label } from \"@/registry/default/ui/label\";\r\n\r\nexport default function DialogDemo() {\r\n  return (\r\n    <Dialog>\r\n      <DialogTrigger render={<Button variant=\"outline\">Open dialog</Button>} />\r\n      <DialogContent className=\"sm:max-w-[425px]\">\r\n        <DialogHeader>\r\n          <DialogTitle>Edit Content</DialogTitle>\r\n          <DialogDescription>\r\n            Update the details below and click save to apply changes.\r\n          </DialogDescription>\r\n        </DialogHeader>\r\n        <div className=\"relative aspect-video w-full\">\r\n          <Image\r\n            src=\"/images/dialog-demo-image.jpg\"\r\n            alt=\"dialog-placeholder\"\r\n            priority\r\n            objectFit=\"cover\"\r\n            fill\r\n          />\r\n        </div>\r\n        <div className=\"flex flex-col gap-4\">\r\n          <div className=\"flex flex-col gap-3\">\r\n            <Label htmlFor=\"title\">Title</Label>\r\n            <Input\r\n              id=\"title\"\r\n              defaultValue=\"Sample Title\"\r\n              className=\"col-span-3\"\r\n            />\r\n          </div>\r\n          <div className=\"flex flex-col gap-3\">\r\n            <Label htmlFor=\"description\">Description</Label>\r\n            <Input\r\n              id=\"description\"\r\n              defaultValue=\"Sample Description\"\r\n              className=\"col-span-3\"\r\n            />\r\n          </div>\r\n        </div>\r\n        <DialogFooter>\r\n          <Button type=\"submit\">Save changes</Button>\r\n        </DialogFooter>\r\n      </DialogContent>\r\n    </Dialog>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

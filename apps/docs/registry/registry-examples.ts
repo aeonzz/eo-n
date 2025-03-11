@@ -287,4 +287,15 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "dropdown-menu-radio",
+    type: "registry:example",
+    registryDependencies: ["dropdown-menu"],
+    files: [
+      {
+        path: "examples/dropdown-menu-radio.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];

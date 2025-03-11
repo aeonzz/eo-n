@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Menu as DropdownMenuPrimitive } from "@base-ui-components/react/menu";
-import { ChevronUp } from "lucide-react";
+import { ChevronUp, Circle } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -32,7 +32,10 @@ function DropdownMenuSubMenuTrigger({
   return (
     <DropdownMenuPrimitive.SubmenuTrigger
       data-slot="dropdown-menu-sub-menu-trigger"
-      className={cn("data-[popup-open]:bg-accent data-[popup-open]:text-accent-foreground", className)}
+      className={cn(
+        "data-[popup-open]:bg-accent data-[popup-open]:text-accent-foreground",
+        className
+      )}
       {...props}
     />
   );
@@ -144,7 +147,7 @@ function DropdownMenuGroupLabel({
     <DropdownMenuPrimitive.GroupLabel
       data-slot="dropdown-menu-groupLabel"
       className={cn(
-        "border-muted -mx-1 border-b p-0 text-sm leading-none px-3 py-1.5 text-muted-foreground",
+        "border-muted text-muted-foreground -mx-1 border-b p-0 px-3 py-1.5 text-sm leading-none",
         className
       )}
       {...props}
@@ -164,13 +167,24 @@ function DropdownMenuRadioGroup({
 }
 
 function DropdownMenuRadioItem({
+  className,
+  children,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.RadioItem>) {
   return (
     <DropdownMenuPrimitive.RadioItem
       data-slot="dropdown-menu-radioItem"
+      className={cn(
+        "focus:bg-accent focus:text-accent-foreground [&>svg]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1 text-sm transition-colors outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        className
+      )}
       {...props}
-    />
+    >
+      <DropdownMenuPrimitive.RadioItemIndicator>
+        <Circle className="h-2 w-2 fill-current" />
+      </DropdownMenuPrimitive.RadioItemIndicator>
+      {children}
+    </DropdownMenuPrimitive.RadioItem>
   );
 }
 

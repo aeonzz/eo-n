@@ -30,3 +30,36 @@ npx shadcn@latest add "https://eo-n.vercel.app/r/dropdown-menu"
   <Step>Update the import paths to match your project setup.</Step>
 
 </Steps>
+
+## Usage
+
+Import all parts and piece them together.
+
+```tsx
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuPositioner,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/registry/default/ui/dropdown-menu";
+```
+
+```tsx
+<DropdownMenu>
+  <DropdownMenuTrigger render={<Button variant="outline">Open</Button>} />
+  <DropdownMenuPositioner>
+    <DropdownMenuContent>
+      <DropdownMenuItem>Settings</DropdownMenuItem>
+      <DropdownMenuItem>Account</DropdownMenuItem>
+      <DropdownMenuItem>Notifications</DropdownMenuItem>
+      <DropdownMenuSeparator className="my-1" />
+    </DropdownMenuContent>
+  </DropdownMenuPositioner>
+</DropdownMenu>
+```
+
+## Examples
+
+### Radio Group

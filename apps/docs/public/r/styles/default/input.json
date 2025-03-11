@@ -1,5 +1,12 @@
 {
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file://D%3A/christian/eo-n/apps/docs/.source/index.ts"],"sourcesContent":["// @ts-nocheck -- skip type checking\nimport * as meta_meta_2 from \"../content/docs/ui/meta.json?collection=meta&hash=e7e841259e69c41306c58ef1b2610c21\"\nimport * as meta_meta_1 from \"../content/docs/blocks/meta.json?collection=meta&hash=e7e841259e69c41306c58ef1b2610c21\"\nimport * as meta_meta_0 from \"../content/docs/meta.json?collection=meta&hash=e7e841259e69c41306c58ef1b2610c21\"\nimport * as docs_doc_8 from \"../content/docs/ui/number-input.mdx?collection=docs&hash=e7e841259e69c41306c58ef1b2610c21\"\nimport * as docs_doc_7 from \"../content/docs/ui/kbd.mdx?collection=docs&hash=e7e841259e69c41306c58ef1b2610c21\"\nimport * as docs_doc_6 from \"../content/docs/ui/installation.mdx?collection=docs&hash=e7e841259e69c41306c58ef1b2610c21\"\nimport * as docs_doc_5 from \"../content/docs/ui/input.mdx?collection=docs&hash=e7e841259e69c41306c58ef1b2610c21\"\nimport * as docs_doc_4 from \"../content/docs/ui/index.mdx?collection=docs&hash=e7e841259e69c41306c58ef1b2610c21\"\nimport * as docs_doc_3 from \"../content/docs/ui/dropdown-menu.mdx?collection=docs&hash=e7e841259e69c41306c58ef1b2610c21\"\nimport * as docs_doc_2 from \"../content/docs/ui/dialog.mdx?collection=docs&hash=e7e841259e69c41306c58ef1b2610c21\"\nimport * as docs_doc_1 from \"../content/docs/ui/button.mdx?collection=docs&hash=e7e841259e69c41306c58ef1b2610c21\"\nimport * as docs_doc_0 from \"../content/docs/blocks/introduction.mdx?collection=docs&hash=e7e841259e69c41306c58ef1b2610c21\"\nimport { _runtime } from \"fumadocs-mdx\"\nimport * as _source from \"../source.config\"\nexpo
+  "name": "input",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "ui/input.tsx",
+      "content": "import * as React from \"react\";\r\nimport { Input as InputPrimitive } from \"@base-ui-components/react/input\";\r\nimport { cva, type VariantProps } from \"class-variance-authority\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nconst inputVariants = cva(\r\n  \"border-input file:text-foreground placeholder:text-muted-foreground focus-visible:ring-border focus-visible:outline-primary/30 flex h-9 w-full rounded-md border px-3 py-1 text-base transition-all ease-out file:border-0 t file:text-sm file:font-medium focus-visible:ring-4 focus-visible:outline-[1px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm\",\r\n  {\r\n    variants: {\r\n      variant: {\r\n        default: \"bg-transparent file:bg-transparent\",\r\n        secondary:\r\n          \"bg-secondary file:bg-secondary border-secondary-foreground/5\",\r\n      },\r\n    },\r\n    defaultVariants: {\r\n      variant: \"default\",\r\n    },\r\n  }\r\n);\r\n\r\nexport type InputVariants = VariantProps<typeof inputVariants>;\r\n\r\ninterface InputProps extends InputVariants, React.ComponentProps<\"input\"> {}\r\n\r\nfunction Input({ className, type, variant, ...props }: InputProps) {\r\n  return (\r\n    <InputPrimitive\r\n      data-slot=\"input\"\r\n      className={cn(inputVariants({ className, variant }))}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport { Input };\r\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

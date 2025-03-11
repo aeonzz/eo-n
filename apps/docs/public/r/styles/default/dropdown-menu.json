@@ -1,15 +1,65 @@
+(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push(["static/chunks/apps_docs_55ed8a8a._.js", {
+
+"[project]/apps/docs/components/ui/collapsible.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, d: __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
-  "name": "dropdown-menu",
-  "type": "registry:ui",
-  "dependencies": [
-    "@base-ui-components/react"
-  ],
-  "files": [
-    {
-      "path": "ui/dropdown-menu.tsx",
-      "content": "\"use client\";\r\n\r\nimport * as React from \"react\";\r\nimport { Menu as DropdownMenuPrimitive } from \"@base-ui-components/react/menu\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nfunction DropdownMenu({\r\n  ...props\r\n}: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {\r\n  return (\r\n    <DropdownMenuPrimitive.Root data-slot=\"dropdown-menu-menu\" {...props} />\r\n  );\r\n}\r\n\r\nfunction DropdownMenuTrigger({\r\n  ...props\r\n}: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) {\r\n  return (\r\n    <DropdownMenuPrimitive.Trigger\r\n      data-slot=\"dropdown-menu-trigger\"\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nfunction DropdownMenuPortal({\r\n  ...props\r\n}: React.ComponentProps<typeof DropdownMenuPrimitive.Portal>) {\r\n  return (\r\n    <DropdownMenuPrimitive.Portal data-slot=\"dropdown-menu-portal\" {...props} />\r\n  );\r\n}\r\n\r\nfunction DropdownMenuBackdrop({\r\n  ...props\r\n}: React.ComponentProps<typeof DropdownMenuPrimitive.Backdrop>) {\r\n  return (\r\n    <DropdownMenuPrimitive.Backdrop\r\n      data-slot=\"dropdown-menu-backdrop\"\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nfunction DropdownMenuPositioner({\r\n  ...props\r\n}: React.ComponentProps<typeof DropdownMenuPrimitive.Positioner>) {\r\n  return (\r\n    <DropdownMenuPrimitive.Positioner\r\n      data-slot=\"dropdown-menu-positioner\"\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nfunction DropdownMenuArrow({\r\n  ...props\r\n}: React.ComponentProps<typeof DropdownMenuPrimitive.Arrow>) {\r\n  return (\r\n    <DropdownMenuPrimitive.Arrow data-slot=\"dropdown-menu-arrow\" {...props} />\r\n  );\r\n}\r\n\r\ninterface DropdownMenuContentProps\r\n  extends React.ComponentProps<typeof DropdownMenuPrimitive.Popup> {\r\n  withArrow?: boolean;\r\n}\r\n\r\nfunction DropdownMenuContent({\r\n  className,\r\n  withArrow = false,\r\n  children,\r\n  ...props\r\n}: DropdownMenuContentProps) {\r\n  return (\r\n    <DropdownMenuPortal>\r\n      <DropdownMenuBackdrop>\r\n        <DropdownMenuPrimitive.Popup\r\n          data-slot=\"dropdown-menu-content\"\r\n          className={cn(\r\n            \"bg-popover text-popover-foreground z-50 max-h-[var(--radix-dropdown-menu-content-available-height)] min-w-[8rem] overflow-x-hidden overflow-y-auto rounded-md border p-1 shadow-md\",\r\n            \"data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2\",\r\n            className\r\n          )}\r\n          {...props}\r\n        >\r\n          {withArrow && <DropdownMenuArrow />}\r\n          {children}\r\n        </DropdownMenuPrimitive.Popup>\r\n      </DropdownMenuBackdrop>\r\n    </DropdownMenuPortal>\r\n  );\r\n}\r\n\r\nfunction DropdownMenuItem({\r\n  ...props\r\n}: React.ComponentProps<typeof DropdownMenuPrimitive.Item>) {\r\n  return (\r\n    <DropdownMenuPrimitive.Item data-slot=\"dropdown-menu-item\" {...props} />\r\n  );\r\n}\r\n\r\nfunction DropdownMenuSeparator({\r\n  ...props\r\n}: React.ComponentProps<typeof DropdownMenuPrimitive.Separator>) {\r\n  return (\r\n    <DropdownMenuPrimitive.Separator\r\n      data-slot=\"dropdown-menu-separator\"\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nfunction DropdownMenuGroup({\r\n  ...props\r\n}: React.ComponentProps<typeof DropdownMenuPrimitive.Group>) {\r\n  return (\r\n    <DropdownMenuPrimitive.Group data-slot=\"dropdown-menu-group\" {...props} />\r\n  );\r\n}\r\n\r\nfunction DropdownMenuGroupLabel({\r\n  ...props\r\n}: React.ComponentProps<typeof DropdownMenuPrimitive.GroupLabel>) {\r\n  return (\r\n    <DropdownMenuPrimitive.GroupLabel\r\n      data-slot=\"dropdown-menu-groupLabel\"\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nfunction DropdownMenuRadioGroup({\r\n  ...props\r\n}: React.ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>) {\r\n  return (\r\n    <DropdownMenuPrimitive.RadioGroup\r\n      data-slot=\"dropdown-menu-radioGroup\"\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nfunction DropdownMenuRadioItem({\r\n  ...props\r\n}: React.ComponentProps<typeof DropdownMenuPrimitive.RadioItem>) {\r\n  return (\r\n    <DropdownMenuPrimitive.RadioItem\r\n      data-slot=\"dropdown-menu-radioItem\"\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nfunction DropdownMenuCheckboxItem({\r\n  ...props\r\n}: React.ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) {\r\n  return (\r\n    <DropdownMenuPrimitive.CheckboxItem\r\n      data-slot=\"dropdown-menu-checkboxItem\"\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport {\r\n  DropdownMenu,\r\n  DropdownMenuTrigger,\r\n  DropdownMenuContent,\r\n  DropdownMenuItem,\r\n  DropdownMenuCheckboxItem,\r\n  DropdownMenuRadioItem,\r\n  DropdownMenuArrow,\r\n  DropdownMenuSeparator,\r\n  DropdownMenuBackdrop,\r\n  DropdownMenuGroup,\r\n  DropdownMenuPortal,\r\n  DropdownMenuPositioner,\r\n  DropdownMenuRadioGroup,\r\n};\r\n",
-      "type": "registry:ui",
-      "target": ""
-    }
-  ]
+__turbopack_context__.s({
+    "Collapsible": (()=>Collapsible),
+    "CollapsibleContent": (()=>CollapsibleContent),
+    "CollapsibleTrigger": (()=>CollapsibleTrigger)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$radix$2d$ui$2b$react$2d$collapsible$40$1$2e$1$2e$3_$40$types$2b$react$2d$dom$40$19$2e$0$2e$4_$40$types$2b$react$40$19$2e$0$2e$10_$5f40$types$2b$react$40$_cvxgbxjlon5f6aopkxc2ga247y$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$collapsible$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@radix-ui+react-collapsible@1.1.3_@types+react-dom@19.0.4_@types+react@19.0.10__@types+react@_cvxgbxjlon5f6aopkxc2ga247y/node_modules/@radix-ui/react-collapsible/dist/index.mjs [app-client] (ecmascript)");
+"use client";
+;
+const Collapsible = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$radix$2d$ui$2b$react$2d$collapsible$40$1$2e$1$2e$3_$40$types$2b$react$2d$dom$40$19$2e$0$2e$4_$40$types$2b$react$40$19$2e$0$2e$10_$5f40$types$2b$react$40$_cvxgbxjlon5f6aopkxc2ga247y$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$collapsible$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"];
+const CollapsibleTrigger = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$radix$2d$ui$2b$react$2d$collapsible$40$1$2e$1$2e$3_$40$types$2b$react$2d$dom$40$19$2e$0$2e$4_$40$types$2b$react$40$19$2e$0$2e$10_$5f40$types$2b$react$40$_cvxgbxjlon5f6aopkxc2ga247y$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$collapsible$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CollapsibleTrigger"];
+const CollapsibleContent = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$radix$2d$ui$2b$react$2d$collapsible$40$1$2e$1$2e$3_$40$types$2b$react$2d$dom$40$19$2e$0$2e$4_$40$types$2b$react$40$19$2e$0$2e$10_$5f40$types$2b$react$40$_cvxgbxjlon5f6aopkxc2ga247y$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$collapsible$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CollapsibleContent"];
+;
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }
+}}),
+"[project]/apps/docs/registry/default/ui/button.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, d: __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "Button": (()=>Button),
+    "buttonVariants": (()=>buttonVariants)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$2$2e$1_$40$babel$2b$core$40$7$2e$26$2e$9_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/next@15.2.1_@babel+core@7.26.9_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$radix$2d$ui$2b$react$2d$slot$40$1$2e$1$2e$2_$40$types$2b$react$40$19$2e$0$2e$10_react$40$19$2e$0$2e$0$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@radix-ui+react-slot@1.1.2_@types+react@19.0.10_react@19.0.0/node_modules/@radix-ui/react-slot/dist/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$class$2d$variance$2d$authority$40$0$2e$7$2e$1$2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/class-variance-authority@0.7.1/node_modules/class-variance-authority/dist/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$docs$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/apps/docs/lib/utils.ts [app-client] (ecmascript)");
+;
+;
+;
+;
+const buttonVariants = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$class$2d$variance$2d$authority$40$0$2e$7$2e$1$2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cva"])("group inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none ease-out disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0", {
+    variants: {
+        variant: {
+            default: "bg-primary text-primary-foreground hover:bg-primary/90",
+            destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+            outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+            secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/90",
+            ghost: "hover:bg-accent hover:text-accent-foreground",
+            link: "text-primary underline-offset-4 hover:underline"
+        },
+        size: {
+            default: "h-9 px-4 py-2",
+            sm: "h-8 rounded-md px-3",
+            lg: "h-10 rounded-md px-8",
+            icon: "h-9 w-9"
+        }
+    },
+    defaultVariants: {
+        variant: "default",
+        size: "default"
+    }
+});
+function Button({ className, variant, size, asChild = false, ...props }) {
+    const Comp = asChild ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$radix$2d$ui$2b$react$2d$slot$40$1$2e$1$2e$2_$40$types$2b$react$40$19$2e$0$2e$10_react$40$19$2e$0$2e$0$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Slot"] : "button";
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$2$2e$1_$40$babel$2b$core$40$7$2e$26$2e$9_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2
