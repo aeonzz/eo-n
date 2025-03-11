@@ -35,11 +35,12 @@ description: Learn how to set up dependencies and organize your application stru
 
     Apply the ``Root`` class to your app layout.
 
-    ```html title="layout.tsx"
+    ```tsx title="layout.tsx"
     <body>
-      <div className="Root">  <!-- [!code highlight] -->
-        {children} <!-- [!code highlight] -->
-      </div>  <!-- [!code highlight] -->
+    // [!code highlight:3]
+      <div className="Root">
+        {children}
+      </div>
     </body>
     ```
 
@@ -57,10 +58,10 @@ description: Learn how to set up dependencies and organize your application stru
       body {
         @apply bg-background text-foreground;
       }
-
-      .Root { /*[!code highlight]*/
-        @apply isolate; /*[!code highlight]*/
-      } /*[!code highlight]*/
+      // [!code highlight:3]
+      .Root {
+        @apply isolate;
+      }
 
     }
     ```
