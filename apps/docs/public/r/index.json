@@ -71,5 +71,18 @@
         "type": "registry:ui"
       }
     ]
+  },
+  {
+    "name": "accordion",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui-components/react"
+    ],
+    "files": [
+      {
+        "path": "ui/accordion.tsx",
+        "type": "registry:ui"
+      }
+    ]
   }
 ]

@@ -1,10 +1,9 @@
 ---
 title: Dropdown Menu
-description: A UI component for displaying modal dialogs to capture user input or confirm actions.
+description: A flexible dropdown menu component for displaying actions, links, and selections in a structured way.
 preview: true
 links:
-  doc: https://base-ui.com/react/components/dialog
-  api: /docs/ui/dialog#api-reference
+  doc: https://base-ui.com/react/components/menu
 ---
 
 <ComponentTabs name="dropdown-menu-demo" />
@@ -48,7 +47,7 @@ import {
 
 ```tsx
 <DropdownMenu>
-  <DropdownMenuTrigger render={<Button variant="outline">Open</Button>} />
+  <DropdownMenuTrigger>Open</DropdownMenuTrigger>
   <DropdownMenuPositioner>
     <DropdownMenuContent>
       <DropdownMenuItem>Settings</DropdownMenuItem>

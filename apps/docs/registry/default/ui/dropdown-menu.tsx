@@ -62,7 +62,7 @@ function DropdownMenuBackdrop({
 
 function DropdownMenuPositioner({
   children,
-  sideOffset = 4,
+  sideOffset = 6,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Positioner>) {
   return (
@@ -91,8 +91,8 @@ function DropdownMenuContent({
     <DropdownMenuPrimitive.Popup
       data-slot="dropdown-menu-content"
       className={cn(
-        "bg-popover text-popover-foreground ring-border ring-offset-background z-50 min-w-[8rem] overflow-x-hidden overflow-y-auto rounded-md border p-1 shadow-md transition-[transform,scale,opacity] duration-150 ease-out",
-        "data-[ending-style]:scale-96 data-[ending-style]:opacity-0 data-[starting-style]:scale-96 data-[starting-style]:opacity-0",
+        "bg-popover text-popover-foreground ring-border ring-offset-background z-50 min-w-[8rem] overflow-x-hidden overflow-y-auto rounded-md border p-1 shadow-md ring-2 ring-offset-1 transition-[transform,scale,opacity] duration-150 ease-out",
+        "origin-[var(--transform-origin)] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
         className
       )}
       {...props}

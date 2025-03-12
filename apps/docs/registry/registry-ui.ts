@@ -65,6 +65,17 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "accordion",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/accordion.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
   // {
   //   name: "combobox",
   //   type: "registry:ui",

@@ -320,4 +320,37 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "accordion-demo",
+    type: "registry:example",
+    registryDependencies: ["accordion"],
+    files: [
+      {
+        path: "examples/accordion-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "accordion-disabled",
+    type: "registry:example",
+    registryDependencies: ["accordion"],
+    files: [
+      {
+        path: "examples/accordion-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "accordion-single",
+    type: "registry:example",
+    registryDependencies: ["accordion"],
+    files: [
+      {
+        path: "examples/accordion-single.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];

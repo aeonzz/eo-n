@@ -148,7 +148,7 @@
       transform: translateY(0px);
     }
   }
-  @keyframes accordion-down {
+  /* @keyframes accordion-down {
     from {
       height: 0;
     }
@@ -163,7 +163,7 @@
     to {
       height: 0;
     }
-  }
+  } */
   @keyframes stroke-dashoffset {
     0% {
       stroke-dashoffset: 100%;
@@ -260,5 +260,15 @@
 
   [data-line] span {
     @apply text-[var(--shiki-light)] dark:text-[var(--shiki-dark)];
+  }
+
+  .component-preview h1,
+  .component-preview h2,
+  .component-preview h3,
+  .component-preview h4,
+  .component-preview h5,
+  .component-preview h6,
+  .component-preview p {
+    @apply !m-0;
   }
 }
