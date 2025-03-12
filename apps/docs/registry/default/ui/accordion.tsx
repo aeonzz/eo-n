@@ -14,7 +14,7 @@ function Accordion({
     <AccordionPrimitive.Root
       data-slot="accordion"
       className={cn(
-        "flex w-96 flex-col justify-center data-[disabled]:pointer-events-none data-[disabled]:cursor-auto data-[disabled]:opacity-50",
+        "flex w-96 flex-col justify-center data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         className
       )}
       {...props}
@@ -29,7 +29,10 @@ function AccordionItem({
   return (
     <AccordionPrimitive.Item
       data-slot="accordion-item"
-      className={cn("border-b", className)}
+      className={cn(
+        "border-b data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        className
+      )}
       {...props}
     />
   );
@@ -71,7 +74,7 @@ function AccordionContent({
     <AccordionPrimitive.Panel
       data-slot="accordion-content"
       className={cn(
-        "h-[var(--accordion-panel-height)] overflow-hidden text-left text-sm transition-[height] ease-out data-[ending-style]:h-0 data-[starting-style]:h-0",
+        "h-[var(--accordion-panel-height)] overflow-hidden text-left text-sm transition-[height] duration-200 ease-out data-[ending-style]:h-0 data-[starting-style]:h-0",
         className
       )}
       {...props}
