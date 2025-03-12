@@ -76,6 +76,17 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "checkbox",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/checkbox.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
   // {
   //   name: "combobox",
   //   type: "registry:ui",

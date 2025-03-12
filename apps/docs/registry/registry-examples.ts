@@ -353,4 +353,26 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "checkbox-demo",
+    type: "registry:example",
+    registryDependencies: ["accordion"],
+    files: [
+      {
+        path: "examples/checkbox-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "checkbox-disabled",
+    type: "registry:example",
+    registryDependencies: ["accordion"],
+    files: [
+      {
+        path: "examples/checkbox-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];

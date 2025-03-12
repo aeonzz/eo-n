@@ -117,6 +117,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "checkbox": {
+      name: "checkbox",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/checkbox.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/checkbox.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       description: "",
@@ -640,6 +656,38 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/accordion-single.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "checkbox-demo": {
+      name: "checkbox-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["accordion"],
+      files: [{
+        path: "registry/default/examples/checkbox-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/checkbox-demo.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "checkbox-disabled": {
+      name: "checkbox-disabled",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["accordion"],
+      files: [{
+        path: "registry/default/examples/checkbox-disabled.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/checkbox-disabled.tsx")),
       source: "",
       category: "",
       subcategory: "",
