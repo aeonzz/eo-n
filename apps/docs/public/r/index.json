@@ -97,5 +97,18 @@
         "type": "registry:ui"
       }
     ]
+  },
+  {
+    "name": "tabs",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui-components/react"
+    ],
+    "files": [
+      {
+        "path": "ui/tabs.tsx",
+        "type": "registry:ui"
+      }
+    ]
   }
 ]

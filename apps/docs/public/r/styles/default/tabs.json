@@ -1,0 +1,15 @@
+{
+  "name": "tabs",
+  "type": "registry:ui",
+  "dependencies": [
+    "@base-ui-components/react"
+  ],
+  "files": [
+    {
+      "path": "ui/tabs.tsx",
+      "content": "\"use client\";\r\n\r\nimport * as React from \"react\";\r\nimport { Tabs as TabsPrimitive } from \"@base-ui-components/react/tabs\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nfunction Tabs({ ...props }: React.ComponentProps<typeof TabsPrimitive.Root>) {\r\n  return <TabsPrimitive.Root data-slot=\"tabs\" {...props} />;\r\n}\r\n\r\nfunction TabsList({\r\n  className,\r\n  ...props\r\n}: React.ComponentProps<typeof TabsPrimitive.List>) {\r\n  return (\r\n    <TabsPrimitive.List\r\n      data-slot=\"tabs-list\"\r\n      className={cn(\r\n        \"bg-muted text-muted-foreground inline-flex h-9 items-center justify-center rounded-lg p-1\",\r\n        className\r\n      )}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nfunction TabsTab({\r\n  className,\r\n  ...props\r\n}: React.ComponentProps<typeof TabsPrimitive.Tab>) {\r\n  return (\r\n    <TabsPrimitive.Tab\r\n      data-slot=\"tabs-tab\"\r\n      className={cn(\"\", className)}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nfunction TabsIndicator({\r\n  ...props\r\n}: React.ComponentProps<typeof TabsPrimitive.Indicator>) {\r\n  return <TabsPrimitive.Indicator data-slot=\"tabs-Indicator\" {...props} />;\r\n}\r\n\r\nfunction TabsPanel({\r\n  ...props\r\n}: React.ComponentProps<typeof TabsPrimitive.Panel>) {\r\n  return <TabsPrimitive.Panel data-slot=\"tabs-panel\" {...props} />;\r\n}\r\n\r\nexport { Tabs, TabsList, TabsTab, TabsIndicator, TabsPanel };\r\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

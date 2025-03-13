@@ -375,4 +375,15 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "tabs-demo",
+    type: "registry:example",
+    registryDependencies: ["tabs"],
+    files: [
+      {
+        path: "examples/tabs-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];
