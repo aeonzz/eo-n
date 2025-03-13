@@ -13,6 +13,7 @@ import { ComponentSource } from "@/components/component-source";
 import { ComponentTabs } from "@/components/component-tabs";
 import { CSSVariablesTable } from "@/components/css-variables-table";
 import { DataAttributesTable } from "@/components/data-attributes-table";
+import { GithubInfo } from "@/components/github-info";
 import { Kbd } from "@/components/kbd";
 import { KeyboardShortcutsTable } from "@/components/keyboard-shortcuts-table";
 
@@ -65,6 +66,7 @@ export function useMdxComponents(
     CSSVariablesTable,
     DataAttributesTable,
     KeyboardShortcutsTable,
+    GithubInfo,
   };
 }
 

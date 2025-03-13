@@ -44,6 +44,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@fumadocs/cli": "^0.0.8",
     "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
     "@tailwindcss/postcss": "^4.0.3",
     "@types/mdx": "^2.0.13",
