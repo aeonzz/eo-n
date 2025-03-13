@@ -1,0 +1,15 @@
+{
+  "name": "avatar-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "examples/avatar-demo.tsx",
+      "content": "import {\r\n  Avatar,\r\n  AvatarFallback,\r\n  AvatarImage,\r\n} from \"@/registry/default/ui/avatar\";\r\n\r\nexport default function AvatarDemo() {\r\n  return (\r\n    <Avatar>\r\n      <AvatarImage src=\"https://github.com/aeonzz.png\" alt=\"@aeonz\" />\r\n      <AvatarFallback>AE</AvatarFallback>\r\n    </Avatar>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
