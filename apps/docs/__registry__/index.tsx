@@ -133,6 +133,38 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "tabs": {
+      name: "tabs",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/tabs.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/tabs.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "avatar": {
+      name: "avatar",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/avatar.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/avatar.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       description: "",
@@ -688,6 +720,54 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/checkbox-disabled.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "tabs-demo": {
+      name: "tabs-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["tabs"],
+      files: [{
+        path: "registry/default/examples/tabs-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/tabs-demo.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "tabs-vertical": {
+      name: "tabs-vertical",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["tabs"],
+      files: [{
+        path: "registry/default/examples/tabs-vertical.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/tabs-vertical.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "avatar-demo": {
+      name: "avatar-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["avatar"],
+      files: [{
+        path: "registry/default/examples/avatar-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/avatar-demo.tsx")),
       source: "",
       category: "",
       subcategory: "",

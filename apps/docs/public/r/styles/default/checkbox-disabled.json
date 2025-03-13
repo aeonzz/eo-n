@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/checkbox-disabled.tsx",
-      "content": "import { Checkbox } from \"@/registry/default/ui/checkbox\";\r\nimport { Label } from \"@/registry/default/ui/label\";\r\n\r\nexport default function CheckboxDisabled() {\r\n  return (\r\n    <Label className=\"flex items-center gap-2 text-base \">\r\n      <Checkbox disabled />\r\n      Accept terms and conditions\r\n    </Label>\r\n  );\r\n}\r\n",
+      "content": "import { Checkbox } from \"@/registry/default/ui/checkbox\";\r\nimport { Label } from \"@/registry/default/ui/label\";\r\n\r\nexport default function CheckboxDisabled() {\r\n  return (\r\n    <Label className=\"flex items-center gap-2 text-base\">\r\n      <Checkbox disabled />\r\n      <span className=\"peer-data-[disabled]:text-muted-foreground peer-data-[disabled]:cursor-not-allowed\">\r\n        Accept terms and conditions\r\n      </span>\r\n    </Label>\r\n  );\r\n}\r\n",
       "type": "registry:example",
       "target": ""
     }

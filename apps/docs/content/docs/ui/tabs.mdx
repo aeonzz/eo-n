@@ -1,0 +1,56 @@
+---
+title: Tabs
+description: A UI component for organizing and displaying content in separate, switchable panels.
+preview: true
+links:
+  doc: https://base-ui.com/react/components/tabs
+---
+
+<ComponentTabs name="tabs-demo" />
+
+## Installation
+
+### CLI
+
+```package-install
+npx shadcn@latest add "https://eo-n.vercel.app/r/tabs"
+```
+
+### Manual
+
+<Steps>
+  <Step>
+    Copy and paste the following code into your project.
+
+    <ComponentSource name="tabs" />
+
+  </Step>
+  
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+Import all parts and piece them together.
+
+```tsx
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+```
+
+```tsx
+<Tabs defaultValue="account">
+  <TabsList>
+    <TabsTrigger value="account">Account</TabsTrigger>
+    <TabsTrigger value="password">Password</TabsTrigger>
+  </TabsList>
+  <TabsContent value="account">Account</TabsContent>
+  <TabsContent value="password">Password</TabsContent>
+</Tabs>
+```
+
+{/* ## Examples
+
+### Vertical Orientation
+
+<ComponentTabs name="tabs-vertical" /> */}

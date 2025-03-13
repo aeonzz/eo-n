@@ -375,4 +375,37 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "tabs-demo",
+    type: "registry:example",
+    registryDependencies: ["tabs"],
+    files: [
+      {
+        path: "examples/tabs-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tabs-vertical",
+    type: "registry:example",
+    registryDependencies: ["tabs"],
+    files: [
+      {
+        path: "examples/tabs-vertical.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "avatar-demo",
+    type: "registry:example",
+    registryDependencies: ["avatar"],
+    files: [
+      {
+        path: "examples/avatar-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];
