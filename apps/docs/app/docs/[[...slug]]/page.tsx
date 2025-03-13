@@ -53,6 +53,9 @@ export default async function DocPage(props: DocPageParams) {
       full={page.data.full}
       breadcrumb={{
         enabled: true,
+        includeRoot: true,
+        includePage: true,
+        includeSeparator: true,
       }}
     >
       <div className="flex flex-col gap-2">

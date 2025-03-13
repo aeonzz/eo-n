@@ -98,4 +98,15 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "avatar",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/avatar.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];

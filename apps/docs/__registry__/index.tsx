@@ -149,6 +149,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "avatar": {
+      name: "avatar",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/avatar.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/avatar.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       description: "",
@@ -736,6 +752,22 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/tabs-vertical.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "avatar-demo": {
+      name: "avatar-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["avatar"],
+      files: [{
+        path: "registry/default/examples/avatar-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/avatar-demo.tsx")),
       source: "",
       category: "",
       subcategory: "",

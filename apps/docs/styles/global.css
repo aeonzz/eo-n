@@ -268,7 +268,8 @@
   .component-preview h4,
   .component-preview h5,
   .component-preview h6,
-  .component-preview p {
+  .component-preview p,
+  .component-preview img {
     @apply !m-0;
   }
 }
