@@ -81,6 +81,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
             enableSystem: true,
             disableTransitionOnChange: true,
           }}
+          search={{
+            links: [
+              ["Introduction", "/docs/ui"],
+              ["Installtion", "/docs/ui/installation"],
+              ["Components", "/docs/ui/accordion"],
+            ],
+          }}
         >
           {children}
         </Providers>
