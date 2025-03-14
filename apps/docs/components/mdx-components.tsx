@@ -5,6 +5,7 @@ import { Heading } from "fumadocs-ui/components/heading";
 import { Step, Steps } from "fumadocs-ui/components/steps";
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import defaultComponents from "fumadocs-ui/mdx";
+import { HomeIcon } from "lucide-react";
 import type { MDXComponents } from "mdx/types";
 
 import { cn } from "@/lib/utils";
@@ -13,6 +14,7 @@ import { ComponentSource } from "@/components/component-source";
 import { ComponentTabs } from "@/components/component-tabs";
 import { CSSVariablesTable } from "@/components/css-variables-table";
 import { DataAttributesTable } from "@/components/data-attributes-table";
+import { GithubInfo } from "@/components/github-info";
 import { Kbd } from "@/components/kbd";
 import { KeyboardShortcutsTable } from "@/components/keyboard-shortcuts-table";
 
@@ -65,6 +67,8 @@ export function useMdxComponents(
     CSSVariablesTable,
     DataAttributesTable,
     KeyboardShortcutsTable,
+    GithubInfo,
+    HomeIcon,
   };
 }
 

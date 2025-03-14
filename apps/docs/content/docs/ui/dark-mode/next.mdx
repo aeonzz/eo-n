@@ -1,0 +1,81 @@
+---
+title: Next.js
+description: Adding dark mode to your next app.
+---
+
+### Dark Mode
+
+<Steps>
+
+  <Step>
+    ### Install next-themes.
+
+    ```package-install
+    npm install next-themes
+    ```
+
+  </Step>
+  
+  <Step>
+    ### Create a theme provider.
+
+    ```tsx title="components/theme-provider.tsx"
+    "use client"
+
+    import * as React from "react"
+    import { ThemeProvider as NextThemesProvider } from "next-themes"
+
+    export function ThemeProvider({
+      children,
+      ...props
+    }: React.ComponentProps<typeof NextThemesProvider>) {
+      return <NextThemesProvider {...props}>{children}</NextThemesProvider>
+    }
+    ```
+
+  </Step>
+
+  <Step>
+    ### Wrap your root layout.
+
+    Add the ```ThemeProvider``` to your root layout and add the ```suppressHydrationWarning``` prop to the ```html``` tag.
+
+    ```tsx title="app/layout.tsx"
+    import { ThemeProvider } from "@/components/theme-provider" // [!code highlight]
+
+    export default function RootLayout({ children }: RootLayoutProps) {
+      return (
+        <>
+        // [!code highlight:1]
+          <html lang="en" suppressHydrationWarning>
+            <head />
+            <body>
+              // [!code highlight:6]
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+                disableTransitionOnChange
+              >
+                {children}
+              // [!code highlight:1]
+              </ThemeProvider>
+            </body>
+          </html>
+        </>
+      )
+    }
+    ```
+
+  </Step>
+
+  <Step>
+  ### Add a mode toggle.
+
+  Place a mode toggle on your site to toggle between light and dark mode.
+
+  <ComponentTabs name="mode-toggle" />
+
+  </Step>
+
+</Steps>
