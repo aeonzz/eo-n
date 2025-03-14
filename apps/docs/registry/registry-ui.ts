@@ -109,4 +109,15 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "select",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/select.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];

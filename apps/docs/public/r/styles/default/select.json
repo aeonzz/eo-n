@@ -1,0 +1,15 @@
+{
+  "name": "select",
+  "type": "registry:ui",
+  "dependencies": [
+    "@base-ui-components/react"
+  ],
+  "files": [
+    {
+      "path": "ui/select.tsx",
+      "content": "\"use client\";\r\n\r\nimport * as React from \"react\";\r\nimport { Select as SelectPrimitive } from \"@base-ui-components/react/select\";\r\nimport { ChevronDown } from \"lucide-react\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nfunction Select({\r\n  ...props\r\n}: React.ComponentProps<typeof SelectPrimitive.Root>) {\r\n  return <SelectPrimitive.Root data-slot=\"select\" {...props} />;\r\n}\r\n\r\nfunction SelectValue({\r\n  ...props\r\n}: React.ComponentProps<typeof SelectPrimitive.Value>) {\r\n  return <SelectPrimitive.Value data-slot=\"select-value\" {...props} />;\r\n}\r\n\r\nfunction SelectBackdrop({\r\n  ...props\r\n}: React.ComponentProps<typeof SelectPrimitive.Backdrop>) {\r\n  return <SelectPrimitive.Backdrop data-slot=\"select-backdrop\" {...props} />;\r\n}\r\n\r\nfunction SelectPortal({\r\n  ...props\r\n}: React.ComponentProps<typeof SelectPrimitive.Portal>) {\r\n  return <SelectPrimitive.Portal data-slot=\"select-portal\" {...props} />;\r\n}\r\n\r\nfunction SelectTrigger({\r\n  className,\r\n  children,\r\n  ...props\r\n}: React.ComponentProps<typeof SelectPrimitive.Trigger>) {\r\n  return (\r\n    <SelectPrimitive.Trigger\r\n      data-slot=\"select-trigger\"\r\n      className={cn(\r\n        \"border-input ring-offset-background data-[placeholder]:text-muted-foreground focus:ring-ring flex h-9 w-full items-center justify-between rounded-md border bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-sm focus:ring-1 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1\",\r\n        className\r\n      )}\r\n      {...props}\r\n    >\r\n      {children}\r\n      <SelectPrimitive.Icon>\r\n        <ChevronDown className=\"h-4 w-4 opacity-50\" />\r\n      </SelectPrimitive.Icon>\r\n    </SelectPrimitive.Trigger>\r\n  );\r\n}\r\n\r\nfunction SelectContent({\r\n  className,\r\n  sideOffset = 6,\r\n  children,\r\n  ...props\r\n}: React.ComponentProps<typeof SelectPrimitive.Positioner>) {\r\n  return (\r\n    <SelectPortal>\r\n      <SelectBackdrop />\r\n      <SelectPrimitive.Positioner\r\n        data-slot=\"select-content\"\r\n        sideOffset={sideOffset}\r\n        {...props}\r\n      >\r\n        <SelectPrimitive.Popup\r\n          data-slot=\"select-content\"\r\n          className={cn(\"\", className)}\r\n        >\r\n          {children}\r\n        </SelectPrimitive.Popup>\r\n      </SelectPrimitive.Positioner>\r\n    </SelectPortal>\r\n  );\r\n}\r\n\r\nexport {\r\n  Select,\r\n  SelectTrigger,\r\n  SelectValue,\r\n  SelectBackdrop,\r\n  SelectPortal,\r\n  SelectContent,\r\n};\r\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

@@ -3,5 +3,5 @@
   "description": "UI Components",
   "icon": "Component",
   "root": true,
-  "pages": ["---Getting Started---", "index", "installation", "dark-mode", "---Components---", "..."]
+  "pages": ["---Getting Started---", "index", "installation", "dark-mode", "---Components---", "...(components)"]
 }

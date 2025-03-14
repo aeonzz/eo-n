@@ -1,0 +1,15 @@
+{
+  "name": "select-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "select"
+  ],
+  "files": [
+    {
+      "path": "examples/select-demo.tsx",
+      "content": "import {\r\n  Select,\r\n  SelectContent,\r\n  SelectTrigger,\r\n  SelectValue,\r\n} from \"@/registry/default/ui/select\";\r\n\r\nexport default function SelectDemo() {\r\n  return (\r\n    <Select>\r\n      <SelectTrigger>\r\n        <SelectValue placeholder=\"yawa\" />\r\n      </SelectTrigger>\r\n      <SelectContent></SelectContent>\r\n    </Select>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

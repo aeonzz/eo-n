@@ -60,11 +60,15 @@ function DropdownMenuBackdrop({
   );
 }
 
-function DropdownMenuPositioner({
-  children,
+interface DropdownMenuContentProps
+  extends React.ComponentProps<typeof DropdownMenuPrimitive.Positioner> {}
+
+function DropdownMenuContent({
+  className,
   sideOffset = 6,
+  children,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Positioner>) {
+}: DropdownMenuContentProps) {
   return (
     <DropdownMenuPortal>
       <DropdownMenuBackdrop />
@@ -73,32 +77,18 @@ function DropdownMenuPositioner({
         sideOffset={sideOffset}
         {...props}
       >
-        {children}
+        <DropdownMenuPrimitive.Popup
+          data-slot="dropdown-menu-content"
+          className={cn(
+            "bg-popover text-popover-foreground ring-border ring-offset-background z-50 min-w-[8rem] overflow-x-hidden overflow-y-auto rounded-md border p-1 shadow-md ring-2 ring-offset-1 transition-[transform,scale,opacity] duration-150 ease-out",
+            "origin-[var(--transform-origin)] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
+            className
+          )}
+        >
+          {children}
+        </DropdownMenuPrimitive.Popup>
       </DropdownMenuPrimitive.Positioner>
     </DropdownMenuPortal>
-  );
-}
-
-interface DropdownMenuContentProps
-  extends React.ComponentProps<typeof DropdownMenuPrimitive.Popup> {}
-
-function DropdownMenuContent({
-  className,
-  children,
-  ...props
-}: DropdownMenuContentProps) {
-  return (
-    <DropdownMenuPrimitive.Popup
-      data-slot="dropdown-menu-content"
-      className={cn(
-        "bg-popover text-popover-foreground ring-border ring-offset-background z-50 min-w-[8rem] overflow-x-hidden overflow-y-auto rounded-md border p-1 shadow-md ring-2 ring-offset-1 transition-[transform,scale,opacity] duration-150 ease-out",
-        "origin-[var(--transform-origin)] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </DropdownMenuPrimitive.Popup>
   );
 }
 
@@ -227,6 +217,5 @@ export {
   DropdownMenuBackdrop,
   DropdownMenuGroup,
   DropdownMenuPortal,
-  DropdownMenuPositioner,
   DropdownMenuRadioGroup,
 };
