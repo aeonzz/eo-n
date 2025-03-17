@@ -805,6 +805,38 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "select-with-group": {
+      name: "select-with-group",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["select"],
+      files: [{
+        path: "registry/default/examples/select-with-group.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/select-with-group.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "select-align-trigger": {
+      name: "select-align-trigger",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["select"],
+      files: [{
+        path: "registry/default/examples/select-align-trigger.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/select-align-trigger.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "mode-toggle": {
       name: "mode-toggle",
       description: "",

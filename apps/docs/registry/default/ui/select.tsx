@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Select as SelectPrimitive } from "@base-ui-components/react/select";
-import { ChevronDown } from "lucide-react";
+import { Check, ChevronsUpDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -42,14 +42,14 @@ function SelectTrigger({
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
       className={cn(
-        "border-input ring-offset-background focus-visible:ring-ring flex h-9 w-full items-center justify-between rounded-md border bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-sm focus-visible:ring-1 focus-visible:outline-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 [&_svg]:size-4 [&_svg]:opacity-50 data-[popup-open]:[&_svg]:rotate-180",
+        "border-input ring-offset-background focus-visible:ring-ring flex h-9 w-full cursor-pointer items-center justify-between rounded-md border bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-sm focus-visible:ring-1 focus-visible:outline-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 [&_svg]:size-4 [&_svg]:opacity-50",
         className
       )}
       {...props}
     >
       {children}
       <SelectPrimitive.Icon>
-        <ChevronDown className="transition-[rotate] duration-200 ease-out shrink-0" />
+        <ChevronsUpDown className="shrink-0" />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   );
@@ -62,40 +62,43 @@ function SelectValue({
   return (
     <SelectPrimitive.Value
       data-slot="select-value"
-      className={cn("text-muted-foreground", className)}
+      className={cn("w-full overflow-hidden text-ellipsis", className)}
       {...props}
     />
   );
 }
 
-interface SelectContentProps
-  extends React.ComponentProps<typeof SelectPrimitive.Popup> {
-  positionerProps?: Omit<SelectPrimitive.Positioner.Props, "className">;
+export interface SelectContentProps
+  extends React.ComponentProps<typeof SelectPrimitive.Positioner> {
+  popupProps?: Omit<
+    React.ComponentProps<typeof SelectPrimitive.Popup>,
+    "className"
+  >;
 }
 
 function SelectContent({
+  popupProps,
+  sideOffset = 6,
   className,
-  positionerProps,
   children,
   ...props
 }: SelectContentProps) {
-  const { sideOffset = 6 } = positionerProps || {};
   return (
     <SelectPortal>
       <SelectBackdrop />
       <SelectPrimitive.Positioner
-        data-slot="select-content"
+        data-slot="select-positioner"
         sideOffset={sideOffset}
-        {...positionerProps}
+        {...props}
       >
         <SelectPrimitive.Popup
           data-slot="select-content"
           className={cn(
-            "bg-popover text-popover-foreground h-[var(--anchor-height)] w-[var(--anchor-width)] overflow-x-hidden overflow-y-auto rounded-md border shadow-md transition-[transform,scale,opacity] duration-150 ease-out",
-            "origin-[var(--transform-origin)] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
+            "bg-popover text-popover-foreground ring-border ring-offset-background z-50 min-h-[var(--anchor-height)] overflow-y-auto overscroll-contain rounded-md border shadow-md ring-1 ring-offset-[0.75px] transition-[transform,scale,opacity] duration-150 ease-out",
+            "origin-[var(--transform-origin)] p-1 data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
             className
           )}
-          {...props}
+          {...popupProps}
         >
           {children}
         </SelectPrimitive.Popup>
@@ -104,12 +107,64 @@ function SelectContent({
   );
 }
 
-// function SelectItem({...props}: React.ComponentProps<typeof SelectPrimitive.Item>) {
-//   return (
-//     <SelectPrimitive.Item
-//   )
-// }
+function SelectItem({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<typeof SelectPrimitive.Item>) {
+  return (
+    <SelectPrimitive.Item
+      data-slot="select-item"
+      className={cn(
+        "focus:bg-accent focus:text-accent-foreground relative flex min-w-[calc(var(--anchor-width)_-_0.5rem)] cursor-default items-center rounded-sm px-2 py-1 pr-8 text-sm outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        className
+      )}
+      {...props}
+    >
+      <span className="absolute right-2 flex size-3.5 items-center justify-center">
+        <SelectPrimitive.ItemIndicator>
+          <Check className="size-4" />
+        </SelectPrimitive.ItemIndicator>
+      </span>
+      <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+    </SelectPrimitive.Item>
+  );
+}
 
+function SelectGroup({
+  ...props
+}: React.ComponentProps<typeof SelectPrimitive.Group>) {
+  return <SelectPrimitive.Group data-slot="select-group" {...props} />;
+}
+
+function SelectGroupLabel({
+  className,
+  ...props
+}: React.ComponentProps<typeof SelectPrimitive.Group>) {
+  return (
+    <SelectPrimitive.Group
+      data-slot="select-group-label"
+      className={cn(
+        "text-foreground px-2 py-1.5 text-sm leading-none font-semibold",
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
+function SelectSeparator({
+  className,
+  ...props
+}: React.ComponentProps<typeof SelectPrimitive.Separator>) {
+  return (
+    <SelectPrimitive.Separator
+      data-slot="select-separator"
+      className={cn("bg-muted -mx-1 my-1 h-px", className)}
+      {...props}
+    />
+  );
+}
 
 export {
   Select,
@@ -117,5 +172,9 @@ export {
   SelectValue,
   SelectBackdrop,
   SelectPortal,
+  SelectItem,
   SelectContent,
+  SelectGroup,
+  SelectGroupLabel,
+  SelectSeparator,
 };

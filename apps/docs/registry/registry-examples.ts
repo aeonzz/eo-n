@@ -420,6 +420,28 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "select-with-group",
+    type: "registry:example",
+    registryDependencies: ["select"],
+    files: [
+      {
+        path: "examples/select-with-group.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "select-align-trigger",
+    type: "registry:example",
+    registryDependencies: ["select"],
+    files: [
+      {
+        path: "examples/select-align-trigger.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [
