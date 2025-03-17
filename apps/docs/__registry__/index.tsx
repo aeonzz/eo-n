@@ -165,6 +165,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "tooltip": {
+      name: "tooltip",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/tooltip.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/tooltip.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "select": {
       name: "select",
       description: "",
@@ -832,6 +848,22 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/select-align-trigger.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "tooltip-demo": {
+      name: "tooltip-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["tooltip"],
+      files: [{
+        path: "registry/default/examples/tooltip-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/tooltip-demo.tsx")),
       source: "",
       category: "",
       subcategory: "",

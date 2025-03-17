@@ -442,6 +442,17 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "tooltip-demo",
+    type: "registry:example",
+    registryDependencies: ["tooltip"],
+    files: [
+      {
+        path: "examples/tooltip-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [

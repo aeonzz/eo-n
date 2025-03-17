@@ -1,0 +1,15 @@
+{
+  "name": "tooltip",
+  "type": "registry:ui",
+  "dependencies": [
+    "@base-ui-components/react"
+  ],
+  "files": [
+    {
+      "path": "ui/tooltip.tsx",
+      "content": "\"use client\";\r\n\r\nimport * as React from \"react\";\r\nimport { Tooltip as TooltipPrimitive } from \"@base-ui-components/react/tooltip\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nfunction TooltipProvider({\r\n  ...props\r\n}: React.ComponentProps<typeof TooltipPrimitive.Provider>) {\r\n  return <TooltipPrimitive.Provider data-slot=\"tooltip-provider\" {...props} />;\r\n}\r\n\r\nfunction Tooltip({\r\n  ...props\r\n}: React.ComponentProps<typeof TooltipPrimitive.Root>) {\r\n  return <TooltipPrimitive.Root data-slot=\"tooltip\" {...props} />;\r\n}\r\n\r\nfunction TooltipTrigger({\r\n  ...props\r\n}: React.ComponentProps<typeof TooltipPrimitive.Trigger>) {\r\n  return <TooltipPrimitive.Trigger data-slot=\"tooltip-trigger\" {...props} />;\r\n}\r\n\r\nfunction TooltipPortal({\r\n  ...props\r\n}: React.ComponentProps<typeof TooltipPrimitive.Portal>) {\r\n  return <TooltipPrimitive.Portal data-slot=\"tooltip-portal\" {...props} />;\r\n}\r\n\r\ninterface TooltipContentProps\r\n  extends Omit<\r\n    React.ComponentProps<typeof TooltipPrimitive.Positioner>,\r\n    \"className\"\r\n  > {\r\n  popupProps?: TooltipPrimitive.Popup.Props;\r\n}\r\n\r\nfunction TooltipContent({\r\n  popupProps,\r\n  sideOffset = 4,\r\n  children,\r\n  ...props\r\n}: TooltipContentProps) {\r\n  const { className } = popupProps || {};\r\n  return (\r\n    <TooltipPortal>\r\n      <TooltipPrimitive.Positioner\r\n        data-slot=\"tooltip-positioner\"\r\n        sideOffset={sideOffset}\r\n        {...props}\r\n      >\r\n        <TooltipPrimitive.Popup\r\n          data-slot=\"tooltip-popup\"\r\n          className={cn(\r\n            \"bg-primary text-primary-foreground z-50 overflow-hidden rounded-md px-3 py-1.5 text-xs\",\r\n            \"origin-[var(--transform-origin)] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0\",\r\n            className\r\n          )}\r\n        >\r\n          {children}\r\n        </TooltipPrimitive.Popup>\r\n      </TooltipPrimitive.Positioner>\r\n    </TooltipPortal>\r\n  );\r\n}\r\n\r\nexport {\r\n  TooltipProvider,\r\n  Tooltip,\r\n  TooltipTrigger,\r\n  TooltipPortal,\r\n  TooltipContent,\r\n};\r\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

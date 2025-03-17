@@ -110,6 +110,17 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "tooltip",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/tooltip.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "select",
     type: "registry:ui",
     dependencies: ["@base-ui-components/react"],
