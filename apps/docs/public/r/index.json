@@ -149,5 +149,18 @@
         "type": "registry:ui"
       }
     ]
+  },
+  {
+    "name": "toggle",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui-components/react"
+    ],
+    "files": [
+      {
+        "path": "ui/toggle.tsx",
+        "type": "registry:ui"
+      }
+    ]
   }
 ]

@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/tooltip-demo.tsx",
-      "content": "import {\r\n  Tooltip,\r\n  TooltipContent,\r\n  TooltipProvider,\r\n  TooltipTrigger,\r\n} from \"@/registry/default/ui/tooltip\";\r\n\r\nimport { Button } from \"../ui/button\";\r\n\r\nexport default function TooltipDemo() {\r\n  return (\r\n    <TooltipProvider>\r\n      <Tooltip>\r\n        <TooltipTrigger render={<Button>Hover</Button>} />\r\n      </Tooltip>\r\n      <TooltipContent>asdasd</TooltipContent>\r\n    </TooltipProvider>\r\n  );\r\n}\r\n",
+      "content": "import {\r\n  Tooltip,\r\n  TooltipContent,\r\n  TooltipProvider,\r\n  TooltipTrigger,\r\n} from \"@/registry/default/ui/tooltip\";\r\n\r\nimport { Button } from \"../ui/button\";\r\n\r\nexport default function TooltipDemo() {\r\n  return (\r\n    <TooltipProvider>\r\n      <Tooltip>\r\n        <TooltipTrigger render={<Button>Hover</Button>} />\r\n        <TooltipContent>\r\n          <p>Send message</p>\r\n        </TooltipContent>\r\n      </Tooltip>\r\n    </TooltipProvider>\r\n  );\r\n}\r\n",
       "type": "registry:example",
       "target": ""
     }

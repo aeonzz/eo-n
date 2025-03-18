@@ -453,6 +453,61 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "toggle-demo",
+    type: "registry:example",
+    registryDependencies: ["toggle"],
+    files: [
+      {
+        path: "examples/toggle-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toggle-outline",
+    type: "registry:example",
+    registryDependencies: ["toggle"],
+    files: [
+      {
+        path: "examples/toggle-outline.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toggle-disabled",
+    type: "registry:example",
+    registryDependencies: ["toggle"],
+    files: [
+      {
+        path: "examples/toggle-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toggle-large",
+    type: "registry:example",
+    registryDependencies: ["toggle"],
+    files: [
+      {
+        path: "examples/toggle-large.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toggle-small",
+    type: "registry:example",
+    registryDependencies: ["toggle"],
+    files: [
+      {
+        path: "examples/toggle-small.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [
