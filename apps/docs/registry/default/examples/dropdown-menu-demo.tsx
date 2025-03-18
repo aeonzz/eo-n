@@ -20,7 +20,6 @@ import {
   DropdownMenuGroup,
   DropdownMenuGroupLabel,
   DropdownMenuItem,
-  DropdownMenuPositioner,
   DropdownMenuSeparator,
   DropdownMenuSubMenuTrigger,
   DropdownMenuTrigger,
@@ -30,70 +29,66 @@ export default function DropdownMenuDemo() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger render={<Button variant="outline">Menu</Button>} />
-      <DropdownMenuPositioner>
-        <DropdownMenuContent className="w-44">
-          <DropdownMenuItem>
-            <Home />
-            Dashboard
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <User />
-            Profile
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Bell />
-            Notifications
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <FileText />
-            Documents
-          </DropdownMenuItem>
-          <DropdownMenu>
-            <DropdownMenuSubMenuTrigger
-              render={
-                <DropdownMenuItem closeOnClick={false}>
-                  <Cloud />
-                  File Actions
-                  <ChevronRight className="ml-auto" />
-                </DropdownMenuItem>
-              }
-            />
-            <DropdownMenuPositioner>
-              <DropdownMenuContent className="w-44">
-                <DropdownMenuItem>
-                  <Upload />
-                  Upload Files
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Download />
-                  Download Files
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Share2 />
-                  Share Files
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenuPositioner>
-          </DropdownMenu>
-          <DropdownMenuSeparator className="mt-1" />
-          <DropdownMenuGroup>
-            <DropdownMenuGroupLabel>Preferences</DropdownMenuGroupLabel>
-            <DropdownMenuItem disabled>
-              <Settings />
-              Settings
+      <DropdownMenuContent className="w-44">
+        <DropdownMenuItem>
+          <Home />
+          Dashboard
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <User />
+          Profile
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Bell />
+          Notifications
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <FileText />
+          Documents
+        </DropdownMenuItem>
+        <DropdownMenu>
+          <DropdownMenuSubMenuTrigger
+            render={
+              <DropdownMenuItem closeOnClick={false}>
+                <Cloud />
+                File Actions
+                <ChevronRight className="ml-auto" />
+              </DropdownMenuItem>
+            }
+          />
+          <DropdownMenuContent className="w-44">
+            <DropdownMenuItem>
+              <Upload />
+              Upload Files
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <HelpCircle />
-              Help & Support
+              <Download />
+              Download Files
             </DropdownMenuItem>
-          </DropdownMenuGroup>
-          <DropdownMenuSeparator className="my-1" />
-          <DropdownMenuItem>
-            <LogOut />
-            Log out
+            <DropdownMenuItem>
+              <Share2 />
+              Share Files
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+        <DropdownMenuSeparator className="mt-1" />
+        <DropdownMenuGroup>
+          <DropdownMenuGroupLabel>Preferences</DropdownMenuGroupLabel>
+          <DropdownMenuItem disabled>
+            <Settings />
+            Settings
           </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenuPositioner>
+          <DropdownMenuItem>
+            <HelpCircle />
+            Help & Support
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator className="my-1" />
+        <DropdownMenuItem>
+          <LogOut />
+          Log out
+        </DropdownMenuItem>
+      </DropdownMenuContent>
     </DropdownMenu>
   );
 }

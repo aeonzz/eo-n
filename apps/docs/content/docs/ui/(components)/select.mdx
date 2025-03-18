@@ -1,0 +1,83 @@
+---
+title: Select
+description: A component for selecting options from a list.
+preview: true
+links:
+  doc: https://base-ui.com/react/components/select
+---
+
+<ComponentTabs name="select-demo" />
+
+## Installation
+
+### CLI
+
+```package-install
+npx shadcn@latest add "https://eo-n.vercel.app/r/select"
+```
+
+### Manual
+
+<Steps>
+
+  <Step>
+    Copy and paste the following code into your project.
+
+    <ComponentSource name="select" />
+
+  </Step>
+  
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+Import all parts and piece them together.
+
+```tsx
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/registry/default/ui/select";
+```
+
+```tsx
+<Select>
+  <SelectTrigger>
+    <SelectValue placeholder="Theme" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="light">Light</SelectItem>
+    <SelectItem value="dark">Dark</SelectItem>
+    <SelectItem value="system">System</SelectItem>
+  </SelectContent>
+</Select>
+```
+
+## Examples
+
+### Groups
+
+<ComponentTabs name="select-with-group" />
+
+### Align Trigger
+
+<ComponentTabs name="select-align-trigger" />
+
+## API Reference
+
+### Content
+
+Contains content to be rendered in the select.
+
+<AutoTypeTable path="./types/docs/select.ts" name="ContentProps" />
+
+### Popup
+
+A container for the select items.
+
+<AutoTypeTable path="./types/docs/select.ts" name="PopupProps" />

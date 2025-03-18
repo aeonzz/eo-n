@@ -24,7 +24,7 @@ export type InputVariants = VariantProps<typeof inputVariants>;
 
 interface InputProps extends InputVariants, React.ComponentProps<"input"> {}
 
-function Input({ className, type, variant, ...props }: InputProps) {
+function Input({ className, variant, ...props }: InputProps) {
   return (
     <InputPrimitive
       data-slot="input"
