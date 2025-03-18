@@ -12,7 +12,9 @@ export default function TooltipDemo() {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger render={<Button>Hover</Button>} />
-        <TooltipContent>asdasd</TooltipContent>
+        <TooltipContent>
+          <p>Send message</p>
+        </TooltipContent>
       </Tooltip>
     </TooltipProvider>
   );
