@@ -69,27 +69,24 @@ function SelectValue({
 }
 
 export interface SelectContentProps
-  extends React.ComponentProps<typeof SelectPrimitive.Positioner> {
-  popupProps?: Omit<
-    React.ComponentProps<typeof SelectPrimitive.Popup>,
-    "className"
-  >;
+  extends React.ComponentProps<typeof SelectPrimitive.Popup> {
+  positionerProps?: Omit<SelectPrimitive.Positioner.Props, "className">;
 }
 
 function SelectContent({
-  popupProps,
-  sideOffset = 6,
+  positionerProps,
   className,
   children,
   ...props
 }: SelectContentProps) {
+  const { sideOffset = 6 } = positionerProps || {};
   return (
     <SelectPortal>
       <SelectBackdrop />
       <SelectPrimitive.Positioner
         data-slot="select-positioner"
         sideOffset={sideOffset}
-        {...props}
+        {...positionerProps}
       >
         <SelectPrimitive.Popup
           data-slot="select-content"
@@ -98,7 +95,7 @@ function SelectContent({
             "origin-[var(--transform-origin)] p-1 data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
             className
           )}
-          {...popupProps}
+          {...props}
         >
           {children}
         </SelectPrimitive.Popup>

@@ -59,27 +59,24 @@ function DropdownMenuBackdrop({
 }
 
 interface DropdownMenuContentProps
-  extends Omit<
-    React.ComponentProps<typeof DropdownMenuPrimitive.Positioner>,
-    "className"
-  > {
-  popupProps?: DropdownMenuPrimitive.Popup.Props;
+  extends React.ComponentProps<typeof DropdownMenuPrimitive.Popup> {
+  positionerProps?: Omit<DropdownMenuPrimitive.Positioner.Props, "className">;
 }
 
 function DropdownMenuContent({
-  popupProps,
-  sideOffset = 6,
+  positionerProps,
+  className,
   children,
   ...props
 }: DropdownMenuContentProps) {
-  const { className } = popupProps || {};
+  const { sideOffset = 6 } = positionerProps || {};
   return (
     <DropdownMenuPortal>
       <DropdownMenuBackdrop />
       <DropdownMenuPrimitive.Positioner
         data-slot="dropdown-menu-positioner"
         sideOffset={sideOffset}
-        {...props}
+        {...positionerProps}
       >
         <DropdownMenuPrimitive.Popup
           data-slot="dropdown-menu-content"
@@ -88,7 +85,7 @@ function DropdownMenuContent({
             "origin-[var(--transform-origin)] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
             className
           )}
-          {...popupProps}
+          {...props}
         >
           {children}
         </DropdownMenuPrimitive.Popup>
