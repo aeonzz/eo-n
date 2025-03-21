@@ -1,0 +1,78 @@
+---
+title: Popover
+description: A simple UI component for showing information with styling and accessibility.
+preview: true
+links:
+  doc: https://base-ui.com/react/components/popover
+---
+
+<ComponentTabs name="popover-demo" />
+
+## Installation
+
+### CLI
+
+```package-install
+npx shadcn@latest add "https://eo-n.vercel.app/r/popover"
+```
+
+### Manual
+
+<Steps>
+
+  <Step>
+    Copy and paste the following code into your project.
+
+    <ComponentSource name="popover" />
+
+  </Step>
+  
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+Import all parts and piece them together.
+
+```tsx
+import {
+  Popover,
+  PopoverContent,
+  PopoverDescription,
+  PopoverTitle,
+  PopoverTrigger,
+} from "@/components/ui/dialog";
+```
+
+```tsx
+<Popover>
+  <PopoverTrigger>Open</PopoverTrigger>
+  <PopoverContent>
+    <PopoverTitle>Popover Title</PopoverTitle>
+    <PopoverDescription>
+      This is some content inside the popover.
+    </PopoverDescription>
+  </PopoverContent>
+</Popover>
+```
+
+## Examples
+
+### Open On Hover
+
+<ComponentTabs name="popover-hover" />
+
+## API Reference
+
+### Content
+
+Defines the content displayed inside the popover when it is open.
+
+<AutoTypeTable path="./types/docs/popover.ts" name="ContentProps" />
+
+### Popup
+
+Represents the container that holds the popover options.
+
+<AutoTypeTable path="./types/docs/popover.ts" name="PopupProps" />
