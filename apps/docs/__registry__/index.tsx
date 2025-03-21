@@ -245,22 +245,6 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
-    "button-as-child": {
-      name: "button-as-child",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["button"],
-      files: [{
-        path: "registry/default/examples/button-as-child.tsx",
-        type: "registry:example",
-        target: ""
-      }],
-      component: React.lazy(() => import("@/registry/default/examples/button-as-child.tsx")),
-      source: "",
-      category: "",
-      subcategory: "",
-      chunks: []
-    },
     "button-destructive": {
       name: "button-destructive",
       description: "",

@@ -13,17 +13,6 @@ export const examples: Registry = [
     ],
   },
   {
-    name: "button-as-child",
-    type: "registry:example",
-    registryDependencies: ["button"],
-    files: [
-      {
-        path: "examples/button-as-child.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
     name: "button-destructive",
     type: "registry:example",
     registryDependencies: ["button"],
