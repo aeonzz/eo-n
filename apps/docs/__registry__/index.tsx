@@ -245,6 +245,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "toolbar": {
+      name: "toolbar",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/toolbar.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/toolbar.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       description: "",
@@ -741,17 +757,17 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
-    "accordion-single": {
-      name: "accordion-single",
+    "accordion-multiple": {
+      name: "accordion-multiple",
       description: "",
       type: "registry:example",
       registryDependencies: ["accordion"],
       files: [{
-        path: "registry/default/examples/accordion-single.tsx",
+        path: "registry/default/examples/accordion-multiple.tsx",
         type: "registry:example",
         target: ""
       }],
-      component: React.lazy(() => import("@/registry/default/examples/accordion-single.tsx")),
+      component: React.lazy(() => import("@/registry/default/examples/accordion-multiple.tsx")),
       source: "",
       category: "",
       subcategory: "",
@@ -1040,6 +1056,22 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/separator-vertical.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "toolbar-demo": {
+      name: "toolbar-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["toolbar"],
+      files: [{
+        path: "registry/default/examples/toolbar-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/toolbar-demo.tsx")),
       source: "",
       category: "",
       subcategory: "",

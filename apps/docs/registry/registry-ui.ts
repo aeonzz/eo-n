@@ -164,4 +164,15 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "toolbar",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/toolbar.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];

@@ -5,9 +5,9 @@ import {
   AccordionTrigger,
 } from "@/registry/default/ui/accordion";
 
-export default function AccordionSingle() {
+export default function AccordionMultiple() {
   return (
-    <Accordion openMultiple={false}>
+    <Accordion openMultiple>
       <AccordionItem value="item-1">
         <AccordionTrigger>Explore the Galaxy</AccordionTrigger>
         <AccordionContent>

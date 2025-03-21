@@ -332,12 +332,12 @@ export const examples: Registry = [
     ],
   },
   {
-    name: "accordion-single",
+    name: "accordion-multiple",
     type: "registry:example",
     registryDependencies: ["accordion"],
     files: [
       {
-        path: "examples/accordion-single.tsx",
+        path: "examples/accordion-multiple.tsx",
         type: "registry:example",
       },
     ],
@@ -536,6 +536,17 @@ export const examples: Registry = [
     files: [
       {
         path: "examples/separator-vertical.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toolbar-demo",
+    type: "registry:example",
+    registryDependencies: ["toolbar"],
+    files: [
+      {
+        path: "examples/toolbar-demo.tsx",
         type: "registry:example",
       },
     ],

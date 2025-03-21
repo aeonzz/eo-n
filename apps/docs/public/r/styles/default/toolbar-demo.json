@@ -1,0 +1,15 @@
+{
+  "name": "toolbar-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "toolbar"
+  ],
+  "files": [
+    {
+      "path": "examples/toolbar-demo.tsx",
+      "content": "import {\r\n  Toolbar,\r\n  ToolbarButton,\r\n  ToolbarGroup,\r\n  ToolbarInput,\r\n  ToolbarLink,\r\n  ToolbarSeparator,\r\n} from \"@/registry/default/ui/toolbar\";\r\n\r\nexport default function ToolbarDemo() {\r\n  return <Toolbar></Toolbar>;\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
