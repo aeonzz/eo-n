@@ -1,8 +1,8 @@
-import type { CompositionProps, EmptyProps } from "@/types";
+import type { EmptyProps } from "@/types";
 
 import type { ButtonVariants } from "@/registry/default/ui/button";
 
-export interface RootProps extends EmptyProps<"button">, CompositionProps {
+export interface RootProps extends EmptyProps<"button"> {
   /**
    *
    * @default "default"

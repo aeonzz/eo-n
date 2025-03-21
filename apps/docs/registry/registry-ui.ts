@@ -142,4 +142,26 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "popover",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/popover.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "separator",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/separator.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];

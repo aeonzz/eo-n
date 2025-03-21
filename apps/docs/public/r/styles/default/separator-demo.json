@@ -1,0 +1,15 @@
+{
+  "name": "separator-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "examples/separator-demo.tsx",
+      "content": "import { Separator } from \"@/registry/default/ui/separator\";\r\n\r\nexport default function SeparatorDemo() {\r\n  return (\r\n    <div className=\"space-y-5\">\r\n      <div>\r\n        <h2 className=\"text-lg font-semibold\">Profile</h2>\r\n        <Separator className=\"mt-1.5 mb-1.5\" />\r\n        <p className=\"text-muted-foreground text-sm\">\r\n          Account settings and preferences\r\n        </p>\r\n      </div>\r\n      <div>\r\n        <h2 className=\"text-lg font-semibold\">Billing</h2>\r\n        <Separator className=\"mt-1.5 mb-1.5\" />\r\n        <p className=\"text-muted-foreground text-sm\">\r\n          Manage billing information and view receipts\r\n        </p>\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

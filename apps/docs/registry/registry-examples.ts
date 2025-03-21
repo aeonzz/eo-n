@@ -13,17 +13,6 @@ export const examples: Registry = [
     ],
   },
   {
-    name: "button-as-child",
-    type: "registry:example",
-    registryDependencies: ["button"],
-    files: [
-      {
-        path: "examples/button-as-child.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
     name: "button-destructive",
     type: "registry:example",
     registryDependencies: ["button"],
@@ -503,6 +492,50 @@ export const examples: Registry = [
     files: [
       {
         path: "examples/toggle-small.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "popover-demo",
+    type: "registry:example",
+    registryDependencies: ["popover"],
+    files: [
+      {
+        path: "examples/popover-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "popover-hover",
+    type: "registry:example",
+    registryDependencies: ["popover"],
+    files: [
+      {
+        path: "examples/popover-hover.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "separator-demo",
+    type: "registry:example",
+    registryDependencies: ["separator"],
+    files: [
+      {
+        path: "examples/separator-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "separator-vertical",
+    type: "registry:example",
+    registryDependencies: ["separator"],
+    files: [
+      {
+        path: "examples/separator-vertical.tsx",
         type: "registry:example",
       },
     ],
