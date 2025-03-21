@@ -153,4 +153,15 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "separator",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/separator.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];

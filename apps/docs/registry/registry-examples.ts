@@ -519,6 +519,28 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "separator-demo",
+    type: "registry:example",
+    registryDependencies: ["separator"],
+    files: [
+      {
+        path: "examples/separator-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "separator-vertical",
+    type: "registry:example",
+    registryDependencies: ["separator"],
+    files: [
+      {
+        path: "examples/separator-vertical.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [
