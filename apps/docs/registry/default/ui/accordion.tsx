@@ -7,12 +7,14 @@ import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 function Accordion({
+  openMultiple = false,
   className,
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Root>) {
   return (
     <AccordionPrimitive.Root
       data-slot="accordion"
+      openMultiple={openMultiple}
       className={cn(
         "flex w-96 flex-col justify-center data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         className
@@ -65,6 +67,7 @@ function AccordionTrigger({
     </AccordionHeader>
   );
 }
+
 function AccordionContent({
   className,
   children,
