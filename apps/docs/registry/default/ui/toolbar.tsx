@@ -12,10 +12,7 @@ function Toolbar({
   return (
     <ToolbarPrimitive.Root
       data-slot="toolbar"
-      className={cn(
-        "flex items-center gap-1 rounded-lg border p-1",
-        className
-      )}
+      className={cn("flex items-center gap-1 rounded-lg border p-1", className)}
       {...props}
     />
   );
@@ -28,7 +25,10 @@ function ToolbarButton({
   return (
     <ToolbarPrimitive.Button
       data-slot="toolbar-button"
-      className={cn("", className)}
+      className={cn(
+        "shadow-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        className
+      )}
       {...props}
     />
   );

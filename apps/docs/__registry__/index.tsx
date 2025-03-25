@@ -1077,6 +1077,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "toolbar-with-input": {
+      name: "toolbar-with-input",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["toolbar"],
+      files: [{
+        path: "registry/default/examples/toolbar-with-input.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/toolbar-with-input.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "mode-toggle": {
       name: "mode-toggle",
       description: "",

@@ -16,7 +16,7 @@ import {
   ToolbarSeparator,
 } from "@/registry/default/ui/toolbar";
 
-export default function ToolbarDemo() {
+export default function ToggleWithInput() {
   return (
     <Toolbar>
       <ToolbarButton render={<Button variant="default" />}>Save</ToolbarButton>

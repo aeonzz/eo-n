@@ -552,6 +552,17 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "toolbar-with-input",
+    type: "registry:example",
+    registryDependencies: ["toolbar"],
+    files: [
+      {
+        path: "examples/toolbar-with-input.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [
