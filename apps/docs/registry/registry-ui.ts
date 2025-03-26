@@ -186,4 +186,15 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "checkbox-group",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/checkbox-group.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];

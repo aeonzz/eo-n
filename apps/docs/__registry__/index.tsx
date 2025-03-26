@@ -277,6 +277,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "checkbox-group": {
+      name: "checkbox-group",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/checkbox-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/checkbox-group.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       description: "",
@@ -1120,6 +1136,22 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/alert-dialog-demo.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "checkbox-group-demo": {
+      name: "checkbox-group-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["checkbox-group-demo"],
+      files: [{
+        path: "registry/default/examples/checkbox-group-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/checkbox-group-demo.tsx")),
       source: "",
       category: "",
       subcategory: "",
