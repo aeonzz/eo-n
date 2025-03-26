@@ -175,4 +175,15 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "alert-dialog",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/alert-dialog.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];

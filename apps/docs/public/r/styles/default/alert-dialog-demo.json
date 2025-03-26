@@ -1,0 +1,15 @@
+{
+  "name": "alert-dialog-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "alert-dialog"
+  ],
+  "files": [
+    {
+      "path": "examples/alert-dialog-demo.tsx",
+      "content": "import {\r\n  AlertDialog,\r\n  AlertDialogClose,\r\n  AlertDialogContent,\r\n  AlertDialogDescription,\r\n  AlertDialogFooter,\r\n  AlertDialogTitle,\r\n  AlertDialogTrigger,\r\n} from \"@/registry/default/ui/alert-dialog\";\r\n\r\nimport { Button } from \"../ui/button\";\r\n\r\nexport default function AlertDialogDemo() {\r\n  return (\r\n    <AlertDialog>\r\n      <AlertDialogTrigger render={<Button>Open</Button>} />\r\n      <AlertDialog>\r\n        <AlertDialogContent>\r\n          <AlertDialogTitle>wawe</AlertDialogTitle>\r\n          <AlertDialogDescription>asdas</AlertDialogDescription>\r\n        </AlertDialogContent>\r\n        <AlertDialogFooter>\r\n          <AlertDialogClose render={<Button>Close</Button>} />\r\n        </AlertDialogFooter>\r\n      </AlertDialog>\r\n    </AlertDialog>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

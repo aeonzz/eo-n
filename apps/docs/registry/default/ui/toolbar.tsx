@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 function Toolbar({
   className,
   ...props
-}: React.ComponentProps<typeof ToolbarPrimitive.Root>) {
+}: Omit<React.ComponentProps<typeof ToolbarPrimitive.Root>, "orientation">) {
   return (
     <ToolbarPrimitive.Root
       data-slot="toolbar"
@@ -67,7 +67,10 @@ function ToolbarGroup({
   return (
     <ToolbarPrimitive.Group
       data-slot="toolbar-group"
-      className={cn("flex items-center gap-1", className)}
+      className={cn(
+        "flex items-center gap-1 *:data-[slot='toolbar-button']:cursor-pointer",
+        className
+      )}
       {...props}
     />
   );
