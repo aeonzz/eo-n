@@ -201,5 +201,31 @@
         "type": "registry:ui"
       }
     ]
+  },
+  {
+    "name": "alert-dialog",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui-components/react"
+    ],
+    "files": [
+      {
+        "path": "ui/alert-dialog.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "checkbox-group",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui-components/react"
+    ],
+    "files": [
+      {
+        "path": "ui/checkbox-group.tsx",
+        "type": "registry:ui"
+      }
+    ]
   }
 ]

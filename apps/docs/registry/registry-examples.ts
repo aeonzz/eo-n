@@ -563,6 +563,28 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "alert-dialog-demo",
+    type: "registry:example",
+    registryDependencies: ["alert-dialog"],
+    files: [
+      {
+        path: "examples/alert-dialog-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "checkbox-group-demo",
+    type: "registry:example",
+    registryDependencies: ["checkbox-group-demo"],
+    files: [
+      {
+        path: "examples/checkbox-group-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [
