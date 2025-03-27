@@ -266,5 +266,18 @@
         "type": "registry:ui"
       }
     ]
+  },
+  {
+    "name": "collapsible",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui-components/react"
+    ],
+    "files": [
+      {
+        "path": "ui/collapsible.tsx",
+        "type": "registry:ui"
+      }
+    ]
   }
 ]

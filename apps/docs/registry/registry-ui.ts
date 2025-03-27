@@ -230,4 +230,15 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "collapsible",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/collapsible.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];

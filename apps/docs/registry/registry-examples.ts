@@ -618,6 +618,28 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "radio-group-disabled",
+    type: "registry:example",
+    registryDependencies: ["radio-group"],
+    files: [
+      {
+        path: "examples/radio-group-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "collapsible-demo",
+    type: "registry:example",
+    registryDependencies: ["collapsible"],
+    files: [
+      {
+        path: "examples/collapsible-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [

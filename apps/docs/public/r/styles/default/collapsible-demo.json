@@ -1,0 +1,15 @@
+{
+  "name": "collapsible-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "collapsible"
+  ],
+  "files": [
+    {
+      "path": "examples/collapsible-demo.tsx",
+      "content": "import {\r\n  Collapsible,\r\n  CollapsibleContent,\r\n  CollapsibleTrigger,\r\n} from \"@/registry/default/ui/collapsible\";\r\n\r\nexport default function CollapsibleDemo() {\r\n  return (\r\n    <Collapsible>\r\n      <CollapsibleTrigger></CollapsibleTrigger>\r\n      <CollapsibleContent></CollapsibleContent>\r\n    </Collapsible>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
