@@ -208,4 +208,15 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "progress",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/progress.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];

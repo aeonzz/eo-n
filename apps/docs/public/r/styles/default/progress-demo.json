@@ -1,0 +1,15 @@
+{
+  "name": "progress-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "progress"
+  ],
+  "files": [
+    {
+      "path": "examples/progress-demo.tsx",
+      "content": "import React from \"react\";\r\n\r\nimport { Progress, ProgressValue } from \"@/registry/default/ui/progress\";\r\n\r\nexport default function ProgressDemo() {\r\n  const [value, setValue] = React.useState(20);\r\n\r\n  React.useEffect(() => {\r\n    const interval = window.setInterval(() => {\r\n      setValue((current) =>\r\n        Math.min(100, Math.round(current + Math.random() * 25))\r\n      );\r\n    }, 1000);\r\n    return () => clearInterval(interval);\r\n  }, []);\r\n\r\n  return (\r\n    <Progress value={value}>\r\n      <ProgressValue />\r\n    </Progress>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
