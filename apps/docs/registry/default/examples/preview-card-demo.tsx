@@ -30,7 +30,7 @@ export default function PreviewCardDemo() {
             alt="@aeonzz"
             className="size-full"
           />
-          <AvatarFallback>AE</AvatarFallback>
+          <AvatarFallback className="size-full">AE</AvatarFallback>
         </Avatar>
         <div className="flex w-full flex-col gap-1">
           <p className="text-sm font-semibold tracking-tight">@Aeonzz</p>

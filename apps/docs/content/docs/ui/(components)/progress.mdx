@@ -1,0 +1,44 @@
+---
+title: Progress
+description: Indicates the progress of a task that requires significant time to complete.
+preview: true
+links:
+  doc: https://base-ui.com/react/components/progress
+---
+
+<ComponentTabs name="progress-demo" />
+
+## Installation
+
+### CLI
+
+```package-install
+npx shadcn@latest add "https://eo-n.vercel.app/r/progress"
+```
+
+### Manual
+
+<Steps>
+
+  <Step>
+    Copy and paste the following code into your project.
+
+    <ComponentSource name="progress" />
+
+  </Step>
+  
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+Import all parts and piece them together.
+
+```tsx
+import { Progress, ProgressValue } from "@/components/ui/progress";
+```
+
+```tsx
+<Progress value={56} />
+```
