@@ -219,4 +219,15 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "radio-group",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/radio-group.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];
