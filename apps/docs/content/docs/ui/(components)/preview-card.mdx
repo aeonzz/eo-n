@@ -1,0 +1,65 @@
+---
+title: Preview Card
+description: A customizable component for displaying compact, visually appealing content previews.
+preview: true
+links:
+  doc: https://base-ui.com/react/components/preview-card
+---
+
+<ComponentTabs name="preview-card-demo" />
+
+## Installation
+
+### CLI
+
+```package-install
+npx shadcn@latest add "https://eo-n.vercel.app/r/preview-card"
+```
+
+### Manual
+
+<Steps>
+
+  <Step>
+    Copy and paste the following code into your project.
+
+    <ComponentSource name="preview-card" />
+
+  </Step>
+  
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+Import all parts and piece them together.
+
+```tsx
+import {
+  PreviewCard,
+  PreviewCardContent,
+  PreviewCardTrigger,
+} from "@/components/ui/preview-card";
+```
+
+```tsx
+<HoverCard>
+  <HoverCardTrigger>Hover</HoverCardTrigger>
+  <HoverCardContent>Innovating in reverse.</HoverCardContent>
+</HoverCard>
+```
+
+## API Reference
+
+### Content
+
+Defines the content displayed inside the preview card when it is open.
+
+<AutoTypeTable path="./types/docs/preview-card.ts" name="ContentProps" />
+
+### Popup
+
+Represents the container that holds the preview-card options.
+
+<AutoTypeTable path="./types/docs/preview-card.ts" name="PopupProps" />

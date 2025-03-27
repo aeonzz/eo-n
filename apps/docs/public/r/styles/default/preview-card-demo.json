@@ -1,0 +1,15 @@
+{
+  "name": "preview-card-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "preview-card-demo"
+  ],
+  "files": [
+    {
+      "path": "examples/preview-card-demo.tsx",
+      "content": "import Link from \"next/link\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\nimport {\r\n  Avatar,\r\n  AvatarFallback,\r\n  AvatarImage,\r\n} from \"@/registry/default/ui/avatar\";\r\nimport { Button, buttonVariants } from \"@/registry/default/ui/button\";\r\nimport {\r\n  PreviewCard,\r\n  PreviewCardContent,\r\n  PreviewCardTrigger,\r\n} from \"@/registry/default/ui/preview-card\";\r\n\r\nexport default function PreviewCardDemo() {\r\n  return (\r\n    <PreviewCard>\r\n      <PreviewCardTrigger\r\n        render={\r\n          <Button variant=\"link\" className=\"p-0\">\r\n            @Aeonzz\r\n          </Button>\r\n        }\r\n      />\r\n      <PreviewCardContent className=\"flex w-80 items-start gap-3\">\r\n        <Avatar className=\"size-12 border\">\r\n          <AvatarImage\r\n            src=\"https://github.com/aeonzz.png\"\r\n            alt=\"@aeonzz\"\r\n            className=\"size-full\"\r\n          />\r\n          <AvatarFallback>AE</AvatarFallback>\r\n        </Avatar>\r\n        <div className=\"flex w-full flex-col gap-1\">\r\n          <p className=\"text-sm font-semibold tracking-tight\">@Aeonzz</p>\r\n          <p className=\"text-sm\">Innovating in reverse.</p>\r\n          <Link\r\n            className={cn(\r\n              buttonVariants({ variant: \"outline\", size: \"sm\" }),\r\n              \"mt-2\"\r\n            )}\r\n            href=\"https://github.com/aeonzz\"\r\n          >\r\n            Follow\r\n          </Link>\r\n        </div>\r\n      </PreviewCardContent>\r\n    </PreviewCard>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

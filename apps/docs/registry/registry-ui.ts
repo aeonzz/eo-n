@@ -197,4 +197,15 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "preview-card",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/preview-card.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];

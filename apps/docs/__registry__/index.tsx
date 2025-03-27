@@ -293,6 +293,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "preview-card": {
+      name: "preview-card",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/preview-card.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/preview-card.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       description: "",
@@ -1152,6 +1168,22 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/checkbox-group-demo.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "preview-card-demo": {
+      name: "preview-card-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["preview-card-demo"],
+      files: [{
+        path: "registry/default/examples/preview-card-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/preview-card-demo.tsx")),
       source: "",
       category: "",
       subcategory: "",

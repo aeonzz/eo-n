@@ -585,6 +585,17 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "preview-card-demo",
+    type: "registry:example",
+    registryDependencies: ["preview-card-demo"],
+    files: [
+      {
+        path: "examples/preview-card-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [
