@@ -227,5 +227,18 @@
         "type": "registry:ui"
       }
     ]
+  },
+  {
+    "name": "preview-card",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui-components/react"
+    ],
+    "files": [
+      {
+        "path": "ui/preview-card.tsx",
+        "type": "registry:ui"
+      }
+    ]
   }
 ]
