@@ -325,6 +325,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "radio-group": {
+      name: "radio-group",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/radio-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/radio-group.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       description: "",
@@ -1216,6 +1232,22 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/progress-demo.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "radio-group-demo": {
+      name: "radio-group-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["radio-group"],
+      files: [{
+        path: "registry/default/examples/radio-group-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/radio-group-demo.tsx")),
       source: "",
       category: "",
       subcategory: "",
