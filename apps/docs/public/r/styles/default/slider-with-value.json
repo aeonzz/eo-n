@@ -1,0 +1,15 @@
+{
+  "name": "slider-with-value",
+  "type": "registry:example",
+  "registryDependencies": [
+    "slider"
+  ],
+  "files": [
+    {
+      "path": "examples/slider-with-value.tsx",
+      "content": "import { Slider, SliderValue } from \"@/registry/default/ui/slider\";\r\n\r\nexport default function SliderWithValue() {\r\n  return (\r\n    <Slider defaultValue={32}>\r\n      <SliderValue />\r\n    </Slider>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
