@@ -618,6 +618,50 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "radio-group-disabled",
+    type: "registry:example",
+    registryDependencies: ["radio-group"],
+    files: [
+      {
+        path: "examples/radio-group-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "collapsible-demo",
+    type: "registry:example",
+    registryDependencies: ["collapsible"],
+    files: [
+      {
+        path: "examples/collapsible-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "scroll-area-demo",
+    type: "registry:example",
+    registryDependencies: ["scroll-area"],
+    files: [
+      {
+        path: "examples/scroll-area-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "scroll-area-horizontal",
+    type: "registry:example",
+    registryDependencies: ["scroll-area"],
+    files: [
+      {
+        path: "examples/scroll-area-horizontal.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [

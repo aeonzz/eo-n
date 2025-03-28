@@ -1,0 +1,53 @@
+---
+title: Collapsible
+description: A flexible and accessible collapsible component for showing and hiding content sections dynamically.
+preview: true
+links:
+  doc: https://base-ui.com/react/components/collapsible
+---
+
+<ComponentTabs name="collapsible-demo" />
+
+## Installation
+
+### CLI
+
+```package-install
+npx shadcn@latest add "https://eo-n.vercel.app/r/collapsible"
+```
+
+### Manual
+
+<Steps>
+
+  <Step>
+    Copy and paste the following code into your project.
+
+    <ComponentSource name="collapsible" />
+
+  </Step>
+  
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+Import all parts and piece them together.
+
+```tsx
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/registry/default/ui/collapsible";
+```
+
+```tsx
+<Collapsible>
+  <CollapsibleTrigger>Is there any cost involved?</CollapsibleTrigger>
+  <CollapsibleContent>
+    No, it's completely free to use for both personal and professional projects.
+  </CollapsibleContent>
+</Collapsible>
+```
