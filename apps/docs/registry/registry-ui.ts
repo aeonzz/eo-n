@@ -252,4 +252,15 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "slider",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/slider.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];
