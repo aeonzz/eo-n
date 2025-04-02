@@ -1,9 +1,10 @@
 "use client";
 
-import { ReactScanProvider } from "@/components/react-scan-provider";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { RootProvider, type RootProviderProps } from "fumadocs-ui/provider";
-import { Provider as JotaiProvider, createStore } from "jotai";
+import { createStore, Provider as JotaiProvider } from "jotai";
+
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { ReactScanProvider } from "@/components/react-scan-provider";
 
 const store = createStore();
 

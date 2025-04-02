@@ -7,11 +7,7 @@ import { buttonVariants } from "@/registry/default/ui/button";
 interface DynamicLinkProps
   extends React.ComponentPropsWithoutRef<typeof Link> {}
 
-export function DynamicLink({
-  href,
-  children,
-  ...props
-}: DynamicLinkProps) {
+export function DynamicLink({ href, children, ...props }: DynamicLinkProps) {
   const isExternal = getIsExternalLink(href.toString());
 
   return (
