@@ -3,7 +3,7 @@ import { Menu as DropdownMenuPrimitive } from "@base-ui-components/react/menu";
 
 export interface ContentProps extends EmptyProps<"div"> {
   /**
-   * Optional configuration props for the ```DropdownMenu``` popup element. [Learn more](https://base-ui.com/react/components/menu#positioner) 
+   * Optional configuration props for the ```DropdownMenu``` popup element. [Learn more](https://base-ui.com/react/components/menu#positioner)
    *
    * @default undefined
    */

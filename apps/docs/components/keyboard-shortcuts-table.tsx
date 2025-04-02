@@ -1,4 +1,3 @@
-import { Kbd } from "@/components/kbd";
 import {
   Table,
   TableBody,
@@ -7,6 +6,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Kbd } from "@/components/kbd";
 
 interface KeyboardShortcutsTableProps {
   shortcuts: {
