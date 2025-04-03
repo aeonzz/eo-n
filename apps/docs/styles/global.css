@@ -223,7 +223,11 @@
 
 @utility component-block {
   & pre {
-    @apply max-h-[432.4px];
+    @apply max-h-[432.4px] font-mono;
+  }
+
+  & code {
+    @apply font-mono;
   }
 
   [data-rehype-pretty-code-figure] figure {
@@ -291,5 +295,13 @@
   .component-preview p,
   .component-preview img {
     @apply !m-0;
+  }
+
+  pre {
+    @apply font-mono;
+  }
+
+  code {
+    @apply font-mono;
   }
 }
