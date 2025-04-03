@@ -1,0 +1,15 @@
+{
+  "name": "toolbar-with-input",
+  "type": "registry:example",
+  "registryDependencies": [
+    "toolbar"
+  ],
+  "files": [
+    {
+      "path": "examples/toolbar-with-input.tsx",
+      "content": "import { Bold, Italic } from \"lucide-react\";\r\n\r\nimport { Button } from \"@/registry/default/ui/button\";\r\nimport { Toggle } from \"@/registry/default/ui/toggle\";\r\nimport {\r\n  Toolbar,\r\n  ToolbarButton,\r\n  ToolbarGroup,\r\n  ToolbarInput,\r\n  ToolbarSeparator,\r\n} from \"@/registry/default/ui/toolbar\";\r\n\r\nimport { Input } from \"../ui/input\";\r\n\r\nexport default function ToggleWithInput() {\r\n  return (\r\n    <Toolbar>\r\n      <ToolbarButton render={<Button variant=\"default\" />}>Save</ToolbarButton>\r\n      <ToolbarSeparator />\r\n      <ToolbarGroup>\r\n        <ToolbarButton\r\n          render={\r\n            <Toggle variant=\"outline\">\r\n              <Bold />\r\n            </Toggle>\r\n          }\r\n        />\r\n        <ToolbarButton\r\n          render={\r\n            <Toggle variant=\"outline\">\r\n              <Italic />\r\n            </Toggle>\r\n          }\r\n        />\r\n      </ToolbarGroup>\r\n      <ToolbarSeparator />\r\n      <ToolbarGroup>\r\n        <ToolbarInput render={<Input placeholder=\"Search and replace\" />} />\r\n      </ToolbarGroup>\r\n    </Toolbar>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

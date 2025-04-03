@@ -9,9 +9,7 @@ import { cn } from "@/lib/utils";
 function DropdownMenu({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {
-  return (
-    <DropdownMenuPrimitive.Root data-slot="dropdown-menu-menu" {...props} />
-  );
+  return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
 }
 
 function DropdownMenuTrigger({
@@ -60,45 +58,39 @@ function DropdownMenuBackdrop({
   );
 }
 
-function DropdownMenuPositioner({
+interface DropdownMenuContentProps
+  extends React.ComponentProps<typeof DropdownMenuPrimitive.Popup> {
+  positionerProps?: Omit<DropdownMenuPrimitive.Positioner.Props, "className">;
+}
+
+function DropdownMenuContent({
+  positionerProps,
+  className,
   children,
-  sideOffset = 6,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Positioner>) {
+}: DropdownMenuContentProps) {
+  const { sideOffset = 6 } = positionerProps || {};
   return (
     <DropdownMenuPortal>
       <DropdownMenuBackdrop />
       <DropdownMenuPrimitive.Positioner
         data-slot="dropdown-menu-positioner"
         sideOffset={sideOffset}
-        {...props}
+        {...positionerProps}
       >
-        {children}
+        <DropdownMenuPrimitive.Popup
+          data-slot="dropdown-menu-content"
+          className={cn(
+            "bg-popover text-popover-foreground ring-border ring-offset-background z-50 min-w-[8rem] overflow-x-hidden overflow-y-auto rounded-md border p-1 shadow-md ring-1 ring-offset-[0.75px] transition-[transform,scale,opacity] duration-150 ease-out",
+            "origin-[var(--transform-origin)] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
+            className
+          )}
+          {...props}
+        >
+          {children}
+        </DropdownMenuPrimitive.Popup>
       </DropdownMenuPrimitive.Positioner>
     </DropdownMenuPortal>
-  );
-}
-
-interface DropdownMenuContentProps
-  extends React.ComponentProps<typeof DropdownMenuPrimitive.Popup> {}
-
-function DropdownMenuContent({
-  className,
-  children,
-  ...props
-}: DropdownMenuContentProps) {
-  return (
-    <DropdownMenuPrimitive.Popup
-      data-slot="dropdown-menu-content"
-      className={cn(
-        "bg-popover text-popover-foreground ring-border ring-offset-background z-50 min-w-[8rem] overflow-x-hidden overflow-y-auto rounded-md border p-1 shadow-md ring-2 ring-offset-1 transition-[transform,scale,opacity] duration-150 ease-out",
-        "origin-[var(--transform-origin)] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </DropdownMenuPrimitive.Popup>
   );
 }
 
@@ -145,7 +137,7 @@ function DropdownMenuGroupLabel({
 }: React.ComponentProps<typeof DropdownMenuPrimitive.GroupLabel>) {
   return (
     <DropdownMenuPrimitive.GroupLabel
-      data-slot="dropdown-menu-groupLabel"
+      data-slot="dropdown-menu-group-label"
       className={cn(
         "border-muted -mx-1 border-b px-3 py-2 text-sm leading-none font-semibold",
         className
@@ -160,7 +152,7 @@ function DropdownMenuRadioGroup({
 }: React.ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>) {
   return (
     <DropdownMenuPrimitive.RadioGroup
-      data-slot="dropdown-menu-radioGroup"
+      data-slot="dropdown-menu-radio-group"
       {...props}
     />
   );
@@ -173,7 +165,7 @@ function DropdownMenuRadioItem({
 }: React.ComponentProps<typeof DropdownMenuPrimitive.RadioItem>) {
   return (
     <DropdownMenuPrimitive.RadioItem
-      data-slot="dropdown-menu-radioItem"
+      data-slot="dropdown-menu-radio-item"
       className={cn(
         "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1 pr-2 pl-6 text-sm transition-colors outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         className
@@ -197,7 +189,7 @@ function DropdownMenuCheckboxItem({
 }: React.ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) {
   return (
     <DropdownMenuPrimitive.CheckboxItem
-      data-slot="dropdown-menu-checkboxItem"
+      data-slot="dropdown-menu-checkbox-item"
       className={cn(
         "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1 pr-2 pl-6 text-sm transition-colors outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         className
@@ -227,6 +219,5 @@ export {
   DropdownMenuBackdrop,
   DropdownMenuGroup,
   DropdownMenuPortal,
-  DropdownMenuPositioner,
   DropdownMenuRadioGroup,
 };

@@ -1,0 +1,59 @@
+---
+title: Radio Group
+description: A component for selecting one option from a list.
+preview: true
+links:
+  doc: https://base-ui.com/react/components/radio
+---
+
+<ComponentTabs name="radio-group-demo" />
+
+## Installation
+
+### CLI
+
+```package-install
+npx shadcn@latest add "https://eo-n.vercel.app/r/radio-group"
+```
+
+### Manual
+
+<Steps>
+
+  <Step>
+    Copy and paste the following code into your project.
+
+    <ComponentSource name="radio-group" />
+
+  </Step>
+  
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+Import all parts and piece them together.
+
+```tsx
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+```
+
+```tsx
+<RadioGroup>
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="right" id="right" />
+    <Label htmlFor="right">Right</Label>
+  </div>
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="left" id="left" />
+    <Label htmlFor="left">Left</Label>
+  </div>
+</RadioGroup>
+```
+
+## Examples
+
+### Disabled Item
+
+<ComponentTabs name="radio-group-disabled" />

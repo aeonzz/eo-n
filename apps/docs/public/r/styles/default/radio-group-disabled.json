@@ -1,0 +1,15 @@
+{
+  "name": "radio-group-disabled",
+  "type": "registry:example",
+  "registryDependencies": [
+    "radio-group"
+  ],
+  "files": [
+    {
+      "path": "examples/radio-group-disabled.tsx",
+      "content": "import { Label } from \"@/registry/default/ui/label\";\r\nimport { RadioGroup, RadioGroupItem } from \"@/registry/default/ui/radio-group\";\r\n\r\nexport default function RadioGroupDisabled() {\r\n  return (\r\n    <RadioGroup>\r\n      <div className=\"flex items-center space-x-2\">\r\n        <RadioGroupItem value=\"apple\" id=\"apple\" disabled />\r\n        <Label htmlFor=\"apple\">Apple</Label>\r\n      </div>\r\n      <div className=\"flex items-center space-x-2\">\r\n        <RadioGroupItem value=\"orange\" id=\"orange\" />\r\n        <Label htmlFor=\"orange\">Orange</Label>\r\n      </div>\r\n      <div className=\"flex items-center space-x-2\">\r\n        <RadioGroupItem value=\"mango\" id=\"mango\" />\r\n        <Label htmlFor=\"mango\">Mango</Label>\r\n      </div>\r\n    </RadioGroup>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

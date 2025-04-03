@@ -1,0 +1,63 @@
+---
+title: Alert Dialog
+description: A dialog that prompts the user for a response before continuing.
+preview: true
+links:
+  doc: https://base-ui.com/react/components/alert-dialog
+  api: /docs/ui/dialog#api-reference
+---
+
+<ComponentTabs name="alert-dialog-demo" />
+
+## Installation
+
+### CLI
+
+```package-install
+npx shadcn@latest add "https://eo-n.vercel.app/r/alert-dialog"
+```
+
+### Manual
+
+<Steps>
+
+  <Step>
+    Copy and paste the following code into your project.
+
+    <ComponentSource name="alert-dialog" />
+
+  </Step>
+  
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+Import all parts and piece them together.
+
+```tsx
+import {
+  AlertDialog,
+  AlertDialogClose,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+```
+
+```tsx
+<AlertDialog>
+  <AlertDialogTrigger>Open</AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogTitle>Confirm Deletion</AlertDialogTitle>
+    <AlertDialogDescription>
+      Are you sure you want to delete this item? This action cannot be undone.
+    </AlertDialogDescription>
+    <AlertDialogFooter>
+      <AlertDialogClose>Cancel</AlertDialogClose>
+      <Button>Delete</Button>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>
+```

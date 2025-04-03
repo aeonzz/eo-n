@@ -1,0 +1,44 @@
+---
+title: Checkbox Group
+description: A UI component that lets users select multiple options by toggling individual checkboxes.
+preview: true
+links:
+  doc: https://base-ui.com/react/components/checkbox-group
+---
+
+<ComponentTabs name="checkbox-group-demo" />
+
+## Installation
+
+### CLI
+
+```package-install
+npx shadcn@latest add "https://eo-n.vercel.app/r/checkbox-group"
+```
+
+### Manual
+
+<Steps>
+
+  <Step>
+    Copy and paste the following code into your project.
+
+    <ComponentSource name="checkbox-group" />
+
+  </Step>
+  
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+Import all parts and piece them together.
+
+```tsx
+import { CheckboxGroup } from "@components/ui/checkbox-group";
+```
+
+```tsx
+<CheckboxGroup>
+  <Checkbox />
+</CheckboxGroup>
+```

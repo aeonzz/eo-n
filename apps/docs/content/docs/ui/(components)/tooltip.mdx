@@ -1,0 +1,56 @@
+---
+title: Tooltip
+description: A small pop-up that appears when users hover over or focus on an element, providing additional information.
+preview: true
+links:
+  doc: https://base-ui.com/react/components/tooltip
+---
+
+<ComponentTabs name="tooltip-demo" />
+
+## Installation
+
+### CLI
+
+```package-install
+npx shadcn@latest add "https://eo-n.vercel.app/r/tooltip"
+```
+
+### Manual
+
+<Steps>
+
+  <Step>
+    Copy and paste the following code into your project.
+
+    <ComponentSource name="tooltip" />
+
+  </Step>
+  
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+Import all parts and piece them together.
+
+```tsx
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+```
+
+```tsx
+<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger render={<Button>Send</Button>} />
+    <TooltipContent>
+      <p>Send message</p>
+    </TooltipContent>
+  </Tooltip>
+</TooltipProvider>
+```

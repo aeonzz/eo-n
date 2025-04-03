@@ -1,0 +1,95 @@
+---
+title: Button
+description: A UI component for triggering actions or navigation.
+preview: true
+links:
+  api: /docs/ui/button#api-reference
+---
+
+<ComponentTabs name="button-demo" />
+
+## Installation
+
+### CLI
+
+```package-install
+npx shadcn@latest add "https://eo-n.vercel.app/r/button"
+```
+
+### Manual
+
+<Steps>
+
+  <Step>
+    Copy and paste the following code into your project.
+
+    <ComponentSource name="button" />
+
+  </Step>
+  
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+Import all parts and piece them together.
+
+```tsx
+import { Button } from "@/components/ui/button";
+```
+
+```tsx
+<Button>Button</Button>
+```
+
+## Examples
+
+### Primary
+
+<ComponentTabs name="button-demo" />
+
+### Secondary
+
+<ComponentTabs name="button-secondary" />
+
+### Destructive
+
+<ComponentTabs name="button-destructive" />
+
+### Ghost
+
+<ComponentTabs name="button-ghost" />
+
+### Outline
+
+<ComponentTabs name="button-outline" />
+
+### Link
+
+<ComponentTabs name="button-link" />
+
+### Icon
+
+<ComponentTabs name="button-icon" />
+
+### Loading
+
+<ComponentTabs name="button-loading" />
+
+## API Reference
+
+### Root
+
+The main container component for handling button props.
+
+<AutoTypeTable path="./types/docs/button.ts" name="RootProps" />
+
+<DataAttributesTable
+  attributes={[
+    {
+      title: "[data-slot]",
+      value: ["button"],
+    },
+  ]}
+/>

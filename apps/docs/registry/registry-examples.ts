@@ -13,17 +13,6 @@ export const examples: Registry = [
     ],
   },
   {
-    name: "button-as-child",
-    type: "registry:example",
-    registryDependencies: ["button"],
-    files: [
-      {
-        path: "examples/button-as-child.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
     name: "button-destructive",
     type: "registry:example",
     registryDependencies: ["button"],
@@ -343,12 +332,12 @@ export const examples: Registry = [
     ],
   },
   {
-    name: "accordion-single",
+    name: "accordion-multiple",
     type: "registry:example",
     registryDependencies: ["accordion"],
     files: [
       {
-        path: "examples/accordion-single.tsx",
+        path: "examples/accordion-multiple.tsx",
         type: "registry:example",
       },
     ],
@@ -404,6 +393,303 @@ export const examples: Registry = [
     files: [
       {
         path: "examples/avatar-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "select-demo",
+    type: "registry:example",
+    registryDependencies: ["select"],
+    files: [
+      {
+        path: "examples/select-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "select-with-group",
+    type: "registry:example",
+    registryDependencies: ["select"],
+    files: [
+      {
+        path: "examples/select-with-group.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "select-align-trigger",
+    type: "registry:example",
+    registryDependencies: ["select"],
+    files: [
+      {
+        path: "examples/select-align-trigger.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tooltip-demo",
+    type: "registry:example",
+    registryDependencies: ["tooltip"],
+    files: [
+      {
+        path: "examples/tooltip-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toggle-demo",
+    type: "registry:example",
+    registryDependencies: ["toggle"],
+    files: [
+      {
+        path: "examples/toggle-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toggle-outline",
+    type: "registry:example",
+    registryDependencies: ["toggle"],
+    files: [
+      {
+        path: "examples/toggle-outline.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toggle-disabled",
+    type: "registry:example",
+    registryDependencies: ["toggle"],
+    files: [
+      {
+        path: "examples/toggle-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toggle-large",
+    type: "registry:example",
+    registryDependencies: ["toggle"],
+    files: [
+      {
+        path: "examples/toggle-large.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toggle-small",
+    type: "registry:example",
+    registryDependencies: ["toggle"],
+    files: [
+      {
+        path: "examples/toggle-small.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "popover-demo",
+    type: "registry:example",
+    registryDependencies: ["popover"],
+    files: [
+      {
+        path: "examples/popover-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "popover-hover",
+    type: "registry:example",
+    registryDependencies: ["popover"],
+    files: [
+      {
+        path: "examples/popover-hover.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "separator-demo",
+    type: "registry:example",
+    registryDependencies: ["separator"],
+    files: [
+      {
+        path: "examples/separator-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "separator-vertical",
+    type: "registry:example",
+    registryDependencies: ["separator"],
+    files: [
+      {
+        path: "examples/separator-vertical.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toolbar-demo",
+    type: "registry:example",
+    registryDependencies: ["toolbar"],
+    files: [
+      {
+        path: "examples/toolbar-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toolbar-with-input",
+    type: "registry:example",
+    registryDependencies: ["toolbar"],
+    files: [
+      {
+        path: "examples/toolbar-with-input.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "alert-dialog-demo",
+    type: "registry:example",
+    registryDependencies: ["alert-dialog"],
+    files: [
+      {
+        path: "examples/alert-dialog-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "checkbox-group-demo",
+    type: "registry:example",
+    registryDependencies: ["checkbox-group-demo"],
+    files: [
+      {
+        path: "examples/checkbox-group-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "preview-card-demo",
+    type: "registry:example",
+    registryDependencies: ["preview-card-demo"],
+    files: [
+      {
+        path: "examples/preview-card-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "progress-demo",
+    type: "registry:example",
+    registryDependencies: ["progress"],
+    files: [
+      {
+        path: "examples/progress-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "radio-group-demo",
+    type: "registry:example",
+    registryDependencies: ["radio-group"],
+    files: [
+      {
+        path: "examples/radio-group-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "radio-group-disabled",
+    type: "registry:example",
+    registryDependencies: ["radio-group"],
+    files: [
+      {
+        path: "examples/radio-group-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "collapsible-demo",
+    type: "registry:example",
+    registryDependencies: ["collapsible"],
+    files: [
+      {
+        path: "examples/collapsible-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "scroll-area-demo",
+    type: "registry:example",
+    registryDependencies: ["scroll-area"],
+    files: [
+      {
+        path: "examples/scroll-area-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "scroll-area-horizontal",
+    type: "registry:example",
+    registryDependencies: ["scroll-area"],
+    files: [
+      {
+        path: "examples/scroll-area-horizontal.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "slider-demo",
+    type: "registry:example",
+    registryDependencies: ["slider"],
+    files: [
+      {
+        path: "examples/slider-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "slider-disabled",
+    type: "registry:example",
+    registryDependencies: ["slider"],
+    files: [
+      {
+        path: "examples/slider-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "slider-with-value",
+    type: "registry:example",
+    registryDependencies: ["slider"],
+    files: [
+      {
+        path: "examples/slider-with-value.tsx",
         type: "registry:example",
       },
     ],

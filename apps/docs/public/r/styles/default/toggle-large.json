@@ -1,0 +1,15 @@
+{
+  "name": "toggle-large",
+  "type": "registry:example",
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "examples/toggle-large.tsx",
+      "content": "import { Italic } from \"lucide-react\";\r\n\r\nimport { Toggle } from \"@/registry/default/ui/toggle\";\r\n\r\nexport default function ToogleLarge() {\r\n  return (\r\n    <Toggle aria-label=\"Toggle italic\" variant=\"outline\" size=\"lg\">\r\n      <Italic className=\"size-4\" />\r\n    </Toggle>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

@@ -17,7 +17,10 @@ export const baseOptions: BaseLayoutProps = {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M0 0H24V19H19V5H5V9H15V15H5V19H24V24H0V0Z" className="fill-foreground" />
+          <path
+            d="M0 0H24V19H19V5H5V9H15V15H5V19H24V24H0V0Z"
+            className="fill-foreground"
+          />
         </svg>
         <span className="font-medium [.uwu_&]:hidden [header_&]:text-[15px]">
           {siteConfig.name}

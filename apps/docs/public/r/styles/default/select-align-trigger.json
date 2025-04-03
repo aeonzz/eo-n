@@ -1,0 +1,15 @@
+{
+  "name": "select-align-trigger",
+  "type": "registry:example",
+  "registryDependencies": [
+    "select"
+  ],
+  "files": [
+    {
+      "path": "examples/select-align-trigger.tsx",
+      "content": "import {\r\n  Select,\r\n  SelectContent,\r\n  SelectItem,\r\n  SelectTrigger,\r\n  SelectValue,\r\n} from \"@/registry/default/ui/select\";\r\n\r\nexport default function SelectAlignTrigger() {\r\n  return (\r\n    <Select alignItemToTrigger defaultValue=\"light\" >\r\n      <SelectTrigger className=\"max-w-40\">\r\n        <SelectValue placeholder=\"Theme\" />\r\n      </SelectTrigger>\r\n      <SelectContent>\r\n        <SelectItem value=\"light\">Light</SelectItem>\r\n        <SelectItem value=\"dark\">Dark</SelectItem>\r\n        <SelectItem value=\"system\">System</SelectItem>\r\n      </SelectContent>\r\n    </Select>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

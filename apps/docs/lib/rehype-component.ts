@@ -4,11 +4,11 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { Index } from "@/__registry__";
 import type { UnistNode, UnistTree } from "types/unist";
 import { u } from "unist-builder";
 import { visit } from "unist-util-visit";
 
-import { Index } from "@/__registry__";
 import { styles } from "@/registry/registry-styles";
 
 export function rehypeComponent() {
@@ -56,7 +56,7 @@ export function rehypeComponent() {
             // For now a simple regex should do.
             source = source.replaceAll(
               `@/registry/${style.name}/`,
-              "@/components/",
+              "@/components/"
             );
             source = source.replaceAll("export default", "export");
 
@@ -89,7 +89,7 @@ export function rehypeComponent() {
                     ],
                   }),
                 ],
-              }),
+              })
             );
           }
         } catch (error) {
@@ -118,7 +118,7 @@ export function rehypeComponent() {
             // For now a simple regex should do.
             source = source.replaceAll(
               `@/registry/${style.name}/`,
-              "@/components/",
+              "@/components/"
             );
             source = source.replaceAll("export default", "export");
 
@@ -143,7 +143,7 @@ export function rehypeComponent() {
                     ],
                   }),
                 ],
-              }),
+              })
             );
           }
         } catch (error) {

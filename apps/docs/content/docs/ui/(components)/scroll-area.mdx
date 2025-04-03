@@ -1,0 +1,57 @@
+---
+title: Scroll Area
+description: A scrollable container for viewing a list of items.
+preview: true
+links:
+  doc: https://base-ui.com/react/components/scroll-area
+---
+
+<ComponentTabs name="scroll-area-demo" />
+
+## Installation
+
+### CLI
+
+```package-install
+npx shadcn@latest add "https://eo-n.vercel.app/r/scroll-area"
+```
+
+### Manual
+
+<Steps>
+
+  <Step>
+    Copy and paste the following code into your project.
+
+    <ComponentSource name="scroll-area" />
+
+  </Step>
+  
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+Import all parts and piece them together.
+
+```tsx
+import { ScrollArea } from "@/components/ui/scroll-area";
+```
+
+```tsx
+<ScrollArea className="h-20 w-50 rounded-md border">
+  <p>
+    The ScrollArea component allows for overflow content to be easily scrollable
+    while maintaining a clean and responsive UI. It is particularly useful when
+    dealing with long lists, articles, or any content that exceeds the
+    designated container height.
+  </p>
+</ScrollArea>
+```
+
+## Examples
+
+### Horizontal Scroll
+
+<ComponentTabs name="scroll-area-horizontal" />

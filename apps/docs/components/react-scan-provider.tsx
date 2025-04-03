@@ -1,7 +1,7 @@
 "use client";
-import { scan } from "react-scan";
 
 import * as React from "react";
+import { scan } from "react-scan";
 
 interface ReactScanProviderProps {
   children: React.ReactNode;
