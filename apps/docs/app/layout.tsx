@@ -23,6 +23,19 @@ export const metadata: Metadata = {
     "shadcn-ui",
     "accessibility",
     "wai-aria",
+    "components",
+    "design system",
+    "tailwindcss",
+    "nextjs",
+    "typescript",
+    "web development",
+    "frontend",
+    "ui components",
+    "react components",
+    "custom components",
+    "responsive design",
+    "modern ui",
+    "component library"
   ],
   authors: [
     {
@@ -31,6 +44,21 @@ export const metadata: Metadata = {
     },
   ],
   creator: "aeonz",
+  publisher: "aeonz",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: siteConfig.url,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -38,6 +66,14 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
+    images: [
+      {
+        url: `${siteConfig.url}/og.jpg`,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -48,7 +84,9 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/icon.png",
+    apple: "/apple-touch-icon.png",
   },
+  manifest: "/manifest.json",
 };
 
 export const viewport: Viewport = {
