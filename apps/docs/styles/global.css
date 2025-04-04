@@ -121,6 +121,9 @@
   --animate-fade-down: fade-down 0.5s;
   --animate-fade-up: fade-up 0.5s;
   --animate-stroke-dashoffset: stroke-dashoffset 0.2s linear forwards;
+  --animate-expand-width: expand-width forwards;
+  --animate-expand-height: expand-height forwards;
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
 
   @keyframes fade-down {
     0% {
@@ -148,7 +151,7 @@
       transform: translateY(0px);
     }
   }
-  /* @keyframes accordion-down {
+  @keyframes accordion-down {
     from {
       height: 0;
     }
@@ -163,13 +166,31 @@
     to {
       height: 0;
     }
-  } */
+  }
   @keyframes stroke-dashoffset {
     0% {
       stroke-dashoffset: 100%;
     }
     100% {
       stroke-dashoffset: 0;
+    }
+  }
+  @keyframes expand-width {
+    0% {
+      border-color: var(--color-foreground);
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  @keyframes expand-height {
+    0% {
+      border-color: var(--color-foreground);
+      height: 0;
+    }
+    100% {
+      height: 100%;
     }
   }
 }
@@ -203,7 +224,11 @@
 
 @utility component-block {
   & pre {
-    @apply max-h-[432.4px];
+    @apply max-h-[432.4px] font-mono;
+  }
+
+  & code {
+    @apply font-mono;
   }
 
   [data-rehype-pretty-code-figure] figure {
@@ -271,5 +296,13 @@
   .component-preview p,
   .component-preview img {
     @apply !m-0;
+  }
+
+  pre {
+    @apply font-mono;
+  }
+
+  code {
+    @apply font-mono;
   }
 }

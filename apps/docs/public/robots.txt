@@ -1,0 +1,56 @@
+# Global rules for all robots
+User-agent: *
+Allow: /
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://christian-aeonzz.vercel.app/sitemap.xml
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 10
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 10
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 10
+
+# Disallow sensitive and private routes
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /static/
+Disallow: /node_modules/
+Disallow: /.env
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /.turbo/
+Disallow: /.next/
+
+# Allow public assets
+Allow: /public/
+Allow: /images/
+Allow: /assets/
+Allow: /styles/
+Allow: /components/
+
+# Prevent indexing of development and staging environments
+Disallow: /staging/
+Disallow: /dev/
+Disallow: /development/
+
+# Prevent indexing of user-specific content
+Disallow: /user/
+Disallow: /profile/
+Disallow: /settings/
+
+# Allow documentation and public pages
+Allow: /docs/
+Allow: /ui/
+Allow: /components/
+Allow: /installation/ 
