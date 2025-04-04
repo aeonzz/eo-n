@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "custom components",
     "responsive design",
     "modern ui",
-    "component library"
+    "component library",
   ],
   authors: [
     {
@@ -51,9 +51,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   alternates: {
@@ -105,7 +105,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "isolate min-h-screen font-sans antialiased",
+          "isolate min-h-screen font-sans antialiased selection:bg-black/10 dark:selection:bg-white/10 ",
           fontSans.variable,
           fontMono.variable
         )}

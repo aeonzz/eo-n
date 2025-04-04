@@ -9,15 +9,15 @@ export default function HomePage() {
     <main className="flex h-full flex-col">
       <div className="max-w-fd-container mx-auto flex h-full w-full items-center px-3">
         <div className="relative flex h-full w-full flex-col items-center justify-center gap-4 sm:gap-6">
-          <div className="bg-radial from-transparent to-background from-50% absolute -z-10 size-full" />
           <LineDecorator
             orientation="vertical"
-            className="absolute bottom-0 left-[15%] -z-20"
+            className="absolute bottom-0 left-[15%] -z-20 mask-y-from-80% duration-1300"
           />
+          <LineDecorator className="mask-x-from-90% duration-1300 mr-auto" />
           <h1 className="from-foreground text-center text-4xl leading-tight font-bold tracking-tighter sm:text-5xl md:text-5xl lg:leading-[1.1]">
             Build and Expand Your Component Library
           </h1>
-          <LineDecorator />
+          <LineDecorator className="mask-x-from-90% duration-1300 ml-auto" />
           <p className="text-muted-foreground max-w-sm text-center text-sm font-medium tracking-tight sm:max-w-2xl sm:text-base md:max-w-3xl lg:max-w-4xl">
             Enhanced UI components built on shadcn’s robust foundation,
             integrated with Base UI and Tailwind CSS for a modern and
@@ -47,7 +47,7 @@ export default function HomePage() {
           </div>
           <LineDecorator
             orientation="vertical"
-            className="absolute top-0 right-[15%] -z-20"
+            className="absolute top-0 right-[15%] -z-20 mask-y-from-90% duration-1300"
           />
         </div>
       </div>

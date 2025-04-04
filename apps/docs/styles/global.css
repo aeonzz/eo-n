@@ -123,6 +123,7 @@
   --animate-stroke-dashoffset: stroke-dashoffset 0.2s linear forwards;
   --animate-expand-width: expand-width forwards;
   --animate-expand-height: expand-height forwards;
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
 
   @keyframes fade-down {
     0% {
