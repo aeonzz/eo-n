@@ -389,6 +389,38 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "label": {
+      name: "label",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/label.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/label.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "switch": {
+      name: "switch",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/switch.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/switch.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       description: "",
@@ -1408,6 +1440,102 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/slider-with-value.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "switch-demo": {
+      name: "switch-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["switch"],
+      files: [{
+        path: "registry/default/examples/switch-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/switch-demo.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "switch-disabled": {
+      name: "switch-disabled",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["switch"],
+      files: [{
+        path: "registry/default/examples/switch-disabled.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/switch-disabled.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "switch-square": {
+      name: "switch-square",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["switch"],
+      files: [{
+        path: "registry/default/examples/switch-square.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/switch-square.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "switch-large": {
+      name: "switch-large",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["switch"],
+      files: [{
+        path: "registry/default/examples/switch-large.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/switch-large.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "switch-small": {
+      name: "switch-small",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["switch"],
+      files: [{
+        path: "registry/default/examples/switch-small.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/switch-small.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "label-demo": {
+      name: "label-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["label"],
+      files: [{
+        path: "registry/default/examples/label-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/label-demo.tsx")),
       source: "",
       category: "",
       subcategory: "",

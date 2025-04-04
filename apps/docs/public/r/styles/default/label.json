@@ -1,0 +1,12 @@
+{
+  "name": "label",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "ui/label.tsx",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Label({ className, ...props }: React.ComponentProps<\"label\">) {\n  return (\n    <label\n      className={cn(\n        \"text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70\",\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Label };\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

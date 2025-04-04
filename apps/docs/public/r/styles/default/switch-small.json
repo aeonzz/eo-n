@@ -1,0 +1,15 @@
+{
+  "name": "switch-small",
+  "type": "registry:example",
+  "registryDependencies": [
+    "switch"
+  ],
+  "files": [
+    {
+      "path": "examples/switch-small.tsx",
+      "content": "import { Switch } from \"@/registry/default/ui/switch\";\r\n\r\nexport default function SwitchSmall() {\r\n  return <Switch size=\"sm\" />;\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
