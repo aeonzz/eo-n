@@ -5,12 +5,6 @@ import { Slider as SliderPrimitive } from "@base-ui-components/react/slider";
 
 import { cn } from "@/lib/utils";
 
-function SliderRoot({
-  ...props
-}: React.ComponentProps<typeof SliderPrimitive.Root>) {
-  return <SliderPrimitive.Root data-slot="slider" {...props} />;
-}
-
 function SliderValue({
   className,
   ...props
@@ -46,7 +40,11 @@ function Slider({
   ...props
 }: Omit<React.ComponentProps<typeof SliderPrimitive.Root>, "orientation">) {
   return (
-    <SliderRoot className={cn("min-w-52", className)} {...props}>
+    <SliderPrimitive.Root
+      data-slot="slider"
+      className={cn("min-w-52", className)}
+      {...props}
+    >
       {children}
       <SliderPrimitive.Control
         data-slot="slider-control"
@@ -57,7 +55,7 @@ function Slider({
           <SliderPrimitive.Thumb className="bg-secondary-foreground data-[disabled]:bg-muted-foreground size-4 rounded-full border data-[disabled]:cursor-not-allowed" />
         </SliderTrack>
       </SliderPrimitive.Control>
-    </SliderRoot>
+    </SliderPrimitive.Root>
   );
 }
 

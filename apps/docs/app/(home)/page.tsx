@@ -13,11 +13,11 @@ export default function HomePage() {
             orientation="vertical"
             className="absolute bottom-0 left-[15%] -z-20 mask-y-from-80% duration-1300"
           />
-          <LineDecorator className="mask-x-from-90% duration-1300 mr-auto" />
-          <h1 className="from-foreground text-center text-4xl leading-tight font-bold tracking-tighter sm:text-5xl md:text-5xl lg:leading-[1.1]">
+          <LineDecorator className="mr-auto mask-x-from-90% duration-1300" />
+          <h1 className="from-foreground text-center text-4xl leading-tight font-bold tracking-tighter sm:text-5xl lg:leading-[1.1]">
             Build and Expand Your Component Library
           </h1>
-          <LineDecorator className="mask-x-from-90% duration-1300 ml-auto" />
+          <LineDecorator className="ml-auto mask-x-from-90% duration-1300" />
           <p className="text-muted-foreground max-w-sm text-center text-sm font-medium tracking-tight sm:max-w-2xl sm:text-base md:max-w-3xl lg:max-w-4xl">
             Enhanced UI components built on shadcn’s robust foundation,
             integrated with Base UI and Tailwind CSS for a modern and
@@ -51,14 +51,14 @@ export default function HomePage() {
           />
         </div>
       </div>
-      <footer className="flex h-16 items-center justify-center border-t">
-        <div className="max-w-fd-container w-full px-3">
+      <footer className="flex h-16 items-center justify-center">
+        <div className="max-w-fd-container w-fit px-3">
           <p className="text-muted-foreground text-sm font-medium tracking-tight">
-            Built by{" "}
+            Made with <span className="text-red-500">♥</span> by{" "}
             <Link
               href="https://github.com/aeonzz"
               target="_blank"
-              className="hover:text-foreground/80 underline underline-offset-4 transition-colors"
+              className="text-foreground underline-offset-4 transition-colors hover:underline"
               prefetch
             >
               aeonzz.

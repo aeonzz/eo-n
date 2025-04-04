@@ -1,0 +1,15 @@
+{
+  "name": "switch-disabled",
+  "type": "registry:example",
+  "registryDependencies": [
+    "switch"
+  ],
+  "files": [
+    {
+      "path": "examples/switch-disabled.tsx",
+      "content": "import { Label } from \"@/registry/default/ui/label\";\r\nimport { Switch } from \"@/registry/default/ui/switch\";\r\n\r\nexport default function SwitchDisabled() {\r\n  return (\r\n    <div className=\"flex items-center space-x-2\">\r\n      <Switch id=\"allow-tracking\" disabled />\r\n      <Label htmlFor=\"allow-tracking\">Allow Tracking</Label>\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

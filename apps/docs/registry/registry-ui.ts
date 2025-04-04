@@ -263,4 +263,25 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "label",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/label.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "switch",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/switch.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];

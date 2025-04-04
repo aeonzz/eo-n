@@ -9,14 +9,14 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: hsl(0 0% 95%);
+  --background: hsl(0 0% 99%);
   --foreground: hsl(240 10% 3.9%);
-  --card: hsl(0 0% 95%);
+  --card: hsl(0 0% 99%);
   --card-foreground: hsl(240 10% 3.9%);
-  --popover: hsl(0 0% 95%);
+  --popover: hsl(0 0% 99%);
   --popover-foreground: hsl(240 10% 3.9%);
   --primary: hsl(240 5.9% 10%);
-  --primary-foreground: hsl(0 0% 95%);
+  --primary-foreground: hsl(0 0% 99%);
   --secondary: hsl(240 4.8% 95.9%);
   --secondary-foreground: hsl(240 5.9% 10%);
   --muted: hsl(240 4.8% 95.9%);
@@ -24,7 +24,7 @@
   --accent: hsl(240 4.8% 95.9%);
   --accent-foreground: hsl(240 5.9% 10%);
   --destructive: hsl(0 84.2% 60.2%);
-  --destructive-foreground: hsl(0 0% 95%);
+  --destructive-foreground: hsl(0 0% 99%);
   --border: hsl(240 5.9% 90%);
   --input: hsl(240 5.9% 90%);
   --ring: hsl(240 10% 3.9%);
@@ -34,10 +34,10 @@
   --chart-4: hsl(43 74% 66%);
   --chart-5: hsl(27 87% 67%);
   --radius: 0.625rem;
-  --sidebar-background: hsl(0 0% 95%);
+  --sidebar-background: hsl(0 0% 99%);
   --sidebar-foreground: hsl(240 5.3% 26.1%);
   --sidebar-primary: hsl(240 5.9% 10%);
-  --sidebar-primary-foreground: hsl(0 0% 95%);
+  --sidebar-primary-foreground: hsl(0 0% 99%);
   --sidebar-accent: hsl(240 4.8% 95.9%);
   --sidebar-accent-foreground: hsl(240 5.9% 10%);
   --sidebar-border: hsl(220 13% 91%);
@@ -46,21 +46,21 @@
 
 .dark {
   --background: hsl(240 10% 3.9%);
-  --foreground: hsl(0 0% 95%);
+  --foreground: hsl(0 0% 99%);
   --card: hsl(240 10% 3.9%);
-  --card-foreground: hsl(0 0% 95%);
+  --card-foreground: hsl(0 0% 99%);
   --popover: hsl(240 10% 3.9%);
-  --popover-foreground: hsl(0 0% 95%);
-  --primary: hsl(0 0% 95%);
+  --popover-foreground: hsl(0 0% 99%);
+  --primary: hsl(0 0% 99%);
   --primary-foreground: hsl(240 5.9% 10%);
   --secondary: hsl(240 3.7% 15.9%);
-  --secondary-foreground: hsl(0 0% 95%);
+  --secondary-foreground: hsl(0 0% 99%);
   --muted: hsl(240 3.7% 15.9%);
   --muted-foreground: hsl(240 5% 64.9%);
   --accent: hsl(240 3.7% 15.9%);
-  --accent-foreground: hsl(0 0% 95%);
+  --accent-foreground: hsl(0 0% 99%);
   --destructive: hsl(0 62.8% 30.6%);
-  --destructive-foreground: hsl(0 0% 95%);
+  --destructive-foreground: hsl(0 0% 99%);
   --border: hsl(240 3.7% 15.9%);
   --input: hsl(240 3.7% 15.9%);
   --ring: hsl(240 4.9% 83.9%);

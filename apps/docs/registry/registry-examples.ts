@@ -695,6 +695,72 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "switch-demo",
+    type: "registry:example",
+    registryDependencies: ["switch"],
+    files: [
+      {
+        path: "examples/switch-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "switch-disabled",
+    type: "registry:example",
+    registryDependencies: ["switch"],
+    files: [
+      {
+        path: "examples/switch-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "switch-square",
+    type: "registry:example",
+    registryDependencies: ["switch"],
+    files: [
+      {
+        path: "examples/switch-square.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "switch-large",
+    type: "registry:example",
+    registryDependencies: ["switch"],
+    files: [
+      {
+        path: "examples/switch-large.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "switch-small",
+    type: "registry:example",
+    registryDependencies: ["switch"],
+    files: [
+      {
+        path: "examples/switch-small.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "label-demo",
+    type: "registry:example",
+    registryDependencies: ["label"],
+    files: [
+      {
+        path: "examples/label-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [
