@@ -4,7 +4,6 @@ export const ui: Registry = [
   {
     name: "button",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-slot"],
     files: [
       {
         path: "ui/button.tsx",
@@ -15,7 +14,7 @@ export const ui: Registry = [
   {
     name: "dialog",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-dialog", "lucide-react"],
+    dependencies: ["@base-ui-components/react", "lucide-react"],
     files: [
       {
         path: "ui/dialog.tsx",
@@ -26,6 +25,7 @@ export const ui: Registry = [
   {
     name: "input",
     type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
     files: [
       {
         path: "ui/input.tsx",

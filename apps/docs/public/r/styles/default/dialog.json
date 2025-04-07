@@ -2,7 +2,7 @@
   "name": "dialog",
   "type": "registry:ui",
   "dependencies": [
-    "@radix-ui/react-dialog",
+    "@base-ui-components/react",
     "lucide-react"
   ],
   "files": [

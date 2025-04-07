@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/kbd-ghost.tsx",
-      "content": "import { Kbd, KbdKey, KbdSeparator } from \"@/registry/default/ui/kbd\";\n\nexport default function KbdGhost() {\n  return (\n    <Kbd variant=\"ghost\">\n      <KbdKey>⇧</KbdKey>\n      <KbdSeparator />\n      <KbdKey>⌥</KbdKey>\n      <KbdSeparator />\n      <KbdKey title=\"Format\">F</KbdKey>\n    </Kbd>\n  );\n}\n",
+      "content": "import { Kbd, KbdKey, KbdSeparator } from \"@/registry/default/ui/kbd\";\r\n\r\nexport default function KbdGhost() {\r\n  return (\r\n    <Kbd variant=\"ghost\">\r\n      <KbdKey>⇧</KbdKey>\r\n      <KbdSeparator />\r\n      <KbdKey>⌥</KbdKey>\r\n      <KbdSeparator />\r\n      <KbdKey title=\"Format\">F</KbdKey>\r\n    </Kbd>\r\n  );\r\n}\r\n",
       "type": "registry:example",
       "target": ""
     }
