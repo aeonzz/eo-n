@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/separator-vertical.tsx",
-      "content": "import { Separator } from \"@/registry/default/ui/separator\";\r\n\r\nexport default function SeparatorVertical() {\r\n  return (\r\n    <div className=\"p-4\">\r\n      <div className=\"flex h-10 items-center\">\r\n        <span className=\"font-medium\">Home</span>\r\n        <Separator orientation=\"vertical\" className=\"mx-3 h-6\" />\r\n        <span className=\"font-medium\">Products</span>\r\n        <Separator orientation=\"vertical\" className=\"mx-3 h-6\" />\r\n        <span className=\"font-medium\">About</span>\r\n        <Separator orientation=\"vertical\" className=\"mx-3 h-6\" />\r\n        <span className=\"font-medium\">Contact</span>\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n",
+      "content": "import { Separator } from \"@/registry/default/ui/separator\";\n\nexport default function SeparatorVertical() {\n  return (\n    <div className=\"p-4\">\n      <div className=\"flex h-10 items-center\">\n        <span className=\"font-medium\">Home</span>\n        <Separator orientation=\"vertical\" className=\"mx-3 h-6\" />\n        <span className=\"font-medium\">Products</span>\n        <Separator orientation=\"vertical\" className=\"mx-3 h-6\" />\n        <span className=\"font-medium\">About</span>\n        <Separator orientation=\"vertical\" className=\"mx-3 h-6\" />\n        <span className=\"font-medium\">Contact</span>\n      </div>\n    </div>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

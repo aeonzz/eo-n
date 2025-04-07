@@ -1,0 +1,21 @@
+{
+  "name": "toggle-group",
+  "type": "registry:ui",
+  "dependencies": [
+    "@base-ui-components/react"
+  ],
+  "files": [
+    {
+      "path": "ui/toggle-group.tsx",
+      "content": "\"use client\";\r\n\r\nimport * as React from \"react\";\r\nimport { ToggleGroup as ToggleGroupRoot } from \"@base-ui-components/react/toggle-group\";\r\nimport { type VariantProps } from \"class-variance-authority\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\nimport { Toggle, toggleVariants } from \"@/registry/default/ui/toggle\";\r\n\r\nconst ToggleGroupContext = React.createContext<\r\n  VariantProps<typeof toggleVariants>\r\n>({\r\n  size: \"default\",\r\n  variant: \"default\",\r\n});\r\n\r\nfunction ToggleGroup({\r\n  className,\r\n  size,\r\n  variant,\r\n  children,\r\n  ...props\r\n}: React.ComponentProps<typeof ToggleGroupRoot> &\r\n  VariantProps<typeof toggleVariants>) {\r\n  const contextValue = React.useMemo(\r\n    () => ({\r\n      size: size ?? \"default\",\r\n      variant: variant ?? \"default\",\r\n    }),\r\n    [size, variant]\r\n  );\r\n\r\n  return (\r\n    <ToggleGroupRoot\r\n      data-slot=\"toggle-group\"\r\n      className={cn(\"flex items-center justify-center gap-1\", className)}\r\n      {...props}\r\n    >\r\n      <ToggleGroupContext.Provider value={contextValue}>\r\n        {children}\r\n      </ToggleGroupContext.Provider>\r\n    </ToggleGroupRoot>\r\n  );\r\n}\r\n\r\nfunction ToggleGroupItem({\r\n  className,\r\n  variant,\r\n  size,\r\n  children,\r\n  ...props\r\n}: React.ComponentProps<typeof Toggle>) {\r\n  const context = React.useContext(ToggleGroupContext);\r\n  return (\r\n    <Toggle\r\n      className={cn(\r\n        toggleVariants({\r\n          variant: context.variant || variant,\r\n          size: context.size || size,\r\n        }),\r\n        className\r\n      )}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </Toggle>\r\n  );\r\n}\r\n\r\nexport { ToggleGroup, ToggleGroupItem };\r\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/toggle.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Toggle as ToggleRoot } from \"@base-ui-components/react/toggle\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst toggleVariants = cva(\n  \"inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[pressed]:bg-accent data-[pressed]:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0\",\n  {\n    variants: {\n      variant: {\n        default: \"bg-transparent\",\n        outline:\n          \"border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground\",\n      },\n      size: {\n        default: \"h-9 px-2 min-w-9 [&_svg]:size-4\",\n        sm: \"h-8 px-1.5 min-w-8 [&_svg]:size-3.5\",\n        lg: \"h-10 px-2.5 min-w-10 [&_svg]:size-4.5\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"default\",\n    },\n  }\n);\n\nexport type ButtonVariants = VariantProps<typeof toggleVariants>;\n\nfunction Toggle({\n  className,\n  variant,\n  size,\n  ...props\n}: React.ComponentProps<typeof ToggleRoot> & ButtonVariants) {\n  return (\n    <ToggleRoot\n      data-slot=\"toggle\"\n      className={cn(toggleVariants({ variant, size, className }))}\n      {...props}\n    />\n  );\n}\n\nexport { Toggle, toggleVariants };\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

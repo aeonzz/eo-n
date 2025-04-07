@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/select-demo.tsx",
-      "content": "import {\r\n  Select,\r\n  SelectContent,\r\n  SelectItem,\r\n  SelectTrigger,\r\n  SelectValue,\r\n} from \"@/registry/default/ui/select\";\r\n\r\nexport default function SelectDemo() {\r\n  return (\r\n    <Select>\r\n      <SelectTrigger className=\"max-w-40\">\r\n        <SelectValue placeholder=\"Theme\" />\r\n      </SelectTrigger>\r\n      <SelectContent>\r\n        <SelectItem value=\"light\">Light</SelectItem>\r\n        <SelectItem value=\"dark\">Dark</SelectItem>\r\n        <SelectItem value=\"system\">System</SelectItem>\r\n      </SelectContent>\r\n    </Select>\r\n  );\r\n}\r\n",
+      "content": "import {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from \"@/registry/default/ui/select\";\n\nexport default function SelectDemo() {\n  return (\n    <Select>\n      <SelectTrigger className=\"max-w-40\">\n        <SelectValue placeholder=\"Theme\" />\n      </SelectTrigger>\n      <SelectContent>\n        <SelectItem value=\"light\">Light</SelectItem>\n        <SelectItem value=\"dark\">Dark</SelectItem>\n        <SelectItem value=\"system\">System</SelectItem>\n      </SelectContent>\n    </Select>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

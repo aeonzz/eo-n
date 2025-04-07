@@ -284,4 +284,19 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "toggle-group",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/toggle-group.tsx",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/toggle.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];
