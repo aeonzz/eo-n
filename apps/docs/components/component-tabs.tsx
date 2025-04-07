@@ -49,7 +49,7 @@ export function ComponentTabs({
   }, [name, config.style]);
 
   return (
-    <Tabs items={["Preview", "Code"]} className="rounded-md">
+    <Tabs items={["Preview", "Code"]} className="bg-background rounded-md">
       <Tab
         value="Preview"
         className={cn("preview-block", {

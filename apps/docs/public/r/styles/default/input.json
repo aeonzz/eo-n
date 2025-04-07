@@ -1,6 +1,9 @@
 {
   "name": "input",
   "type": "registry:ui",
+  "dependencies": [
+    "@base-ui-components/react"
+  ],
   "files": [
     {
       "path": "ui/input.tsx",
