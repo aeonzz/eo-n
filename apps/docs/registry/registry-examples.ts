@@ -761,6 +761,72 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "toggle-group-demo",
+    type: "registry:example",
+    registryDependencies: ["toggle-group"],
+    files: [
+      {
+        path: "examples/toggle-group-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toggle-group-disabled",
+    type: "registry:example",
+    registryDependencies: ["toggle-group"],
+    files: [
+      {
+        path: "examples/toggle-group-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toggle-group-large",
+    type: "registry:example",
+    registryDependencies: ["toggle-group"],
+    files: [
+      {
+        path: "examples/toggle-group-large.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toggle-group-multiple",
+    type: "registry:example",
+    registryDependencies: ["toggle-group"],
+    files: [
+      {
+        path: "examples/toggle-group-multiple.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toggle-group-outline",
+    type: "registry:example",
+    registryDependencies: ["toggle-group"],
+    files: [
+      {
+        path: "examples/toggle-group-outline.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toggle-group-small",
+    type: "registry:example",
+    registryDependencies: ["toggle-group"],
+    files: [
+      {
+        path: "examples/toggle-group-small.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [

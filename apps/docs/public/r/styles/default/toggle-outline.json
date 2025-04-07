@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/toggle-outline.tsx",
-      "content": "import { Bold } from \"lucide-react\";\r\n\r\nimport { Toggle } from \"@/registry/default/ui/toggle\";\r\n\r\nexport default function ToogleOutline() {\r\n  return (\r\n    <Toggle aria-label=\"Toggle font weight\" variant=\"outline\">\r\n      <Bold className=\"size-4\" />\r\n    </Toggle>\r\n  );\r\n}\r\n",
+      "content": "import { Bold } from \"lucide-react\";\n\nimport { Toggle } from \"@/registry/default/ui/toggle\";\n\nexport default function ToogleOutline() {\n  return (\n    <Toggle aria-label=\"Toggle font weight\" variant=\"outline\">\n      <Bold className=\"size-4\" />\n    </Toggle>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

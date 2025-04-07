@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/switch-small.tsx",
-      "content": "import { Switch } from \"@/registry/default/ui/switch\";\r\n\r\nexport default function SwitchSmall() {\r\n  return <Switch size=\"sm\" />;\r\n}\r\n",
+      "content": "import { Switch } from \"@/registry/default/ui/switch\";\n\nexport default function SwitchSmall() {\n  return <Switch size=\"sm\" />;\n}\n",
       "type": "registry:example",
       "target": ""
     }

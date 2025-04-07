@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/slider-with-value.tsx",
-      "content": "import { Slider, SliderValue } from \"@/registry/default/ui/slider\";\r\n\r\nexport default function SliderWithValue() {\r\n  return (\r\n    <Slider defaultValue={32}>\r\n      <SliderValue />\r\n    </Slider>\r\n  );\r\n}\r\n",
+      "content": "import { Slider, SliderValue } from \"@/registry/default/ui/slider\";\n\nexport default function SliderWithValue() {\n  return (\n    <Slider defaultValue={32}>\n      <SliderValue />\n    </Slider>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

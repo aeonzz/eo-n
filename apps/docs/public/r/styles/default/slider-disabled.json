@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/slider-disabled.tsx",
-      "content": "import { Slider } from \"@/registry/default/ui/slider\";\r\n\r\nexport default function SliderDisabled() {\r\n  return <Slider defaultValue={25} disabled />;\r\n}\r\n",
+      "content": "import { Slider } from \"@/registry/default/ui/slider\";\n\nexport default function SliderDisabled() {\n  return <Slider defaultValue={25} disabled />;\n}\n",
       "type": "registry:example",
       "target": ""
     }

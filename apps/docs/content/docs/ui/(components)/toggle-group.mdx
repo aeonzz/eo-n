@@ -1,0 +1,74 @@
+---
+title: Toggle Group
+description: A group of buttons that can be toggled on or off individually or as a set.
+preview: true
+links:
+  doc: https://base-ui.com/react/components/toggle-group
+---
+
+<ComponentTabs name="toggle-group-demo" />
+
+## Installation
+
+### CLI
+
+```package-install
+npx shadcn@latest add "https://eo-n.vercel.app/r/toggle-group"
+```
+
+### Manual
+
+<Steps>
+
+  <Step>
+    Copy and paste the following code into your project.
+
+    <ComponentSource name="toggle-group" />
+
+  </Step>
+  
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+Import all parts and piece them together.
+
+```tsx
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+```
+
+```tsx
+<ToggleGroup>
+  <ToggleGroupItem value="1">Option 1</ToggleGroupItem>
+  <ToggleGroupItem value="2">Option 2</ToggleGroupItem>
+  <ToggleGroupItem value="3">Option 3</ToggleGroupItem>
+</ToggleGroup>
+```
+
+## Examples
+
+### Default
+
+<ComponentTabs name="toggle-group-demo" />
+
+### Outline
+
+<ComponentTabs name="toggle-group-outline" />
+
+### Multiple
+
+<ComponentTabs name="toggle-group-multiple" />
+
+### Large
+
+<ComponentTabs name="toggle-group-large" />
+
+### Small
+
+<ComponentTabs name="toggle-group-small" />
+
+### Disabled
+
+<ComponentTabs name="toggle-group-disabled" />
