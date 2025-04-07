@@ -18,7 +18,7 @@ function LineDecorator({
   return (
     <hr
       className={cn(
-        "border-dashed delay-100 duration-1500 ease-in-out-quart",
+        "ease-in-out-quart border-dashed delay-100 duration-1500",
         orientation === "horizontal"
           ? "animate-expand-width h-px w-full border-t"
           : "animate-expand-height h-full w-px border-l",

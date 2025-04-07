@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/kbd-demo.tsx",
-      "content": "import { Kbd, KbdKey, KbdSeparator } from \"@/registry/default/ui/kbd\";\n\nexport default function Kbddemo() {\n  return (\n    <Kbd>\n      <KbdKey>⌘</KbdKey>\n      <KbdSeparator />\n      <KbdKey title=\"Search\">K</KbdKey>\n    </Kbd>\n  );\n}\n",
+      "content": "import { Kbd, KbdKey, KbdSeparator } from \"@/registry/default/ui/kbd\";\r\n\r\nexport default function Kbddemo() {\r\n  return (\r\n    <Kbd>\r\n      <KbdKey>⌘</KbdKey>\r\n      <KbdSeparator />\r\n      <KbdKey title=\"Search\">K</KbdKey>\r\n    </Kbd>\r\n  );\r\n}\r\n",
       "type": "registry:example",
       "target": ""
     }

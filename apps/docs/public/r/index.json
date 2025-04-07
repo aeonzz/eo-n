@@ -2,9 +2,6 @@
   {
     "name": "button",
     "type": "registry:ui",
-    "dependencies": [
-      "@radix-ui/react-slot"
-    ],
     "files": [
       {
         "path": "ui/button.tsx",
@@ -16,7 +13,7 @@
     "name": "dialog",
     "type": "registry:ui",
     "dependencies": [
-      "@radix-ui/react-dialog",
+      "@base-ui-components/react",
       "lucide-react"
     ],
     "files": [
@@ -29,6 +26,9 @@
   {
     "name": "input",
     "type": "registry:ui",
+    "dependencies": [
+      "@base-ui-components/react"
+    ],
     "files": [
       {
         "path": "ui/input.tsx",
