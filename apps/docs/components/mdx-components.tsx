@@ -23,6 +23,7 @@ const { AutoTypeTable } = createTypeTable();
 export function useMdxComponents(
   components: Partial<MDXComponents>
 ): MDXComponents {
+  const { Callout, Card, ...restDefaultComponents } = defaultComponents;
   const headings = Object.fromEntries(
     ["h1", "h2", "h3", "h4", "h5", "h6"].map((level) => [
       level,
@@ -36,9 +37,15 @@ export function useMdxComponents(
   );
 
   return {
-    ...defaultComponents,
+    ...restDefaultComponents,
     ...components,
     ...headings,
+    Card: ({ className, ...props }) => (
+      <Card className={cn("shadow-none", className)} {...props} />
+    ),
+    Callout: ({ className, ...props }) => (
+      <Callout className={cn("shadow-none", className)} {...props} />
+    ),
     table: ({ className, ...props }) => (
       <Table className={cn(className)} mdx {...props} />
     ),

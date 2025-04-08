@@ -1,0 +1,15 @@
+{
+  "name": "badge-outline",
+  "type": "registry:example",
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "examples/badge-outline.tsx",
+      "content": "import { Badge } from \"@/registry/default/ui/badge\";\r\n\r\nexport default function BadgeOutline() {\r\n  return <Badge variant=\"outline\">Outline</Badge>;\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "ui/checkbox-group.tsx",
-      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { CheckboxGroup as CheckboxGroupPrimitive } from \"@base-ui-components/react/checkbox-group\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction CheckboxGroup({\n  className,\n  ...props\n}: React.ComponentProps<typeof CheckboxGroupPrimitive>) {\n  return (\n    <CheckboxGroupPrimitive\n      data-slot=\"checkbox-group\"\n      className={cn(\n        \"disabled:cursor-not-allowed disabled:opacity-50\",\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { CheckboxGroup };\n",
+      "content": "\"use client\";\r\n\r\nimport * as React from \"react\";\r\nimport { CheckboxGroup as CheckboxGroupPrimitive } from \"@base-ui-components/react/checkbox-group\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nfunction CheckboxGroup({\r\n  className,\r\n  ...props\r\n}: React.ComponentProps<typeof CheckboxGroupPrimitive>) {\r\n  return (\r\n    <CheckboxGroupPrimitive\r\n      data-slot=\"checkbox-group\"\r\n      className={cn(\r\n        \"disabled:cursor-not-allowed disabled:opacity-50\",\r\n        className\r\n      )}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport { CheckboxGroup };\r\n",
       "type": "registry:ui",
       "target": ""
     }

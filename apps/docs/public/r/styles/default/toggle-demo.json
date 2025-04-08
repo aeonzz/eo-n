@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/toggle-demo.tsx",
-      "content": "import { Heart } from \"lucide-react\";\n\nimport { Toggle } from \"@/registry/default/ui/toggle\";\n\nexport default function ToogleDemo() {\n  return (\n    <Toggle aria-label=\"Toggle like\">\n      <Heart className=\"size-4\" />\n    </Toggle>\n  );\n}\n",
+      "content": "import { Heart } from \"lucide-react\";\r\n\r\nimport { Toggle } from \"@/registry/default/ui/toggle\";\r\n\r\nexport default function ToogleDemo() {\r\n  return (\r\n    <Toggle aria-label=\"Toggle like\">\r\n      <Heart className=\"size-4\" />\r\n    </Toggle>\r\n  );\r\n}\r\n",
       "type": "registry:example",
       "target": ""
     }

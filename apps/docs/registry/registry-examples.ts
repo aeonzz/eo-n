@@ -827,6 +827,72 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "card-demo",
+    type: "registry:example",
+    registryDependencies: ["card"],
+    files: [
+      {
+        path: "examples/card-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "card-demo-1",
+    type: "registry:example",
+    registryDependencies: ["card"],
+    files: [
+      {
+        path: "examples/card-demo-1.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "badge-demo",
+    type: "registry:example",
+    registryDependencies: ["badge"],
+    files: [
+      {
+        path: "examples/badge-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "badge-secondary",
+    type: "registry:example",
+    registryDependencies: ["badge"],
+    files: [
+      {
+        path: "examples/badge-secondary.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "badge-outline",
+    type: "registry:example",
+    registryDependencies: ["badge"],
+    files: [
+      {
+        path: "examples/badge-outline.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "badge-destructive",
+    type: "registry:example",
+    registryDependencies: ["badge"],
+    files: [
+      {
+        path: "examples/badge-destructive.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [
