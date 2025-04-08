@@ -42,7 +42,7 @@ function Switch({ className, variant, size, ...props }: SwitchProps) {
     >
       <SwitchPrimitive.Thumb
         className={cn(
-          "bg-background data-[checked]:bg-primary-foreground size-5 rounded-full shadow-lg transition-transform duration-150 ease-in-out data-[checked]:translate-x-3.5",
+          "bg-background data-[checked]:bg-primary-foreground size-5 rounded-full shadow-sm transition-transform duration-150 ease-in-out data-[checked]:translate-x-3.5",
           size === "sm" && "size-4 data-[checked]:translate-x-2.5",
           size === "lg" && "size-6 data-[checked]:translate-x-4.5",
           variant === "square" && "rounded"

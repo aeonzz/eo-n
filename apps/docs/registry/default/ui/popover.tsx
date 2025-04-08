@@ -52,7 +52,7 @@ function PopoverContent({
         <PopoverPrimitive.Popup
           data-slot="popover-content"
           className={cn(
-            "bg-popover text-popover-foreground ring-border ring-offset-background z-50 min-h-[var(--anchor-height)] min-w-[var(--anchor-width)] overflow-y-auto overscroll-contain rounded-md border shadow-md ring-1 ring-offset-[0.75px] transition-[transform,scale,opacity] duration-150 ease-out",
+            "bg-popover text-popover-foreground ring-border ring-offset-background z-50 min-h-[var(--anchor-height)] min-w-[var(--anchor-width)] overflow-y-auto overscroll-contain rounded-md border ring-1 ring-offset-[0.75px] transition-[transform,scale,opacity] duration-150 ease-out",
             "origin-[var(--transform-origin)] p-4 data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
             className
           )}

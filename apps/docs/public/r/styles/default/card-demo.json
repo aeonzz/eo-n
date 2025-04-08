@@ -1,0 +1,15 @@
+{
+  "name": "card-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "card"
+  ],
+  "files": [
+    {
+      "path": "examples/card-demo.tsx",
+      "content": "import { Button } from \"@/registry/default/ui/button\";\r\nimport {\r\n  Card,\r\n  CardContent,\r\n  CardDescription,\r\n  CardFooter,\r\n  CardHeader,\r\n  CardTitle,\r\n} from \"@/registry/default/ui/card\";\r\nimport { Input } from \"@/registry/default/ui/input\";\r\nimport { Label } from \"@/registry/default/ui/label\";\r\n\r\nexport default function CardDemo() {\r\n  return (\r\n    <Card className=\"w-full max-w-sm\">\r\n      <CardHeader>\r\n        <CardTitle className=\"text-2xl\">Welcome Back</CardTitle>\r\n        <CardDescription>\r\n          Please sign in to your account to continue.\r\n        </CardDescription>\r\n      </CardHeader>\r\n      <CardContent className=\"flex flex-col gap-3\">\r\n        <div className=\"flex flex-col space-y-2\">\r\n          <Label htmlFor=\"email\">Email</Label>\r\n          <Input id=\"email\" name=\"email\" type=\"email\" placeholder=\"Email\" />\r\n        </div>\r\n        <div className=\"flex flex-col space-y-2\">\r\n          <Label htmlFor=\"password\">Password</Label>\r\n          <Input\r\n            id=\"password\"\r\n            name=\"password\"\r\n            type=\"password\"\r\n            placeholder=\"Password\"\r\n            autoComplete=\"off\"\r\n          />\r\n        </div>\r\n      </CardContent>\r\n      <CardFooter>\r\n        <Button className=\"w-full\">Sign in</Button>\r\n      </CardFooter>\r\n    </Card>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

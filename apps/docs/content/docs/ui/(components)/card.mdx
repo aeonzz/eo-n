@@ -1,0 +1,66 @@
+---
+title: Card
+description: A card component is a flexible and extensible content container.
+preview: true
+---
+
+<ComponentTabs name="card-demo" />
+
+## Installation
+
+### CLI
+
+```package-install
+npx shadcn@latest add "https://eo-n.vercel.app/r/card"
+```
+
+### Manual
+
+<Steps>
+
+  <Step>
+    Copy and paste the following code into your project.
+
+    <ComponentSource name="card" />
+
+  </Step>
+  
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+Import all parts and piece them together.
+
+```tsx
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+```
+
+```tsx
+<Card>
+  <CardHeader>
+    <CardTitle>Product 1</CardTitle>
+    <CardDescription>Product description</CardDescription>
+    <CardAction>Product action</CardAction>
+  </CardHeader>
+  <CardContent>
+    <p>Product Content</p>
+  </CardContent>
+  <CardFooter>
+    <p>Product Footer</p>
+  </CardFooter>
+</Card>
+```
+
+## Examples
+
+<ComponentTabs name="card-demo-1" />

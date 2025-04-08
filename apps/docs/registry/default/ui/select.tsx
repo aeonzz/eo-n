@@ -42,7 +42,7 @@ function SelectTrigger({
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
       className={cn(
-        "border-input ring-offset-background focus:ring-border focus:outline-primary/30 flex h-9 w-full cursor-pointer items-center justify-between rounded-md border bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-sm focus:ring-4 focus:outline-[1px] data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 [&_svg]:size-4 [&_svg]:opacity-50",
+        "border-input ring-offset-background focus:ring-border focus:outline-primary/30 flex h-9 w-full cursor-pointer items-center justify-between rounded-md border bg-transparent px-3 py-2 text-sm whitespace-nowrap focus:ring-4 focus:outline-[1px] data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 [&_svg]:size-4 [&_svg]:opacity-50",
         className
       )}
       {...props}
@@ -91,7 +91,7 @@ function SelectContent({
         <SelectPrimitive.Popup
           data-slot="select-content"
           className={cn(
-            "bg-popover text-popover-foreground ring-border ring-offset-background z-50 min-h-[var(--anchor-height)] overflow-y-auto overscroll-contain rounded-md border shadow-md ring-1 ring-offset-[0.75px] transition-[transform,scale,opacity] duration-150 ease-out",
+            "bg-popover text-popover-foreground ring-border ring-offset-background z-50 min-h-[var(--anchor-height)] overflow-y-auto overscroll-contain rounded-md border ring-1 ring-offset-[0.75px] transition-[transform,scale,opacity] duration-150 ease-out",
             "origin-[var(--transform-origin)] p-1 data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
             className
           )}
