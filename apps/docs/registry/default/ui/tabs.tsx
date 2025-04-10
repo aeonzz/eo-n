@@ -48,7 +48,7 @@ function TabsList({
       {...props}
     >
       {children}
-      <TabsIndicator className="bg-background absolute top-1/2 left-0 z-[-1] h-6 w-[var(--active-tab-width)] translate-x-[var(--active-tab-left)] -translate-y-1/2 rounded-sm shadow-sm transition-all duration-200 ease-out data-[orientation=vertical]:h-[var(--active-tab-height)] data-[orientation=vertical]:w-6 data-[orientation=vertical]:translate-x-0 data-[orientation=vertical]:translate-y-[var(--active-tab-top)]" />
+      <TabsIndicator className="bg-background absolute top-1/2 left-0 z-[-1] h-6 w-[var(--active-tab-width)] translate-x-[var(--active-tab-left)] -translate-y-1/2 rounded-sm shadow-sm transition-all duration-300 ease-out data-[orientation=vertical]:h-[var(--active-tab-height)] data-[orientation=vertical]:w-6 data-[orientation=vertical]:translate-x-0 data-[orientation=vertical]:translate-y-[var(--active-tab-top)]" />
     </TabsPrimitive.List>
   );
 }

@@ -10,7 +10,7 @@ import { Button } from "../ui/button";
 
 export default function CollapsibleDemo() {
   return (
-    <Collapsible className="flex w-[320px] flex-col gap-2">
+    <Collapsible className="flex w-[320px] flex-col">
       <CollapsibleTrigger
         render={
           <Button variant="outline" className="justify-between">
@@ -19,8 +19,8 @@ export default function CollapsibleDemo() {
           </Button>
         }
       />
-      <CollapsibleContent className="rounded-md border">
-        <div className="px-3.5 py-2.5">
+      <CollapsibleContent>
+        <div className="mt-2 rounded-md border px-3.5 py-2.5">
           <p className="text-sm">
             This product features high-quality materials and expert
             craftsmanship. It&apos;s designed to last for years with proper care

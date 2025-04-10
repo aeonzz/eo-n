@@ -1,5 +1,20 @@
 import { z } from "zod";
 
+const cssPropertiesSchema = z.record(z.string(), z.string());
+
+const cssSelectorSchema = z.record(z.string(), cssPropertiesSchema);
+
+const cssKeyframeSchema = z.record(z.string(), cssPropertiesSchema);
+
+export const cssDefinitionSchema = z
+  .object({
+    "@layer": z.record(z.string(), cssSelectorSchema).optional(),
+    "@utility": z.record(z.string(), cssPropertiesSchema).optional(),
+    "@keyframes": z.record(z.string(), cssKeyframeSchema).optional(),
+  })
+  .catchall(cssSelectorSchema)
+  .optional();
+
 export const blockChunkSchema = z.object({
   name: z.string(),
   description: z.string(),
@@ -55,6 +70,7 @@ export const registryItemSchema = z.object({
   files: z.array(registryItemFileSchema).optional(),
   tailwind: registryItemTailwindSchema.optional(),
   cssVars: registryItemCssVarsSchema.optional(),
+  css: cssDefinitionSchema,
   meta: z.record(z.string(), z.any()).optional(),
   docs: z.string().optional(),
 });

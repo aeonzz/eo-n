@@ -1,0 +1,15 @@
+{
+  "name": "skeleton-shimmer",
+  "type": "registry:example",
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "examples/skeleton-shimmer.tsx",
+      "content": "import { Skeleton } from \"@/registry/default/ui/skeleton\";\r\n\r\nexport default function SkeletonShimmer() {\r\n  return (\r\n    <div className=\"w-full max-w-xs space-y-3\">\r\n      <Skeleton className=\"h-36 w-full\" variant=\"shimmer\" />\r\n      <div className=\"space-y-2\">\r\n        <Skeleton className=\"h-4 w-full\" variant=\"shimmer\" />\r\n        <Skeleton className=\"h-4 w-1/2\" variant=\"shimmer\" />\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

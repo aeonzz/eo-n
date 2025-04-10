@@ -319,4 +319,29 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "skeleton",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/skeleton.tsx",
+        type: "registry:ui",
+      },
+    ],
+    css: {
+      "@utility": {
+        "animate-shimmer": {
+          "--animate-shimmer": "shimmer 3s infinite ease-out",
+        },
+      },
+      "@keyframes shimmer": {
+        "0%": {
+          transform: "translateX(-100%);",
+        },
+        "100%": {
+          transform: "translateX(-200%);",
+        },
+      },
+    },
+  },
 ];
