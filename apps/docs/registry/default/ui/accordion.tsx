@@ -62,7 +62,7 @@ function AccordionTrigger({
         {...props}
       >
         {children}
-        <ChevronDown className="text-muted-foreground ml-auto h-4 w-4 shrink-0 transition-transform duration-200 ease-out" />
+        <ChevronDown className="text-muted-foreground ml-auto h-4 w-4 shrink-0 transition-transform duration-300 ease-out" />
       </AccordionPrimitive.Trigger>
     </AccordionHeader>
   );
@@ -77,7 +77,7 @@ function AccordionContent({
     <AccordionPrimitive.Panel
       data-slot="accordion-content"
       className={cn(
-        "h-[var(--accordion-panel-height)] overflow-hidden text-left text-sm transition-[height] duration-200 ease-out data-[ending-style]:h-0 data-[starting-style]:h-0",
+        "h-[var(--accordion-panel-height)] overflow-hidden text-left text-sm transition-[height] duration-300 ease-out data-[ending-style]:h-0 data-[starting-style]:h-0",
         className
       )}
       {...props}

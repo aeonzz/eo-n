@@ -3,7 +3,7 @@ import { Label } from "@/registry/default/ui/label";
 
 export default function InputWithFloatingLabel() {
   return (
-    <div className="relative min-w-xs">
+    <div className="relative w-full max-w-xs">
       <Input
         id="email"
         type="email"

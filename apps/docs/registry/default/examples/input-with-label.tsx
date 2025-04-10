@@ -3,7 +3,7 @@ import { Label } from "@/registry/default/ui/label";
 
 export default function InputWithLabel() {
   return (
-    <div className="min-w-xs">
+    <div className="w-full max-w-xs">
       <Label>Username</Label>
       <Input
         id="username"

@@ -32,7 +32,7 @@ function RadioGroupItem({
       )}
       {...props}
     >
-      <RadioPrimitive.Indicator className="before:bg-border flex before:size-2 before:rounded-full data-[unchecked]:hidden" />
+      <RadioPrimitive.Indicator className="before:bg-background flex before:size-2 before:rounded-full data-[unchecked]:hidden" />
     </RadioPrimitive.Root>
   );
 }

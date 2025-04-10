@@ -1,0 +1,27 @@
+{
+  "name": "skeleton",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "ui/skeleton.tsx",
+      "content": "import * as React from \"react\";\r\nimport { cva, type VariantProps } from \"class-variance-authority\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nconst skeletonVariants = cva(\"bg-primary/10 rounded-md\", {\r\n  variants: {\r\n    variant: {\r\n      pulse: \"animate-pulse\",\r\n      shimmer:\r\n        \"before:animate-shimmer before:via-primary/10 dark:before:via-primary/5 relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:to-transparent\",\r\n    },\r\n  },\r\n  defaultVariants: {\r\n    variant: \"pulse\",\r\n  },\r\n});\r\n\r\nexport type SkeletonVariants = VariantProps<typeof skeletonVariants>;\r\n\r\ninterface SkeletonProps extends React.ComponentProps<\"div\">, SkeletonVariants {}\r\n\r\nexport function Skeleton({ className, variant, ...props }: SkeletonProps) {\r\n  return (\r\n    <div\r\n      data-slot=\"skeleton\"\r\n      className={cn(skeletonVariants({ className, variant }))}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ],
+  "css": {
+    "@utility": {
+      "animate-shimmer": {
+        "--animate-shimmer": "shimmer 3s infinite ease-out"
+      }
+    },
+    "@keyframes shimmer": {
+      "0%": {
+        "transform": "translateX(-100%);"
+      },
+      "100%": {
+        "transform": "translateX(-200%);"
+      }
+    }
+  }
+}

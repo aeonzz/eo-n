@@ -8,7 +8,7 @@ export default function InputSecondary() {
       type="text"
       placeholder="Username"
       autoComplete="off"
-      className="max-w-xs"
+      className="w-full max-w-xs"
       variant="secondary"
     />
   );

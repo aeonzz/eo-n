@@ -8,8 +8,7 @@ export default function InputDemo() {
       type="text"
       placeholder="Username"
       autoComplete="off"
-      className="max-w-xs"
-      data-touched
+      className="w-full max-w-xs"
     />
   );
 }
