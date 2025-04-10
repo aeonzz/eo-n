@@ -21,19 +21,6 @@ function SliderValue({
   );
 }
 
-function SliderTrack({
-  className,
-  ...props
-}: React.ComponentProps<typeof SliderPrimitive.Track>) {
-  return (
-    <SliderPrimitive.Track
-      data-slot="slider-track"
-      className={cn("bg-secondary h-1 w-full rounded-md", className)}
-      {...props}
-    />
-  );
-}
-
 function Slider({
   children,
   className,
@@ -42,7 +29,7 @@ function Slider({
   return (
     <SliderPrimitive.Root
       data-slot="slider"
-      className={cn("min-w-52", className)}
+      className={cn("relative w-full data-[disabled]:opacity-50", className)}
       {...props}
     >
       {children}
@@ -50,13 +37,16 @@ function Slider({
         data-slot="slider-control"
         className="flex w-full touch-none items-center select-none"
       >
-        <SliderTrack>
-          <SliderPrimitive.Indicator className="bg-secondary-foreground data-[disabled]:bg-muted-foreground rounded-md select-none data-[disabled]:cursor-not-allowed" />
-          <SliderPrimitive.Thumb className="bg-secondary-foreground data-[disabled]:bg-muted-foreground size-4 rounded-full border data-[disabled]:cursor-not-allowed" />
-        </SliderTrack>
+        <SliderPrimitive.Track
+          data-slot="slider-track"
+          className="bg-secondary h-1 w-full rounded-md"
+        >
+          <SliderPrimitive.Indicator className="bg-secondary-foreground rounded-md select-none" />
+          <SliderPrimitive.Thumb className="bg-background ring-ring/50 border-primary size-4 shrink-0 rounded-full border-2 shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden data-[disabled]:pointer-events-none data-[dragging]:ring-4 data-[dragging]:outline-hidden" />
+        </SliderPrimitive.Track>
       </SliderPrimitive.Control>
     </SliderPrimitive.Root>
   );
 }
 
-export { Slider, SliderValue, SliderTrack };
+export { Slider, SliderValue };

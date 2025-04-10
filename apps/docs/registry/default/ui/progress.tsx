@@ -19,7 +19,7 @@ function Progress({
       <ProgressPrimitive.Track
         data-slot="progress-track"
         className={cn(
-          "bg-muted block h-2 w-full overflow-hidden rounded-full",
+          "bg-secondary block h-2 w-full overflow-hidden rounded-full",
           className
         )}
       >
