@@ -328,18 +328,27 @@ export const ui: Registry = [
         type: "registry:ui",
       },
     ],
-    css: {
-      "@utility": {
-        "animate-shimmer": {
-          "--animate-shimmer": "shimmer 3s infinite ease-out",
-        },
+    cssVars: {
+      theme: {
+        "--animate-skeleton-shimmer": "shimmer 3s infinite ease-out",
+        "--animate-skeleton-gradient": "skeleton-gradient 3s infinite ease-out",
       },
-      "@keyframes shimmer": {
+    },
+    css: {
+      "@keyframes skeleton-shimmer": {
         "0%": {
           transform: "translateX(-100%);",
         },
         "100%": {
-          transform: "translateX(-200%);",
+          transform: "translateX(200%);",
+        },
+      },
+      "@keyframes skeleton-gradient": {
+        "0%, 100%": {
+          "background-position": "0% 50%",
+        },
+        "100%": {
+          "background-position": "100% 50%",
         },
       },
     },

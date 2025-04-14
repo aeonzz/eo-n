@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/skeleton-demo.tsx",
-      "content": "import { Skeleton } from \"@/registry/default/ui/skeleton\";\r\n\r\nexport default function SkeletonDemo() {\r\n  return (\r\n    <div className=\"flex w-full max-w-md justify-center space-x-3\">\r\n      <Skeleton className=\"size-10 shrink-0 rounded-full\" />\r\n      <div className=\"flex w-[320px] flex-col justify-between\">\r\n        <Skeleton className=\"h-4\" />\r\n        <Skeleton className=\"h-4 w-1/2\" />\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n",
+      "content": "import { Skeleton } from \"@/registry/default/ui/skeleton\";\r\n\r\nexport default function SkeletonDemo() {\r\n  return (\r\n    <div className=\"w-full max-w-xs space-y-3\">\r\n      <Skeleton className=\"h-36 w-full\" />\r\n      <div className=\"space-y-2\">\r\n        <Skeleton className=\"h-4 w-full\" />\r\n        <Skeleton className=\"h-4 w-1/2\" />\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n",
       "type": "registry:example",
       "target": ""
     }

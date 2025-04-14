@@ -4,7 +4,7 @@
   "files": [
     {
       "path": "ui/label.tsx",
-      "content": "import * as React from \"react\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nfunction Label({ className, ...props }: React.ComponentProps<\"label\">) {\r\n  return (\r\n    <label\r\n      className={cn(\r\n        \"text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70\",\r\n        className\r\n      )}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport { Label };\r\n",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Label({ className, ...props }: React.ComponentProps<\"label\">) {\n  return (\n    <label\n      className={cn(\n        \"text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70\",\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Label };\n",
       "type": "registry:ui",
       "target": ""
     }

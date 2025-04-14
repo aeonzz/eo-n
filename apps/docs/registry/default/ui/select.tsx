@@ -153,7 +153,10 @@ function SelectGroupLabel({
 function SelectSeparator({
   className,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Separator>) {
+}: Omit<
+  React.ComponentProps<typeof SelectPrimitive.Separator>,
+  "orientation"
+>) {
   return (
     <SelectPrimitive.Separator
       data-slot="select-separator"

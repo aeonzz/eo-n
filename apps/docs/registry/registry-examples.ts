@@ -376,17 +376,6 @@ export const examples: Registry = [
     ],
   },
   {
-    name: "tabs-vertical",
-    type: "registry:example",
-    registryDependencies: ["tabs"],
-    files: [
-      {
-        path: "examples/tabs-vertical.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
     name: "avatar-demo",
     type: "registry:example",
     registryDependencies: ["avatar"],
@@ -910,6 +899,17 @@ export const examples: Registry = [
     files: [
       {
         path: "examples/skeleton-shimmer.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "skeleton-gradient",
+    type: "registry:example",
+    registryDependencies: ["skeleton"],
+    files: [
+      {
+        path: "examples/skeleton-gradient.tsx",
         type: "registry:example",
       },
     ],

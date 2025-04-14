@@ -26,6 +26,41 @@ npx shadcn@latest add "https://eo-n.vercel.app/r/skeleton"
     <ComponentSource name="skeleton" />
 
   </Step>
+
+  <Step>
+
+    Define the shimmer keyframes and CSS variables inside your `globals.css` file using the `@theme inline` block.
+
+    ```css title="globals.css"
+    @import "tailwindcss";
+
+    @theme inline {
+    /* other css vars */
+    // [!code highlight:20]
+      --animate-skeleton-shimmer: skeleton-shimmer 3s infinite ease-out;
+      --animate-skeleton-gradient: skeleton-gradient 3s infinite ease-out;
+
+      @keyframes skeleton-shimmer {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(200%);
+        }
+      }
+      @keyframes skeleton-gradient {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+    }
+    ```
+
+  </Step>
   
   <Step>Update the import paths to match your project setup.</Step>
 
@@ -52,6 +87,10 @@ import { Skeleton } from "@/components/ui/skeleton";
 ### Shimmer
 
 <ComponentTabs name="skeleton-shimmer" />
+
+### Gradient
+
+<ComponentTabs name="skeleton-gradient" />
 
 ## API Reference
 
