@@ -10,7 +10,7 @@ function Accordion({
   openMultiple = false,
   className,
   ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Root>) {
+}: Omit<React.ComponentProps<typeof AccordionPrimitive.Root>, "orientation">) {
   return (
     <AccordionPrimitive.Root
       data-slot="accordion"

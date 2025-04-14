@@ -8,7 +8,9 @@ const skeletonVariants = cva("bg-primary/10 rounded-md", {
     variant: {
       pulse: "animate-pulse",
       shimmer:
-        "before:animate-shimmer before:via-primary/10 dark:before:via-primary/5 relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:to-transparent",
+        "before:animate-skeleton-shimmer before:via-primary/10 dark:before:via-primary/5 relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:to-transparent",
+      gradient:
+        "bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 animate-skeleton-gradient bg-[length:400%_100%]",
     },
   },
   defaultVariants: {

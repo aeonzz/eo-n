@@ -1833,6 +1833,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "skeleton-gradient": {
+      name: "skeleton-gradient",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["skeleton"],
+      files: [{
+        path: "registry/default/examples/skeleton-gradient.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/skeleton-gradient.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "mode-toggle": {
       name: "mode-toggle",
       description: "",

@@ -8,7 +8,10 @@ import { cn } from "@/lib/utils";
 
 function DropdownMenu({
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {
+}: Omit<
+  React.ComponentProps<typeof DropdownMenuPrimitive.Root>,
+  "orientation"
+>) {
   return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
 }
 
@@ -113,7 +116,10 @@ function DropdownMenuItem({
 function DropdownMenuSeparator({
   className,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Separator>) {
+}: Omit<
+  React.ComponentProps<typeof DropdownMenuPrimitive.Separator>,
+  "orientation"
+>) {
   return (
     <DropdownMenuPrimitive.Separator
       data-slot="dropdown-menu-separator"

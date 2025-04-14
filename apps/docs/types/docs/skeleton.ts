@@ -5,7 +5,7 @@ import { SkeletonVariants } from "@/registry/default/ui/skeleton";
 export interface RootProps extends EmptyProps<"input"> {
   /**
    *
-   * @default "default"
+   * @default "pulse"
    */
   variant?: SkeletonVariants["variant"];
 }

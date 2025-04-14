@@ -915,6 +915,17 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "skeleton-gradient",
+    type: "registry:example",
+    registryDependencies: ["skeleton"],
+    files: [
+      {
+        path: "examples/skeleton-gradient.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [

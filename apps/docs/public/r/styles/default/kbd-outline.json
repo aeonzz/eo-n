@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/kbd-outline.tsx",
-      "content": "import { Kbd, KbdKey, KbdSeparator } from \"@/registry/default/ui/kbd\";\r\n\r\nexport default function KbdOutline() {\r\n  return (\r\n    <Kbd variant=\"outline\">\r\n      <KbdKey>⌥</KbdKey>\r\n      <KbdSeparator />\r\n      <KbdKey>⇥</KbdKey>\r\n    </Kbd>\r\n  );\r\n}\r\n",
+      "content": "import { Kbd, KbdKey, KbdSeparator } from \"@/registry/default/ui/kbd\";\n\nexport default function KbdOutline() {\n  return (\n    <Kbd variant=\"outline\">\n      <KbdKey>⌥</KbdKey>\n      <KbdSeparator />\n      <KbdKey>⇥</KbdKey>\n    </Kbd>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

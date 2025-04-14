@@ -121,7 +121,8 @@
   --animate-stroke-dashoffset: stroke-dashoffset 0.2s linear forwards;
   --animate-expand-width: expand-width forwards;
   --animate-expand-height: expand-height forwards;
-  --animate-shimmer: shimmer 3s infinite ease-out;
+  --animate-skeleton-shimmer: skeleton-shimmer 3s infinite ease-out;
+  --animate-skeleton-gradient: skeleton-gradient 3s infinite ease-out;
   --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
 
   @keyframes fade-down {
@@ -192,12 +193,21 @@
       height: 100%;
     }
   }
-  @keyframes shimmer {
+  @keyframes skeleton-shimmer {
     0% {
       transform: translateX(-100%);
     }
     100% {
       transform: translateX(200%);
+    }
+  }
+  @keyframes skeleton-gradient {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
     }
   }
 }

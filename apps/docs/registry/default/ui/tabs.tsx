@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 function Tabs({
   className,
   ...props
-}: React.ComponentProps<typeof TabsPrimitive.Root>) {
+}: Omit<React.ComponentProps<typeof TabsPrimitive.Root>, "orientation">) {
   return (
     <TabsPrimitive.Root
       data-slot="tabs"
