@@ -1,7 +1,7 @@
 {
   "name": "Eo-n/ui",
   "short_name": "Eo-n",
-  "description": "Enhanced UI components built on shadcn’s robust foundation, integrated with Base UI and Tailwind CSS for a modern and customizable design system.",
+  "description": "Accessible and customizable components built with Tailwind and Shadcn.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

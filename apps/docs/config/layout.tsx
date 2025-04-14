@@ -34,6 +34,14 @@ export const baseOptions: BaseLayoutProps = {
       url: "/docs/ui",
     },
     {
+      text: "Components",
+      url: "/docs/ui/accordion",
+    },
+    {
+      text: "Blocks",
+      url: "/docs/blocks",
+    },
+    {
       type: "icon",
       url: siteConfig.links.github,
       text: "Github",

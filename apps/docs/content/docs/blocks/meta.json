@@ -3,5 +3,5 @@
   "description": "Eo-n blocks",
   "icon": "Blocks",
   "root": true,
-  "pages": ["introduction"]
+  "pages": ["---Getting Started---", "index", "---Blocks---", "...(authentication)"]
 }
