@@ -10,6 +10,7 @@ import type { MDXComponents } from "mdx/types";
 
 import { cn } from "@/lib/utils";
 import { Table, TableCell, TableHead, TableRow } from "@/components/ui/table";
+import { BlockDisplay } from "@/components/block-display";
 import { ComponentSource } from "@/components/component-source";
 import { ComponentTabs } from "@/components/component-tabs";
 import { CSSVariablesTable } from "@/components/css-variables-table";
@@ -64,6 +65,7 @@ export function useMdxComponents(
     kbd: (props) => <Kbd variant="outline" {...props} />,
     ComponentTabs,
     ComponentSource,
+    BlockDisplay,
     Steps,
     Step,
     AutoTypeTable: (props) => (

@@ -52,7 +52,7 @@ export default async function DocPage(props: DocPageParams) {
       }}
       full={page.data.full}
       breadcrumb={{
-        enabled: true,
+        enabled: page.data.breadcrumb,
         includeRoot: true,
         includePage: true,
         includeSeparator: true,

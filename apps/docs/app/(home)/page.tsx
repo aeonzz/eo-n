@@ -15,7 +15,7 @@ export default function HomePage() {
             className="absolute bottom-0 left-[15%] -z-20 mask-y-from-80% duration-1300"
           />
           <LineDecorator className="mr-auto mask-x-from-90% duration-1300" />
-          <h1 className="from-foreground text-center text-4xl leading-tight font-bold tracking-tighter sm:text-5xl md:text-6xl lg:leading-[1.1]">
+          <h1 className="from-foreground text-center text-4xl leading-tight font-bold tracking-tight sm:text-5xl md:text-6xl lg:leading-[1.1]">
             Craft Your Component Library
           </h1>
           <LineDecorator className="ml-auto mask-x-from-90% duration-1300" />

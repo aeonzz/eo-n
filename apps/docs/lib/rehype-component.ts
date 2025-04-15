@@ -150,6 +150,7 @@ export function rehypeComponent() {
           console.error(error);
         }
       }
+
     });
   };
 }
