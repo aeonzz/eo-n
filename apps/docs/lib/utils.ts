@@ -9,6 +9,3 @@ export function getIsExternalLink(href: string) {
   return href.startsWith("http") || href.startsWith("https");
 }
 
-export function absoluteUrl(path: string) {
-  return `${process.env.NEXT_PUBLIC_APP_URL}${path}`;
-}

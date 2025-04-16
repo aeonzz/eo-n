@@ -1,6 +1,6 @@
 {
   "title": "UI",
-  "description": "Eo-n Components",
+  "description": "Components",
   "icon": "Component",
   "root": true,
   "pages": ["---Getting Started---", "index", "installation", "dark-mode", "---Components---", "...(components)"]

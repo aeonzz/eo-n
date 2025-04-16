@@ -10,17 +10,20 @@ import { CodeBlockWrapper } from "@/components/code-block-wrapper";
 
 interface ComponentSourceProps extends React.HTMLAttributes<HTMLDivElement> {
   src: string;
+  collapsible?: boolean;
 }
 
 export function ComponentSource({
   children,
   className,
+  collapsible = true,
   ...props
 }: ComponentSourceProps) {
   return (
     <CodeBlockWrapper
       expandButtonTitle="Expand"
       className={cn("my-6 overflow-hidden rounded-md", className)}
+      collapsible={collapsible}
       {...props}
     >
       {children}

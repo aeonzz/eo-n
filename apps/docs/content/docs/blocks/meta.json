@@ -1,7 +1,0 @@
-{
-  "title": "Blocks",
-  "description": "Eo-n blocks",
-  "icon": "Blocks",
-  "root": true,
-  "pages": ["---Getting Started---", "index", "---Blocks---", "...(authentication)"]
-}
