@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/input-demo.tsx",
-      "content": "import { Input } from \"@/registry/default/ui/input\";\n\nexport default function InputDemo() {\n  return (\n    <Input\n      id=\"username\"\n      name=\"username\"\n      type=\"text\"\n      placeholder=\"Username\"\n      autoComplete=\"off\"\n      className=\"w-full max-w-xs\"\n    />\n  );\n}\n",
+      "content": "import { Input } from \"@/registry/default/ui/input\";\r\n\r\nexport default function InputDemo() {\r\n  return (\r\n    <Input\r\n      id=\"username\"\r\n      name=\"username\"\r\n      type=\"text\"\r\n      placeholder=\"Username\"\r\n      autoComplete=\"off\"\r\n      className=\"w-full max-w-xs\"\r\n    />\r\n  );\r\n}\r\n",
       "type": "registry:example",
       "target": ""
     }

@@ -38,8 +38,8 @@ export const baseOptions: BaseLayoutProps = {
       url: "/docs/ui/accordion",
     },
     {
-      text: "Blocks",
-      url: "/docs/blocks",
+      text: "Collections",
+      url: "/docs/collections",
     },
     {
       type: "icon",

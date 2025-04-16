@@ -8,3 +8,4 @@ export function cn(...inputs: ClassValue[]) {
 export function getIsExternalLink(href: string) {
   return href.startsWith("http") || href.startsWith("https");
 }
+

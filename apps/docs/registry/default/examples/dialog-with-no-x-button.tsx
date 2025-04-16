@@ -5,7 +5,6 @@ import { Button } from "@/registry/default/ui/button";
 import { Checkbox } from "@/registry/default/ui/checkbox";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,

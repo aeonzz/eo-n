@@ -16,15 +16,27 @@ import { Button } from "@/registry/default/ui/button";
 interface CodeBlockProps
   extends React.ComponentPropsWithoutRef<typeof Collapsible> {
   expandButtonTitle?: string;
+  collapsible?: boolean;
 }
 
 export function CodeBlockWrapper({
   expandButtonTitle = "View Code",
   className,
   children,
+  collapsible = true,
   ...props
 }: CodeBlockProps) {
   const [open, setOpen] = React.useState(false);
+
+  if (!collapsible) {
+    return (
+      <div className={cn("relative overflow-hidden", className)} {...props}>
+        <div className="overflow-auto [&_code]:h-[420px] [&_figure]:my-0 [&_span]:text-[10px] [&_span]:last:pb-5">
+          {children}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <Collapsible
