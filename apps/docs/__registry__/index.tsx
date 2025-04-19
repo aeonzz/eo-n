@@ -1337,6 +1337,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "checkbox-group-parent": {
+      name: "checkbox-group-parent",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["checkbox-group-parent"],
+      files: [{
+        path: "registry/default/examples/checkbox-group-parent.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/checkbox-group-parent.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "preview-card-demo": {
       name: "preview-card-demo",
       description: "",

@@ -574,6 +574,17 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "checkbox-group-parent",
+    type: "registry:example",
+    registryDependencies: ["checkbox-group-parent"],
+    files: [
+      {
+        path: "examples/checkbox-group-parent.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "preview-card-demo",
     type: "registry:example",
     registryDependencies: ["preview-card-demo"],
