@@ -4,7 +4,7 @@
 
 ## Documentation
 
-Visit https://eo-n.vercel.app/docs/introduction to view the documentation.
+Visit https://eo-n.vercel.app/docs/ui to view the documentation.
 
 ## License
 
