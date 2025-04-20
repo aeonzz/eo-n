@@ -4,42 +4,31 @@ import { Checkbox } from "@/registry/default/ui/checkbox";
 import { CheckboxGroup } from "@/registry/default/ui/checkbox-group";
 import { Label } from "@/registry/default/ui/label";
 
-const diets = [
-  {
-    label: "Vegetarian",
-    value: "vegetarian",
-  },
-  {
-    label: "Vegan",
-    value: "vegan",
-  },
-  {
-    label: "Gluten-free",
-    value: "gluten-free",
-  },
-] as const;
+const apples = ["fuji", "gala", "granny-smith"];
 
 export default function CheckboxGroupDemo() {
-  const [value, setValue] = React.useState<string[]>([]);
+  const [value, setValue] = React.useState<string[]>(["fuji"]);
 
   return (
     <CheckboxGroup
-      aria-labelledby="diets"
+      aria-labelledby="apples"
       value={value}
       onValueChange={setValue}
-      allValues={diets.map((diet) => diet.value)}
-      className="space-y-3 p-4"
+      allValues={apples}
     >
-      <div className="flex items-center space-x-2">
-        <Checkbox id="diets" name="diets" value="diets" parent />
-        <Label htmlFor="diets">Diets</Label>
-      </div>
-
-      {diets.map((diet, i) => (
-        <div key={i} className="flex items-center space-x-2">
-          <Checkbox id={diet.value} name={diet.value} value={diet.value} />
-          <Label htmlFor={diet.value}>{diet.label}</Label>
-        </div>
+      <Label id="apples" className="flex items-center space-x-2">
+        <Checkbox name="apples" parent />
+        Apples
+      </Label>
+      {apples.map((apple, i) => (
+        <Label
+          key={i}
+          id={apple}
+          className="flex items-center space-x-2 capitalize"
+        >
+          <Checkbox name={apple} />
+          {apple}
+        </Label>
       ))}
     </CheckboxGroup>
   );

@@ -1325,7 +1325,7 @@ export const Index: Record<string, any> = {
       name: "checkbox-group-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["checkbox-group-demo"],
+      registryDependencies: ["checkbox-group"],
       files: [{
         path: "registry/default/examples/checkbox-group-demo.tsx",
         type: "registry:example",
@@ -1341,13 +1341,29 @@ export const Index: Record<string, any> = {
       name: "checkbox-group-parent",
       description: "",
       type: "registry:example",
-      registryDependencies: ["checkbox-group-parent"],
+      registryDependencies: ["checkbox-group"],
       files: [{
         path: "registry/default/examples/checkbox-group-parent.tsx",
         type: "registry:example",
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/checkbox-group-parent.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "checkbox-group-nested-parent": {
+      name: "checkbox-group-nested-parent",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["checkbox-group"],
+      files: [{
+        path: "registry/default/examples/checkbox-group-nested-parent.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/checkbox-group-nested-parent.tsx")),
       source: "",
       category: "",
       subcategory: "",

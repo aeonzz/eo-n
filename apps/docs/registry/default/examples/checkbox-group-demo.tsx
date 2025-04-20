@@ -19,12 +19,12 @@ const diets = [
 
 export default function CheckboxGroupDemo() {
   return (
-    <CheckboxGroup defaultValue={["vegetarian"]} className="space-y-3 p-4">
+    <CheckboxGroup defaultValue={["vegetarian"]}>
       {diets.map((diet, i) => (
-        <div key={i} className="flex items-center space-x-2">
-          <Checkbox id={diet.value} name={diet.value} value={diet.value} />
-          <Label htmlFor={diet.value}>{diet.label}</Label>
-        </div>
+        <Label key={i} id={diet.value} className="flex items-center space-x-2">
+          <Checkbox name={diet.value} />
+          {diet.label}
+        </Label>
       ))}
     </CheckboxGroup>
   );

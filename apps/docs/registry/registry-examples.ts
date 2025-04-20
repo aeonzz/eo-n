@@ -565,7 +565,7 @@ export const examples: Registry = [
   {
     name: "checkbox-group-demo",
     type: "registry:example",
-    registryDependencies: ["checkbox-group-demo"],
+    registryDependencies: ["checkbox-group"],
     files: [
       {
         path: "examples/checkbox-group-demo.tsx",
@@ -576,10 +576,21 @@ export const examples: Registry = [
   {
     name: "checkbox-group-parent",
     type: "registry:example",
-    registryDependencies: ["checkbox-group-parent"],
+    registryDependencies: ["checkbox-group"],
     files: [
       {
         path: "examples/checkbox-group-parent.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "checkbox-group-nested-parent",
+    type: "registry:example",
+    registryDependencies: ["checkbox-group"],
+    files: [
+      {
+        path: "examples/checkbox-group-nested-parent.tsx",
         type: "registry:example",
       },
     ],
