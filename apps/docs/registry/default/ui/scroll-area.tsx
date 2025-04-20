@@ -18,7 +18,7 @@ function ScrollArea({
       {...props}
     >
       <ScrollAreaPrimitive.Viewport className="h-full w-full overscroll-contain rounded-[inherit] px-3">
-        {children}
+        <ScrollAreaPrimitive.Content>{children}</ScrollAreaPrimitive.Content>
       </ScrollAreaPrimitive.Viewport>
       <ScrollAreaScrollbar orientation={orientation} />
       <ScrollAreaPrimitive.Corner />

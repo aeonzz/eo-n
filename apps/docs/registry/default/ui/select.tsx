@@ -113,7 +113,7 @@ function SelectItem({
     <SelectPrimitive.Item
       data-slot="select-item"
       className={cn(
-        "focus:bg-accent focus:text-accent-foreground relative flex min-w-[calc(var(--anchor-width)_-_0.5rem)] cursor-default items-center rounded-sm px-2 py-1 pr-8 text-sm outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        "data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground relative flex min-w-[calc(var(--anchor-width)_-_0.5rem)] cursor-default items-center rounded-sm px-2 py-1.5 pr-8 text-sm outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         className
       )}
       {...props}
@@ -134,7 +134,7 @@ function SelectGroup({
   return <SelectPrimitive.Group data-slot="select-group" {...props} />;
 }
 
-function SelectGroupLabel({
+function SelectLabel({
   className,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Group>) {
@@ -142,7 +142,7 @@ function SelectGroupLabel({
     <SelectPrimitive.Group
       data-slot="select-group-label"
       className={cn(
-        "text-foreground px-2 py-1.5 text-sm leading-none font-semibold",
+        "text-muted-foreground px-2 py-1.5 text-xs leading-none",
         className
       )}
       {...props}
@@ -175,6 +175,6 @@ export {
   SelectItem,
   SelectContent,
   SelectGroup,
-  SelectGroupLabel,
+  SelectLabel,
   SelectSeparator,
 };
