@@ -1401,6 +1401,38 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "progress-with-label": {
+      name: "progress-with-label",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["progress"],
+      files: [{
+        path: "registry/default/examples/progress-with-label.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/progress-with-label.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "progress-with-value": {
+      name: "progress-with-value",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["progress"],
+      files: [{
+        path: "registry/default/examples/progress-with-value.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/progress-with-value.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "radio-group-demo": {
       name: "radio-group-demo",
       description: "",

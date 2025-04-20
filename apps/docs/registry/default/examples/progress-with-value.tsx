@@ -1,8 +1,12 @@
 import * as React from "react";
 
-import { Progress } from "@/registry/default/ui/progress";
+import {
+  Progress,
+  ProgressLabel,
+  ProgressValue,
+} from "@/registry/default/ui/progress";
 
-export default function ProgressDemo() {
+export default function ProgressWithValue() {
   const [value, setValue] = React.useState(0);
 
   React.useEffect(() => {
@@ -15,6 +19,9 @@ export default function ProgressDemo() {
   }, []);
 
   return (
-    <Progress value={value} className="min-w-xs" />
+    <Progress value={value} className="min-w-xs">
+      <ProgressLabel>Downloading...</ProgressLabel>
+      <ProgressValue />
+    </Progress>
   );
 }

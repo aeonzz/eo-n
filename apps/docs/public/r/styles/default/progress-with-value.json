@@ -1,0 +1,15 @@
+{
+  "name": "progress-with-value",
+  "type": "registry:example",
+  "registryDependencies": [
+    "progress"
+  ],
+  "files": [
+    {
+      "path": "examples/progress-with-value.tsx",
+      "content": "import * as React from \"react\";\r\n\r\nimport {\r\n  Progress,\r\n  ProgressLabel,\r\n  ProgressValue,\r\n} from \"@/registry/default/ui/progress\";\r\n\r\nexport default function ProgressWithValue() {\r\n  const [value, setValue] = React.useState(0);\r\n\r\n  React.useEffect(() => {\r\n    const interval = window.setInterval(() => {\r\n      setValue((current) =>\r\n        Math.min(100, Math.round(current + Math.random() * 25))\r\n      );\r\n    }, 1000);\r\n    return () => clearInterval(interval);\r\n  }, []);\r\n\r\n  return (\r\n    <Progress value={value} className=\"min-w-xs\">\r\n      <ProgressLabel>Downloading...</ProgressLabel>\r\n      <ProgressValue />\r\n    </Progress>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

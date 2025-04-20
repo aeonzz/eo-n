@@ -13,23 +13,36 @@ function Progress({
   return (
     <ProgressPrimitive.Root
       data-slot="progress"
-      className="relative"
+      className={cn(
+        "relative grid grid-cols-1 overflow-hidden has-data-[slot='progress-label']:grid-cols-2",
+        className
+      )}
       {...props}
     >
+      {children}
       <ProgressPrimitive.Track
         data-slot="progress-track"
-        className={cn(
-          "bg-secondary block h-2 w-full overflow-hidden rounded-full",
-          className
-        )}
+        className="bg-secondary col-span-full mt-1 block h-2 w-full overflow-hidden rounded-full"
       >
         <ProgressPrimitive.Indicator
           data-slot="progress-indicator"
           className="bg-primary block transition-all duration-500"
         />
       </ProgressPrimitive.Track>
-      {children}
     </ProgressPrimitive.Root>
+  );
+}
+
+function ProgressLabel({
+  className,
+  ...props
+}: React.ComponentProps<typeof ProgressPrimitive.Label>) {
+  return (
+    <ProgressPrimitive.Label
+      data-slot="progress-label"
+      className={cn("text-foreground text-sm font-medium", className)}
+      {...props}
+    />
   );
 }
 
@@ -41,7 +54,7 @@ function ProgressValue({
     <ProgressPrimitive.Value
       data-slot="progress-value"
       className={cn(
-        "text-foreground mt-2 flex justify-end text-xs font-medium",
+        "text-foreground text-right text-sm font-medium",
         className
       )}
       {...props}
@@ -49,4 +62,4 @@ function ProgressValue({
   );
 }
 
-export { Progress, ProgressValue };
+export { Progress, ProgressValue, ProgressLabel };

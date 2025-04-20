@@ -618,6 +618,28 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "progress-with-label",
+    type: "registry:example",
+    registryDependencies: ["progress"],
+    files: [
+      {
+        path: "examples/progress-with-label.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "progress-with-value",
+    type: "registry:example",
+    registryDependencies: ["progress"],
+    files: [
+      {
+        path: "examples/progress-with-value.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "radio-group-demo",
     type: "registry:example",
     registryDependencies: ["radio-group"],
