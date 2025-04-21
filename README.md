@@ -1,4 +1,4 @@
-# EO-N UI
+# EO-N UI Alpha Stage
 
 - Enhanced UI Components: Built on shadcn’s robust foundation.
 
