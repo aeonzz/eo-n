@@ -10,4 +10,6 @@ Visit https://eo-n.vercel.app/docs/ui to view the documentation.
 
 Licensed under the [MIT license](https://github.com/aeonzz/eo-n/blob/main/LICENSE).
 
-<!-- GitAds-Verify: C7PGZ2SYE1746S99LFDT9HBGBIEUGHVV -->
+## GitAds Sponsored
+[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=aeonzz/eo-n@github)](https://gitads.dev/v1/ad-track?source=aeonzz/eo-n@github)
+
