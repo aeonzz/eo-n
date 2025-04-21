@@ -1321,6 +1321,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "alert-dialog-confirmation": {
+      name: "alert-dialog-confirmation",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["alert-dialog"],
+      files: [{
+        path: "registry/default/examples/alert-dialog-confirmation.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/alert-dialog-confirmation.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "checkbox-group-demo": {
       name: "checkbox-group-demo",
       description: "",

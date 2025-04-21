@@ -134,10 +134,10 @@ function SelectGroup({
   return <SelectPrimitive.Group data-slot="select-group" {...props} />;
 }
 
-function SelectLabel({
+function SelectGroupLabel({
   className,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Group>) {
+}: React.ComponentProps<typeof SelectPrimitive.GroupLabel>) {
   return (
     <SelectPrimitive.Group
       data-slot="select-group-label"
@@ -175,6 +175,6 @@ export {
   SelectItem,
   SelectContent,
   SelectGroup,
-  SelectLabel,
+  SelectGroupLabel,
   SelectSeparator,
 };

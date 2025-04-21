@@ -6,6 +6,7 @@ import {
   DropdownMenuGroupLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/registry/default/ui/dropdown-menu";
 
@@ -15,9 +16,8 @@ export default function DropdownMenuRadio() {
       <DropdownMenuTrigger render={<Button variant="outline">Gender</Button>} />
       <DropdownMenuContent>
         <DropdownMenuGroup>
-          <DropdownMenuGroupLabel className="-mt-1 mb-1">
-            Gender
-          </DropdownMenuGroupLabel>
+          <DropdownMenuGroupLabel>Gender</DropdownMenuGroupLabel>
+          <DropdownMenuSeparator className="my-1" />
           <DropdownMenuRadioGroup defaultValue="male">
             <DropdownMenuRadioItem value="male">Male</DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="female">Female</DropdownMenuRadioItem>

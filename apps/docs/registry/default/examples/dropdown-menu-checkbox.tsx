@@ -5,6 +5,7 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuGroupLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/registry/default/ui/dropdown-menu";
 
@@ -16,9 +17,8 @@ export default function DropdownMenuCheckbox() {
       />
       <DropdownMenuContent>
         <DropdownMenuGroup>
-          <DropdownMenuGroupLabel className="-mt-1 mb-1">
-            Preferences
-          </DropdownMenuGroupLabel>
+          <DropdownMenuGroupLabel>Preferences</DropdownMenuGroupLabel>
+          <DropdownMenuSeparator className="my-1" />
           <DropdownMenuCheckboxItem>
             Enable Notifications
           </DropdownMenuCheckboxItem>

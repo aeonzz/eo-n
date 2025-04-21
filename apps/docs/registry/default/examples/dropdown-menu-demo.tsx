@@ -30,50 +30,53 @@ export default function DropdownMenuDemo() {
     <DropdownMenu>
       <DropdownMenuTrigger render={<Button variant="outline">Menu</Button>} />
       <DropdownMenuContent className="w-44">
-        <DropdownMenuItem>
-          <Home />
-          Dashboard
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <User />
-          Profile
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Bell />
-          Notifications
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <FileText />
-          Documents
-        </DropdownMenuItem>
-        <DropdownMenu>
-          <DropdownMenuSubMenuTrigger
-            render={
-              <DropdownMenuItem closeOnClick={false}>
-                <Cloud />
-                File Actions
-                <ChevronRight className="ml-auto" />
-              </DropdownMenuItem>
-            }
-          />
-          <DropdownMenuContent className="w-44">
-            <DropdownMenuItem>
-              <Upload />
-              Upload Files
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Download />
-              Download Files
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Share2 />
-              Share Files
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-        <DropdownMenuSeparator className="mt-1" />
         <DropdownMenuGroup>
           <DropdownMenuGroupLabel>Preferences</DropdownMenuGroupLabel>
+          <DropdownMenuSeparator className="my-1" />
+          <DropdownMenuItem>
+            <Home />
+            Dashboard
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <User />
+            Profile
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Bell />
+            Notifications
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <FileText />
+            Documents
+          </DropdownMenuItem>
+          <DropdownMenu>
+            <DropdownMenuSubMenuTrigger
+              render={
+                <DropdownMenuItem closeOnClick={false}>
+                  <Cloud />
+                  File Actions
+                  <ChevronRight className="ml-auto" />
+                </DropdownMenuItem>
+              }
+            />
+            <DropdownMenuContent className="w-44">
+              <DropdownMenuItem>
+                <Upload />
+                Upload Files
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Download />
+                Download Files
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Share2 />
+                Share Files
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator className="my-1" />
+        <DropdownMenuGroup>
           <DropdownMenuItem disabled>
             <Settings />
             Settings

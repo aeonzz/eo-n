@@ -3,7 +3,7 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
+  SelectGroupLabel,
   SelectSeparator,
   SelectTrigger,
   SelectValue,
@@ -17,14 +17,14 @@ export default function SelectWithGroup() {
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>Technology</SelectLabel>
+          <SelectGroupLabel>Technology</SelectGroupLabel>
           <SelectItem value="software-engineer">Software Engineer</SelectItem>
           <SelectItem value="data-scientist">Data Scientist</SelectItem>
           <SelectItem value="ux-designer">UX Designer</SelectItem>
         </SelectGroup>
         <SelectSeparator />
         <SelectGroup>
-          <SelectLabel>Business</SelectLabel>
+          <SelectGroupLabel>Business</SelectGroupLabel>
           <SelectItem value="marketing-manager">Marketing Manager</SelectItem>
           <SelectItem value="financial-analyst">Financial Analyst</SelectItem>
           <SelectItem value="hr-specialist">HR Specialist</SelectItem>
