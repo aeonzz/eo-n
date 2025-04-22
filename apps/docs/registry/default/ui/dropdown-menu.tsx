@@ -105,7 +105,7 @@ function DropdownMenuItem({
     <DropdownMenuPrimitive.Item
       data-slot="dropdown-menu-item"
       className={cn(
-        "focus:bg-accent focus:text-accent-foreground [&>svg]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1 text-sm transition-colors outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0",
+        "data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground [&>svg]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm transition-colors outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0",
         className
       )}
       {...props}
@@ -143,11 +143,8 @@ function DropdownMenuGroupLabel({
 }: React.ComponentProps<typeof DropdownMenuPrimitive.GroupLabel>) {
   return (
     <DropdownMenuPrimitive.GroupLabel
-      data-slot="dropdown-menu-group-label"
-      className={cn(
-        "border-muted -mx-1 border-b px-3 py-2 text-sm leading-none font-semibold",
-        className
-      )}
+      data-slot="dropdown-menu-label"
+      className={cn("px-2 py-1.5 text-sm leading-none font-medium", className)}
       {...props}
     />
   );
@@ -173,13 +170,13 @@ function DropdownMenuRadioItem({
     <DropdownMenuPrimitive.RadioItem
       data-slot="dropdown-menu-radio-item"
       className={cn(
-        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1 pr-2 pl-6 text-sm transition-colors outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        "data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1 pr-2 pl-6 text-sm transition-colors outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         className
       )}
       {...props}
     >
       <span className="absolute left-2 flex h-2 w-2 items-center justify-center">
-        <DropdownMenuPrimitive.RadioItemIndicator>
+        <DropdownMenuPrimitive.RadioItemIndicator className="duration-150 ease-out data-[ending-style]:scale-60 data-[starting-style]:scale-60">
           <Circle className="size-2 fill-current" />
         </DropdownMenuPrimitive.RadioItemIndicator>
       </span>
@@ -197,13 +194,13 @@ function DropdownMenuCheckboxItem({
     <DropdownMenuPrimitive.CheckboxItem
       data-slot="dropdown-menu-checkbox-item"
       className={cn(
-        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1 pr-2 pl-6 text-sm transition-colors outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        "data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-6 text-sm transition-colors outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         className
       )}
       {...props}
     >
       <span className="absolute left-2 flex h-2 w-2 items-center justify-center">
-        <DropdownMenuPrimitive.CheckboxItemIndicator>
+        <DropdownMenuPrimitive.CheckboxItemIndicator className="duration-150 ease-out data-[ending-style]:scale-60 data-[starting-style]:scale-60">
           <Check className="size-4" />
         </DropdownMenuPrimitive.CheckboxItemIndicator>
       </span>

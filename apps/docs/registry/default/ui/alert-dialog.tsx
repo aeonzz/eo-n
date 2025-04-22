@@ -4,6 +4,7 @@ import * as React from "react";
 import { AlertDialog as AlertDialogPrimitive } from "@base-ui-components/react/alert-dialog";
 
 import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/registry/default/ui/button";
 
 function AlertDialog({
   ...props
@@ -34,7 +35,7 @@ function AlertDialogClose({
   return (
     <AlertDialogPrimitive.Close
       data-slot="alert-dialog-close"
-      className={cn("mt-2 sm:mt-0", className)}
+      className={cn(buttonVariants({ variant: "outline" }), className)}
       {...props}
     />
   );
@@ -69,6 +70,7 @@ function AlertDialogContent({
         className={cn(
           "bg-background ring-border ring-offset-background fixed left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg ring-1 ring-offset-[0.75px] transition-all duration-150 ease-out outline-none sm:max-w-lg",
           "top-[calc(50%+1rem*var(--nested-dialogs))] scale-[calc(1-0.05*var(--nested-dialogs))] data-[ending-style]:top-[50.25%] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:top-[50.25%] data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
+          "data-[nested-dialog-open]:after:absolute data-[nested-dialog-open]:after:inset-0 data-[nested-dialog-open]:after:rounded-[inherit] data-[nested-dialog-open]:after:bg-black/5 data-[nested-dialog-open]:after:backdrop-blur-[1.5px]",
           className
         )}
         {...props}
@@ -87,7 +89,7 @@ function AlertDialogFooter({
     <div
       data-slot="dialog-footer"
       className={cn(
-        "flex flex-col-reverse gap-2 sm:flex-row sm:justify-end",
+        "flex flex-col-reverse flex-wrap-reverse gap-2 sm:flex-row sm:justify-end",
         className
       )}
       {...props}

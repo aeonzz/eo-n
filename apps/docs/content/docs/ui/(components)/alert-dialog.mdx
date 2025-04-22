@@ -61,3 +61,73 @@ import {
   </AlertDialogContent>
 </AlertDialog>
 ```
+
+## Examples
+
+### Close Confirmation
+
+<ComponentTabs name="alert-dialog-confirmation" />
+
+### Open On Menu
+
+In order to open a dialog using a menu, control the dialog state and open it imperatively using the `onClick` handler on the menu item.
+
+<Callout title="Return Focus Properly" type="warn">
+  Make sure to also use the dialog’s ```finalFocus``` prop to return focus back
+  to the menu trigger.
+</Callout>
+
+```jsx
+import * as React from "react";
+import {
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/component/ui/dialog";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuPositioner,
+  DropdownMenuTrigger,
+} from "@/component/ui/dropdown-menu";
+
+export default function DropdownMenuRadio() {
+  const menuTriggerRef = React.useRef<HTMLButtonElement>(null);
+  const [alertDialogOpen, setAlertDialogOpen] = React.useState(false);
+
+  return (
+    <React.Fragment>
+      <DropdownMenu>
+        // [!code highlight:2]
+        {/* Set the trigger ref */}
+        <DropdownMenuTrigger ref={menuTriggerRef}>Open</DropdownMenuTrigger>
+        <DropdownMenuPositioner>
+          <DropdownMenuContent>
+            // [!code highlight:2]
+            {/* Open the dialog when the menu item is clicked */}
+            <DropdownMenuItem onClick={() => setDialogOpen(true)}>
+              Open dialog
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenuPositioner>
+      </DropdownMenu>
+      // [!code highlight:2]
+      {/* Control the dialog state */}
+      <AlertDialog open={alertDialogOpen} onOpenChange={setAlertDialogOpen}>
+        // [!code highlight:2]
+        {/* Return focus to the menu trigger when the dialog is closed */}
+        <AlertDialogContent finalFocus={menuTriggerRef}>
+          <AlertDialogTitle>Are you sure you want to proceed?</AlertDialogTitle>
+          <AlertDialogDescription>
+            This action may have permanent effects. Please confirm if you want
+            to continue.
+          </AlertDialogDescription>
+        </AlertDialogContent>
+      </AlertDialog>
+    </React.Fragment>
+  );
+}
+```

@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 
 import {
   AlertDialog,
@@ -24,9 +24,7 @@ export default function AlertDialogDemo() {
           undone.
         </AlertDialogDescription>
         <AlertDialogFooter>
-          <AlertDialogClose
-            render={<Button variant="secondary">Cancel</Button>}
-          />
+          <AlertDialogClose>Cancel</AlertDialogClose>
           <Button
             variant="destructive"
             onClick={() => setOpen((prev) => !prev)}

@@ -33,7 +33,7 @@ export default function CardDemo1() {
           web.
         </p>
       </CardContent>
-      <CardFooter className="justify-between">
+      <CardFooter className="flex-col justify-between gap-2 sm:flex-row [&_button]:w-full sm:[&_button]:w-fit">
         <Button variant="outline" size="sm">
           View Profile
         </Button>
