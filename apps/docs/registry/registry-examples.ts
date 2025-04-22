@@ -728,6 +728,17 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "slider-vertical",
+    type: "registry:example",
+    registryDependencies: ["slider"],
+    files: [
+      {
+        path: "examples/slider-vertical.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "switch-demo",
     type: "registry:example",
     registryDependencies: ["switch"],

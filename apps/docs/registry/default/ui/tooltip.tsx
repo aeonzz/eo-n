@@ -30,26 +30,23 @@ function TooltipPortal({
 }
 
 interface TooltipContentProps
-  extends Omit<
-    React.ComponentProps<typeof TooltipPrimitive.Positioner>,
-    "className"
-  > {
-  popupProps?: TooltipPrimitive.Popup.Props;
+  extends React.ComponentProps<typeof TooltipPrimitive.Popup> {
+  positionerProps?: Omit<TooltipPrimitive.Positioner.Props, "className">;
 }
 
 function TooltipContent({
-  popupProps,
-  sideOffset = 4,
+  positionerProps,
+  className,
   children,
   ...props
 }: TooltipContentProps) {
-  const { className } = popupProps || {};
+  const { sideOffset = 6 } = positionerProps || {};
   return (
     <TooltipPortal>
       <TooltipPrimitive.Positioner
         data-slot="tooltip-positioner"
         sideOffset={sideOffset}
-        {...props}
+        {...positionerProps}
       >
         <TooltipPrimitive.Popup
           data-slot="tooltip-popup"
@@ -58,6 +55,7 @@ function TooltipContent({
             "origin-[var(--transform-origin)] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
             className
           )}
+          {...props}
         >
           {children}
         </TooltipPrimitive.Popup>

@@ -1561,6 +1561,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "slider-vertical": {
+      name: "slider-vertical",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["slider"],
+      files: [{
+        path: "registry/default/examples/slider-vertical.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/slider-vertical.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "switch-demo": {
       name: "switch-demo",
       description: "",
