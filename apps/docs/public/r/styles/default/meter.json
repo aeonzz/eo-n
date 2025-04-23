@@ -1,0 +1,12 @@
+{
+  "name": "meter",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "ui/meter.tsx",
+      "content": "\"use client\";\r\n\r\nimport * as React from \"react\";\r\nimport { Meter as MeterPrimitive } from \"@base-ui-components/react/meter\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nfunction Meter({\r\n  className,\r\n  children,\r\n  ...props\r\n}: React.ComponentProps<typeof MeterPrimitive.Root>) {\r\n  return (\r\n    <MeterPrimitive.Root\r\n      data-slot=\"meter\"\r\n      className={cn(\r\n        \"relative grid grid-cols-1 gap-1 overflow-hidden has-data-[slot='meter-label']:grid-cols-2\",\r\n        className\r\n      )}\r\n      {...props}\r\n    >\r\n      {children}\r\n      <MeterPrimitive.Track\r\n        data-slot=\"meter-track\"\r\n        className=\"bg-secondary col-span-full block h-2 w-full overflow-hidden rounded-full\"\r\n      >\r\n        <MeterPrimitive.Indicator\r\n          data-slot=\"meter-indicator\"\r\n          className=\"bg-primary block transition-all duration-500\"\r\n        />\r\n      </MeterPrimitive.Track>\r\n    </MeterPrimitive.Root>\r\n  );\r\n}\r\n\r\nfunction MeterValue({\r\n  className,\r\n  ...props\r\n}: React.ComponentProps<typeof MeterPrimitive.Value>) {\r\n  return (\r\n    <MeterPrimitive.Value\r\n      data-slot=\"meter-value\"\r\n      className={cn(\r\n        \"text-foreground text-right text-sm font-medium\",\r\n        className\r\n      )}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nfunction MeterLabel({\r\n  className,\r\n  ...props\r\n}: React.ComponentProps<typeof MeterPrimitive.Label>) {\r\n  return (\r\n    <MeterPrimitive.Label\r\n      data-slot=\"meter-label\"\r\n      className={cn(\"text-foreground text-sm font-medium\", className)}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport { Meter, MeterValue, MeterLabel };\r\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

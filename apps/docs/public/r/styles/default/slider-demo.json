@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/slider-demo.tsx",
-      "content": "import { Slider } from \"@/registry/default/ui/slider\";\r\n\r\nexport default function SliderDemo() {\r\n  return <Slider defaultValue={25} className=\"max-w-xs\" />;\r\n}\r\n",
+      "content": "import { Slider } from \"@/registry/default/ui/slider\";\r\n\r\nexport default function SliderDemo() {\r\n  return <Slider defaultValue={25} className=\"w-full max-w-xs\" />;\r\n}\r\n",
       "type": "registry:example",
       "target": ""
     }

@@ -489,6 +489,38 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "meter": {
+      name: "meter",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/meter.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/meter.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "toast": {
+      name: "toast",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/toast.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/toast.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       description: "",
@@ -1924,6 +1956,38 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/skeleton-gradient.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "meter-demo": {
+      name: "meter-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["meter"],
+      files: [{
+        path: "registry/default/examples/meter-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/meter-demo.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "toast-demo": {
+      name: "toast-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["toast"],
+      files: [{
+        path: "registry/default/examples/toast-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/toast-demo.tsx")),
       source: "",
       category: "",
       subcategory: "",

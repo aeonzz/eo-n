@@ -33,7 +33,10 @@ function ToggleGroup({
   return (
     <ToggleGroupRoot
       data-slot="toggle-group"
-      className={cn("flex items-center justify-center gap-1", className)}
+      className={cn(
+        "flex items-center justify-center gap-1 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        className
+      )}
       {...props}
     >
       <ToggleGroupContext.Provider value={contextValue}>

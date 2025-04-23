@@ -8,10 +8,7 @@ import { cn } from "@/lib/utils";
 
 function DropdownMenu({
   ...props
-}: Omit<
-  React.ComponentProps<typeof DropdownMenuPrimitive.Root>,
-  "orientation"
->) {
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {
   return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
 }
 

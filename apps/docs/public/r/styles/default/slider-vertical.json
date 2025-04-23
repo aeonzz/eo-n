@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/slider-vertical.tsx",
-      "content": "import { Slider } from \"@/registry/default/ui/slider\";\r\n\r\nexport default function SliderVertical() {\r\n  return (\r\n    <Slider\r\n      defaultValue={25}\r\n      className=\"max-h-[320px]\"\r\n      orientation=\"vertical\"\r\n    />\r\n  );\r\n}\r\n",
+      "content": "import { Slider } from \"@/registry/default/ui/slider\";\r\n\r\nexport default function SliderVertical() {\r\n  return (\r\n    <Slider\r\n      defaultValue={25}\r\n      className=\"h-full max-h-[260px]\"\r\n      orientation=\"vertical\"\r\n    />\r\n  );\r\n}\r\n",
       "type": "registry:example",
       "target": ""
     }

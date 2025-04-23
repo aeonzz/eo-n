@@ -14,7 +14,7 @@ function Progress({
     <ProgressPrimitive.Root
       data-slot="progress"
       className={cn(
-        "relative grid grid-cols-1 overflow-hidden has-data-[slot='progress-label']:grid-cols-2",
+        "relative grid grid-cols-1 gap-1 overflow-hidden has-data-[slot='progress-label']:grid-cols-2",
         className
       )}
       {...props}
@@ -22,7 +22,7 @@ function Progress({
       {children}
       <ProgressPrimitive.Track
         data-slot="progress-track"
-        className="bg-secondary col-span-full mt-1 block h-2 w-full overflow-hidden rounded-full"
+        className="bg-secondary col-span-full block h-2 w-full overflow-hidden rounded-full"
       >
         <ProgressPrimitive.Indicator
           data-slot="progress-indicator"

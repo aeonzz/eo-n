@@ -981,6 +981,28 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "meter-demo",
+    type: "registry:example",
+    registryDependencies: ["meter"],
+    files: [
+      {
+        path: "examples/meter-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toast-demo",
+    type: "registry:example",
+    registryDependencies: ["toast"],
+    files: [
+      {
+        path: "examples/toast-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [

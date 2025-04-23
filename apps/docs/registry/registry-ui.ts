@@ -353,4 +353,24 @@ export const ui: Registry = [
       },
     },
   },
+  {
+    name: "meter",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/meter.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "toast",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/toast.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];

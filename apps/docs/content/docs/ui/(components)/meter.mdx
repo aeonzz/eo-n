@@ -1,0 +1,47 @@
+---
+title: Meter
+description: A component to show progress or value.
+preview: true
+links:
+  doc: https://base-ui.com/react/components/meter
+---
+
+<ComponentTabs name="meter-demo" />
+
+## Installation
+
+### CLI
+
+```package-install
+npx shadcn@latest add "https://eo-n.vercel.app/r/meter"
+```
+
+### Manual
+
+<Steps>
+
+  <Step>
+    Copy and paste the following code into your project.
+
+    <ComponentSource name="meter" />
+
+  </Step>
+  
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+Import all parts and piece them together.
+
+```tsx
+import { Meter, MeterLabel, MeterValue } from "@/components/ui/meter";
+```
+
+```tsx
+<Meter value={34}>
+  <MeterLabel>Battery Level</MeterLabel>
+  <MeterValue />
+</Meter>
+```
