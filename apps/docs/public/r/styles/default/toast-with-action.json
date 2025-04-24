@@ -1,0 +1,15 @@
+{
+  "name": "toast-with-action",
+  "type": "registry:example",
+  "registryDependencies": [
+    "toast"
+  ],
+  "files": [
+    {
+      "path": "examples/toast-with-action.tsx",
+      "content": "import { Button } from \"@/registry/default/ui/button\";\r\nimport { useToastManager } from \"@/registry/default/ui/toast\";\r\n\r\nexport default function ToastWithAction() {\r\n  const toast = useToastManager();\r\n\r\n  return (\r\n    <Button\r\n      variant=\"destructive\"\r\n      onClick={() => {\r\n        const id = toast.add({\r\n          title: \"Item deleted\",\r\n          description: \"The file has been moved to trash.\",\r\n          actionProps: {\r\n            children: \"Undo\",\r\n            onClick: () => {\r\n              toast.close(id);\r\n              toast.add({ title: \"Item restored\" });\r\n            },\r\n          },\r\n        });\r\n      }}\r\n    >\r\n      Delete Item\r\n    </Button>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

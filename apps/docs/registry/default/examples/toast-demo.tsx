@@ -1,8 +1,5 @@
-import {
-  useToastManager,
-} from "@/registry/default/ui/toast";
-
-import { Button } from "../ui/button";
+import { Button } from "@/registry/default/ui/button";
+import { useToastManager } from "@/registry/default/ui/toast";
 
 export default function ToastDemo() {
   const toast = useToastManager();
@@ -10,8 +7,8 @@ export default function ToastDemo() {
     <Button
       onClick={() => {
         toast.add({
-          title: "Hello",
-          description: "This is a toast message",
+          title: "Profile Updated",
+          description: "Your information has been saved.",
         });
       }}
     >

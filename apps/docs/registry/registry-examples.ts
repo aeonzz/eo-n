@@ -1003,6 +1003,28 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "toast-with-action",
+    type: "registry:example",
+    registryDependencies: ["toast"],
+    files: [
+      {
+        path: "examples/toast-with-action.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toast-promise",
+    type: "registry:example",
+    registryDependencies: ["toast"],
+    files: [
+      {
+        path: "examples/toast-promise.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [

@@ -220,6 +220,11 @@
     @apply bg-background text-foreground;
   }
 
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
   /**
    * @see https://github.com/shadcn-ui/ui/blob/main/apps/www/styles/globals.css#L95
    */

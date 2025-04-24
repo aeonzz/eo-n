@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/toast-demo.tsx",
-      "content": "import {\r\n  toastManager,\r\n  ToastProvider,\r\n  useToastManager,\r\n} from \"@/registry/default/ui/toast\";\r\n\r\nimport { Button } from \"../ui/button\";\r\n\r\nexport default function ToastDemo() {\r\n  const toast = useToastManager();\r\n  return (\r\n    <ToastProvider toastManager={toastManager}>\r\n      <Button\r\n        onClick={() => {\r\n          toast.add({\r\n            title: \"Hello\",\r\n            description: \"This is a toast message\",\r\n          });\r\n        }}\r\n      >\r\n        Show Toast\r\n      </Button>\r\n    </ToastProvider>\r\n  );\r\n}\r\n",
+      "content": "import { Button } from \"@/registry/default/ui/button\";\r\nimport { useToastManager } from \"@/registry/default/ui/toast\";\r\n\r\nexport default function ToastDemo() {\r\n  const toast = useToastManager();\r\n  return (\r\n    <Button\r\n      onClick={() => {\r\n        toast.add({\r\n          title: \"Profile Updated\",\r\n          description: \"Your information has been saved.\",\r\n        });\r\n      }}\r\n    >\r\n      Show Toast\r\n    </Button>\r\n  );\r\n}\r\n",
       "type": "registry:example",
       "target": ""
     }
