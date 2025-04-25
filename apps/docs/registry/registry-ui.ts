@@ -356,6 +356,7 @@ export const ui: Registry = [
   {
     name: "meter",
     type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
     files: [
       {
         path: "ui/meter.tsx",
@@ -366,6 +367,8 @@ export const ui: Registry = [
   {
     name: "toast",
     type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    registryDependencies: ["button"],
     files: [
       {
         path: "ui/toast.tsx",
