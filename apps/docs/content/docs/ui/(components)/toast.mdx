@@ -3,7 +3,8 @@ title: Toast
 description: A UI component for displaying brief messages or notifications to the user.
 preview: true
 links:
-  doc: https://base-ui.com/react/components/toast
+  doc: https://base-ui.com/react/components/toast#api-reference
+  api: /docs/ui/toast#api-reference
 ---
 
 <ComponentTabs name="toast-demo" />
@@ -33,22 +34,54 @@ npx shadcn@latest add "https://eo-n.vercel.app/r/toast"
 
 ## Usage
 
-Import all parts and piece them together.
+    Add the ```ToastProvider``` to your app layout.
+
+    ```tsx title="layout.tsx"
+      // [!code highlight:1]
+    import { ToastProvider } from "@/components/ui/toast";
+
+    <html lang="en">
+      <body>
+      // [!code highlight:3]
+        <ToastProvider>
+          {children}
+        </ToastProvider>
+      </body>
+    </html>
+    ```
 
 ```tsx
-import { Switch } from "@/components/ui/switch";
+import { useToastManager } from "@/components/ui/toast";
 ```
 
 ```tsx
-<Switch />
+const toast = useToastManager()
+
+<Button
+  onClick={() => {
+    toast.add({
+      title: "This is a toast",
+    });
+  }}
+>
+  Show Toast
+</Button>
 ```
 
 ## Examples
 
-### Wtih Action
+### With Action
 
 <ComponentTabs name="toast-with-action" />
 
 ### Promise
 
 <ComponentTabs name="toast-promise" />
+
+## API Reference
+
+### Provider
+
+Provides settings for how toasts appear and behave.
+
+<AutoTypeTable path="./types/docs/toast.ts" name="ProviderProps" />

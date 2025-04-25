@@ -12,22 +12,16 @@ export default function ToastPromise() {
       {
         loading: {
           title: "Loading...",
-          type: "loading",
         },
         success: {
           title: "Success!",
         },
         error: {
           title: "Error",
-          description: "The promise rejected.",
-          actionProps: {
-            children: "Contact support",
-            onClick: () => {},
-          },
         },
       }
     );
   };
 
-  return <Button onClick={handleClick}>Send</Button>;
+  return <Button onClick={handleClick}>Show Toast</Button>;
 }
