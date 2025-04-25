@@ -16,7 +16,7 @@ interface ProvidersProps extends RootProviderProps {
 
 export function Providers({ children, ...props }: ProvidersProps) {
   return (
-    <ToastProvider position="bottom-right" richColors>
+    <ToastProvider richColors>
       <RootProvider {...props}>
         <JotaiProvider store={store}>
           <TooltipProvider>

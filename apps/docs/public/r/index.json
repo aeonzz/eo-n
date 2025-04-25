@@ -403,6 +403,9 @@
   {
     "name": "meter",
     "type": "registry:ui",
+    "dependencies": [
+      "@base-ui-components/react"
+    ],
     "files": [
       {
         "path": "ui/meter.tsx",
@@ -413,6 +416,12 @@
   {
     "name": "toast",
     "type": "registry:ui",
+    "dependencies": [
+      "@base-ui-components/react"
+    ],
+    "registryDependencies": [
+      "https://eo-n.vercel.app/r/button"
+    ],
     "files": [
       {
         "path": "ui/toast.tsx",

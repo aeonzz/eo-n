@@ -1,16 +1,14 @@
 import type { EmptyProps } from "@/types";
 import { Select as SelectPrimitive } from "@base-ui-components/react/select";
 
-export interface ContentProps extends EmptyProps<"div"> {
+export interface ContentProps extends EmptyProps<typeof SelectPrimitive.Popup> {
   /**
    * Optional configuration props for the ```Select``` popup element. [Learn more](https://base-ui.com/react/components/select#positioner)
    *
    * @default undefined
    */
-  positionerProps?: Omit<SelectPrimitive.Popup.Props, never>;
-}
+  positionerProps?: SelectPrimitive.Positioner.Props;
 
-export interface PopupProps extends EmptyProps<typeof SelectPrimitive.Popup> {
   /**
    * Allows you to replace the component’s HTML element with a different tag, or compose it with another component.
    *

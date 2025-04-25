@@ -509,7 +509,7 @@ export const Index: Record<string, any> = {
       name: "toast",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["https://eo-n.vercel.app/r/button"],
       files: [{
         path: "registry/default/ui/toast.tsx",
         type: "registry:ui",

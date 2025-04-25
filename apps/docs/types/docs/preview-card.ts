@@ -1,17 +1,15 @@
 import type { EmptyProps } from "@/types";
-import { PreviewCard as DropdownPreviewCardPrimitive } from "@base-ui-components/react/preview-card";
+import { PreviewCard as PreviewCardPrimitive } from "@base-ui-components/react/preview-card";
 
-export interface ContentProps extends EmptyProps<"div"> {
+export interface ContentProps
+  extends EmptyProps<typeof PreviewCardPrimitive.Popup> {
   /**
    * Optional configuration props for the ```PreviewCard``` popup element. [Learn more](https://base-ui.com/react/components/preview-card#positioner)
    *
    * @default undefined
    */
-  positionerProps?: Omit<DropdownPreviewCardPrimitive.Popup.Props, never>;
-}
+  positionerProps?: PreviewCardPrimitive.Positioner.Props;
 
-export interface PopupProps
-  extends EmptyProps<typeof DropdownPreviewCardPrimitive.Popup> {
   /**
    * Allows you to replace the component’s HTML element with a different tag, or compose it with another component.
    *

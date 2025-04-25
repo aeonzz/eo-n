@@ -1,17 +1,15 @@
 import type { EmptyProps } from "@/types";
-import { Popover as DropdownPopoverPrimitive } from "@base-ui-components/react/popover";
+import { Popover as PopoverPrimitive } from "@base-ui-components/react/popover";
 
-export interface ContentProps extends EmptyProps<"div"> {
+export interface ContentProps
+  extends EmptyProps<typeof PopoverPrimitive.Popup> {
   /**
    * Optional configuration props for the ```Popover``` popup element. [Learn more](https://base-ui.com/react/components/popover#positioner)
    *
    * @default undefined
    */
-  positionerProps?: Omit<DropdownPopoverPrimitive.Popup.Props, never>;
-}
+  positionerProps?: PopoverPrimitive.Positioner.Props;
 
-export interface PopupProps
-  extends EmptyProps<typeof DropdownPopoverPrimitive.Popup> {
   /**
    * Allows you to replace the component’s HTML element with a different tag, or compose it with another component.
    *

@@ -72,10 +72,7 @@ function ToastProvider({
       <ToastPrimitive.Viewport
         data-slot="toast-viewport"
         data-position={position}
-        className={cn(
-          "fixed z-50 w-[calc(100%-32px)] data-[position=bottom-center]:bottom-4 data-[position=bottom-center]:left-1/2 data-[position=bottom-center]:-translate-x-1/2 data-[position=bottom-left]:bottom-4 data-[position=bottom-left]:left-4 data-[position=bottom-right]:right-4 data-[position=bottom-right]:bottom-4 data-[position=top-center]:top-4 data-[position=top-center]:left-1/2 data-[position=top-center]:-translate-x-1/2 data-[position=top-left]:top-4 data-[position=top-left]:left-4 data-[position=top-right]:top-4 data-[position=top-right]:right-4 sm:w-full sm:max-w-[370px] sm:data-[position=bottom-center]:bottom-8 sm:data-[position=bottom-left]:bottom-8 sm:data-[position=bottom-left]:left-8 sm:data-[position=bottom-right]:right-8 sm:data-[position=bottom-right]:bottom-8 sm:data-[position=top-center]:top-8 sm:data-[position=top-left]:top-8 sm:data-[position=top-left]:left-8 sm:data-[position=top-right]:top-8 sm:data-[position=top-right]:right-8",
-          ""
-        )}
+        className="fixed z-50 w-[calc(100%-32px)] data-[position=bottom-center]:bottom-4 data-[position=bottom-center]:left-1/2 data-[position=bottom-center]:-translate-x-1/2 data-[position=bottom-left]:bottom-4 data-[position=bottom-left]:left-4 data-[position=bottom-right]:right-4 data-[position=bottom-right]:bottom-4 data-[position=top-center]:top-4 data-[position=top-center]:left-1/2 data-[position=top-center]:-translate-x-1/2 data-[position=top-left]:top-4 data-[position=top-left]:left-4 data-[position=top-right]:top-4 data-[position=top-right]:right-4 sm:w-full sm:max-w-[370px] sm:data-[position=bottom-center]:bottom-8 sm:data-[position=bottom-left]:bottom-8 sm:data-[position=bottom-left]:left-8 sm:data-[position=bottom-right]:right-8 sm:data-[position=bottom-right]:bottom-8 sm:data-[position=top-center]:top-8 sm:data-[position=top-left]:top-8 sm:data-[position=top-left]:left-8 sm:data-[position=top-right]:top-8 sm:data-[position=top-right]:right-8"
       >
         <ToastLists
           position={position}

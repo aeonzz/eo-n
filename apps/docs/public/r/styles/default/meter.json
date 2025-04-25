@@ -1,6 +1,9 @@
 {
   "name": "meter",
   "type": "registry:ui",
+  "dependencies": [
+    "@base-ui-components/react"
+  ],
   "files": [
     {
       "path": "ui/meter.tsx",
