@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Eo-n",
+  name: "eo-n/ui",
   description: "Accessible and customizable components built with Tailwind and Shadcn.",
   url: "https://eo-n.vercel.app",
   ogImage:

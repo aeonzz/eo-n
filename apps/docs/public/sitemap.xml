@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://christian-aeonzz.vercel.app/</loc>
+    <loc>https://eo-n.vercel.app/</loc>
     <lastmod>2024-04-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://christian-aeonzz.vercel.app/docs/ui</loc>
+    <loc>https://eo-n.vercel.app/docs/ui</loc>
     <lastmod>2024-04-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://christian-aeonzz.vercel.app/docs/ui/installation</loc>
+    <loc>https://eo-n.vercel.app/docs/ui/installation</loc>
     <lastmod>2024-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://christian-aeonzz.vercel.app/docs/ui/accordion</loc>
+    <loc>https://eo-n.vercel.app/docs/ui/accordion</loc>
     <lastmod>2024-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
