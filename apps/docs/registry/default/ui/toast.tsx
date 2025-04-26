@@ -21,6 +21,7 @@ const toastVariants = cva(
     variants: {
       variant: {
         default: "bg-background text-foreground border-border",
+        loading: "bg-background text-foreground border-border",
         success:
           "data-[rich-colors=true]:border-green-200 data-[rich-colors=true]:bg-green-100 data-[rich-colors=true]:text-green-800 dark:data-[rich-colors=true]:border-green-900/40 dark:data-[rich-colors=true]:bg-green-950 dark:data-[rich-colors=true]:text-green-300 data-[rich-colors=true]:[&_[data-slot=toast-close]]:bg-green-100 dark:data-[rich-colors=true]:[&_[data-slot=toast-close]]:bg-green-950",
         error:
