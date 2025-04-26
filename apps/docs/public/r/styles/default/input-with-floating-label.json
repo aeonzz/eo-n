@@ -1,9 +1,6 @@
 {
   "name": "input-with-floating-label",
   "type": "registry:example",
-  "registryDependencies": [
-    "input"
-  ],
   "files": [
     {
       "path": "examples/input-with-floating-label.tsx",

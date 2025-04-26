@@ -1,9 +1,6 @@
 {
   "name": "toast-promise",
   "type": "registry:example",
-  "registryDependencies": [
-    "toast"
-  ],
   "files": [
     {
       "path": "examples/toast-promise.tsx",

@@ -1,9 +1,6 @@
 {
   "name": "popover-hover",
   "type": "registry:example",
-  "registryDependencies": [
-    "popover"
-  ],
   "files": [
     {
       "path": "examples/popover-hover.tsx",

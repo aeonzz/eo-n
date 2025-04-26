@@ -1,9 +1,6 @@
 {
   "name": "switch-disabled",
   "type": "registry:example",
-  "registryDependencies": [
-    "switch"
-  ],
   "files": [
     {
       "path": "examples/switch-disabled.tsx",

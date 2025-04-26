@@ -1,9 +1,6 @@
 {
   "name": "dropdown-menu-checkbox",
   "type": "registry:example",
-  "registryDependencies": [
-    "dropdown-menu"
-  ],
   "files": [
     {
       "path": "examples/dropdown-menu-checkbox.tsx",

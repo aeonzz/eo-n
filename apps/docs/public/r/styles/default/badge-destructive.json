@@ -1,9 +1,6 @@
 {
   "name": "badge-destructive",
   "type": "registry:example",
-  "registryDependencies": [
-    "badge"
-  ],
   "files": [
     {
       "path": "examples/badge-destructive.tsx",

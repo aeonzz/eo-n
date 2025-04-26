@@ -1,9 +1,6 @@
 {
   "name": "dialog-nested",
   "type": "registry:example",
-  "registryDependencies": [
-    "dialog"
-  ],
   "files": [
     {
       "path": "examples/dialog-nested.tsx",

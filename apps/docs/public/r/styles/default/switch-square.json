@@ -1,9 +1,6 @@
 {
   "name": "switch-square",
   "type": "registry:example",
-  "registryDependencies": [
-    "switch"
-  ],
   "files": [
     {
       "path": "examples/switch-square.tsx",

@@ -1,9 +1,6 @@
 {
   "name": "dropdown-menu-radio",
   "type": "registry:example",
-  "registryDependencies": [
-    "dropdown-menu"
-  ],
   "files": [
     {
       "path": "examples/dropdown-menu-radio.tsx",

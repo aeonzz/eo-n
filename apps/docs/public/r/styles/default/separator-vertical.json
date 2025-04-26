@@ -1,9 +1,6 @@
 {
   "name": "separator-vertical",
   "type": "registry:example",
-  "registryDependencies": [
-    "separator"
-  ],
   "files": [
     {
       "path": "examples/separator-vertical.tsx",

@@ -1,9 +1,6 @@
 {
   "name": "input-secondary",
   "type": "registry:example",
-  "registryDependencies": [
-    "input"
-  ],
   "files": [
     {
       "path": "examples/input-secondary.tsx",

@@ -1,9 +1,6 @@
 {
   "name": "input-with-label",
   "type": "registry:example",
-  "registryDependencies": [
-    "input"
-  ],
   "files": [
     {
       "path": "examples/input-with-label.tsx",

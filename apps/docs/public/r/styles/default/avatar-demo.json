@@ -1,9 +1,6 @@
 {
   "name": "avatar-demo",
   "type": "registry:example",
-  "registryDependencies": [
-    "avatar"
-  ],
   "files": [
     {
       "path": "examples/avatar-demo.tsx",

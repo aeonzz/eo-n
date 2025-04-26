@@ -1,9 +1,6 @@
 {
   "name": "button-loading",
   "type": "registry:example",
-  "registryDependencies": [
-    "button"
-  ],
   "files": [
     {
       "path": "examples/button-loading.tsx",

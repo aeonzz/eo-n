@@ -1,0 +1,12 @@
+{
+  "name": "textarea",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "ui/textarea.tsx",
+      "content": "import * as React from \"react\";\r\nimport { cva, type VariantProps } from \"class-variance-authority\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nconst textareaVariants = cva(\r\n  \"border-input file:text-foreground placeholder:text-muted-foreground focus-visible:ring-ring/20 focus-visible:outline-primary/30 flex min-h-16 max-h-36 w-full rounded-md border px-3 py-1 text-base transition-all ease-out focus-visible:ring-4 focus-visible:outline-[1px] disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:ring-destructive/20 aria-invalid:border-destructive/60 aria-invalid:outline-destructive/30 field-sizing-content md:text-sm resize-none break-all\",\r\n  {\r\n    variants: {\r\n      variant: {\r\n        default: \"bg-transparent\",\r\n        secondary: \"bg-secondary border-secondary-foreground/5\",\r\n      },\r\n    },\r\n    defaultVariants: {\r\n      variant: \"default\",\r\n    },\r\n  }\r\n);\r\n\r\nexport type TextareaVariants = VariantProps<typeof textareaVariants>;\r\n\r\ninterface TextareaProps\r\n  extends React.ComponentProps<\"textarea\">,\r\n    TextareaVariants {}\r\n\r\nfunction Textarea({ className, variant, ...props }: TextareaProps) {\r\n  return (\r\n    <textarea\r\n      data-slot=\"textarea\"\r\n      className={cn(textareaVariants({ className, variant }))}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport { Textarea };\r\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

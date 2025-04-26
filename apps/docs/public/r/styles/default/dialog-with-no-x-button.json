@@ -1,9 +1,6 @@
 {
   "name": "dialog-with-no-x-button",
   "type": "registry:example",
-  "registryDependencies": [
-    "dialog"
-  ],
   "files": [
     {
       "path": "examples/dialog-with-no-x-button.tsx",

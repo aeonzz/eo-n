@@ -1,9 +1,6 @@
 {
   "name": "switch-large",
   "type": "registry:example",
-  "registryDependencies": [
-    "switch"
-  ],
   "files": [
     {
       "path": "examples/switch-large.tsx",

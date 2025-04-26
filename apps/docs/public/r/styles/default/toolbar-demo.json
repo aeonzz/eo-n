@@ -1,9 +1,6 @@
 {
   "name": "toolbar-demo",
   "type": "registry:example",
-  "registryDependencies": [
-    "toolbar"
-  ],
   "files": [
     {
       "path": "examples/toolbar-demo.tsx",

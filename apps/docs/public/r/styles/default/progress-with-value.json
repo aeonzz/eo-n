@@ -1,9 +1,6 @@
 {
   "name": "progress-with-value",
   "type": "registry:example",
-  "registryDependencies": [
-    "progress"
-  ],
   "files": [
     {
       "path": "examples/progress-with-value.tsx",

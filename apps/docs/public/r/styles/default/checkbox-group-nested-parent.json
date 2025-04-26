@@ -1,9 +1,6 @@
 {
   "name": "checkbox-group-nested-parent",
   "type": "registry:example",
-  "registryDependencies": [
-    "checkbox-group"
-  ],
   "files": [
     {
       "path": "examples/checkbox-group-nested-parent.tsx",

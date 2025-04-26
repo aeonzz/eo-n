@@ -1,9 +1,6 @@
 {
   "name": "select-demo",
   "type": "registry:example",
-  "registryDependencies": [
-    "select"
-  ],
   "files": [
     {
       "path": "examples/select-demo.tsx",

@@ -1,9 +1,6 @@
 {
   "name": "checkbox-group-demo",
   "type": "registry:example",
-  "registryDependencies": [
-    "checkbox-group"
-  ],
   "files": [
     {
       "path": "examples/checkbox-group-demo.tsx",

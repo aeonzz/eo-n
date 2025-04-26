@@ -1,9 +1,6 @@
 {
   "name": "badge-secondary",
   "type": "registry:example",
-  "registryDependencies": [
-    "badge"
-  ],
   "files": [
     {
       "path": "examples/badge-secondary.tsx",

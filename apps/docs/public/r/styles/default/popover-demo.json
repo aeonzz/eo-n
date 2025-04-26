@@ -1,9 +1,6 @@
 {
   "name": "popover-demo",
   "type": "registry:example",
-  "registryDependencies": [
-    "popover"
-  ],
   "files": [
     {
       "path": "examples/popover-demo.tsx",

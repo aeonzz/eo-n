@@ -1,9 +1,6 @@
 {
   "name": "collapsible-demo",
   "type": "registry:example",
-  "registryDependencies": [
-    "collapsible"
-  ],
   "files": [
     {
       "path": "examples/collapsible-demo.tsx",

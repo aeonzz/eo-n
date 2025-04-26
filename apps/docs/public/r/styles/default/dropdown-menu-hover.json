@@ -1,9 +1,6 @@
 {
   "name": "dropdown-menu-hover",
   "type": "registry:example",
-  "registryDependencies": [
-    "dropdown-menu"
-  ],
   "files": [
     {
       "path": "examples/dropdown-menu-hover.tsx",

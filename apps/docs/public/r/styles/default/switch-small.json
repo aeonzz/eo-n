@@ -1,9 +1,6 @@
 {
   "name": "switch-small",
   "type": "registry:example",
-  "registryDependencies": [
-    "switch"
-  ],
   "files": [
     {
       "path": "examples/switch-small.tsx",

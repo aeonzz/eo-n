@@ -1,9 +1,6 @@
 {
   "name": "kbd-outline",
   "type": "registry:example",
-  "registryDependencies": [
-    "input"
-  ],
   "files": [
     {
       "path": "examples/kbd-outline.tsx",

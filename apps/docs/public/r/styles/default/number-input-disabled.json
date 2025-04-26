@@ -1,9 +1,6 @@
 {
   "name": "number-input-disabled",
   "type": "registry:example",
-  "registryDependencies": [
-    "number-input"
-  ],
   "files": [
     {
       "path": "examples/number-input-disabled.tsx",

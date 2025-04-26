@@ -1,9 +1,6 @@
 {
   "name": "progress-demo",
   "type": "registry:example",
-  "registryDependencies": [
-    "progress"
-  ],
   "files": [
     {
       "path": "examples/progress-demo.tsx",

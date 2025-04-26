@@ -1,9 +1,6 @@
 {
   "name": "checkbox-demo",
   "type": "registry:example",
-  "registryDependencies": [
-    "accordion"
-  ],
   "files": [
     {
       "path": "examples/checkbox-demo.tsx",

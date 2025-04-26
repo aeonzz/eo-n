@@ -428,5 +428,15 @@
         "type": "registry:ui"
       }
     ]
+  },
+  {
+    "name": "textarea",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "ui/textarea.tsx",
+        "type": "registry:ui"
+      }
+    ]
   }
 ]

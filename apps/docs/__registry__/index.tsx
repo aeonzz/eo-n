@@ -521,6 +521,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "textarea": {
+      name: "textarea",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/textarea.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/textarea.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       description: "",
@@ -541,7 +557,7 @@ export const Index: Record<string, any> = {
       name: "button-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/button-demo.tsx",
         type: "registry:example",
@@ -557,7 +573,7 @@ export const Index: Record<string, any> = {
       name: "button-destructive",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/button-destructive.tsx",
         type: "registry:example",
@@ -573,7 +589,7 @@ export const Index: Record<string, any> = {
       name: "button-ghost",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/button-ghost.tsx",
         type: "registry:example",
@@ -589,7 +605,7 @@ export const Index: Record<string, any> = {
       name: "button-icon",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/button-icon.tsx",
         type: "registry:example",
@@ -605,7 +621,7 @@ export const Index: Record<string, any> = {
       name: "button-link",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/button-link.tsx",
         type: "registry:example",
@@ -621,7 +637,7 @@ export const Index: Record<string, any> = {
       name: "button-loading",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/button-loading.tsx",
         type: "registry:example",
@@ -637,7 +653,7 @@ export const Index: Record<string, any> = {
       name: "button-outline",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/button-outline.tsx",
         type: "registry:example",
@@ -653,7 +669,7 @@ export const Index: Record<string, any> = {
       name: "button-secondary",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/button-secondary.tsx",
         type: "registry:example",
@@ -669,7 +685,7 @@ export const Index: Record<string, any> = {
       name: "dialog-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["dialog"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/dialog-demo.tsx",
         type: "registry:example",
@@ -685,7 +701,7 @@ export const Index: Record<string, any> = {
       name: "dialog-custom-close-button",
       description: "",
       type: "registry:example",
-      registryDependencies: ["dialog"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/dialog-custom-close-button.tsx",
         type: "registry:example",
@@ -701,7 +717,7 @@ export const Index: Record<string, any> = {
       name: "dialog-with-no-x-button",
       description: "",
       type: "registry:example",
-      registryDependencies: ["dialog"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/dialog-with-no-x-button.tsx",
         type: "registry:example",
@@ -717,7 +733,7 @@ export const Index: Record<string, any> = {
       name: "dialog-nested",
       description: "",
       type: "registry:example",
-      registryDependencies: ["dialog"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/dialog-nested.tsx",
         type: "registry:example",
@@ -733,7 +749,7 @@ export const Index: Record<string, any> = {
       name: "input-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["input"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/input-demo.tsx",
         type: "registry:example",
@@ -749,7 +765,7 @@ export const Index: Record<string, any> = {
       name: "input-with-label",
       description: "",
       type: "registry:example",
-      registryDependencies: ["input"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/input-with-label.tsx",
         type: "registry:example",
@@ -765,7 +781,7 @@ export const Index: Record<string, any> = {
       name: "input-with-floating-label",
       description: "",
       type: "registry:example",
-      registryDependencies: ["input"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/input-with-floating-label.tsx",
         type: "registry:example",
@@ -781,7 +797,7 @@ export const Index: Record<string, any> = {
       name: "input-secondary",
       description: "",
       type: "registry:example",
-      registryDependencies: ["input"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/input-secondary.tsx",
         type: "registry:example",
@@ -797,7 +813,7 @@ export const Index: Record<string, any> = {
       name: "input-disabled",
       description: "",
       type: "registry:example",
-      registryDependencies: ["input"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/input-disabled.tsx",
         type: "registry:example",
@@ -813,7 +829,7 @@ export const Index: Record<string, any> = {
       name: "kbd-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["kbd"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/kbd-demo.tsx",
         type: "registry:example",
@@ -829,7 +845,7 @@ export const Index: Record<string, any> = {
       name: "kbd-outline",
       description: "",
       type: "registry:example",
-      registryDependencies: ["input"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/kbd-outline.tsx",
         type: "registry:example",
@@ -845,7 +861,7 @@ export const Index: Record<string, any> = {
       name: "kbd-ghost",
       description: "",
       type: "registry:example",
-      registryDependencies: ["kbd"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/kbd-ghost.tsx",
         type: "registry:example",
@@ -861,7 +877,7 @@ export const Index: Record<string, any> = {
       name: "number-input-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["number-input"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/number-input-demo.tsx",
         type: "registry:example",
@@ -877,7 +893,7 @@ export const Index: Record<string, any> = {
       name: "number-input-min-max",
       description: "",
       type: "registry:example",
-      registryDependencies: ["number-input"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/number-input-min-max.tsx",
         type: "registry:example",
@@ -893,7 +909,7 @@ export const Index: Record<string, any> = {
       name: "number-input-disabled",
       description: "",
       type: "registry:example",
-      registryDependencies: ["number-input"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/number-input-disabled.tsx",
         type: "registry:example",
@@ -909,7 +925,7 @@ export const Index: Record<string, any> = {
       name: "number-input-scrub-direction",
       description: "",
       type: "registry:example",
-      registryDependencies: ["number-input"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/number-input-scrub-direction.tsx",
         type: "registry:example",
@@ -925,7 +941,7 @@ export const Index: Record<string, any> = {
       name: "dropdown-menu-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["dropdown-menu"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/dropdown-menu-demo.tsx",
         type: "registry:example",
@@ -941,7 +957,7 @@ export const Index: Record<string, any> = {
       name: "dropdown-menu-radio",
       description: "",
       type: "registry:example",
-      registryDependencies: ["dropdown-menu"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/dropdown-menu-radio.tsx",
         type: "registry:example",
@@ -957,7 +973,7 @@ export const Index: Record<string, any> = {
       name: "dropdown-menu-checkbox",
       description: "",
       type: "registry:example",
-      registryDependencies: ["dropdown-menu"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/dropdown-menu-checkbox.tsx",
         type: "registry:example",
@@ -973,7 +989,7 @@ export const Index: Record<string, any> = {
       name: "dropdown-menu-hover",
       description: "",
       type: "registry:example",
-      registryDependencies: ["dropdown-menu"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/dropdown-menu-hover.tsx",
         type: "registry:example",
@@ -989,7 +1005,7 @@ export const Index: Record<string, any> = {
       name: "accordion-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["accordion"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/accordion-demo.tsx",
         type: "registry:example",
@@ -1005,7 +1021,7 @@ export const Index: Record<string, any> = {
       name: "accordion-disabled",
       description: "",
       type: "registry:example",
-      registryDependencies: ["accordion"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/accordion-disabled.tsx",
         type: "registry:example",
@@ -1021,7 +1037,7 @@ export const Index: Record<string, any> = {
       name: "accordion-multiple",
       description: "",
       type: "registry:example",
-      registryDependencies: ["accordion"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/accordion-multiple.tsx",
         type: "registry:example",
@@ -1037,7 +1053,7 @@ export const Index: Record<string, any> = {
       name: "checkbox-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["accordion"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/checkbox-demo.tsx",
         type: "registry:example",
@@ -1053,7 +1069,7 @@ export const Index: Record<string, any> = {
       name: "checkbox-disabled",
       description: "",
       type: "registry:example",
-      registryDependencies: ["accordion"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/checkbox-disabled.tsx",
         type: "registry:example",
@@ -1069,7 +1085,7 @@ export const Index: Record<string, any> = {
       name: "tabs-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["tabs"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/tabs-demo.tsx",
         type: "registry:example",
@@ -1085,7 +1101,7 @@ export const Index: Record<string, any> = {
       name: "avatar-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["avatar"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/avatar-demo.tsx",
         type: "registry:example",
@@ -1101,7 +1117,7 @@ export const Index: Record<string, any> = {
       name: "select-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["select"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/select-demo.tsx",
         type: "registry:example",
@@ -1117,7 +1133,7 @@ export const Index: Record<string, any> = {
       name: "select-with-group",
       description: "",
       type: "registry:example",
-      registryDependencies: ["select"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/select-with-group.tsx",
         type: "registry:example",
@@ -1133,7 +1149,7 @@ export const Index: Record<string, any> = {
       name: "select-align-trigger",
       description: "",
       type: "registry:example",
-      registryDependencies: ["select"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/select-align-trigger.tsx",
         type: "registry:example",
@@ -1149,7 +1165,7 @@ export const Index: Record<string, any> = {
       name: "tooltip-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["tooltip"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/tooltip-demo.tsx",
         type: "registry:example",
@@ -1165,7 +1181,7 @@ export const Index: Record<string, any> = {
       name: "toggle-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toggle"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/toggle-demo.tsx",
         type: "registry:example",
@@ -1181,7 +1197,7 @@ export const Index: Record<string, any> = {
       name: "toggle-outline",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toggle"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/toggle-outline.tsx",
         type: "registry:example",
@@ -1197,7 +1213,7 @@ export const Index: Record<string, any> = {
       name: "toggle-disabled",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toggle"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/toggle-disabled.tsx",
         type: "registry:example",
@@ -1213,7 +1229,7 @@ export const Index: Record<string, any> = {
       name: "toggle-large",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toggle"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/toggle-large.tsx",
         type: "registry:example",
@@ -1229,7 +1245,7 @@ export const Index: Record<string, any> = {
       name: "toggle-small",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toggle"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/toggle-small.tsx",
         type: "registry:example",
@@ -1245,7 +1261,7 @@ export const Index: Record<string, any> = {
       name: "popover-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["popover"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/popover-demo.tsx",
         type: "registry:example",
@@ -1261,7 +1277,7 @@ export const Index: Record<string, any> = {
       name: "popover-hover",
       description: "",
       type: "registry:example",
-      registryDependencies: ["popover"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/popover-hover.tsx",
         type: "registry:example",
@@ -1277,7 +1293,7 @@ export const Index: Record<string, any> = {
       name: "separator-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["separator"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/separator-demo.tsx",
         type: "registry:example",
@@ -1293,7 +1309,7 @@ export const Index: Record<string, any> = {
       name: "separator-vertical",
       description: "",
       type: "registry:example",
-      registryDependencies: ["separator"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/separator-vertical.tsx",
         type: "registry:example",
@@ -1309,7 +1325,7 @@ export const Index: Record<string, any> = {
       name: "toolbar-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toolbar"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/toolbar-demo.tsx",
         type: "registry:example",
@@ -1325,7 +1341,7 @@ export const Index: Record<string, any> = {
       name: "toolbar-with-input",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toolbar"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/toolbar-with-input.tsx",
         type: "registry:example",
@@ -1341,7 +1357,7 @@ export const Index: Record<string, any> = {
       name: "alert-dialog-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["alert-dialog"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/alert-dialog-demo.tsx",
         type: "registry:example",
@@ -1357,7 +1373,7 @@ export const Index: Record<string, any> = {
       name: "alert-dialog-confirmation",
       description: "",
       type: "registry:example",
-      registryDependencies: ["alert-dialog"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/alert-dialog-confirmation.tsx",
         type: "registry:example",
@@ -1373,7 +1389,7 @@ export const Index: Record<string, any> = {
       name: "checkbox-group-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["checkbox-group"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/checkbox-group-demo.tsx",
         type: "registry:example",
@@ -1389,7 +1405,7 @@ export const Index: Record<string, any> = {
       name: "checkbox-group-parent",
       description: "",
       type: "registry:example",
-      registryDependencies: ["checkbox-group"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/checkbox-group-parent.tsx",
         type: "registry:example",
@@ -1405,7 +1421,7 @@ export const Index: Record<string, any> = {
       name: "checkbox-group-nested-parent",
       description: "",
       type: "registry:example",
-      registryDependencies: ["checkbox-group"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/checkbox-group-nested-parent.tsx",
         type: "registry:example",
@@ -1421,7 +1437,7 @@ export const Index: Record<string, any> = {
       name: "preview-card-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["preview-card-demo"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/preview-card-demo.tsx",
         type: "registry:example",
@@ -1437,7 +1453,7 @@ export const Index: Record<string, any> = {
       name: "progress-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["progress"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/progress-demo.tsx",
         type: "registry:example",
@@ -1453,7 +1469,7 @@ export const Index: Record<string, any> = {
       name: "progress-with-label",
       description: "",
       type: "registry:example",
-      registryDependencies: ["progress"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/progress-with-label.tsx",
         type: "registry:example",
@@ -1469,7 +1485,7 @@ export const Index: Record<string, any> = {
       name: "progress-with-value",
       description: "",
       type: "registry:example",
-      registryDependencies: ["progress"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/progress-with-value.tsx",
         type: "registry:example",
@@ -1485,7 +1501,7 @@ export const Index: Record<string, any> = {
       name: "radio-group-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["radio-group"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/radio-group-demo.tsx",
         type: "registry:example",
@@ -1501,7 +1517,7 @@ export const Index: Record<string, any> = {
       name: "radio-group-disabled",
       description: "",
       type: "registry:example",
-      registryDependencies: ["radio-group"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/radio-group-disabled.tsx",
         type: "registry:example",
@@ -1517,7 +1533,7 @@ export const Index: Record<string, any> = {
       name: "collapsible-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["collapsible"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/collapsible-demo.tsx",
         type: "registry:example",
@@ -1533,7 +1549,7 @@ export const Index: Record<string, any> = {
       name: "scroll-area-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["scroll-area"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/scroll-area-demo.tsx",
         type: "registry:example",
@@ -1549,7 +1565,7 @@ export const Index: Record<string, any> = {
       name: "scroll-area-horizontal",
       description: "",
       type: "registry:example",
-      registryDependencies: ["scroll-area"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/scroll-area-horizontal.tsx",
         type: "registry:example",
@@ -1565,7 +1581,7 @@ export const Index: Record<string, any> = {
       name: "slider-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["slider"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/slider-demo.tsx",
         type: "registry:example",
@@ -1581,7 +1597,7 @@ export const Index: Record<string, any> = {
       name: "slider-disabled",
       description: "",
       type: "registry:example",
-      registryDependencies: ["slider"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/slider-disabled.tsx",
         type: "registry:example",
@@ -1597,7 +1613,7 @@ export const Index: Record<string, any> = {
       name: "slider-with-value",
       description: "",
       type: "registry:example",
-      registryDependencies: ["slider"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/slider-with-value.tsx",
         type: "registry:example",
@@ -1613,7 +1629,7 @@ export const Index: Record<string, any> = {
       name: "slider-vertical",
       description: "",
       type: "registry:example",
-      registryDependencies: ["slider"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/slider-vertical.tsx",
         type: "registry:example",
@@ -1629,7 +1645,7 @@ export const Index: Record<string, any> = {
       name: "switch-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["switch"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/switch-demo.tsx",
         type: "registry:example",
@@ -1645,7 +1661,7 @@ export const Index: Record<string, any> = {
       name: "switch-disabled",
       description: "",
       type: "registry:example",
-      registryDependencies: ["switch"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/switch-disabled.tsx",
         type: "registry:example",
@@ -1661,7 +1677,7 @@ export const Index: Record<string, any> = {
       name: "switch-square",
       description: "",
       type: "registry:example",
-      registryDependencies: ["switch"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/switch-square.tsx",
         type: "registry:example",
@@ -1677,7 +1693,7 @@ export const Index: Record<string, any> = {
       name: "switch-large",
       description: "",
       type: "registry:example",
-      registryDependencies: ["switch"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/switch-large.tsx",
         type: "registry:example",
@@ -1693,7 +1709,7 @@ export const Index: Record<string, any> = {
       name: "switch-small",
       description: "",
       type: "registry:example",
-      registryDependencies: ["switch"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/switch-small.tsx",
         type: "registry:example",
@@ -1709,7 +1725,7 @@ export const Index: Record<string, any> = {
       name: "label-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["label"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/label-demo.tsx",
         type: "registry:example",
@@ -1725,7 +1741,7 @@ export const Index: Record<string, any> = {
       name: "toggle-group-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toggle-group"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/toggle-group-demo.tsx",
         type: "registry:example",
@@ -1741,7 +1757,7 @@ export const Index: Record<string, any> = {
       name: "toggle-group-disabled",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toggle-group"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/toggle-group-disabled.tsx",
         type: "registry:example",
@@ -1757,7 +1773,7 @@ export const Index: Record<string, any> = {
       name: "toggle-group-large",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toggle-group"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/toggle-group-large.tsx",
         type: "registry:example",
@@ -1773,7 +1789,7 @@ export const Index: Record<string, any> = {
       name: "toggle-group-multiple",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toggle-group"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/toggle-group-multiple.tsx",
         type: "registry:example",
@@ -1789,7 +1805,7 @@ export const Index: Record<string, any> = {
       name: "toggle-group-outline",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toggle-group"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/toggle-group-outline.tsx",
         type: "registry:example",
@@ -1805,7 +1821,7 @@ export const Index: Record<string, any> = {
       name: "toggle-group-small",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toggle-group"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/toggle-group-small.tsx",
         type: "registry:example",
@@ -1821,7 +1837,7 @@ export const Index: Record<string, any> = {
       name: "card-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["card"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/card-demo.tsx",
         type: "registry:example",
@@ -1837,7 +1853,7 @@ export const Index: Record<string, any> = {
       name: "card-demo-1",
       description: "",
       type: "registry:example",
-      registryDependencies: ["card"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/card-demo-1.tsx",
         type: "registry:example",
@@ -1853,7 +1869,7 @@ export const Index: Record<string, any> = {
       name: "badge-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["badge"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/badge-demo.tsx",
         type: "registry:example",
@@ -1869,7 +1885,7 @@ export const Index: Record<string, any> = {
       name: "badge-secondary",
       description: "",
       type: "registry:example",
-      registryDependencies: ["badge"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/badge-secondary.tsx",
         type: "registry:example",
@@ -1885,7 +1901,7 @@ export const Index: Record<string, any> = {
       name: "badge-outline",
       description: "",
       type: "registry:example",
-      registryDependencies: ["badge"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/badge-outline.tsx",
         type: "registry:example",
@@ -1901,7 +1917,7 @@ export const Index: Record<string, any> = {
       name: "badge-destructive",
       description: "",
       type: "registry:example",
-      registryDependencies: ["badge"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/badge-destructive.tsx",
         type: "registry:example",
@@ -1917,7 +1933,7 @@ export const Index: Record<string, any> = {
       name: "skeleton-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["skeleton"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/skeleton-demo.tsx",
         type: "registry:example",
@@ -1933,7 +1949,7 @@ export const Index: Record<string, any> = {
       name: "skeleton-shimmer",
       description: "",
       type: "registry:example",
-      registryDependencies: ["skeleton"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/skeleton-shimmer.tsx",
         type: "registry:example",
@@ -1949,7 +1965,7 @@ export const Index: Record<string, any> = {
       name: "skeleton-gradient",
       description: "",
       type: "registry:example",
-      registryDependencies: ["skeleton"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/skeleton-gradient.tsx",
         type: "registry:example",
@@ -1965,7 +1981,7 @@ export const Index: Record<string, any> = {
       name: "meter-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["meter"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/meter-demo.tsx",
         type: "registry:example",
@@ -1981,7 +1997,7 @@ export const Index: Record<string, any> = {
       name: "toast-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toast"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/toast-demo.tsx",
         type: "registry:example",
@@ -1997,7 +2013,7 @@ export const Index: Record<string, any> = {
       name: "toast-with-action",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toast"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/toast-with-action.tsx",
         type: "registry:example",
@@ -2013,13 +2029,29 @@ export const Index: Record<string, any> = {
       name: "toast-promise",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toast"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/examples/toast-promise.tsx",
         type: "registry:example",
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/toast-promise.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "textarea-demo": {
+      name: "textarea-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/textarea-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/textarea-demo.tsx")),
       source: "",
       category: "",
       subcategory: "",

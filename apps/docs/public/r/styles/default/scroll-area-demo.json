@@ -1,9 +1,6 @@
 {
   "name": "scroll-area-demo",
   "type": "registry:example",
-  "registryDependencies": [
-    "scroll-area"
-  ],
   "files": [
     {
       "path": "examples/scroll-area-demo.tsx",

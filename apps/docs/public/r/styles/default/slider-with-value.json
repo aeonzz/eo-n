@@ -1,9 +1,6 @@
 {
   "name": "slider-with-value",
   "type": "registry:example",
-  "registryDependencies": [
-    "slider"
-  ],
   "files": [
     {
       "path": "examples/slider-with-value.tsx",

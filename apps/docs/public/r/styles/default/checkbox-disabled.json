@@ -1,9 +1,6 @@
 {
   "name": "checkbox-disabled",
   "type": "registry:example",
-  "registryDependencies": [
-    "accordion"
-  ],
   "files": [
     {
       "path": "examples/checkbox-disabled.tsx",

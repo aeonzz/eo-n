@@ -1,9 +1,6 @@
 {
   "name": "skeleton-gradient",
   "type": "registry:example",
-  "registryDependencies": [
-    "skeleton"
-  ],
   "files": [
     {
       "path": "examples/skeleton-gradient.tsx",

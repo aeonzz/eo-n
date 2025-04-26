@@ -1,9 +1,6 @@
 {
   "name": "card-demo",
   "type": "registry:example",
-  "registryDependencies": [
-    "card"
-  ],
   "files": [
     {
       "path": "examples/card-demo.tsx",

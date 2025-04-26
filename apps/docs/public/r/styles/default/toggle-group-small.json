@@ -1,9 +1,6 @@
 {
   "name": "toggle-group-small",
   "type": "registry:example",
-  "registryDependencies": [
-    "toggle-group"
-  ],
   "files": [
     {
       "path": "examples/toggle-group-small.tsx",

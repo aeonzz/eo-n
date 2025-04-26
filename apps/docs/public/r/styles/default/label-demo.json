@@ -1,9 +1,6 @@
 {
   "name": "label-demo",
   "type": "registry:example",
-  "registryDependencies": [
-    "label"
-  ],
   "files": [
     {
       "path": "examples/label-demo.tsx",

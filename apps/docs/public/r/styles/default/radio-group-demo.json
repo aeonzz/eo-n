@@ -1,9 +1,6 @@
 {
   "name": "radio-group-demo",
   "type": "registry:example",
-  "registryDependencies": [
-    "radio-group"
-  ],
   "files": [
     {
       "path": "examples/radio-group-demo.tsx",

@@ -1,9 +1,6 @@
 {
   "name": "meter-demo",
   "type": "registry:example",
-  "registryDependencies": [
-    "meter"
-  ],
   "files": [
     {
       "path": "examples/meter-demo.tsx",

@@ -1,9 +1,6 @@
 {
   "name": "radio-group-disabled",
   "type": "registry:example",
-  "registryDependencies": [
-    "radio-group"
-  ],
   "files": [
     {
       "path": "examples/radio-group-disabled.tsx",

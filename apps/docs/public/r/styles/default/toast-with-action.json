@@ -1,9 +1,6 @@
 {
   "name": "toast-with-action",
   "type": "registry:example",
-  "registryDependencies": [
-    "toast"
-  ],
   "files": [
     {
       "path": "examples/toast-with-action.tsx",

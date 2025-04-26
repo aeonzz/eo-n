@@ -1,9 +1,6 @@
 {
   "name": "toggle-small",
   "type": "registry:example",
-  "registryDependencies": [
-    "toggle"
-  ],
   "files": [
     {
       "path": "examples/toggle-small.tsx",

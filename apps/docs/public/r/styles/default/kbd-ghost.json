@@ -1,9 +1,6 @@
 {
   "name": "kbd-ghost",
   "type": "registry:example",
-  "registryDependencies": [
-    "kbd"
-  ],
   "files": [
     {
       "path": "examples/kbd-ghost.tsx",

@@ -1,9 +1,6 @@
 {
   "name": "accordion-disabled",
   "type": "registry:example",
-  "registryDependencies": [
-    "accordion"
-  ],
   "files": [
     {
       "path": "examples/accordion-disabled.tsx",

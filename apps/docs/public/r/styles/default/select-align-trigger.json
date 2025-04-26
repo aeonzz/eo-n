@@ -1,9 +1,6 @@
 {
   "name": "select-align-trigger",
   "type": "registry:example",
-  "registryDependencies": [
-    "select"
-  ],
   "files": [
     {
       "path": "examples/select-align-trigger.tsx",

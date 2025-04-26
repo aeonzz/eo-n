@@ -1,9 +1,6 @@
 {
   "name": "badge-outline",
   "type": "registry:example",
-  "registryDependencies": [
-    "badge"
-  ],
   "files": [
     {
       "path": "examples/badge-outline.tsx",
