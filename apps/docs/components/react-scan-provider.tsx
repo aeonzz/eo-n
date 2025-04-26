@@ -10,7 +10,6 @@ interface ReactScanProviderProps {
 export function ReactScanProvider({ children }: ReactScanProviderProps) {
   React.useEffect(() => {
     if (typeof window === "undefined") return;
-    if (process.env.NODE_ENV !== "development") return;
 
     scan({
       enabled: true,
