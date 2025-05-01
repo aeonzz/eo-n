@@ -24,12 +24,6 @@ function DialogPortal({
   return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />;
 }
 
-function DialogClose({
-  ...props
-}: React.ComponentProps<typeof DialogPrimitive.Close>) {
-  return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;
-}
-
 function DialogBackdrop({
   className,
   ...props
@@ -58,12 +52,12 @@ function DialogContent({
   ...props
 }: DialogContentProps) {
   return (
-    <DialogPortal data-slot="dialog-portal">
+    <DialogPortal>
       <DialogBackdrop />
       <DialogPrimitive.Popup
         data-slot="dialog-content"
         className={cn(
-          "bg-background ring-border ring-offset-background fixed left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg ring-1 ring-offset-[0.75px] transition-all duration-150 ease-out outline-none sm:max-w-lg",
+          "bg-background fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg transition-all duration-150 ease-out outline-none sm:max-w-lg",
           "top-[calc(50%+1rem*var(--nested-dialogs))] scale-[calc(1-0.05*var(--nested-dialogs))] data-[ending-style]:top-[50.25%] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:top-[50.25%] data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
           "data-[nested-dialog-open]:after:absolute data-[nested-dialog-open]:after:inset-0 data-[nested-dialog-open]:after:rounded-[inherit] data-[nested-dialog-open]:after:bg-black/5 data-[nested-dialog-open]:after:backdrop-blur-[1.5px]",
           className
@@ -79,16 +73,6 @@ function DialogContent({
         )}
       </DialogPrimitive.Popup>
     </DialogPortal>
-  );
-}
-
-function DialogSeparator({ className, ...props }: React.ComponentProps<"hr">) {
-  return (
-    <hr
-      data-slot="dialog-separator"
-      className={cn("border-muted-foreground border-t", className)}
-      {...props}
-    />
   );
 }
 
@@ -141,6 +125,12 @@ function DialogDescription({
   );
 }
 
+function DialogClose({
+  ...props
+}: React.ComponentProps<typeof DialogPrimitive.Close>) {
+  return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;
+}
+
 export {
   Dialog,
   DialogClose,
@@ -148,7 +138,6 @@ export {
   DialogDescription,
   DialogFooter,
   DialogHeader,
-  DialogSeparator,
   DialogBackdrop,
   DialogPortal,
   DialogTitle,

@@ -21,6 +21,7 @@ import {
   DropdownMenuGroupLabel,
   DropdownMenuItem,
   DropdownMenuSeparator,
+  DropdownMenuShortcut,
   DropdownMenuSubMenuTrigger,
   DropdownMenuTrigger,
 } from "@/registry/default/ui/dropdown-menu";
@@ -29,67 +30,74 @@ export default function DropdownMenuDemo() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger render={<Button variant="outline">Menu</Button>} />
-      <DropdownMenuContent className="w-44">
+      <DropdownMenuContent className="w-48">
         <DropdownMenuGroup>
           <DropdownMenuGroupLabel>Preferences</DropdownMenuGroupLabel>
-          <DropdownMenuSeparator className="my-1" />
+          <DropdownMenuSeparator />
           <DropdownMenuItem>
             <Home />
-            Dashboard
+            <span>Dashboard</span>
+            <DropdownMenuShortcut>⌘D</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <User />
-            Profile
+            <span>Profile</span>
+            <DropdownMenuShortcut>⌘P</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Bell />
-            Notifications
+            <span>Notifications</span>
+            <DropdownMenuShortcut>⌘N</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <FileText />
-            Documents
+            <span>Documents</span>
+            <DropdownMenuShortcut>⌘D</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenu>
             <DropdownMenuSubMenuTrigger
               render={
                 <DropdownMenuItem closeOnClick={false}>
                   <Cloud />
-                  File Actions
+                  <span>File Actions</span>
                   <ChevronRight className="ml-auto" />
                 </DropdownMenuItem>
               }
             />
-            <DropdownMenuContent className="w-44">
+            <DropdownMenuContent className="w-40">
               <DropdownMenuItem>
                 <Upload />
-                Upload Files
+                <span>Upload Files</span>
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Download />
-                Download Files
+                <span>Download Files</span>
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Share2 />
-                Share Files
+                <span>Share Files</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </DropdownMenuGroup>
-        <DropdownMenuSeparator className="my-1" />
+        <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem disabled>
             <Settings />
-            Settings
+            <span>Settings</span>
+            <DropdownMenuShortcut>⌘,</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <HelpCircle />
-            Help & Support
+            <span>Help & Support</span>
+            <DropdownMenuShortcut>⌘H</DropdownMenuShortcut>
           </DropdownMenuItem>
         </DropdownMenuGroup>
-        <DropdownMenuSeparator className="my-1" />
-        <DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem variant="destructive">
           <LogOut />
-          Log out
+          <span>Log out</span>
+          <DropdownMenuShortcut>⌘L</DropdownMenuShortcut>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

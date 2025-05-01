@@ -17,7 +17,7 @@ function Checkbox({
       data-parent={parent}
       parent={parent}
       className={cn(
-        "peer border-primary dark:border-primary/50 focus-visible:ring-ring data-[checked]:bg-primary data-[indeterminate]:bg-border data-[indeterminate]:text-primary data-[checked]:border-primary data-[checked]:text-primary-foreground size-4 shrink-0 rounded-sm border shadow duration-150 ease-out focus-visible:ring-1 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+        "peer border-primary dark:border-primary/50 focus-visible:border-ring focus-visible:ring-ring/50 data-[checked]:bg-primary data-[indeterminate]:bg-border data-[indeterminate]:text-primary data-[checked]:border-primary data-[checked]:text-primary-foreground size-4 shrink-0 rounded-sm border shadow duration-150 ease-out outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
         parent && "-ml-4",
         className
       )}

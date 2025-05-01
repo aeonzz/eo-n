@@ -40,8 +40,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuPositioner,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 ```
@@ -49,13 +47,11 @@ import {
 ```tsx
 <DropdownMenu>
   <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-  <DropdownMenuPositioner>
     <DropdownMenuContent>
       <DropdownMenuItem>Settings</DropdownMenuItem>
       <DropdownMenuItem>Account</DropdownMenuItem>
       <DropdownMenuItem>Notifications</DropdownMenuItem>
     </DropdownMenuContent>
-  </DropdownMenuPositioner>
 </DropdownMenu>
 ```
 
@@ -72,11 +68,3 @@ import {
 ### Checkbox
 
 <ComponentTabs name="dropdown-menu-checkbox" />
-
-## API Reference
-
-### Content
-
-Defines the content displayed inside the dropdown when it is open.
-
-<AutoTypeTable path="./types/docs/dropdown.ts" name="ContentProps" />

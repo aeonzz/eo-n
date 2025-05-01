@@ -66,16 +66,19 @@ export default function AlertDialogConfirmation() {
         </form>
       </DialogContent>
       <AlertDialog open={confirmationOpen} onOpenChange={setConfirmationOpen}>
-        <AlertDialogContent className="flex flex-col items-center sm:max-w-xs">
+        <AlertDialogContent className="flex w-[360px] flex-col items-center">
           <AlertDialogTitle>Discard Feedback?</AlertDialogTitle>
           <AlertDialogDescription className="text-center">
             You’ve started writing feedback. If you close now, your message will
             be lost. Are you sure you want to discard it?
           </AlertDialogDescription>
-          <AlertDialogFooter className="items-center [&_button]:w-full">
-            <AlertDialogClose>Continue Editing</AlertDialogClose>
+          <AlertDialogFooter className="w-full">
+            <AlertDialogClose className="flex-1">
+              Continue Editing
+            </AlertDialogClose>
             <Button
               variant="destructive"
+              className="flex-1"
               onClick={() => {
                 setConfirmationOpen(false);
                 setDialogOpen(false);

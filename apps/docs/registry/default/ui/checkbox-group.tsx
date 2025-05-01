@@ -13,7 +13,7 @@ function CheckboxGroup({
     <CheckboxGroupPrimitive
       data-slot="checkbox-group"
       className={cn(
-        "disabled:cursor-not-allowed disabled:opacity-50 has-data-[parent='true']:ml-4 flex flex-col space-y-2.5",
+        "flex flex-col space-y-2.5 disabled:cursor-not-allowed disabled:opacity-50 has-data-[parent=true]:ml-4",
         className
       )}
       {...props}

@@ -6,6 +6,7 @@ import {
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogFooter,
+  AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/registry/default/ui/alert-dialog";
@@ -18,17 +19,16 @@ export default function AlertDialogDemo() {
     <AlertDialog open={open} onOpenChange={setOpen}>
       <AlertDialogTrigger render={<Button>Delete Item</Button>} />
       <AlertDialogContent>
-        <AlertDialogTitle>Confirm Deletion</AlertDialogTitle>
-        <AlertDialogDescription>
-          Are you sure you want to delete this item? This action cannot be
-          undone.
-        </AlertDialogDescription>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Confirm Deletion</AlertDialogTitle>
+          <AlertDialogDescription>
+            Are you sure you want to delete this item? This action cannot be
+            undone.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogClose>Cancel</AlertDialogClose>
-          <Button
-            variant="destructive"
-            onClick={() => setOpen((prev) => !prev)}
-          >
+          <Button variant="destructive" onClick={() => setOpen(false)}>
             Delete
           </Button>
         </AlertDialogFooter>
