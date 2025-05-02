@@ -27,8 +27,7 @@ function CollapsibleContent({
     <CollapsiblePrimitive.Panel
       data-slot="collapsible-content"
       className={cn(
-        "flex overflow-hidden text-sm",
-        "h-[var(--collapsible-panel-height)] w-[var(--collapsible-panel-width)] transition-all duration-300 ease-out data-[ending-style]:h-0 data-[starting-style]:h-0",
+        "flex h-[var(--collapsible-panel-height)] w-full flex-col justify-end overflow-hidden text-sm transition-all duration-300 ease-out data-[ending-style]:h-0 data-[starting-style]:h-0",
         className
       )}
       {...props}

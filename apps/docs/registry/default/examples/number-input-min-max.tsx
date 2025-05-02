@@ -1,5 +1,6 @@
 import { Minus, Plus } from "lucide-react";
 
+import { Label } from "@/registry/default/ui/label";
 import {
   NumberInput,
   NumberInputDecrement,
@@ -8,8 +9,6 @@ import {
   NumberInputIncrement,
   NumberInputScrubArea,
 } from "@/registry/default/ui/number-input";
-
-import { Label } from "../ui/label";
 
 export default function NumberInputMinMax() {
   return (

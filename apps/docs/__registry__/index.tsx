@@ -793,22 +793,6 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
-    "input-secondary": {
-      name: "input-secondary",
-      description: "",
-      type: "registry:example",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/default/examples/input-secondary.tsx",
-        type: "registry:example",
-        target: ""
-      }],
-      component: React.lazy(() => import("@/registry/default/examples/input-secondary.tsx")),
-      source: "",
-      category: "",
-      subcategory: "",
-      chunks: []
-    },
     "input-disabled": {
       name: "input-disabled",
       description: "",

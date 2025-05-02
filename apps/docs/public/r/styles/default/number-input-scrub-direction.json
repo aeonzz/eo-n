@@ -4,7 +4,7 @@
   "files": [
     {
       "path": "examples/number-input-scrub-direction.tsx",
-      "content": "import {\r\n  NumberInput,\r\n  NumberInputField,\r\n  NumberInputGroup,\r\n  NumberInputScrubArea,\r\n} from \"@/registry/default/ui/number-input\";\r\n\r\nimport { Label } from \"../ui/label\";\r\n\r\nexport default function NumberInputScrubDirection() {\r\n  return (\r\n    <NumberInput\r\n      defaultValue={0}\r\n      min={0}\r\n      max={1000}\r\n      className=\"max-w-42 flex-row items-center gap-2\"\r\n    >\r\n      <NumberInputScrubArea direction=\"vertical\">\r\n        <Label className=\"cursor-ns-resize\">Height</Label>\r\n      </NumberInputScrubArea>\r\n      <div className=\"bg-border h-7 w-px\" />\r\n      <NumberInputGroup>\r\n        <NumberInputField className=\"rounded-md border-x-0\" />\r\n      </NumberInputGroup>\r\n    </NumberInput>\r\n  );\r\n}\r\n",
+      "content": "import { Label } from \"@/registry/default/ui/label\";\r\nimport {\r\n  NumberInput,\r\n  NumberInputField,\r\n  NumberInputGroup,\r\n  NumberInputScrubArea,\r\n} from \"@/registry/default/ui/number-input\";\r\n\r\nexport default function NumberInputScrubDirection() {\r\n  return (\r\n    <NumberInput\r\n      defaultValue={0}\r\n      min={0}\r\n      max={1000}\r\n      className=\"max-w-32 flex-row items-center gap-2\"\r\n    >\r\n      <NumberInputScrubArea direction=\"vertical\">\r\n        <Label className=\"cursor-ns-resize\">Height</Label>\r\n      </NumberInputScrubArea>\r\n      <div className=\"bg-border h-7 w-px\" />\r\n      <NumberInputGroup>\r\n        <NumberInputField className=\"rounded-md\" />\r\n      </NumberInputGroup>\r\n    </NumberInput>\r\n  );\r\n}\r\n",
       "type": "registry:example",
       "target": ""
     }

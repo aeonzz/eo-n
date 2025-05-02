@@ -4,7 +4,7 @@
   "files": [
     {
       "path": "examples/meter-demo.tsx",
-      "content": "import { Meter, MeterLabel, MeterValue } from \"@/registry/default/ui/meter\";\r\n\r\nexport default function MeterDemo() {\r\n  return (\r\n    <Meter value={34} className=\"w-full max-w-xs\">\r\n      <MeterLabel>Battery Level</MeterLabel>\r\n      <MeterValue />\r\n    </Meter>\r\n  );\r\n}\r\n",
+      "content": "import { Meter, MeterLabel, MeterValue } from \"@/registry/default/ui/meter\";\r\n\r\nexport default function MeterDemo() {\r\n  return (\r\n    <Meter value={34} className=\"max-w-xs\">\r\n      <MeterLabel>Battery Level</MeterLabel>\r\n      <MeterValue />\r\n    </Meter>\r\n  );\r\n}\r\n",
       "type": "registry:example",
       "target": ""
     }

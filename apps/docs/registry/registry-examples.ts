@@ -152,16 +152,6 @@ export const examples: Registry = [
     ],
   },
   {
-    name: "input-secondary",
-    type: "registry:example",
-    files: [
-      {
-        path: "examples/input-secondary.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
     name: "input-disabled",
     type: "registry:example",
     files: [

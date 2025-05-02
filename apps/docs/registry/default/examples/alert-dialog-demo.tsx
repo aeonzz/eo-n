@@ -10,8 +10,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/registry/default/ui/alert-dialog";
-
-import { Button } from "../ui/button";
+import { Button } from "@/registry/default/ui/button";
 
 export default function AlertDialogDemo() {
   const [open, setOpen] = React.useState(false);

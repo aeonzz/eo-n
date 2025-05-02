@@ -14,7 +14,7 @@ function Meter({
     <MeterPrimitive.Root
       data-slot="meter"
       className={cn(
-        "relative grid grid-cols-1 gap-1 overflow-hidden has-data-[slot='meter-label']:grid-cols-2",
+        "relative grid w-full grid-cols-1 gap-1 overflow-hidden select-none has-[[data-slot=meter-label]]:grid-cols-2",
         className
       )}
       {...props}
