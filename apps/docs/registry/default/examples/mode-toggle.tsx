@@ -26,11 +26,7 @@ export default function ModeToggle() {
           </Button>
         }
       />
-      <DropdownMenuContent
-        positionerProps={{
-          align: "end",
-        }}
-      >
+      <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme("light")}>
           Light
         </DropdownMenuItem>
