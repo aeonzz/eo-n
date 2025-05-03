@@ -24,20 +24,16 @@ export default function PreviewCardDemo() {
         }
       />
       <PreviewCardContent className="flex w-80 items-start gap-3">
-        <Avatar className="size-12 border">
-          <AvatarImage
-            src="https://github.com/aeonzz.png"
-            alt="@aeonzz"
-            className="size-full"
-          />
-          <AvatarFallback className="size-full">AE</AvatarFallback>
+        <Avatar className="size-10">
+          <AvatarImage src="https://github.com/aeonzz.png" alt="@aeonzz" />
+          <AvatarFallback>AE</AvatarFallback>
         </Avatar>
-        <div className="flex w-full flex-col gap-1">
-          <p className="text-sm font-semibold tracking-tight">@Aeonzz</p>
+        <div className="flex w-full flex-col gap-0.5">
+          <p className="text-sm font-semibold">@Aeonzz</p>
           <p className="text-sm">Innovating in reverse.</p>
           <Link
             className={cn(
-              buttonVariants({ variant: "default", size: "sm" }),
+              buttonVariants({ variant: "secondary", size: "sm" }),
               "mt-2"
             )}
             href="https://github.com/aeonzz"

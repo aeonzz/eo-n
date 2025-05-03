@@ -19,9 +19,7 @@ export function Providers({ children, ...props }: ProvidersProps) {
     <ToastProvider richColors>
       <RootProvider {...props}>
         <JotaiProvider store={store}>
-          <ReactScanProvider>
-            <TooltipProvider>{children}</TooltipProvider>
-          </ReactScanProvider>
+          <TooltipProvider>{children}</TooltipProvider>
         </JotaiProvider>
       </RootProvider>
     </ToastProvider>

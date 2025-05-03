@@ -5,6 +5,7 @@ import {
   Popover,
   PopoverContent,
   PopoverDescription,
+  PopoverHeader,
   PopoverTitle,
   PopoverTrigger,
 } from "@/registry/default/ui/popover";
@@ -15,12 +16,14 @@ export default function PopoverHover() {
       <PopoverTrigger
         render={<Button variant="outline">Event Details</Button>}
       />
-      <PopoverContent className="max-w-[325px]">
-        <PopoverTitle className="mb-2">React Summit 2025</PopoverTitle>
-        <PopoverDescription className="mb-3">
-          Join us for the biggest React conference of the year featuring
-          workshops, keynotes, and networking opportunities.
-        </PopoverDescription>
+      <PopoverContent className="w-[325px] space-y-3">
+        <PopoverHeader>
+          <PopoverTitle>React Summit 2025</PopoverTitle>
+          <PopoverDescription>
+            Join us for the biggest React conference of the year featuring
+            workshops, keynotes, and networking opportunities.
+          </PopoverDescription>
+        </PopoverHeader>
         <div className="mb-3 space-y-2">
           <div className="flex items-start">
             <Dot className="mt-0.5 h-4 w-4 flex-shrink-0" />
