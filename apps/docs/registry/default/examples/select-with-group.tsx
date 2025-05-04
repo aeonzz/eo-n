@@ -12,7 +12,7 @@ import {
 export default function SelectWithGroup() {
   return (
     <Select>
-      <SelectTrigger className="max-w-40">
+      <SelectTrigger className="w-48">
         <SelectValue placeholder="Select a job" />
       </SelectTrigger>
       <SelectContent>

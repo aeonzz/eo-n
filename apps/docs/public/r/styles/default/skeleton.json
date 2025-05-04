@@ -11,8 +11,8 @@
   ],
   "cssVars": {
     "theme": {
-      "--animate-skeleton-shimmer": "shimmer 3s infinite ease-out",
-      "--animate-skeleton-gradient": "skeleton-gradient 3s infinite ease-out"
+      "--animate-skeleton-shimmer": "shimmer 2s infinite ease-out",
+      "--animate-skeleton-gradient": "skeleton-gradient 2s infinite ease-out"
     }
   },
   "css": {

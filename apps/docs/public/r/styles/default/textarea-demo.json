@@ -4,7 +4,7 @@
   "files": [
     {
       "path": "examples/textarea-demo.tsx",
-      "content": "import { Textarea } from \"@/registry/default/ui/textarea\";\r\n\r\nexport default function TextareaDemo() {\r\n  return (\r\n    <Textarea\r\n      id=\"feedback\"\r\n      name=\"feedback\"\r\n      placeholder=\"Enter your feedback...\"\r\n      autoComplete=\"off\"\r\n      className=\"w-full max-w-md\"\r\n    />\r\n  );\r\n}\r\n",
+      "content": "import { Textarea } from \"@/registry/default/ui/textarea\";\r\n\r\nexport default function TextareaDemo() {\r\n  return (\r\n    <Textarea\r\n      id=\"feedback\"\r\n      name=\"feedback\"\r\n      placeholder=\"Enter your feedback...\"\r\n      autoComplete=\"off\"\r\n      className=\"max-w-sm\"\r\n    />\r\n  );\r\n}\r\n",
       "type": "registry:example",
       "target": ""
     }

@@ -13,6 +13,8 @@ import NumberInputCard from "./_components/number-input-card";
 import PopoverCard from "./_components/popover-card";
 import PreviewCardCard from "./_components/preview-card-card";
 import ScrollAreaCard from "./_components/scroll-area-card";
+import SelectCard from "./_components/select-card";
+import TabsCard from "./_components/tabs-card";
 
 export default function page() {
   return (
@@ -32,6 +34,8 @@ export default function page() {
         <PopoverCard />
         <PreviewCardCard />
         <ScrollAreaCard />
+        <SelectCard />
+        <TabsCard />
       </div>
     </main>
   );

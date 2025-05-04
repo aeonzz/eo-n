@@ -1,13 +1,10 @@
 {
   "name": "tabs-vertical",
   "type": "registry:example",
-  "registryDependencies": [
-    "tabs"
-  ],
   "files": [
     {
       "path": "examples/tabs-vertical.tsx",
-      "content": "import { ChartArea, Codepen, Settings } from \"lucide-react\";\n\nimport {\n  Tabs,\n  TabsContent,\n  TabsList,\n  TabsTrigger,\n} from \"@/registry/default/ui/tabs\";\n\nexport default function TabsVertical() {\n  return (\n    <Tabs\n      orientation=\"vertical\"\n      defaultValue=\"settings\"\n      className=\"*:data-[slot=tabs-content]:text-muted-foreground min-w-xs *:data-[slot=tabs-content]:grid *:data-[slot=tabs-content]:place-items-center *:data-[slot=tabs-content]:rounded-md *:data-[slot=tabs-content]:border *:data-[slot=tabs-content]:[&>svg]:size-10\"\n    >\n      <TabsList>\n        <TabsTrigger value=\"settings\">Settings</TabsTrigger>\n        <TabsTrigger value=\"deloyments\">Deployments</TabsTrigger>\n        <TabsTrigger value=\"analytics\">Analytics</TabsTrigger>\n      </TabsList>\n      <TabsContent value=\"settings\">\n        <Settings />\n      </TabsContent>\n      <TabsContent value=\"deloyments\">\n        <Codepen />\n      </TabsContent>\n      <TabsContent value=\"analytics\">\n        <ChartArea />\n      </TabsContent>\n    </Tabs>\n  );\n}\n",
+      "content": "import { Home, MessageSquare, User } from \"lucide-react\";\r\n\r\nimport {\r\n  Tabs,\r\n  TabsContent,\r\n  TabsList,\r\n  TabsTrigger,\r\n} from \"@/registry/default/ui/tabs\";\r\n\r\nexport default function TabsVertical() {\r\n  return (\r\n    <Tabs\r\n      defaultValue=\"home\"\r\n      orientation=\"vertical\"\r\n      className=\"*:data-[slot=tabs-content]:text-muted-foreground *:data-[slot=tabs-content]:bg-card w-80 *:data-[slot=tabs-content]:grid *:data-[slot=tabs-content]:w-full *:data-[slot=tabs-content]:place-items-center *:data-[slot=tabs-content]:rounded-md *:data-[slot=tabs-content]:border *:data-[slot=tabs-content]:[&>svg]:size-10\"\r\n    >\r\n      <TabsList className=\"*:data-[slot=tabs-trigger]:py-10\">\r\n        <TabsTrigger value=\"home\">\r\n          <Home />\r\n        </TabsTrigger>\r\n        <TabsTrigger value=\"profile\">\r\n          <User />\r\n        </TabsTrigger>\r\n        <TabsTrigger value=\"messages\">\r\n          <MessageSquare />\r\n        </TabsTrigger>\r\n      </TabsList>\r\n      <TabsContent value=\"home\">\r\n        <Home />\r\n      </TabsContent>\r\n      <TabsContent value=\"profile\">\r\n        <User />\r\n      </TabsContent>\r\n      <TabsContent value=\"messages\">\r\n        <MessageSquare />\r\n      </TabsContent>\r\n    </Tabs>\r\n  );\r\n}\r\n",
       "type": "registry:example",
       "target": ""
     }

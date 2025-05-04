@@ -7,7 +7,7 @@ export default function TextareaDemo() {
       name="feedback"
       placeholder="Enter your feedback..."
       autoComplete="off"
-      className="w-full max-w-md"
+      className="max-w-sm"
     />
   );
 }

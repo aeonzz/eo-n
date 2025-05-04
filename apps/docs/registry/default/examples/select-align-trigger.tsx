@@ -9,7 +9,7 @@ import {
 export default function SelectAlignTrigger() {
   return (
     <Select alignItemToTrigger defaultValue="light">
-      <SelectTrigger className="max-w-40">
+      <SelectTrigger className="w-36">
         <SelectValue placeholder="Theme" />
       </SelectTrigger>
       <SelectContent>

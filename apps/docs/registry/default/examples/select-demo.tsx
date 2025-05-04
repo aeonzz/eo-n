@@ -9,7 +9,7 @@ import {
 export default function SelectDemo() {
   return (
     <Select>
-      <SelectTrigger className="max-w-40">
+      <SelectTrigger className="w-40">
         <SelectValue placeholder="Theme" />
       </SelectTrigger>
       <SelectContent>

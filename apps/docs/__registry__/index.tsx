@@ -1081,6 +1081,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "tabs-vertical": {
+      name: "tabs-vertical",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/tabs-vertical.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/tabs-vertical.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "avatar-demo": {
       name: "avatar-demo",
       description: "",

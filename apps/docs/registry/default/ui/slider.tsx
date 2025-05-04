@@ -27,7 +27,10 @@ function Slider({
       data-slot="slider"
       defaultValue={defaultValue}
       value={value}
-      className={cn("relative data-[disabled]:opacity-50", className)}
+      className={cn(
+        "relative data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        className
+      )}
       {...props}
     >
       {children}
@@ -37,17 +40,17 @@ function Slider({
       >
         <SliderPrimitive.Track
           data-slot="slider-track"
-          className="bg-secondary size-[inherit] rounded-md data-[orientation='horizontal']:h-1 data-[orientation='vertical']:w-1"
+          className="bg-muted size-[inherit] rounded-full data-[orientation=horizontal]:h-1.5 data-[orientation=vertical]:w-1.5"
         >
           <SliderPrimitive.Indicator
             data-slot="slider-indicator"
-            className="bg-secondary-foreground rounded-md select-none"
+            className="bg-primary rounded-full select-none"
           />
           {Array.from({ length: _values.length }, (_, index) => (
             <SliderPrimitive.Thumb
               key={index}
               data-slot="slider-thumb"
-              className="bg-background ring-ring/50 border-primary size-4 shrink-0 rounded-full border-2 shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden data-[disabled]:pointer-events-none data-[dragging]:ring-4 data-[dragging]:outline-hidden"
+              className="bg-background ring-ring/50 border-primary size-4 shrink-0 rounded-full border shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden data-[disabled]:pointer-events-none data-[dragging]:ring-4 data-[dragging]:outline-hidden"
             />
           ))}
         </SliderPrimitive.Track>

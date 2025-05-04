@@ -332,6 +332,16 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "tabs-vertical",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/tabs-vertical.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "avatar-demo",
     type: "registry:example",
     files: [

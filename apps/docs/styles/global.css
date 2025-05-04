@@ -121,8 +121,8 @@
   --animate-stroke-dashoffset: stroke-dashoffset 0.2s linear forwards;
   --animate-expand-width: expand-width forwards;
   --animate-expand-height: expand-height forwards;
-  --animate-skeleton-shimmer: skeleton-shimmer 3s infinite ease-out;
-  --animate-skeleton-gradient: skeleton-gradient 3s infinite ease-out;
+  --animate-skeleton-shimmer: skeleton-shimmer 2s infinite ease-out;
+  --animate-skeleton-gradient: skeleton-gradient 2s infinite ease-out;
   --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
 
   @keyframes fade-down {
