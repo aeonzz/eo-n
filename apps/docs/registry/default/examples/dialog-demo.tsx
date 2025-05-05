@@ -38,7 +38,7 @@ export default function DialogDemo() {
             <Label htmlFor="title">Title</Label>
             <Input
               id="title"
-              defaultValue="Sample Title"
+              value="Sample Title"
               className="col-span-3"
             />
           </div>
@@ -46,7 +46,7 @@ export default function DialogDemo() {
             <Label htmlFor="description">Description</Label>
             <Input
               id="description"
-              defaultValue="Sample Description"
+              value="Sample Description"
               className="col-span-3"
             />
           </div>

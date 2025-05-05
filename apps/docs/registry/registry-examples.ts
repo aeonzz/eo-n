@@ -332,6 +332,16 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "tabs-underline",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/tabs-underline.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "tabs-vertical",
     type: "registry:example",
     files: [

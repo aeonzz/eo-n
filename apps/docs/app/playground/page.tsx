@@ -15,11 +15,13 @@ import PreviewCardCard from "./_components/preview-card-card";
 import ScrollAreaCard from "./_components/scroll-area-card";
 import SelectCard from "./_components/select-card";
 import TabsCard from "./_components/tabs-card";
+import ToolbarCard from "./_components/toolbar-card";
+import TooltipCard from "./_components/tooltip-card";
 
 export default function page() {
   return (
-    <main className="space-y-3">
-      <header className="flex w-full justify-end border-b px-4 py-2">
+    <main className="relative space-y-3">
+      <header className="bg-background sticky top-0 z-50 flex w-full justify-end border-b px-4 py-2">
         <ModeToggle />
       </header>
       <div className="flex flex-col gap-3 p-4">
@@ -36,6 +38,8 @@ export default function page() {
         <ScrollAreaCard />
         <SelectCard />
         <TabsCard />
+        <ToolbarCard />
+        <TooltipCard />
       </div>
     </main>
   );

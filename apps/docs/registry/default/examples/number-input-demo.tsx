@@ -1,5 +1,3 @@
-import { Minus, Plus } from "lucide-react";
-
 import { Label } from "@/registry/default/ui/label";
 import {
   NumberInput,
@@ -17,13 +15,9 @@ export default function NumberInputDemo() {
         <Label className="cursor-ew-resize">Age</Label>
       </NumberInputScrubArea>
       <NumberInputGroup>
-        <NumberInputDecrement>
-          <Minus />
-        </NumberInputDecrement>
+        <NumberInputDecrement />
         <NumberInputField />
-        <NumberInputIncrement>
-          <Plus />
-        </NumberInputIncrement>
+        <NumberInputIncrement />
       </NumberInputGroup>
     </NumberInput>
   );

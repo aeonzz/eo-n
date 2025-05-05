@@ -1,3 +1,4 @@
+import { Button } from "@/registry/default/ui/button";
 import {
   Tooltip,
   TooltipContent,
@@ -5,13 +6,11 @@ import {
   TooltipTrigger,
 } from "@/registry/default/ui/tooltip";
 
-import { Button } from "../ui/button";
-
 export default function TooltipDemo() {
   return (
     <TooltipProvider>
       <Tooltip>
-        <TooltipTrigger render={<Button>Hover</Button>} />
+        <TooltipTrigger render={<Button variant="outline">Hover</Button>} />
         <TooltipContent>
           <p>Send message</p>
         </TooltipContent>

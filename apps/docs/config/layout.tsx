@@ -1,6 +1,6 @@
 import type { DocsLayoutProps } from "fumadocs-ui/layouts/docs";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
-import { Github } from "lucide-react";
+import { Book, Component, Github } from "lucide-react";
 
 import { source } from "@/lib/source";
 
@@ -30,16 +30,16 @@ export const baseOptions: BaseLayoutProps = {
   },
   links: [
     {
+      type: "icon",
       text: "Docs",
       url: "/docs/ui",
+      icon: <Book className="size-4" aria-hidden="true" />,
     },
     {
+      type: "icon",
       text: "Components",
       url: "/docs/ui/accordion",
-    },
-    {
-      text: "Collections",
-      url: "/docs/collections",
+      icon: <Component className="size-4" aria-hidden="true" />,
     },
     {
       type: "icon",

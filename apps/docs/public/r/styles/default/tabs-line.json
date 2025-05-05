@@ -1,0 +1,12 @@
+{
+  "name": "tabs-line",
+  "type": "registry:example",
+  "files": [
+    {
+      "path": "examples/tabs-line.tsx",
+      "content": "import { ChartArea, Codepen, Settings } from \"lucide-react\";\r\n\r\nimport {\r\n  Tabs,\r\n  TabsContent,\r\n  TabsList,\r\n  TabsTrigger,\r\n} from \"@/registry/default/ui/tabs\";\r\n\r\nexport default function TabsLine() {\r\n  return (\r\n    <Tabs\r\n      defaultValue=\"settings\"\r\n      className=\"*:data-[slot=tabs-content]:text-muted-foreground w-[320px] *:data-[slot=tabs-content]:grid *:data-[slot=tabs-content]:h-64 *:data-[slot=tabs-content]:place-items-center *:data-[slot=tabs-content]:rounded-md *:data-[slot=tabs-content]:border *:data-[slot=tabs-content]:[&>svg]:size-10\"\r\n    >\r\n      <TabsList>\r\n        <TabsTrigger value=\"settings\">Settings</TabsTrigger>\r\n        <TabsTrigger value=\"deloyments\">Deployments</TabsTrigger>\r\n        <TabsTrigger value=\"analytics\">Analytics</TabsTrigger>\r\n      </TabsList>\r\n      <TabsContent value=\"settings\">\r\n        <Settings />\r\n      </TabsContent>\r\n      <TabsContent value=\"deloyments\">\r\n        <Codepen />\r\n      </TabsContent>\r\n      <TabsContent value=\"analytics\">\r\n        <ChartArea />\r\n      </TabsContent>\r\n    </Tabs>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

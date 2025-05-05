@@ -21,6 +21,7 @@ export default function TabsCard() {
     <ComponentCard name="Tabs" column>
       <Tabs
         defaultValue="settings"
+        variant="underline"
         className="*:data-[slot=tabs-content]:text-muted-foreground *:data-[slot=tabs-content]:bg-card w-[320px] *:data-[slot=tabs-content]:grid *:data-[slot=tabs-content]:h-64 *:data-[slot=tabs-content]:place-items-center *:data-[slot=tabs-content]:rounded-md *:data-[slot=tabs-content]:border *:data-[slot=tabs-content]:[&>svg]:size-10"
       >
         <TabsList>

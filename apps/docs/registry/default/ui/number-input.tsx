@@ -1,6 +1,6 @@
 import * as React from "react";
 import { NumberField as NumberInputPrimitive } from "@base-ui-components/react/number-field";
-import { MoveHorizontal, MoveVertical } from "lucide-react";
+import { Minus, MoveHorizontal, MoveVertical, Plus } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -70,7 +70,9 @@ function NumberInputDecrement({
         className
       )}
       {...props}
-    />
+    >
+      <Minus />
+    </NumberInputPrimitive.Decrement>
   );
 }
 
@@ -104,7 +106,9 @@ function NumberInputIncrement({
         className
       )}
       {...props}
-    />
+    >
+      <Plus />
+    </NumberInputPrimitive.Increment>
   );
 }
 

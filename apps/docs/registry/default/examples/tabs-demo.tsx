@@ -11,7 +11,7 @@ export default function TabsDemo() {
   return (
     <Tabs
       defaultValue="settings"
-      className="*:data-[slot=tabs-content]:text-muted-foreground *:data-[slot=tabs-content]:bg-card w-[320px] *:data-[slot=tabs-content]:grid *:data-[slot=tabs-content]:h-64 *:data-[slot=tabs-content]:place-items-center *:data-[slot=tabs-content]:rounded-md *:data-[slot=tabs-content]:border *:data-[slot=tabs-content]:[&>svg]:size-10"
+      className="*:data-[slot=tabs-content]:text-muted-foreground *:data-[slot=tabs-content]:bg-card w-88 *:data-[slot=tabs-content]:grid *:data-[slot=tabs-content]:h-64 *:data-[slot=tabs-content]:place-items-center *:data-[slot=tabs-content]:rounded-md *:data-[slot=tabs-content]:border *:data-[slot=tabs-content]:[&>svg]:size-10"
     >
       <TabsList>
         <TabsTrigger value="settings">Settings</TabsTrigger>

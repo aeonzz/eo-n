@@ -34,9 +34,7 @@ export default function ToggleWithInput() {
         />
       </ToolbarGroup>
       <ToolbarSeparator />
-      <ToolbarGroup>
-        <ToolbarInput render={<Input placeholder="Search and replace" />} />
-      </ToolbarGroup>
+      <ToolbarInput render={<Input placeholder="Search and replace" />} />
     </Toolbar>
   );
 }

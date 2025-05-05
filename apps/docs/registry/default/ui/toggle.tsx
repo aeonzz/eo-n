@@ -13,12 +13,12 @@ const toggleVariants = cva(
       variant: {
         default: "bg-transparent",
         outline:
-          "border border-input bg-transparent hover:bg-accent hover:text-accent-foreground",
+          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 border-input dark:hover:bg-input/50",
       },
       size: {
-        default: "h-9 px-2 min-w-9 [&_svg]:size-4",
-        sm: "h-8 px-1.5 min-w-8 [&_svg]:size-3.5",
-        lg: "h-10 px-2.5 min-w-10 [&_svg]:size-4.5",
+        default: "h-9 px-2 min-w-9",
+        sm: "h-8 px-1.5 min-w-8",
+        lg: "h-10 px-2.5 min-w-10",
       },
     },
     defaultVariants: {
@@ -28,14 +28,13 @@ const toggleVariants = cva(
   }
 );
 
-export type ButtonVariants = VariantProps<typeof toggleVariants>;
+export type ToggleVariants = VariantProps<typeof toggleVariants>;
 
-function Toggle({
-  className,
-  variant,
-  size,
-  ...props
-}: React.ComponentProps<typeof ToggleRoot> & ButtonVariants) {
+interface ToggleProps
+  extends React.ComponentProps<typeof ToggleRoot>,
+    ToggleVariants {}
+
+function Toggle({ className, variant, size, ...props }: ToggleProps) {
   return (
     <ToggleRoot
       data-slot="toggle"

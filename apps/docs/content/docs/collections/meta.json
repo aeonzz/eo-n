@@ -1,8 +1,0 @@
-{
-    "title": "Collections",
-    "description": "Collections",
-    "icon": "Ungroup",
-    "root": true,
-    "pages": ["---Getting Started---", "index", "---Collections---", "..."]
-  }
-  

@@ -20,8 +20,8 @@ const toastVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-background text-foreground border-border",
-        loading: "bg-background text-foreground border-border",
+        default: "bg-popover text-popover-foreground border-border",
+        loading: "bg-popover text-popover-foreground border-border",
         success:
           "data-[rich-colors=true]:border-green-200 data-[rich-colors=true]:bg-green-100 data-[rich-colors=true]:text-green-800 dark:data-[rich-colors=true]:border-green-900/40 dark:data-[rich-colors=true]:bg-green-950 dark:data-[rich-colors=true]:text-green-300 data-[rich-colors=true]:[&_[data-slot=toast-close]]:bg-green-100 dark:data-[rich-colors=true]:[&_[data-slot=toast-close]]:bg-green-950",
         error:
@@ -129,18 +129,16 @@ function ToastLists({ position, richColors, closeButton }: ToastListsProps) {
           ? "bottom-0 data-[expanded]:bottom-2.5"
           : "top-0 data-[expanded]:top-2.5"
       )}
-      style={{
-        ["--gap" as string]: "1rem",
-        ["--translate-y" as string]: position.startsWith("bottom")
-          ? "-15px"
-          : "15px",
-        ["--starting-style" as string]: position.startsWith("bottom")
-          ? "150%"
-          : "-150%",
-        ["--invert" as string]: position.startsWith("bottom") ? "-1" : "1",
-        ["--offset-y" as string]:
-          "calc(var(--toast-offset-y) * -1 + (var(--toast-index) * 1rem * -1) + var(--toast-swipe-movement-y))",
-      }}
+      style={
+        {
+          "--gap": "1rem",
+          "--translate-y": position.startsWith("bottom") ? "-15px" : "15px",
+          "--starting-style": position.startsWith("bottom") ? "150%" : "-150%",
+          "--invert": position.startsWith("bottom") ? "-1" : "1",
+          "--offset-y":
+            "calc(var(--toast-offset-y) * -1 + (var(--toast-index) * 1rem * -1) + var(--toast-swipe-movement-y))",
+        } as React.CSSProperties
+      }
     >
       {closeButton && (
         <ToastPrimitive.Close

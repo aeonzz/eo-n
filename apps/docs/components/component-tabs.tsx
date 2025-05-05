@@ -60,7 +60,7 @@ export function ComponentTabs({
       >
         <div
           className={cn(
-            "component-preview flex h-[400px] w-full items-center justify-center p-10",
+            "component-preview flex h-[400px] w-full items-center justify-center p-8",
             {
               "h-full p-0": fullPreview,
               "sm:p-10": scalePreview,
