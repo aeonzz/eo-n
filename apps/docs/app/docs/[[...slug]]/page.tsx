@@ -47,7 +47,7 @@ export default async function DocPage(props: DocPageParams) {
     <DocsPage
       toc={page.data.toc}
       tableOfContent={{
-        style: "normal",
+        style: "clerk",
         single: false,
       }}
       full={page.data.full}
@@ -57,6 +57,7 @@ export default async function DocPage(props: DocPageParams) {
         includePage: true,
         includeSeparator: true,
       }}
+      article={{ className: "md:pt-6 pt-6" }}
     >
       <div className="flex flex-col gap-2">
         <DocsTitle>{page.data.title}</DocsTitle>

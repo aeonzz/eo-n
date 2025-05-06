@@ -1,4 +1,5 @@
 import React from "react";
+import { notFound } from "next/navigation";
 
 import ModeToggle from "@/registry/default/examples/mode-toggle";
 
@@ -19,6 +20,8 @@ import ToolbarCard from "./_components/toolbar-card";
 import TooltipCard from "./_components/tooltip-card";
 
 export default function page() {
+  if (process.env.NODE_ENV !== "development") return notFound();
+
   return (
     <main className="relative space-y-3">
       <header className="bg-background sticky top-0 z-50 flex w-full justify-end border-b px-4 py-2">

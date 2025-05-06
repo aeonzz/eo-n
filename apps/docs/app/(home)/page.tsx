@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { LineDecorator } from "@/components/line-decorator";
 
@@ -15,6 +16,15 @@ export default function HomePage() {
             className="absolute bottom-0 left-[15%] -z-20 mask-y-from-80% duration-1300"
           />
           <LineDecorator className="mr-auto mask-x-from-90% duration-1300" />
+          <Badge variant="outline" className="py-1.5 px-3">
+            <span>Meter and Toast components are now available. 🎉</span>
+            <Link
+              href="/docs/ui/toast"
+              className="text-muted-foreground underline-offset-2 hover:underline"
+            >
+              Check it out.
+            </Link>
+          </Badge>
           <h1 className="from-foreground text-center text-4xl leading-tight font-bold tracking-tight sm:text-5xl md:text-6xl lg:leading-[1.1]">
             Craft Your Component Library
           </h1>
