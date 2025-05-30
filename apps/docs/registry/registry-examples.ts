@@ -952,6 +952,16 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "context-menu-demo",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/context-menu-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [
