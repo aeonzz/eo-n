@@ -6,10 +6,13 @@ import ModeToggle from "@/registry/default/examples/mode-toggle";
 import AccordionCard from "./_components/accordion-card";
 import AlertDialogCard from "./_components/alert-dialog-card";
 import CollapsibleCard from "./_components/collapsible-card";
+import ContextMenuCard from "./_components/context-menu-card";
 import DialogCard from "./_components/dialog-card";
 import DropdownMenuCard from "./_components/dropdown-menu-card";
 import InputCard from "./_components/input-card";
+import MenubarCard from "./_components/menubar-card";
 import MeterCard from "./_components/meter-card";
+import NavigationMenuCard from "./_components/navigation-menu-card";
 import NumberInputCard from "./_components/number-input-card";
 import PopoverCard from "./_components/popover-card";
 import PreviewCardCard from "./_components/preview-card-card";
@@ -43,6 +46,9 @@ export default function page() {
         <TabsCard />
         <ToolbarCard />
         <TooltipCard />
+        <ContextMenuCard />
+        <MenubarCard />
+        <NavigationMenuCard />
       </div>
     </main>
   );

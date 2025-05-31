@@ -1,0 +1,12 @@
+{
+  "name": "navigation-menu-demo",
+  "type": "registry:example",
+  "files": [
+    {
+      "path": "examples/navigation-menu-demo.tsx",
+      "content": "import React from \"react\";\r\n\r\nexport default function NavigationMenuDemo() {\r\n  return <div></div>;\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

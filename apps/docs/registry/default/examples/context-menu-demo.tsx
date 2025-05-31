@@ -16,33 +16,37 @@ export default function ContextMenuDemo() {
   return (
     <ContextMenu>
       <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
-        Right click here
+        Right click here to see options
       </ContextMenuTrigger>
       <ContextMenuContent className="w-52">
         <ContextMenuItem inset>
-          Back
-          <ContextMenuShortcut>⌘[</ContextMenuShortcut>
-        </ContextMenuItem>
-        <ContextMenuItem inset disabled>
-          Forward
-          <ContextMenuShortcut>⌘]</ContextMenuShortcut>
+          Copy
+          <ContextMenuShortcut>⌘C</ContextMenuShortcut>
         </ContextMenuItem>
         <ContextMenuItem inset>
-          Reload
-          <ContextMenuShortcut>⌘R</ContextMenuShortcut>
+          Paste
+          <ContextMenuShortcut>⌘V</ContextMenuShortcut>
         </ContextMenuItem>
-        <ContextMenuCheckboxItem checked>
-          Show Bookmarks
-        </ContextMenuCheckboxItem>
-        <ContextMenuCheckboxItem>Show Full URLs</ContextMenuCheckboxItem>
+        <ContextMenuItem inset>
+          Cut
+          <ContextMenuShortcut>⌘X</ContextMenuShortcut>
+        </ContextMenuItem>
         <ContextMenuSeparator />
-        <ContextMenuRadioGroup value="pedro">
+        <ContextMenuCheckboxItem checked>
+          Show Line Numbers
+        </ContextMenuCheckboxItem>
+        <ContextMenuCheckboxItem>
+          Word Wrap
+        </ContextMenuCheckboxItem>
+        <ContextMenuSeparator />
+        <ContextMenuRadioGroup value="light">
           <ContextMenuGroup>
-            <ContextMenuGroupLabel inset>People</ContextMenuGroupLabel>
-            <ContextMenuRadioItem value="pedro">
-              Pedro Duarte
+            <ContextMenuGroupLabel inset>Theme</ContextMenuGroupLabel>
+            <ContextMenuRadioItem value="light">
+              Light
             </ContextMenuRadioItem>
-            <ContextMenuRadioItem value="colm">Colm Tuite</ContextMenuRadioItem>
+            <ContextMenuRadioItem value="dark">Dark</ContextMenuRadioItem>
+            <ContextMenuRadioItem value="system">System</ContextMenuRadioItem>
           </ContextMenuGroup>
         </ContextMenuRadioGroup>
       </ContextMenuContent>
