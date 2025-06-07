@@ -2185,6 +2185,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "navigation-menu-nested": {
+      name: "navigation-menu-nested",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/navigation-menu-nested.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/navigation-menu-nested.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "mode-toggle": {
       name: "mode-toggle",
       description: "",

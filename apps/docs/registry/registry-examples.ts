@@ -992,6 +992,16 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "navigation-menu-nested",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/navigation-menu-nested.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [

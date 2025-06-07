@@ -7,15 +7,22 @@ import { ChevronDownIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
+interface NavigationMenuProps
+  extends React.ComponentProps<typeof NavigationMenuPrimitive.Root> {
+  contentProps?: Omit<
+    React.ComponentProps<typeof NavigationMenuPrimitive.Positioner>,
+    "render"
+  >;
+}
+
 function NavigationMenu({
-  orientation = "horizontal",
   className,
   children,
+  contentProps,
   ...props
-}: React.ComponentProps<typeof NavigationMenuPrimitive.Root>) {
+}: NavigationMenuProps) {
   return (
     <NavigationMenuPrimitive.Root
-      data-orientation={orientation}
       data-slot="navigation-menu"
       className={cn(
         "group/navigation-menu relative flex max-w-max items-center justify-center",
@@ -24,7 +31,7 @@ function NavigationMenu({
       {...props}
     >
       {children}
-      <NavigationMenuViewport />
+      <NavigationMenuViewport contentProps={contentProps} />
     </NavigationMenuPrimitive.Root>
   );
 }
@@ -152,32 +159,54 @@ function NavigationMenuPortal({
   );
 }
 
+interface NavigationMenuViewportProps
+  extends React.ComponentProps<typeof NavigationMenuPrimitive.Viewport> {
+  contentProps?: Omit<
+    React.ComponentProps<typeof NavigationMenuPrimitive.Positioner>,
+    "render"
+  >;
+}
+
 function NavigationMenuViewport({
-  className,
+  className: viewportClassName,
   children,
+  contentProps,
   ...props
-}: React.ComponentProps<typeof NavigationMenuPrimitive.Viewport>) {
+}: NavigationMenuViewportProps) {
+  const {
+    sideOffset = 6,
+    collisionPadding = { top: 5, bottom: 5, left: 20, right: 20 },
+    className,
+    ...rest
+  } = contentProps ?? {};
+
   return (
     <NavigationMenuPortal>
       <NavigationMenuBackdrop />
       <NavigationMenuPrimitive.Positioner
         data-slot="navigation-menu-positioner"
-        sideOffset={6}
-        collisionPadding={{ top: 5, bottom: 5, left: 20, right: 20 }}
-        className="box-border h-[var(--positioner-height)] w-[var(--positioner-width)] duration-300 ease-out"
+        sideOffset={sideOffset}
+        collisionPadding={collisionPadding}
+        className={cn(
+          "z-50 box-border h-[var(--positioner-height)] w-[var(--positioner-width)] duration-300 ease-out",
+          className
+        )}
+        {...rest}
       >
         <NavigationMenuPrimitive.Popup
           data-slot="navigation-menu-content"
           className={cn(
             "bg-popover relative h-[var(--popup-height)] w-full rounded-md border shadow transition-all duration-150 ease-out min-[500px]:w-[var(--popup-width)] md:w-[var(--popup-width)]",
             "origin-[var(--transform-origin)] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
-            "group-data-[orientation=vertical]/navigation-menu:bg-white!",
             className
           )}
         >
           <NavigationMenuPrimitive.Viewport
             data-slot="navigation-menu-viewport"
-            className={cn("relative h-full w-full overflow-hidden", className)}
+            className={cn(
+              "relative h-full w-full overflow-hidden",
+              viewportClassName
+            )}
             {...props}
           >
             {children}
