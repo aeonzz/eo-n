@@ -1,0 +1,12 @@
+{
+  "name": "slider-range",
+  "type": "registry:example",
+  "files": [
+    {
+      "path": "examples/slider-range.tsx",
+      "content": "import { Slider } from \"@/registry/default/ui/slider\";\r\n\r\nexport default function SliderRange() {\r\n  return <Slider defaultValue={[25, 75]} className=\"w-full max-w-xs\" />;\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

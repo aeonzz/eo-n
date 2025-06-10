@@ -1705,6 +1705,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "slider-range": {
+      name: "slider-range",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/slider-range.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/slider-range.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "switch-demo": {
       name: "switch-demo",
       description: "",

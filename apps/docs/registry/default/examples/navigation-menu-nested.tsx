@@ -49,7 +49,7 @@ export default function NavigationMenuNested() {
                   render={
                     <Link
                       className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
-                      href="/products"
+                      href="/docs/ui/navigation-menu/#"
                     >
                       <div className="mt-4 mb-2 text-lg font-medium">
                         Our Products
@@ -82,7 +82,7 @@ export default function NavigationMenuNested() {
                   <NavigationSubMenuTrigger
                     render={(props, state) => (
                       <ListItem
-                        href="/products/enterprise"
+                        href="/docs/ui/navigation-menu/#"
                         title="Enterprise Solutions"
                         {...props}
                       >
