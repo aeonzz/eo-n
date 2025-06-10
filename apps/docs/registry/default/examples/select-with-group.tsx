@@ -4,7 +4,6 @@ import {
   SelectGroup,
   SelectItem,
   SelectGroupLabel,
-  SelectSeparator,
   SelectTrigger,
   SelectValue,
 } from "@/registry/default/ui/select";
@@ -22,7 +21,6 @@ export default function SelectWithGroup() {
           <SelectItem value="data-scientist">Data Scientist</SelectItem>
           <SelectItem value="ux-designer">UX Designer</SelectItem>
         </SelectGroup>
-        <SelectSeparator />
         <SelectGroup>
           <SelectGroupLabel>Business</SelectGroupLabel>
           <SelectItem value="marketing-manager">Marketing Manager</SelectItem>

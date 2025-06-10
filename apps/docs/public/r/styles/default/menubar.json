@@ -1,0 +1,12 @@
+{
+  "name": "menubar",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "ui/menubar.tsx",
+      "content": "\"use client\";\r\n\r\nimport * as React from \"react\";\r\nimport { Menubar as MenubarRoot } from \"@base-ui-components/react/menubar\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nfunction Menubar({\r\n  modal = false,\r\n  className,\r\n  ...props\r\n}: React.ComponentProps<typeof MenubarRoot>) {\r\n  return (\r\n    <MenubarRoot\r\n      data-slot=\"menubar\"\r\n      modal={modal}\r\n      className={cn(\r\n        \"bg-background flex min-h-9 items-center gap-1 rounded-md border p-1 shadow-xs\",\r\n        className\r\n      )}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport { Menubar };\r\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

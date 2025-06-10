@@ -30,10 +30,9 @@ export default function DropdownMenuDemo() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger render={<Button variant="outline">Menu</Button>} />
-      <DropdownMenuContent className="w-48">
+      <DropdownMenuContent className="w-56">
         <DropdownMenuGroup>
           <DropdownMenuGroupLabel>Preferences</DropdownMenuGroupLabel>
-          <DropdownMenuSeparator />
           <DropdownMenuItem>
             <Home />
             <span>Dashboard</span>

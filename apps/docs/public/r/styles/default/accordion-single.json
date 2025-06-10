@@ -1,0 +1,12 @@
+{
+  "name": "accordion-single",
+  "type": "registry:example",
+  "files": [
+    {
+      "path": "examples/accordion-single.tsx",
+      "content": "import {\r\n  Accordion,\r\n  AccordionContent,\r\n  AccordionItem,\r\n  AccordionTrigger,\r\n} from \"@/registry/default/ui/accordion\";\r\n\r\nexport default function AccordionSingle() {\r\n  return (\r\n    <Accordion openMultiple={false}>\r\n      <AccordionItem value=\"item-1\">\r\n        <AccordionTrigger>Explore the Galaxy</AccordionTrigger>\r\n        <AccordionContent>\r\n          Journey through the stars and uncover the mysteries of distant\r\n          planets, nebulae, and black holes. A cosmic adventure awaits!\r\n        </AccordionContent>\r\n      </AccordionItem>\r\n      <AccordionItem value=\"item-2\">\r\n        <AccordionTrigger>Unravel History</AccordionTrigger>\r\n        <AccordionContent>\r\n          Dive into the past with tales of ancient civilizations, legendary\r\n          battles, and forgotten heroes that shaped our world.\r\n        </AccordionContent>\r\n      </AccordionItem>\r\n      <AccordionItem value=\"item-3\">\r\n        <AccordionTrigger>Master New Skills</AccordionTrigger>\r\n        <AccordionContent>\r\n          Unlock your potential with tips on coding, art, or cooking—practical\r\n          knowledge to inspire creativity and growth.\r\n        </AccordionContent>\r\n      </AccordionItem>\r\n    </Accordion>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

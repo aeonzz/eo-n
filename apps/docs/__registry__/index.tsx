@@ -537,6 +537,54 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "context-menu": {
+      name: "context-menu",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/context-menu.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/context-menu.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "menubar": {
+      name: "menubar",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/menubar.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/menubar.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "navigation-menu": {
+      name: "navigation-menu",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/navigation-menu.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/navigation-menu.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       description: "",
@@ -1017,17 +1065,17 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
-    "accordion-multiple": {
-      name: "accordion-multiple",
+    "accordion-single": {
+      name: "accordion-single",
       description: "",
       type: "registry:example",
       registryDependencies: undefined,
       files: [{
-        path: "registry/default/examples/accordion-multiple.tsx",
+        path: "registry/default/examples/accordion-single.tsx",
         type: "registry:example",
         target: ""
       }],
-      component: React.lazy(() => import("@/registry/default/examples/accordion-multiple.tsx")),
+      component: React.lazy(() => import("@/registry/default/examples/accordion-single.tsx")),
       source: "",
       category: "",
       subcategory: "",
@@ -1657,6 +1705,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "slider-range": {
+      name: "slider-range",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/slider-range.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/slider-range.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "switch-demo": {
       name: "switch-demo",
       description: "",
@@ -2068,6 +2132,86 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/textarea-demo.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "context-menu-demo": {
+      name: "context-menu-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/context-menu-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/context-menu-demo.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "context-menu-nested": {
+      name: "context-menu-nested",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/context-menu-nested.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/context-menu-nested.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "menubar-demo": {
+      name: "menubar-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/menubar-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/menubar-demo.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "navigation-menu-demo": {
+      name: "navigation-menu-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/navigation-menu-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/navigation-menu-demo.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "navigation-menu-nested": {
+      name: "navigation-menu-nested",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/navigation-menu-nested.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/navigation-menu-nested.tsx")),
       source: "",
       category: "",
       subcategory: "",

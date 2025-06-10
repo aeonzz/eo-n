@@ -386,4 +386,34 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "context-menu",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/context-menu.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "menubar",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/menubar.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "navigation-menu",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/navigation-menu.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];

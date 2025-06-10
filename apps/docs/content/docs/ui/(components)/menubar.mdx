@@ -1,0 +1,61 @@
+---
+title: Menubar
+description: A horizontal navigation bar that displays a list of menu items and dropdown menus.
+preview: true
+new: true
+links:
+  doc: https://base-ui.com/react/components/menubar#api-reference
+---
+
+<ComponentTabs name="menubar-demo" />
+
+## Installation
+
+### CLI
+
+```package-install
+npx shadcn@latest add "https://eo-n.vercel.app/r/menubar"
+```
+
+### Manual
+
+<Steps>
+
+  <Step>
+    Copy and paste the following code into your project.
+
+    <ComponentSource name="menubar" />
+
+  </Step>
+  
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+Import all parts and piece them together.
+
+```tsx
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Menubar } from "@/components/ui/menubar";
+```
+
+```tsx
+<Menubar>
+  <DropdownMenu>
+    <DropdownMenuTrigger>File</DropdownMenuTrigger>
+    <DropdownMenuContent>
+      <DropdownMenuItem>New Tab</DropdownMenuItem>
+      <DropdownMenuItem>New Window</DropdownMenuItem>
+      <DropdownMenuItem>Share</DropdownMenuItem>
+      <DropdownMenuItem>Print</DropdownMenuItem>
+    </DropdownMenuContent>
+  </DropdownMenu>
+</Menubar>
+```

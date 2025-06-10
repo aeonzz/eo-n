@@ -8,11 +8,11 @@ import {
 
 export default function SelectAlignTrigger() {
   return (
-    <Select alignItemToTrigger defaultValue="light">
-      <SelectTrigger className="w-36">
+    <Select defaultValue="light">
+      <SelectTrigger className="w-40">
         <SelectValue placeholder="Theme" />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent alignItemWithTrigger>
         <SelectItem value="light">Light</SelectItem>
         <SelectItem value="dark">Dark</SelectItem>
         <SelectItem value="system">System</SelectItem>

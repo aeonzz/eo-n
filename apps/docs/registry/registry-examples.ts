@@ -292,11 +292,11 @@ export const examples: Registry = [
     ],
   },
   {
-    name: "accordion-multiple",
+    name: "accordion-single",
     type: "registry:example",
     files: [
       {
-        path: "examples/accordion-multiple.tsx",
+        path: "examples/accordion-single.tsx",
         type: "registry:example",
       },
     ],
@@ -692,6 +692,16 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "slider-range",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/slider-range.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "switch-demo",
     type: "registry:example",
     files: [
@@ -947,6 +957,56 @@ export const examples: Registry = [
     files: [
       {
         path: "examples/textarea-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "context-menu-demo",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/context-menu-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "context-menu-nested",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/context-menu-nested.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "menubar-demo",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/menubar-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "navigation-menu-demo",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/navigation-menu-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "navigation-menu-nested",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/navigation-menu-nested.tsx",
         type: "registry:example",
       },
     ],

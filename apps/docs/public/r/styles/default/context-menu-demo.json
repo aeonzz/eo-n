@@ -1,0 +1,12 @@
+{
+  "name": "context-menu-demo",
+  "type": "registry:example",
+  "files": [
+    {
+      "path": "examples/context-menu-demo.tsx",
+      "content": "import {\r\n  ContextMenu,\r\n  ContextMenuCheckboxItem,\r\n  ContextMenuContent,\r\n  ContextMenuGroup,\r\n  ContextMenuGroupLabel,\r\n  ContextMenuItem,\r\n  ContextMenuRadioGroup,\r\n  ContextMenuRadioItem,\r\n  ContextMenuSeparator,\r\n  ContextMenuShortcut,\r\n  ContextMenuTrigger,\r\n} from \"@/registry/default/ui/context-menu\";\r\n\r\nexport default function ContextMenuDemo() {\r\n  return (\r\n    <ContextMenu>\r\n      <ContextMenuTrigger className=\"flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm\">\r\n        Right click here to see options\r\n      </ContextMenuTrigger>\r\n      <ContextMenuContent className=\"w-52\">\r\n        <ContextMenuItem inset>\r\n          Copy\r\n          <ContextMenuShortcut>⌘C</ContextMenuShortcut>\r\n        </ContextMenuItem>\r\n        <ContextMenuItem inset>\r\n          Paste\r\n          <ContextMenuShortcut>⌘V</ContextMenuShortcut>\r\n        </ContextMenuItem>\r\n        <ContextMenuItem inset>\r\n          Cut\r\n          <ContextMenuShortcut>⌘X</ContextMenuShortcut>\r\n        </ContextMenuItem>\r\n        <ContextMenuSeparator />\r\n        <ContextMenuCheckboxItem checked>\r\n          Show Line Numbers\r\n        </ContextMenuCheckboxItem>\r\n        <ContextMenuCheckboxItem>\r\n          Word Wrap\r\n        </ContextMenuCheckboxItem>\r\n        <ContextMenuSeparator />\r\n        <ContextMenuRadioGroup value=\"light\">\r\n          <ContextMenuGroup>\r\n            <ContextMenuGroupLabel inset>Theme</ContextMenuGroupLabel>\r\n            <ContextMenuRadioItem value=\"light\">\r\n              Light\r\n            </ContextMenuRadioItem>\r\n            <ContextMenuRadioItem value=\"dark\">Dark</ContextMenuRadioItem>\r\n            <ContextMenuRadioItem value=\"system\">System</ContextMenuRadioItem>\r\n          </ContextMenuGroup>\r\n        </ContextMenuRadioGroup>\r\n      </ContextMenuContent>\r\n    </ContextMenu>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
