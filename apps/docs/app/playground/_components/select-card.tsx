@@ -64,11 +64,11 @@ export const products: Product[] = [
 export default function SelectCard() {
   return (
     <ComponentCard name="Select">
-      <Select alignItemToTrigger>
+      <Select>
         <SelectTrigger className="w-48">
           <SelectValue placeholder="Select a product" />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent alignItemWithTrigger>
           {products.map((product) => (
             <SelectItem key={product.id} value={product.id}>
               {product.name}
