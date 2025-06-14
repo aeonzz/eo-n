@@ -1,0 +1,12 @@
+{
+  "name": "sheet-demo",
+  "type": "registry:example",
+  "files": [
+    {
+      "path": "examples/sheet-demo.tsx",
+      "content": "import Image from \"next/image.js\";\r\n\r\nimport { Button } from \"@/registry/default/ui/button\";\r\nimport { Input } from \"@/registry/default/ui/input\";\r\nimport { Label } from \"@/registry/default/ui/label\";\r\nimport {\r\n  Sheet,\r\n  SheetClose,\r\n  SheetContent,\r\n  SheetDescription,\r\n  SheetFooter,\r\n  SheetHeader,\r\n  SheetTitle,\r\n  SheetTrigger,\r\n} from \"@/registry/default/ui/sheet\";\r\n\r\nexport default function SheetDemo() {\r\n  return (\r\n    <Sheet>\r\n      <SheetTrigger render={<Button variant=\"outline\">Open</Button>} />\r\n      <SheetContent>\r\n        <SheetHeader>\r\n          <SheetTitle>Edit profile</SheetTitle>\r\n          <SheetDescription>\r\n            Update the details below and click save to apply changes.\r\n          </SheetDescription>\r\n        </SheetHeader>\r\n        <div className=\"flex flex-col gap-4 px-4\">\r\n          <div className=\"relative aspect-video w-full overflow-hidden\">\r\n            <Image\r\n              src=\"/images/dialog-demo-image.jpg\"\r\n              alt=\"dialog-placeholder\"\r\n              priority\r\n              className=\"rounded-md\"\r\n              objectFit=\"cover\"\r\n              fill\r\n            />\r\n          </div>\r\n          <div className=\"flex flex-col gap-4\">\r\n            <div className=\"flex flex-col gap-3\">\r\n              <Label htmlFor=\"title\">Title</Label>\r\n              <Input id=\"title\" value=\"Sample Title\" className=\"col-span-3\" />\r\n            </div>\r\n            <div className=\"flex flex-col gap-3\">\r\n              <Label htmlFor=\"description\">Description</Label>\r\n              <Input\r\n                id=\"description\"\r\n                value=\"Sample Description\"\r\n                className=\"col-span-3\"\r\n              />\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <SheetFooter>\r\n          <Button type=\"submit\">Save changes</Button>\r\n          <SheetClose render={<Button variant=\"outline\">Close</Button>} />\r\n        </SheetFooter>\r\n      </SheetContent>\r\n    </Sheet>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

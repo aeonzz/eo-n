@@ -1,0 +1,146 @@
+---
+title: Sheet
+description: A sheet component that slides in from the side of the screen, used for displaying additional content or actions without taking up the full screen.
+preview: true
+new: true
+links:
+  doc: https://base-ui.com/react/components/dialog#api-reference
+  api: /docs/ui/dialog#api-reference
+---
+
+<ComponentTabs name="sheet-demo" />
+
+## Installation
+
+### CLI
+
+```package-install
+npx shadcn@latest add "https://eo-n.vercel.app/r/sheet"
+```
+
+### Manual
+
+<Steps>
+
+  <Step>
+    Copy and paste the following code into your project.
+
+    <ComponentSource name="sheet" />
+
+  </Step>
+  
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+Import all parts and piece them together.
+
+```tsx
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+```
+
+```tsx
+<Sheet>
+  <SheetTrigger>Open</SheetTrigger>
+  <SheetContent>
+    <SheetHeader>
+      <SheetTitle>Are you sure you want to proceed?</SheetTitle>
+      <SheetDescription>
+        This action may have permanent effects. Please confirm if you want to
+        continue.
+      </SheetDescription>
+    </SheetHeader>
+  </SheetContent>
+</Sheet>
+```
+
+## Examples
+
+### Side
+
+<ComponentTabs name="sheet-side" />
+
+### Open On Menu
+
+In order to open a sheet using a menu, control the sheet state and open it imperatively using the `onClick` handler on the menu item.
+
+<Callout title="Return Focus Properly" type="warn">
+  Make sure to also use the sheet’s ```finalFocus``` prop to return focus back
+  to the menu trigger.
+</Callout>
+
+```jsx
+import * as React from "react";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuPositioner,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "../ui/sheet";
+
+export default function DropdownMenuRadio() {
+  const menuTriggerRef = React.useRef<HTMLButtonElement>(null);
+  const [sheetOpen, setSheetOpen] = React.useState(false);
+
+  return (
+    <React.Fragment>
+      <DropdownMenu>
+        // [!code highlight:2]
+        {/* Set the trigger ref */}
+        <DropdownMenuTrigger ref={menuTriggerRef}>Open</DropdownMenuTrigger>
+        <DropdownMenuPositioner>
+          <DropdownMenuContent>
+            // [!code highlight:2]
+            {/* Open the sheet when the menu item is clicked */}
+            <DropdownMenuItem onClick={() => setSheetOpen(true)}>
+              Open sheet
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenuPositioner>
+      </DropdownMenu>
+      // [!code highlight:2]
+      {/* Control the sheet state */}
+      <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
+        // [!code highlight:2]
+        {/* Return focus to the menu trigger when the sheet is closed */}
+        <SheetContent finalFocus={menuTriggerRef}>
+          <SheetHeader>
+            <SheetTitle>Are you sure you want to proceed?</SheetTitle>
+            <SheetDescription>
+              This action may have permanent effects. Please confirm if you want
+              to continue.
+            </SheetDescription>
+          </SheetHeader>
+        </SheetContent>
+      </Sheet>
+    </React.Fragment>
+  );
+}
+```
+
+## API Reference
+
+### Content
+
+Contains content to be rendered in the open sheet.
+
+<AutoTypeTable path="./types/docs/sheet.ts" name="ContentProps" />

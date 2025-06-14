@@ -21,6 +21,7 @@ import SelectCard from "./_components/select-card";
 import TabsCard from "./_components/tabs-card";
 import ToolbarCard from "./_components/toolbar-card";
 import TooltipCard from "./_components/tooltip-card";
+import SheetCard from "./_components/sheet-card";
 
 export default function page() {
   if (process.env.NODE_ENV !== "development") return notFound();
@@ -49,6 +50,7 @@ export default function page() {
         <ContextMenuCard />
         <MenubarCard />
         <NavigationMenuCard />
+        <SheetCard />
       </div>
     </main>
   );

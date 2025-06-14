@@ -468,5 +468,15 @@
         "type": "registry:ui"
       }
     ]
+  },
+  {
+    "name": "sheet",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "ui/sheet.tsx",
+        "type": "registry:ui"
+      }
+    ]
   }
 ]

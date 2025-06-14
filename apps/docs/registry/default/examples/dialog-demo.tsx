@@ -24,11 +24,12 @@ export default function DialogDemo() {
             Update the details below and click save to apply changes.
           </DialogDescription>
         </DialogHeader>
-        <div className="relative aspect-video w-full">
+        <div className="relative aspect-video w-full overflow-hidden">
           <Image
             src="/images/dialog-demo-image.jpg"
             alt="dialog-placeholder"
             priority
+            className="rounded-md"
             objectFit="cover"
             fill
           />
@@ -36,11 +37,7 @@ export default function DialogDemo() {
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-3">
             <Label htmlFor="title">Title</Label>
-            <Input
-              id="title"
-              value="Sample Title"
-              className="col-span-3"
-            />
+            <Input id="title" value="Sample Title" className="col-span-3" />
           </div>
           <div className="flex flex-col gap-3">
             <Label htmlFor="description">Description</Label>

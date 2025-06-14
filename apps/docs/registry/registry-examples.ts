@@ -1012,6 +1012,26 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "sheet-demo",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/sheet-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "sheet-side",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/sheet-side.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [

@@ -416,4 +416,14 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "sheet",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/sheet.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];
