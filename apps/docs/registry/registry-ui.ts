@@ -389,6 +389,7 @@ export const ui: Registry = [
   {
     name: "context-menu",
     type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
     files: [
       {
         path: "ui/context-menu.tsx",
@@ -399,6 +400,7 @@ export const ui: Registry = [
   {
     name: "menubar",
     type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
     files: [
       {
         path: "ui/menubar.tsx",
@@ -409,6 +411,7 @@ export const ui: Registry = [
   {
     name: "navigation-menu",
     type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
     files: [
       {
         path: "ui/navigation-menu.tsx",
@@ -419,9 +422,21 @@ export const ui: Registry = [
   {
     name: "sheet",
     type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
     files: [
       {
         path: "ui/sheet.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "emoji-picker",
+    type: "registry:ui",
+    dependencies: ["frimousse"],
+    files: [
+      {
+        path: "ui/emoji-picker.tsx",
         type: "registry:ui",
       },
     ],

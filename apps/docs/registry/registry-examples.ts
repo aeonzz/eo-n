@@ -1032,6 +1032,26 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "emoji-picker-demo",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/emoji-picker-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "emoji-picker-popover",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/emoji-picker-popover.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [

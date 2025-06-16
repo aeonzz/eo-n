@@ -9,6 +9,7 @@ import CollapsibleCard from "./_components/collapsible-card";
 import ContextMenuCard from "./_components/context-menu-card";
 import DialogCard from "./_components/dialog-card";
 import DropdownMenuCard from "./_components/dropdown-menu-card";
+import EmojiPickerCard from "./_components/emoji-picker-card";
 import InputCard from "./_components/input-card";
 import MenubarCard from "./_components/menubar-card";
 import MeterCard from "./_components/meter-card";
@@ -18,10 +19,10 @@ import PopoverCard from "./_components/popover-card";
 import PreviewCardCard from "./_components/preview-card-card";
 import ScrollAreaCard from "./_components/scroll-area-card";
 import SelectCard from "./_components/select-card";
+import SheetCard from "./_components/sheet-card";
 import TabsCard from "./_components/tabs-card";
 import ToolbarCard from "./_components/toolbar-card";
 import TooltipCard from "./_components/tooltip-card";
-import SheetCard from "./_components/sheet-card";
 
 export default function page() {
   if (process.env.NODE_ENV !== "development") return notFound();
@@ -50,6 +51,7 @@ export default function page() {
         <ContextMenuCard />
         <MenubarCard />
         <NavigationMenuCard />
+        <EmojiPickerCard />
         <SheetCard />
       </div>
     </main>

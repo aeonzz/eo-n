@@ -1,0 +1,12 @@
+{
+  "name": "emoji-picker-demo",
+  "type": "registry:example",
+  "files": [
+    {
+      "path": "examples/emoji-picker-demo.tsx",
+      "content": "import {\r\n  EmojiPicker,\r\n  EmojiPickerContent,\r\n  EmojiPickerFooter,\r\n  EmojiPickerSearch,\r\n  EmojiPickerSkinToneSelector,\r\n} from \"@/registry/default/ui/emoji-picker\";\r\nimport { useToastManager } from \"@/registry/default/ui/toast\";\r\n\r\nexport default function EmojiPickerDemo() {\r\n  const toast = useToastManager();\r\n  return (\r\n    <EmojiPicker\r\n      onEmojiSelect={({ emoji, label }) => {\r\n        toast.add({\r\n          title: `${emoji} ${label}`,\r\n        });\r\n      }}\r\n    >\r\n      <EmojiPickerSearch />\r\n      <EmojiPickerContent />\r\n      <EmojiPickerFooter>\r\n        <EmojiPickerSkinToneSelector />\r\n      </EmojiPickerFooter>\r\n    </EmojiPicker>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

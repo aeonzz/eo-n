@@ -1,0 +1,12 @@
+{
+  "name": "emoji-picker-popover",
+  "type": "registry:example",
+  "files": [
+    {
+      "path": "examples/emoji-picker-popover.tsx",
+      "content": "import { Button } from \"@/registry/default/ui/button\";\r\nimport {\r\n  EmojiPicker,\r\n  EmojiPickerContent,\r\n  EmojiPickerFooter,\r\n  EmojiPickerSearch,\r\n  EmojiPickerSkinToneSelector,\r\n} from \"@/registry/default/ui/emoji-picker\";\r\nimport {\r\n  Popover,\r\n  PopoverContent,\r\n  PopoverTrigger,\r\n} from \"@/registry/default/ui/popover\";\r\nimport { useToastManager } from \"@/registry/default/ui/toast\";\r\n\r\nexport default function EmojiPickerDemo() {\r\n  const toast = useToastManager();\r\n\r\n  return (\r\n    <Popover>\r\n      <PopoverTrigger render={<Button>Open emoji picker</Button>} />\r\n      <PopoverContent side=\"bottom\" align=\"start\" className=\"w-fit p-0\">\r\n        <EmojiPicker\r\n          onEmojiSelect={({ emoji, label }) => {\r\n            toast.add({\r\n              title: `${emoji} ${label}`,\r\n            });\r\n          }}\r\n        >\r\n          <EmojiPickerSearch />\r\n          <EmojiPickerContent />\r\n          <EmojiPickerFooter>\r\n            <EmojiPickerSkinToneSelector />\r\n          </EmojiPickerFooter>\r\n        </EmojiPicker>\r\n      </PopoverContent>\r\n    </Popover>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

@@ -1,6 +1,9 @@
 {
   "name": "menubar",
   "type": "registry:ui",
+  "dependencies": [
+    "@base-ui-components/react"
+  ],
   "files": [
     {
       "path": "ui/menubar.tsx",
