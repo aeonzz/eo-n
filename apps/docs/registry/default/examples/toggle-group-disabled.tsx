@@ -7,7 +7,7 @@ import {
 
 export default function ToggleGroupDisabled() {
   return (
-    <ToggleGroup disabled className="gap-0.75 rounded-lg border p-0.75">
+    <ToggleGroup disabled variant="outline">
       <ToggleGroupItem value="left" aria-label="Toggle left">
         <AlignLeft />
       </ToggleGroupItem>

@@ -822,6 +822,16 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "toggle-group-vertical",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/toggle-group-vertical.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "card-demo",
     type: "registry:example",
     files: [

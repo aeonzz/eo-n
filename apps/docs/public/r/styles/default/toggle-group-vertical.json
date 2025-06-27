@@ -1,0 +1,12 @@
+{
+  "name": "toggle-group-vertical",
+  "type": "registry:example",
+  "files": [
+    {
+      "path": "examples/toggle-group-vertical.tsx",
+      "content": "import { AlignCenter, AlignLeft, AlignRight } from \"lucide-react\";\r\n\r\nimport {\r\n  ToggleGroup,\r\n  ToggleGroupItem,\r\n} from \"@/registry/default/ui/toggle-group\";\r\n\r\nexport default function ToggleGroupVertical() {\r\n  return (\r\n    <ToggleGroup variant=\"outline\" orientation=\"vertical\">\r\n      <ToggleGroupItem value=\"left\" aria-label=\"Toggle left\">\r\n        <AlignLeft />\r\n      </ToggleGroupItem>\r\n      <ToggleGroupItem value=\"center\" aria-label=\"Toggle center\">\r\n        <AlignCenter />\r\n      </ToggleGroupItem>\r\n      <ToggleGroupItem value=\"right\" aria-label=\"Toggle right\">\r\n        <AlignRight />\r\n      </ToggleGroupItem>\r\n    </ToggleGroup>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

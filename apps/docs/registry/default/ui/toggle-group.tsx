@@ -16,8 +16,8 @@ const ToggleGroupContext = React.createContext<
 
 function ToggleGroup({
   className,
-  size,
   variant,
+  size,
   children,
   ...props
 }: React.ComponentProps<typeof ToggleGroupRoot> &
@@ -33,8 +33,10 @@ function ToggleGroup({
   return (
     <ToggleGroupRoot
       data-slot="toggle-group"
+      data-variant={variant}
+      data-size={size}
       className={cn(
-        "flex items-center justify-center gap-1 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        "group/toggle-group flex w-fit items-center rounded-md data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[orientation=horizontal]:flex-row data-[orientation=vertical]:flex-col data-[variant=outline]:shadow-xs",
         className
       )}
       {...props}
@@ -48,19 +50,25 @@ function ToggleGroup({
 
 function ToggleGroupItem({
   className,
+  children,
   variant,
   size,
-  children,
   ...props
-}: React.ComponentProps<typeof Toggle>) {
+}: React.ComponentProps<typeof Toggle> & VariantProps<typeof toggleVariants>) {
   const context = React.useContext(ToggleGroupContext);
+
   return (
     <Toggle
+      data-slot="toggle-group-item"
+      data-variant={context.variant || variant}
+      data-size={context.size || size}
       className={cn(
         toggleVariants({
           variant: context.variant || variant,
           size: context.size || size,
         }),
+        "min-w-0 flex-1 shrink-0 rounded-none shadow-none focus:z-10 focus-visible:z-10",
+        "group-data-[orientation=horizontal]/toggle-group:first:rounded-l-md group-data-[orientation=vertical]/toggle-group:first:rounded-t-md group-data-[orientation=horizontal]/toggle-group:last:rounded-r-md group-data-[orientation=vertical]/toggle-group:last:rounded-b-md [[data-variant=outline][data-orientation=horizontal]_&]:border-l-0 [[data-variant=outline][data-orientation=horizontal]_&]:first:border-l [[data-variant=outline][data-orientation=vertical]_&]:border-t-0 [[data-variant=outline][data-orientation=vertical]_&]:first:border-t",
         className
       )}
       {...props}

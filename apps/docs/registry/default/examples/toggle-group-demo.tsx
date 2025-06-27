@@ -7,7 +7,7 @@ import {
 
 export default function ToggleGroupDemo() {
   return (
-    <ToggleGroup className="gap-0.75 rounded-lg border p-0.75">
+    <ToggleGroup variant="outline">
       <ToggleGroupItem value="left" aria-label="Toggle left">
         <AlignLeft />
       </ToggleGroupItem>

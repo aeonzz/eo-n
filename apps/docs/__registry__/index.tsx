@@ -1945,6 +1945,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "toggle-group-vertical": {
+      name: "toggle-group-vertical",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/toggle-group-vertical.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/toggle-group-vertical.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "card-demo": {
       name: "card-demo",
       description: "",

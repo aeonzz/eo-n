@@ -7,7 +7,7 @@ import {
 
 export default function ToggleGroupMultiple() {
   return (
-    <ToggleGroup toggleMultiple className="gap-0.75 rounded-lg border p-0.75">
+    <ToggleGroup toggleMultiple>
       <ToggleGroupItem value="bold" aria-label="Toggle bold">
         <Bold />
       </ToggleGroupItem>

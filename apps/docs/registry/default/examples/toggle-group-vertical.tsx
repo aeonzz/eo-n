@@ -5,9 +5,9 @@ import {
   ToggleGroupItem,
 } from "@/registry/default/ui/toggle-group";
 
-export default function ToggleGroupLarge() {
+export default function ToggleGroupVertical() {
   return (
-    <ToggleGroup size="lg">
+    <ToggleGroup variant="outline" orientation="vertical">
       <ToggleGroupItem value="left" aria-label="Toggle left">
         <AlignLeft />
       </ToggleGroupItem>
