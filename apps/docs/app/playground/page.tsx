@@ -13,7 +13,6 @@ import EmojiPickerCard from "./_components/emoji-picker-card";
 import InputCard from "./_components/input-card";
 import MenubarCard from "./_components/menubar-card";
 import MeterCard from "./_components/meter-card";
-import MosaicCard from "./_components/mosaic";
 import NavigationMenuCard from "./_components/navigation-menu-card";
 import NumberInputCard from "./_components/number-input-card";
 import PopoverCard from "./_components/popover-card";
@@ -54,7 +53,6 @@ export default function page() {
         <NavigationMenuCard />
         <EmojiPickerCard />
         <SheetCard />
-        <MosaicCard />
       </div>
     </main>
   );
