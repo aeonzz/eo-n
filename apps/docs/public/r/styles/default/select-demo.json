@@ -4,7 +4,7 @@
   "files": [
     {
       "path": "examples/select-demo.tsx",
-      "content": "import {\r\n  Select,\r\n  SelectContent,\r\n  SelectItem,\r\n  SelectTrigger,\r\n  SelectValue,\r\n} from \"@/registry/default/ui/select\";\r\n\r\nexport default function SelectDemo() {\r\n  return (\r\n    <Select>\r\n      <SelectTrigger className=\"w-40\">\r\n        <SelectValue placeholder=\"Theme\" />\r\n      </SelectTrigger>\r\n      <SelectContent>\r\n        <SelectItem value=\"light\">Light</SelectItem>\r\n        <SelectItem value=\"dark\">Dark</SelectItem>\r\n        <SelectItem value=\"system\">System</SelectItem>\r\n      </SelectContent>\r\n    </Select>\r\n  );\r\n}\r\n",
+      "content": "import {\r\n  Select,\r\n  SelectContent,\r\n  SelectItem,\r\n  SelectTrigger,\r\n  SelectValue,\r\n} from \"@/registry/default/ui/select\";\r\n\r\nconst items = [\r\n  { label: \"Select theme\", value: null },\r\n  { label: \"System default\", value: \"system\" },\r\n  { label: \"Light\", value: \"light\" },\r\n  { label: \"Dark\", value: \"dark\" },\r\n];\r\n\r\nexport default function SelectDemo() {\r\n  return (\r\n    <Select items={items}>\r\n      <SelectTrigger className=\"w-40\">\r\n        <SelectValue />\r\n      </SelectTrigger>\r\n      <SelectContent>\r\n        {items.map(({ label, value }) => (\r\n          <SelectItem key={value} value={value}>\r\n            {label}\r\n          </SelectItem>\r\n        ))}\r\n      </SelectContent>\r\n    </Select>\r\n  );\r\n}\r\n",
       "type": "registry:example",
       "target": ""
     }

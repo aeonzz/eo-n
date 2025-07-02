@@ -17,6 +17,12 @@ import {
   ToolbarSeparator,
 } from "@/registry/default/ui/toolbar";
 
+const items = [
+  { label: "Left Align", value: "left" },
+  { label: "Center Align", value: "center" },
+  { label: "Right Align", value: "right" },
+];
+
 export default function ToolbarDemo() {
   return (
     <Toolbar>
@@ -58,18 +64,20 @@ export default function ToolbarDemo() {
         />
       </ToolbarGroup>
       <ToolbarSeparator />
-      <Select defaultValue="left">
+      <Select items={items} defaultValue="left">
         <ToolbarButton
           render={
             <SelectTrigger className="w-40">
-              <SelectValue placeholder="Align items" />
+              <SelectValue />
             </SelectTrigger>
           }
         />
         <SelectContent>
-          <SelectItem value="left">Left Align</SelectItem>
-          <SelectItem value="center">Center Align</SelectItem>
-          <SelectItem value="right">Right Align</SelectItem>
+          {items.map(({ label, value }) => (
+            <SelectItem key={value} value={value}>
+              {label}
+            </SelectItem>
+          ))}
         </SelectContent>
       </Select>
       <ToolbarSeparator />

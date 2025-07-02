@@ -1,5 +1,3 @@
-import { ChevronRight } from "lucide-react";
-
 import {
   ContextMenu,
   ContextMenuCheckboxItem,
@@ -11,14 +9,10 @@ import {
   ContextMenuRadioItem,
   ContextMenuSeparator,
   ContextMenuShortcut,
+  ContextMenuSub,
+  ContextMenuSubTrigger,
   ContextMenuTrigger,
 } from "@/registry/default/ui/context-menu";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSubMenuTrigger,
-} from "@/registry/default/ui/dropdown-menu";
 
 export default function ContextMenuNested() {
   return (
@@ -39,25 +33,18 @@ export default function ContextMenuNested() {
           Reload
           <ContextMenuShortcut>⌘R</ContextMenuShortcut>
         </ContextMenuItem>
-        <DropdownMenu>
-          <DropdownMenuSubMenuTrigger
-            render={
-              <DropdownMenuItem inset closeOnClick={false}>
-                <span>More Tools</span>
-                <ChevronRight className="ml-auto" />
-              </DropdownMenuItem>
-            }
-          />
-          <DropdownMenuContent className="w-44">
-            <DropdownMenuItem>Save Page...</DropdownMenuItem>
-            <DropdownMenuItem>Create Shortcut...</DropdownMenuItem>
-            <DropdownMenuItem>Name Window...</DropdownMenuItem>
+        <ContextMenuSub>
+          <ContextMenuSubTrigger inset>More Tools</ContextMenuSubTrigger>
+          <ContextMenuContent className="w-44">
+            <ContextMenuItem>Save Page...</ContextMenuItem>
+            <ContextMenuItem>Create Shortcut...</ContextMenuItem>
+            <ContextMenuItem>Name Window...</ContextMenuItem>
             <ContextMenuSeparator />
-            <DropdownMenuItem>Developer Tools</DropdownMenuItem>
+            <ContextMenuItem>Developer Tools</ContextMenuItem>
             <ContextMenuSeparator />
-            <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            <ContextMenuItem variant="destructive">Delete</ContextMenuItem>
+          </ContextMenuContent>
+        </ContextMenuSub>
         <ContextMenuSeparator />
         <ContextMenuCheckboxItem checked>
           Show Bookmarks

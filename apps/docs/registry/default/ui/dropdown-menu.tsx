@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Menu as DropdownMenuPrimitive } from "@base-ui-components/react/menu";
-import { Check, Circle } from "lucide-react";
+import { Check, ChevronRightIcon, Circle } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -104,6 +104,41 @@ function DropdownMenuItem({
   );
 }
 
+function DropdownMenuSub({
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.SubmenuRoot>) {
+  return (
+    <DropdownMenuPrimitive.SubmenuRoot
+      data-slot="dropdown-menu-sub"
+      {...props}
+    />
+  );
+}
+
+function DropdownMenuSubTrigger({
+  className,
+  inset,
+  children,
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.SubmenuTrigger> & {
+  inset?: boolean;
+}) {
+  return (
+    <DropdownMenuPrimitive.SubmenuTrigger
+      data-slot="dropdown-menu-sub-trigger"
+      data-inset={inset}
+      className={cn(
+        "focus:bg-accent focus:text-accent-foreground data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[inset]:pl-8 [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        className
+      )}
+      {...props}
+    >
+      {children}
+      <ChevronRightIcon className="ml-auto size-4" />
+    </DropdownMenuPrimitive.SubmenuTrigger>
+  );
+}
+
 function DropdownMenuGroup({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Group>) {
@@ -127,7 +162,7 @@ function DropdownMenuGroupLabel({
       data-slot="dropdown-menu-group-label"
       data-inset={inset}
       className={cn(
-        "px-2 py-1.5 text-sm leading-none font-medium data-[inset]:pl-8",
+        "px-2 py-1.5 text-sm font-medium data-[inset]:pl-8",
         className
       )}
       {...props}
@@ -194,22 +229,6 @@ function DropdownMenuCheckboxItem({
   );
 }
 
-function DropdownMenuSubMenuTrigger({
-  className,
-  ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.SubmenuTrigger>) {
-  return (
-    <DropdownMenuPrimitive.SubmenuTrigger
-      data-slot="dropdown-menu-sub-menu-trigger"
-      className={cn(
-        "data-[popup-open]:bg-accent data-[popup-open]:text-accent-foreground",
-        className
-      )}
-      {...props}
-    />
-  );
-}
-
 function DropdownMenuSeparator({
   className,
   ...props
@@ -249,12 +268,13 @@ export {
   DropdownMenuBackdrop,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
   DropdownMenuGroup,
   DropdownMenuGroupLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuCheckboxItem,
-  DropdownMenuSubMenuTrigger,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
 };

@@ -6,16 +6,24 @@ import {
   SelectValue,
 } from "@/registry/default/ui/select";
 
+const items = [
+  { label: "System", value: "system" },
+  { label: "Light", value: "light" },
+  { label: "Dark", value: "dark" },
+];
+
 export default function SelectAlignTrigger() {
   return (
-    <Select defaultValue="light">
+    <Select items={items} defaultValue="system">
       <SelectTrigger className="w-40">
-        <SelectValue placeholder="Theme" />
+        <SelectValue />
       </SelectTrigger>
       <SelectContent alignItemWithTrigger>
-        <SelectItem value="light">Light</SelectItem>
-        <SelectItem value="dark">Dark</SelectItem>
-        <SelectItem value="system">System</SelectItem>
+        {items.map(({ label, value }) => (
+          <SelectItem key={value} value={value}>
+            {label}
+          </SelectItem>
+        ))}
       </SelectContent>
     </Select>
   );

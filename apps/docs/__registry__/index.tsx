@@ -1097,22 +1097,6 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
-    "accordion-single": {
-      name: "accordion-single",
-      description: "",
-      type: "registry:example",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/default/examples/accordion-single.tsx",
-        type: "registry:example",
-        target: ""
-      }],
-      component: React.lazy(() => import("@/registry/default/examples/accordion-single.tsx")),
-      source: "",
-      category: "",
-      subcategory: "",
-      chunks: []
-    },
     "checkbox-demo": {
       name: "checkbox-demo",
       description: "",
