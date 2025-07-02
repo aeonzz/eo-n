@@ -1,5 +1,3 @@
-import { ChevronRight } from "lucide-react";
-
 import { Button } from "@/registry/default/ui/button";
 import {
   DropdownMenu,
@@ -8,7 +6,8 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
-  DropdownMenuSubMenuTrigger,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/registry/default/ui/dropdown-menu";
 import { Menubar } from "@/registry/default/ui/menubar";
@@ -19,7 +18,11 @@ export default function MenubarDemo() {
       <DropdownMenu>
         <DropdownMenuTrigger
           render={
-            <Button variant="ghost" size="sm">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="data-[popup-open]:bg-accent dark:data-[popup-open]:bg-accent/50 data-[popup-open]:text-accent-foreground"
+            >
               Project
             </Button>
           }
@@ -33,21 +36,14 @@ export default function MenubarDemo() {
           </DropdownMenuItem>
           <DropdownMenuItem disabled>Import Project</DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenu>
-            <DropdownMenuSubMenuTrigger
-              render={
-                <DropdownMenuItem closeOnClick={false}>
-                  <span>Export</span>
-                  <ChevronRight className="ml-auto" />
-                </DropdownMenuItem>
-              }
-            />
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>Export</DropdownMenuSubTrigger>
             <DropdownMenuContent>
               <DropdownMenuItem>As PDF</DropdownMenuItem>
               <DropdownMenuItem>As HTML</DropdownMenuItem>
               <DropdownMenuItem>As Markdown</DropdownMenuItem>
             </DropdownMenuContent>
-          </DropdownMenu>
+          </DropdownMenuSub>
           <DropdownMenuSeparator />
           <DropdownMenuItem>
             Save <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
@@ -57,7 +53,11 @@ export default function MenubarDemo() {
       <DropdownMenu>
         <DropdownMenuTrigger
           render={
-            <Button variant="ghost" size="sm">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="data-[popup-open]:bg-accent dark:data-[popup-open]:bg-accent/50 data-[popup-open]:text-accent-foreground"
+            >
               Tools
             </Button>
           }
@@ -70,22 +70,15 @@ export default function MenubarDemo() {
             Extensions <DropdownMenuShortcut>⌘E</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenu>
-            <DropdownMenuSubMenuTrigger
-              render={
-                <DropdownMenuItem closeOnClick={false}>
-                  <span>Development</span>
-                  <ChevronRight className="ml-auto" />
-                </DropdownMenuItem>
-              }
-            />
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>Development</DropdownMenuSubTrigger>
             <DropdownMenuContent>
               <DropdownMenuItem>Debug Console</DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>Terminal</DropdownMenuItem>
               <DropdownMenuItem>Git</DropdownMenuItem>
             </DropdownMenuContent>
-          </DropdownMenu>
+          </DropdownMenuSub>
           <DropdownMenuSeparator />
           <DropdownMenuItem>Command Palette</DropdownMenuItem>
         </DropdownMenuContent>
@@ -93,7 +86,11 @@ export default function MenubarDemo() {
       <DropdownMenu>
         <DropdownMenuTrigger
           render={
-            <Button variant="ghost" size="sm">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="data-[popup-open]:bg-accent dark:data-[popup-open]:bg-accent/50 data-[popup-open]:text-accent-foreground"
+            >
               Help
             </Button>
           }
@@ -115,7 +112,11 @@ export default function MenubarDemo() {
       <DropdownMenu>
         <DropdownMenuTrigger
           render={
-            <Button variant="ghost" size="sm">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="data-[popup-open]:bg-accent dark:data-[popup-open]:bg-accent/50 data-[popup-open]:text-accent-foreground"
+            >
               Account
             </Button>
           }

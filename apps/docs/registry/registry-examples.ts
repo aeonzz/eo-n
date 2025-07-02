@@ -292,16 +292,6 @@ export const examples: Registry = [
     ],
   },
   {
-    name: "accordion-single",
-    type: "registry:example",
-    files: [
-      {
-        path: "examples/accordion-single.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
     name: "checkbox-demo",
     type: "registry:example",
     files: [

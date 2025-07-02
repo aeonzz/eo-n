@@ -46,14 +46,23 @@ import {
 ```
 
 ```tsx
-<Select>
+const items = [
+  { label: "Select theme", value: null },
+  { label: "System default", value: "system" },
+  { label: "Light", value: "light" },
+  { label: "Dark", value: "dark" },
+];
+
+<Select items={items}>
   <SelectTrigger>
-    <SelectValue placeholder="Theme" />
+    <SelectValue />
   </SelectTrigger>
   <SelectContent>
-    <SelectItem value="light">Light</SelectItem>
-    <SelectItem value="dark">Dark</SelectItem>
-    <SelectItem value="system">System</SelectItem>
+    {items.map(({ label, value }) => (
+      <SelectItem key={value} value={value}>
+        {label}
+      </SelectItem>
+    ))}
   </SelectContent>
 </Select>
 ```

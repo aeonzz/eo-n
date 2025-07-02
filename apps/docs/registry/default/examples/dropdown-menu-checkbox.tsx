@@ -15,7 +15,7 @@ export default function DropdownMenuCheckbox() {
       <DropdownMenuTrigger
         render={<Button variant="outline">Preferences</Button>}
       />
-      <DropdownMenuContent>
+      <DropdownMenuContent className="w-52">
         <DropdownMenuGroup>
           <DropdownMenuGroupLabel>Preferences</DropdownMenuGroupLabel>
           <DropdownMenuSeparator className="my-1" />

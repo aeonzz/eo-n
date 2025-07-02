@@ -1,5 +1,4 @@
 import React from "react";
-import { ChevronRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { ComponentCard } from "@/components/component-card";
@@ -10,7 +9,8 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
-  DropdownMenuSubMenuTrigger,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/registry/default/ui/dropdown-menu";
 import { Menubar } from "@/registry/default/ui/menubar";
@@ -22,12 +22,16 @@ export default function MenubarCard() {
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
-              <Button variant="ghost" size="sm">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="data-[popup-open]:bg-accent dark:data-[popup-open]:bg-accent/50 data-[popup-open]:text-accent-foreground"
+              >
                 Project
               </Button>
             }
           />
-          <DropdownMenuContent className="min-w-48">
+          <DropdownMenuContent className="min-w-48" sideOffset={10}>
             <DropdownMenuItem>
               New Project <DropdownMenuShortcut>⌘N</DropdownMenuShortcut>
             </DropdownMenuItem>
@@ -36,21 +40,14 @@ export default function MenubarCard() {
             </DropdownMenuItem>
             <DropdownMenuItem disabled>Import Project</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenu>
-              <DropdownMenuSubMenuTrigger
-                render={
-                  <DropdownMenuItem closeOnClick={false}>
-                    <span>Export</span>
-                    <ChevronRight className="ml-auto" />
-                  </DropdownMenuItem>
-                }
-              />
+            <DropdownMenuSub>
+              <DropdownMenuSubTrigger>Export</DropdownMenuSubTrigger>
               <DropdownMenuContent>
                 <DropdownMenuItem>As PDF</DropdownMenuItem>
                 <DropdownMenuItem>As HTML</DropdownMenuItem>
                 <DropdownMenuItem>As Markdown</DropdownMenuItem>
               </DropdownMenuContent>
-            </DropdownMenu>
+            </DropdownMenuSub>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               Save <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
@@ -60,12 +57,16 @@ export default function MenubarCard() {
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
-              <Button variant="ghost" size="sm">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="data-[popup-open]:bg-accent dark:data-[popup-open]:bg-accent/50 data-[popup-open]:text-accent-foreground"
+              >
                 Tools
               </Button>
             }
           />
-          <DropdownMenuContent className="min-w-48">
+          <DropdownMenuContent className="min-w-48" sideOffset={10}>
             <DropdownMenuItem>
               Settings <DropdownMenuShortcut>⌘,</DropdownMenuShortcut>
             </DropdownMenuItem>
@@ -73,22 +74,15 @@ export default function MenubarCard() {
               Extensions <DropdownMenuShortcut>⌘E</DropdownMenuShortcut>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenu>
-              <DropdownMenuSubMenuTrigger
-                render={
-                  <DropdownMenuItem closeOnClick={false}>
-                    <span>Development</span>
-                    <ChevronRight className="ml-auto" />
-                  </DropdownMenuItem>
-                }
-              />
+            <DropdownMenuSub>
+              <DropdownMenuSubTrigger>Development</DropdownMenuSubTrigger>
               <DropdownMenuContent>
                 <DropdownMenuItem>Debug Console</DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>Terminal</DropdownMenuItem>
                 <DropdownMenuItem>Git</DropdownMenuItem>
               </DropdownMenuContent>
-            </DropdownMenu>
+            </DropdownMenuSub>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Command Palette</DropdownMenuItem>
           </DropdownMenuContent>
@@ -96,12 +90,16 @@ export default function MenubarCard() {
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
-              <Button variant="ghost" size="sm">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="data-[popup-open]:bg-accent dark:data-[popup-open]:bg-accent/50 data-[popup-open]:text-accent-foreground"
+              >
                 Help
               </Button>
             }
           />
-          <DropdownMenuContent className="min-w-48">
+          <DropdownMenuContent className="min-w-48" sideOffset={10}>
             <DropdownMenuItem>Documentation</DropdownMenuItem>
             <DropdownMenuItem>Keyboard Shortcuts</DropdownMenuItem>
             <DropdownMenuSeparator />
@@ -118,12 +116,16 @@ export default function MenubarCard() {
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
-              <Button variant="ghost" size="sm">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="data-[popup-open]:bg-accent dark:data-[popup-open]:bg-accent/50 data-[popup-open]:text-accent-foreground"
+              >
                 Account
               </Button>
             }
           />
-          <DropdownMenuContent>
+          <DropdownMenuContent sideOffset={10}>
             <DropdownMenuGroup>
               <DropdownMenuItem>Profile Settings</DropdownMenuItem>
               <DropdownMenuItem>Notifications</DropdownMenuItem>

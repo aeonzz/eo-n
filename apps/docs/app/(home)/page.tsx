@@ -18,7 +18,7 @@ export default function HomePage() {
           <div className="text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground w-[calc(100vw_-_2rem)] rounded-md border px-3 py-1.5 text-xs md:w-fit">
             <div className="flex flex-col items-center gap-1 sm:flex-row sm:gap-2">
               <div className="w-fit text-center break-words">
-                4 new components now available. 🎉
+                5 new components now available. 🎉
               </div>
               <Link
                 href="/docs/ui/context-menu"

@@ -8,11 +8,13 @@ import { cn } from "@/lib/utils";
 
 function Accordion({
   className,
+  openMultiple = false,
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Root>) {
   return (
     <AccordionPrimitive.Root
       data-slot="accordion"
+      openMultiple={openMultiple}
       className={cn("flex w-full max-w-lg flex-col justify-center", className)}
       {...props}
     />
@@ -65,7 +67,7 @@ function AccordionContent({
   return (
     <AccordionPrimitive.Panel
       data-slot="accordion-content"
-      className="h-[var(--accordion-panel-height)] overflow-hidden text-left text-sm transition-[height] duration-300 ease-out data-[ending-style]:h-0 data-[starting-style]:h-0"
+      className="h-[var(--accordion-panel-height)] overflow-hidden text-left text-sm transition-[height,opacity] duration-300 ease-out data-[ending-style]:h-0 data-[ending-style]:opacity-0 data-[starting-style]:h-0 data-[starting-style]:opacity-0"
       {...props}
     >
       <div className={cn("pt-0 pb-4", className)}>{children}</div>

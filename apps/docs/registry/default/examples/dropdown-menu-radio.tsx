@@ -14,7 +14,7 @@ export default function DropdownMenuRadio() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger render={<Button variant="outline">Gender</Button>} />
-      <DropdownMenuContent>
+      <DropdownMenuContent className="w-52">
         <DropdownMenuGroup>
           <DropdownMenuGroupLabel>Gender</DropdownMenuGroupLabel>
           <DropdownMenuSeparator className="my-1" />

@@ -1,18 +1,4 @@
 import React from "react";
-import {
-  Bell,
-  ChevronRight,
-  Cloud,
-  Download,
-  FileText,
-  HelpCircle,
-  Home,
-  LogOut,
-  Settings,
-  Share2,
-  Upload,
-  User,
-} from "lucide-react";
 
 import { ComponentCard } from "@/components/component-card";
 import { Button } from "@/registry/default/ui/button";
@@ -24,7 +10,8 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
-  DropdownMenuSubMenuTrigger,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/registry/default/ui/dropdown-menu";
 
@@ -33,73 +20,48 @@ export default function DropdownMenuCard() {
     <ComponentCard name="Dropdown menu">
       <DropdownMenu>
         <DropdownMenuTrigger render={<Button variant="outline">Menu</Button>} />
-        <DropdownMenuContent className="w-48" side="right" align="start">
+        <DropdownMenuContent className="w-52">
           <DropdownMenuGroup>
             <DropdownMenuGroupLabel>Preferences</DropdownMenuGroupLabel>
-            <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Home />
-              <span>Dashboard</span>
+              Dashboard
               <DropdownMenuShortcut>⌘D</DropdownMenuShortcut>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <User />
-              <span>Profile</span>
+              Profile
               <DropdownMenuShortcut>⌘P</DropdownMenuShortcut>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <Bell />
-              <span>Notifications</span>
+              Notifications
               <DropdownMenuShortcut>⌘N</DropdownMenuShortcut>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <FileText />
-              <span>Documents</span>
+              Documents
               <DropdownMenuShortcut>⌘D</DropdownMenuShortcut>
             </DropdownMenuItem>
-            <DropdownMenu>
-              <DropdownMenuSubMenuTrigger
-                render={
-                  <DropdownMenuItem closeOnClick={false}>
-                    <Cloud />
-                    <span>File Actions</span>
-                    <ChevronRight className="ml-auto" />
-                  </DropdownMenuItem>
-                }
-              />
-              <DropdownMenuContent className="w-40">
-                <DropdownMenuItem>
-                  <Upload />
-                  <span>Upload Files</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Download />
-                  <span>Download Files</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Share2 />
-                  <span>Share Files</span>
-                </DropdownMenuItem>
+            <DropdownMenuSub>
+              <DropdownMenuSubTrigger>File Actions</DropdownMenuSubTrigger>
+              <DropdownMenuContent className="w-32">
+                <DropdownMenuItem>Upload Files</DropdownMenuItem>
+                <DropdownMenuItem>Download Files</DropdownMenuItem>
+                <DropdownMenuItem>Share Files</DropdownMenuItem>
               </DropdownMenuContent>
-            </DropdownMenu>
+            </DropdownMenuSub>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem disabled>
-              <Settings />
-              <span>Settings</span>
+              Settings
               <DropdownMenuShortcut>⌘,</DropdownMenuShortcut>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <HelpCircle />
-              <span>Help & Support</span>
+              Help & Support
               <DropdownMenuShortcut>⌘H</DropdownMenuShortcut>
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuItem variant="destructive">
-            <LogOut />
-            <span>Log out</span>
+            Log out
             <DropdownMenuShortcut>⌘L</DropdownMenuShortcut>
           </DropdownMenuItem>
         </DropdownMenuContent>
