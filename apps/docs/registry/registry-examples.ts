@@ -382,6 +382,16 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "select-multiple",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/select-multiple.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "tooltip-demo",
     type: "registry:example",
     files: [

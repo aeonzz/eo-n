@@ -1241,6 +1241,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "select-multiple": {
+      name: "select-multiple",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/select-multiple.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/select-multiple.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "tooltip-demo": {
       name: "tooltip-demo",
       description: "",

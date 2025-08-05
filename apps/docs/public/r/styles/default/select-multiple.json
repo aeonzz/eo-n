@@ -1,0 +1,12 @@
+{
+  "name": "select-multiple",
+  "type": "registry:example",
+  "files": [
+    {
+      "path": "examples/select-multiple.tsx",
+      "content": "import {\r\n  Select,\r\n  SelectContent,\r\n  SelectItem,\r\n  SelectTrigger,\r\n  SelectValue,\r\n} from \"@/registry/default/ui/select\";\r\n\r\nconst items = [\r\n  { label: \"Apple\", value: \"apple\" },\r\n  { label: \"Banana\", value: \"banana\" },\r\n  { label: \"Orange\", value: \"orange\" },\r\n  { label: \"Grape\", value: \"grape\" },\r\n  { label: \"Mango\", value: \"mango\" },\r\n];\r\n\r\ntype Item = keyof typeof items;\r\n\r\nconst values = Object.keys(items) as Item[];\r\n\r\nfunction renderValue(value: Item[]) {\r\n  if (value.length === 0) {\r\n    return \"Select items...\";\r\n  }\r\n\r\n  const firstLanguage = items[value[0]];\r\n  const additionalItems =\r\n    value.length > 1 ? ` (+${value.length - 1} more)` : \"\";\r\n  return firstLanguage + additionalItems;\r\n}\r\n\r\nexport default function SelectMultiple() {\r\n  return (\r\n    <Select multiple>\r\n      <SelectTrigger className=\"w-40\">\r\n        <SelectValue>{renderValue}</SelectValue>\r\n      </SelectTrigger>\r\n      <SelectContent>\r\n        {values.map((value) => (\r\n          <SelectItem key={value} value={value}>\r\n            {items[value]}\r\n          </SelectItem>\r\n        ))}\r\n      </SelectContent>\r\n    </Select>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
