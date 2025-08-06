@@ -9,10 +9,10 @@ import { siteConfig } from "./site";
 export const baseOptions: BaseLayoutProps = {
   nav: {
     title: (
-      <>
+      <div className="flex items-center gap-2 p-2">
         <svg
-          width="16"
-          height="16"
+          width="20"
+          height="20"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -22,10 +22,10 @@ export const baseOptions: BaseLayoutProps = {
             className="fill-foreground"
           />
         </svg>
-        <span className="font-medium [.uwu_&]:hidden [header_&]:text-[15px]">
+        <span className="font-medium [.uwu_&]:hidden text-base">
           {siteConfig.name}
         </span>
-      </>
+      </div>
     ),
   },
   links: [
@@ -52,6 +52,6 @@ export const docsOptions: DocsLayoutProps = {
   tree: source.pageTree,
   sidebar: {
     tabs: false,
-    className: "[&_[data-radix-scroll-area-viewport]]:pt-[33px]"
+    className: "bg-background border-none [&_a]:rounded-md" 
   },
 };

@@ -80,6 +80,7 @@ export default function NavigationMenuNested() {
               >
                 <NavigationMenuItem>
                   <NavigationSubMenuTrigger
+                    nativeButton={false}
                     render={(props, state) => (
                       <ListItem
                         href="/docs/ui/navigation-menu/#"

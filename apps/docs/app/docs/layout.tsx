@@ -5,7 +5,7 @@ import { docsOptions } from "@/config/layout";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <div className="[&_header]:bg-background [&_#nd-toc]:pt-6 [&_header]:shadow-none [&_header]:backdrop-blur-none">
+    <div className="[&_header>div]:border-none [&_#nd-toc]:pt-9">
       <DocsLayout {...docsOptions}>{children}</DocsLayout>
     </div>
   );

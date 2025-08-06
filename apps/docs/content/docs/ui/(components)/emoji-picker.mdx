@@ -2,7 +2,6 @@
 title: Emoji Picker
 description: Compact emoji panel for browsing and selecting emojis.
 preview: true
-new: true
 links:
   doc: https://frimousse.liveblocks.io
 ---
@@ -15,35 +14,44 @@ The emoji picker component is built using the [Frimousse](https://frimousse.live
 
 ## Installation
 
-### CLI
+<CodeTabs>
 
-```package-install
-npx shadcn@latest add "https://eo-n.vercel.app/r/emoji-picker"
-```
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
 
-### Manual
-
-<Steps>
-
-  <Step>
-    Install the following dependencies:
-
-    ```package-install
-    npm install frimousse
+  <TabsContent value="cli">
+    ```package-install 
+    npx shadcn@latest add "https://eo-n.vercel.app/r/emoji-picker"
     ```
+  </TabsContent>
 
-  </Step>
+  <TabsContent value="manual">
+    <Steps>
 
-  <Step>
-    Copy and paste the following code into your project.
+      <Step>
+        Install the following dependencies:
 
-    <ComponentSource name="emoji-picker" />
+        ```package-install
+        npm install frimousse
+        ```
 
-  </Step>
+      </Step>
+
+      <Step>
+        Copy and paste the following code into your project.
+
+        <ComponentSource name="emoji-picker" />
+
+      </Step>
   
-  <Step>Update the import paths to match your project setup.</Step>
+      <Step>Update the import paths to match your project setup.</Step>
 
-</Steps>
+    </Steps>
+  </TabsContent>
+
+</CodeTabs>
 
 ## Usage
 

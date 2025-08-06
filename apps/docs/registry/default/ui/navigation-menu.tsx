@@ -94,7 +94,7 @@ function NavigationMenuIcon({
   return (
     <NavigationMenuPrimitive.Icon
       className={cn(
-        "pointer-events-none relative size-3.5 shrink-0 transition duration-300",
+        "pointer-events-none relative size-3 shrink-0 transition duration-300",
         className
       )}
       render={render}
@@ -173,6 +173,7 @@ function NavigationMenuViewport({
   contentProps,
   ...props
 }: NavigationMenuViewportProps) {
+  
   const {
     sideOffset = 6,
     collisionPadding = { top: 5, bottom: 5, left: 20, right: 20 },
@@ -196,7 +197,7 @@ function NavigationMenuViewport({
         <NavigationMenuPrimitive.Popup
           data-slot="navigation-menu-content"
           className={cn(
-            "bg-popover relative h-[var(--popup-height)] w-full rounded-md border shadow transition-all duration-150 ease-out min-[500px]:w-[var(--popup-width)] md:w-[var(--popup-width)]",
+            "bg-popover relative h-[var(--popup-height)] rounded-md border shadow transition-all duration-150 ease-out w-[var(--popup-width)]",
             "origin-[var(--transform-origin)] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
             className
           )}
