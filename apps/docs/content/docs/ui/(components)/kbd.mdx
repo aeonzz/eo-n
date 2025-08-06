@@ -10,34 +10,43 @@ links:
 
 ## Installation
 
-### CLI
+<CodeTabs>
 
-```package-install
-npx shadcn@latest add "https://eo-n.vercel.app/r/kbd"
-```
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
 
-### Manual
-
-<Steps>
-
-  <Step>
-    Install the following dependencies:
-
-    ```package-install
-    @radix-ui/react-slot
+  <TabsContent value="cli">
+    ```package-install 
+    npx shadcn@latest add "https://eo-n.vercel.app/r/kbd"
     ```
+  </TabsContent>
 
-  </Step>
-  <Step>
-    Copy and paste the following code into your project.
+  <TabsContent value="manual">
+    <Steps>
 
-    <ComponentSource name="kbd" />
+      <Step>
+        Install the following dependencies:
 
-  </Step>
+        ```package-install
+        @radix-ui/react-slot
+        ```
+
+      </Step>
+      <Step>
+        Copy and paste the following code into your project.
+
+        <ComponentSource name="kbd" />
+
+      </Step>
   
-  <Step>Update the import paths to match your project setup.</Step>
+      <Step Step>Update the import paths to match your project setup.</Step>
 
-</Steps>
+    </Steps>
+  </TabsContent>
+
+</CodeTabs>
 
 ## Usage
 

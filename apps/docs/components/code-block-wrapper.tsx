@@ -31,7 +31,7 @@ export function CodeBlockWrapper({
   if (!collapsible) {
     return (
       <div className={cn("relative overflow-hidden", className)} {...props}>
-        <div className="overflow-auto [&_code]:h-[420px] [&_figure]:my-0 [&_span]:text-[10px] [&_span]:last:pb-5">
+        <div className="overflow-auto [&_code]:h-[420px] [&_figure]:my-0 [&_pre]:last:px-4 [&_span]:text-[10px] [&_span]:last:pb-5">
           {children}
         </div>
       </div>
@@ -51,7 +51,7 @@ export function CodeBlockWrapper({
       >
         <div
           className={cn(
-            "[&_figure]:my-0 [&_figure]:max-h-[640px] [&_figure]:pb-[20px]",
+            "[&_figure]:my-0 [&_figure]:max-h-[640px] [&_figure]:pb-[20px] [&_pre]:last:px-4",
             !open ? "[&_figure]:overflow-hidden" : "[&_figure]:overflow-auto]"
           )}
         >
@@ -60,7 +60,7 @@ export function CodeBlockWrapper({
       </CollapsibleContent>
       <div
         className={cn(
-          "absolute flex items-center justify-center bg-linear-to-b from-background/10 to-background p-2",
+          "from-background/10 to-background absolute flex items-center justify-center bg-linear-to-b p-2",
           open ? "inset-x-0 bottom-0 h-12" : "inset-0"
         )}
       >

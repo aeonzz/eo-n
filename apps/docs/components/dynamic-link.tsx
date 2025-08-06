@@ -16,7 +16,7 @@ export function DynamicLink({ href, children, ...props }: DynamicLinkProps) {
       target={isExternal ? "_blank" : "_self"}
       className={cn(
         buttonVariants({
-          variant: "outline",
+          variant: "secondary",
           size: "sm",
           className: "h-6 rounded-sm px-2 py-0.5 [&_svg]:size-3.5",
         })

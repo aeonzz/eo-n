@@ -115,23 +115,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         <TailwindIndicator />
         {/* <Toaster /> */}
-        <Providers
-          theme={{
-            attribute: "class",
-            defaultTheme: "system",
-            enableSystem: true,
-            disableTransitionOnChange: true,
-          }}
-          search={{
-            links: [
-              ["Introduction", "/docs/ui"],
-              ["Installtion", "/docs/ui/installation"],
-              ["Components", "/docs/ui/accordion"],
-            ],
-          }}
-        >
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
         <SpeedInsights />
         <Analytics />
       </body>

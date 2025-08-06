@@ -1,6 +1,6 @@
 "use client";
 
-import { RootProvider, type RootProviderProps } from "fumadocs-ui/provider";
+import { RootProvider } from "fumadocs-ui/provider";
 import { createStore, Provider as JotaiProvider } from "jotai";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,14 +10,28 @@ import { ReactScanProvider } from "./react-scan-provider";
 
 const store = createStore();
 
-interface ProvidersProps extends RootProviderProps {
+interface ProvidersProps {
   children: React.ReactNode;
 }
 
-export function Providers({ children, ...props }: ProvidersProps) {
+export function Providers({ children }: ProvidersProps) {
   return (
     <ToastProvider richColors>
-      <RootProvider {...props}>
+      <RootProvider
+        theme={{
+          attribute: "class",
+          defaultTheme: "system",
+          enableSystem: true,
+          disableTransitionOnChange: true,
+        }}
+        search={{
+          links: [
+            ["Introduction", "/docs/ui"],
+            ["Installtion", "/docs/ui/installation"],
+            ["Components", "/docs/ui/accordion"],
+          ],
+        }}
+      >
         <JotaiProvider store={store}>
           <TooltipProvider>
             <ReactScanProvider>{children}</ReactScanProvider>

@@ -10,61 +10,70 @@ links:
 
 ## Installation
 
-### CLI
+<CodeTabs>
 
-```package-install
-npx shadcn@latest add "https://eo-n.vercel.app/r/skeleton"
-```
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
 
-### Manual
-
-<Steps>
-
-  <Step>
-    Copy and paste the following code into your project.
-
-    <ComponentSource name="skeleton" />
-
-  </Step>
-
-  <Step>
-
-    Define the shimmer keyframes and CSS variables inside your `globals.css` file using the `@theme inline` block.
-
-    ```css title="globals.css"
-    @import "tailwindcss";
-
-    @theme inline {
-    /* other css vars */
-    // [!code highlight:20]
-      --animate-skeleton-shimmer: skeleton-shimmer 2s infinite ease-out;
-      --animate-skeleton-gradient: skeleton-gradient 2s infinite ease-out;
-
-      @keyframes skeleton-shimmer {
-        0% {
-          transform: translateX(-100%);
-        }
-        100% {
-          transform: translateX(200%);
-        }
-      }
-      @keyframes skeleton-gradient {
-        0%,
-        100% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-      }
-    }
+  <TabsContent value="cli">
+    ```package-install 
+    npx shadcn@latest add "https://eo-n.vercel.app/r/skeleton"
     ```
+  </TabsContent>
 
-  </Step>
-  
-  <Step>Update the import paths to match your project setup.</Step>
+  <TabsContent value="manual">
+    <Steps>
 
-</Steps>
+      <Step>
+        Copy and paste the following code into your project.
+
+        <ComponentSource name="skeleton" />
+
+      </Step>
+
+      <Step>
+
+        Define the shimmer keyframes and CSS variables inside your `globals.css` file using the `@theme inline` block.
+
+        ```css title="globals.css"
+        @import "tailwindcss";
+
+        @theme inline {
+        /* other css vars */
+        // [!code highlight:20]
+          --animate-skeleton-shimmer: skeleton-shimmer 2s infinite ease-out;
+          --animate-skeleton-gradient: skeleton-gradient 2s infinite ease-out;
+
+          @keyframes skeleton-shimmer {
+            0% {
+              transform: translateX(-100%);
+            }
+            100% {
+              transform: translateX(200%);
+            }
+          }
+          @keyframes skeleton-gradient {
+            0%,
+            100% {
+              background-position: 0% 50%;
+            }
+            50% {
+              background-position: 100% 50%;
+            }
+          }
+        }
+        ```
+
+      </Step>
+      
+      <Step>Update the import paths to match your project setup.</Step>
+
+    </Steps>
+  </TabsContent>
+
+</CodeTabs>
 
 ## Usage
 

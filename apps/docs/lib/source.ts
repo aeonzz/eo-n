@@ -19,7 +19,9 @@ export const source = loader({
   },
   pageTree: {
     attachFile(node, file) {
-      const additionalElement = (file?.data.data as { new?: boolean }).new
+      const fileData = file?.data as { new?: boolean } | undefined;
+
+      const additionalElement = fileData?.new
         ? createElement(
             Badge,
             { className: "ml-auto font-base text-xs", variant: "outline" },
@@ -32,7 +34,7 @@ export const source = loader({
         { className: "flex w-full gap-2" },
         createElement("span", null, node.name),
         additionalElement
-      );
+      ) as React.ReactNode;
       return node;
     },
   },

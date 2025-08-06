@@ -15,19 +15,6 @@ export default function HomePage() {
             className="absolute bottom-0 left-[15%] -z-20 mask-y-from-80% duration-1300"
           />
           <LineDecorator className="mr-auto mask-x-from-90% duration-1300" />
-          <div className="text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground w-[calc(100vw_-_2rem)] rounded-md border px-3 py-1.5 text-xs md:w-fit">
-            <div className="flex flex-col items-center gap-1 sm:flex-row sm:gap-2">
-              <div className="w-fit text-center break-words">
-                5 new components now available. 🎉
-              </div>
-              <Link
-                href="/docs/ui/context-menu"
-                className="text-muted-foreground text-center underline-offset-2 hover:underline"
-              >
-                Check it out.
-              </Link>
-            </div>
-          </div>
           <h1 className="from-foreground text-center text-4xl leading-tight font-bold tracking-tight sm:text-5xl md:text-6xl lg:leading-[1.1]">
             Craft Your Component Library
           </h1>
