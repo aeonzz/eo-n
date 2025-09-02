@@ -1,70 +1,71 @@
 import Link from "next/link";
+import { CodeBlock, Pre } from "fumadocs-ui/components/codeblock";
 
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-import { LineDecorator } from "@/components/line-decorator";
+import { ComponentSource } from "@/components/component-source";
 
 export default function HomePage() {
   return (
     <main className="flex h-full flex-col">
-      <div className="max-w-fd-container mx-auto flex h-full w-full items-center px-3">
-        <div className="relative flex h-full w-full flex-col items-center justify-center gap-4 sm:gap-6">
-          <LineDecorator
-            orientation="vertical"
-            className="absolute bottom-0 left-[15%] -z-20 mask-y-from-80% duration-1300"
-          />
-          <LineDecorator className="mr-auto mask-x-from-90% duration-1300" />
-          <h1 className="from-foreground text-center text-4xl leading-tight font-bold tracking-tight sm:text-5xl md:text-6xl lg:leading-[1.1]">
-            Craft Your Component Library
-          </h1>
-          <LineDecorator className="ml-auto mask-x-from-90% duration-1300" />
-          <p className="text-muted-foreground max-w-sm text-center text-sm font-normal tracking-tight sm:max-w-2xl sm:text-lg md:max-w-3xl lg:max-w-4xl">
-            {siteConfig.description}
-          </p>
-          <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
-            <Link
-              href="/docs/ui"
-              prefetch
-              className={cn(
-                buttonVariants({ variant: "default" }),
-                "w-full max-w-xs"
-              )}
-            >
-              Get Started
-            </Link>
-            <Link
-              href="/docs/ui/accordion"
-              prefetch
-              className={cn(
-                buttonVariants({ variant: "outline" }),
-                "w-full max-w-xs"
-              )}
-            >
-              Explore Components
-            </Link>
+      <div className="max-w-fd-container mx-auto flex h-full w-full items-center px-3 sm:px-24">
+        <div className="flex h-auto w-full flex-col justify-between gap-6 px-4 py-12 sm:flex-row sm:items-center sm:gap-24 sm:py-0">
+          <div className="relative flex h-full w-fit flex-col items-start justify-center gap-4 sm:gap-6">
+            <h1 className="from-foreground tracking-lose text-left text-5xl leading-[1.1] font-semibold sm:text-7xl">
+              Craft Your Component <br /> Library
+            </h1>
+            <p className="text-muted-foreground tracking-lose max-w-sm text-left text-sm leading-[1.1] font-normal sm:max-w-2xl sm:text-lg md:max-w-3xl lg:max-w-4xl">
+              {siteConfig.description}
+            </p>
+            <div className="flex gap-1.5 sm:gap-3">
+              <Link
+                href="/docs/ui"
+                prefetch
+                className={cn(
+                  buttonVariants({ variant: "default" }),
+                  "w-full max-w-xs"
+                )}
+              >
+                Get Started
+              </Link>
+              <Link
+                href="/docs/ui/accordion"
+                prefetch
+                className={cn(
+                  buttonVariants({ variant: "ghost" }),
+                  "w-full max-w-xs"
+                )}
+              >
+                Explore Components
+              </Link>
+            </div>
           </div>
-          <LineDecorator
-            orientation="vertical"
-            className="absolute top-0 right-[15%] -z-20 mask-y-from-90% duration-1300"
-          />
+          <div className="flex-1 px-0 sm:px-6">
+            <h3 className="tracking-lose text-base font-medium">
+              Setup Registry
+            </h3>
+            <p className="text-muted-foreground text-sm font-normal">
+              Use the code below to configure the @eo-n registry for your
+              project.
+            </p>
+            <CodeBlock title="components.json">
+              <Pre>
+                <code>
+                  <span className="line">
+                    {`{
+  "registries": {
+    "@eo-n": "https://https://eo-n.vercel.app/r/{name}.json"
+  }
+}`}
+                  </span>
+                </code>
+              </Pre>
+            </CodeBlock>
+            <ComponentSource src="accordion" />
+          </div>
         </div>
       </div>
-      <footer className="flex h-16 items-center justify-center">
-        <div className="max-w-fd-container w-fit px-3">
-          <p className="text-muted-foreground text-sm font-medium tracking-tight">
-            Made with <span className="text-red-500">♥</span> by{" "}
-            <Link
-              href="https://github.com/aeonzz"
-              target="_blank"
-              className="text-foreground underline-offset-4 transition-colors hover:underline"
-              prefetch
-            >
-              aeonzz.
-            </Link>
-          </p>
-        </div>
-      </footer>
     </main>
   );
 }

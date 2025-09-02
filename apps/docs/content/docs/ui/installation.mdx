@@ -78,12 +78,32 @@ icon: Terminal
   </Step>
 
   <Step>
+    ### Configure registry
+
+    Add the eo-n UI registry to your ```components.json``` file.
+
+    ```json title="components.json"
+    {
+      "registries": {
+        "@eo-n": "https://https://eo-n.vercel.app/r/{name}.json"
+      }
+    }
+    ```
+
+<Callout>
+  Learn more about
+  [namespaces](https://ui.shadcn.com/docs/registry/namespace).
+</Callout>    
+
+  </Step>
+
+  <Step>
     ### 🎉 That's it!
 
     You can now start adding components to your project.
 
     ```package-install
-    npx shadcn@latest add "https://eo-n.vercel.app/r/button"
+    npx shadcn@latest add @eo-n/button
     ```
 
   </Step>
