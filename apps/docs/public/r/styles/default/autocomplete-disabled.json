@@ -1,0 +1,12 @@
+{
+  "name": "autocomplete-disabled",
+  "type": "registry:example",
+  "files": [
+    {
+      "path": "examples/autocomplete-disabled.tsx",
+      "content": "import {\r\n  Autocomplete,\r\n  AutocompleteContent,\r\n  AutocompleteEmpty,\r\n  AutocompleteInput,\r\n  AutocompleteItem,\r\n  AutocompleteList,\r\n} from \"@/registry/default/ui/autocomplete\";\r\n\r\ninterface Fruit {\r\n  id: string;\r\n  value: string;\r\n}\r\n\r\nconst fruits: Fruit[] = [\r\n  { id: \"1\", value: \"Apple\" },\r\n  { id: \"2\", value: \"Banana\" },\r\n  { id: \"3\", value: \"Orange\" },\r\n  { id: \"4\", value: \"Grapes\" },\r\n  { id: \"5\", value: \"Mango\" },\r\n  { id: \"6\", value: \"Strawberry\" },\r\n  { id: \"7\", value: \"Blueberry\" },\r\n  { id: \"8\", value: \"Watermelon\" },\r\n  { id: \"9\", value: \"Pineapple\" },\r\n  { id: \"10\", value: \"Kiwi\" },\r\n];\r\n\r\nexport default function AutocompleteDisabled() {\r\n  return (\r\n    <Autocomplete items={fruits}>\r\n      <AutocompleteInput\r\n        disabled\r\n        placeholder=\"e.g. Apple\"\r\n        className=\"max-w-2xs\"\r\n      />\r\n      <AutocompleteContent>\r\n        <AutocompleteEmpty>No fruits found.</AutocompleteEmpty>\r\n        <AutocompleteList>\r\n          {(fruit: Fruit) => (\r\n            <AutocompleteItem key={fruit.id} value={fruit}>\r\n              {fruit.value}\r\n            </AutocompleteItem>\r\n          )}\r\n        </AutocompleteList>\r\n      </AutocompleteContent>\r\n    </Autocomplete>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

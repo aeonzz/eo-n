@@ -103,7 +103,6 @@ const menuItems = {
 };
 
 export default function OpenDocs({ url }: { url: string }) {
-  console.log(url);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger

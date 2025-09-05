@@ -617,6 +617,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "autocomplete": {
+      name: "autocomplete",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/autocomplete.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/ui/autocomplete.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       description: "",
@@ -2324,6 +2340,86 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/emoji-picker-popover.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "autocomplete-demo": {
+      name: "autocomplete-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/autocomplete-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/autocomplete-demo.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "autocomplete-disabled": {
+      name: "autocomplete-disabled",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/autocomplete-disabled.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/autocomplete-disabled.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "autocomplete-input-click": {
+      name: "autocomplete-input-click",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/autocomplete-input-click.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/autocomplete-input-click.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "autocomplete-async-search": {
+      name: "autocomplete-async-search",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/autocomplete-async-search.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/autocomplete-async-search.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "autocomplete-limit-result": {
+      name: "autocomplete-limit-result",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/autocomplete-limit-result.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/autocomplete-limit-result.tsx")),
       source: "",
       category: "",
       subcategory: "",
