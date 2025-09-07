@@ -64,7 +64,7 @@ export default function AccordionDemo() {
       />
       <AutocompleteContent>
         <AutocompleteEmpty>No languages found.</AutocompleteEmpty>
-        <AutocompleteList>
+        <AutocompleteList className="">
           {(language: Language) => (
             <AutocompleteItem key={language.id} value={language}>
               {language.value}

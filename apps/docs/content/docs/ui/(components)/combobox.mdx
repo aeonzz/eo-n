@@ -1,0 +1,104 @@
+---
+title: Combobox
+description: An input field combined with a list of predefined items for easy selection.
+preview: true
+new: true
+links:
+  doc: https://base-ui.com/react/components/combobox#api-reference
+---
+
+<ComponentTabs name="combobox-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+    ```package-install 
+    npx shadcn@latest add @eo-n/combobox
+    ```
+</TabsContent>
+
+  <TabsContent value="manual">
+    <Steps>
+
+      <Step>
+        Copy and paste the following code into your project.
+
+        <ComponentSource name="combobox" />
+
+      </Step>
+
+      <Step>Update the import paths to match your project setup.</Step>
+
+    </Steps>
+
+  </TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+Import all parts and piece them together.
+
+```tsx
+import {
+  Combobox,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+} from "@components/ui/combobox";
+```
+
+```tsx
+interface Fruit {
+  id: string;
+  value: string;
+}
+
+const fruits = [
+  { id: "a", value: "Apple" },
+  { id: "b", value: "Banana" },
+  { id: "c", value: "Cherry" },
+  { id: "d", value: "Durian" },
+];
+
+<Combobox items={fruits}>
+  <ComboboxInput />
+  <ComboboxContent>
+    <ComboboxEmpty>No fruits found.</ComboboxEmpty>
+    <ComboboxList>
+      {(fruit: Fruit) => (
+        <ComboboxItem key={fruit.id} value={fruit}>
+          {fruit.value}
+        </ComboboxItem>
+      )}
+    </ComboboxList>
+  </ComboboxContent>
+</Combobox>;
+```
+
+## Examples
+
+### Multi Select
+
+<ComponentTabs name="combobox-multi-select" />
+
+### Input Inside Popup
+
+<ComponentTabs name="combobox-popup" />
+
+### Group
+
+<ComponentTabs name="combobox-grouped" />
+
+### Creatable
+
+<ComponentTabs name="combobox-creatable" />

@@ -134,10 +134,10 @@ export default function AutocompleteAsyncSearch() {
                 render={
                   <Button
                     size="icon"
-                    variant="outline"
+                    variant="ghost"
                     className="absolute top-[50%] left-[94%] translate-x-[-50%] translate-y-[-50%] [&]:size-5"
                   >
-                    <XIcon className="size-3" />
+                    <XIcon className="size-3.5" />
                   </Button>
                 }
               />

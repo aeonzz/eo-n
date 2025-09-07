@@ -27,7 +27,7 @@ export function Providers({ children }: ProvidersProps) {
         search={{
           links: [
             ["Introduction", "/docs/ui"],
-            ["Installtion", "/docs/ui/installation"],
+            ["Installation", "/docs/ui/installation"],
             ["Components", "/docs/ui/accordion"],
           ],
         }}

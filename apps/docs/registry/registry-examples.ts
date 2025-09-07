@@ -1112,6 +1112,56 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "combobox-demo",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/combobox-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "combobox-multi-select",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/combobox-multi-select.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "combobox-popup",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/combobox-popup.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "combobox-grouped",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/combobox-grouped.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "combobox-creatable",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/combobox-creatable.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [

@@ -452,4 +452,15 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "combobox",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/combobox.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];

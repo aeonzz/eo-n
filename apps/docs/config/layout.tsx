@@ -28,23 +28,6 @@ export const baseOptions: BaseLayoutProps = {
       </div>
     ),
   },
-  links: [
-    {
-      text: "Docs",
-      url: "/docs/ui",
-    },
-    {
-      text: "Components",
-      url: "/docs/ui/accordion",
-    },
-    {
-      type: "icon",
-      url: siteConfig.links.github,
-      text: "Github",
-      icon: <Github className="size-4" aria-hidden="true" />,
-      external: true,
-    },
-  ],
 };
 
 export const docsOptions: DocsLayoutProps = {
@@ -52,6 +35,7 @@ export const docsOptions: DocsLayoutProps = {
   tree: source.pageTree,
   sidebar: {
     tabs: false,
+    collapsible: false,
     className: "bg-background border-none [&_a]:rounded-md" 
   },
 };
