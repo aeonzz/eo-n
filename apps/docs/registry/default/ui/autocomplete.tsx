@@ -126,6 +126,7 @@ function AutocompleteContent({
       <AutocompletePrimitive.Positioner
         data-slot="autocomplete-positioner"
         sideOffset={sideOffset}
+        className="z-50 size-auto"
         {...props}
       >
         <AutocompletePrimitive.Popup
