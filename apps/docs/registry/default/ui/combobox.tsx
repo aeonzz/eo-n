@@ -116,7 +116,10 @@ function ComboboxList({
   return (
     <ComboboxPrimitive.List
       data-slot="combobox-list"
-      className={cn("max-h-[min(23rem,var(--available-height))] overflow-y-auto overscroll-contain p-1 empty:m-0 empty:p-0", className)}
+      className={cn(
+        "max-h-[min(23rem,var(--available-height))] overflow-y-auto overscroll-contain p-1 empty:m-0 empty:p-0",
+        className
+      )}
       {...props}
     />
   );
@@ -154,6 +157,7 @@ function ComboboxContent({
       <ComboboxPrimitive.Positioner
         data-slot="combobox-positioner"
         sideOffset={sideOffset}
+        className="z-50 size-auto"
         {...props}
       >
         <ComboboxPrimitive.Popup
