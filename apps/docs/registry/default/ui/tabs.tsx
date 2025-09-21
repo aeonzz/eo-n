@@ -93,3 +93,4 @@ function TabsContent({
 }
 
 export { Tabs, TabsList, TabsTrigger, TabsIndicator, TabsContent };
+

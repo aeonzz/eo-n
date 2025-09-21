@@ -1,0 +1,104 @@
+---
+title: Autocomplete
+description: Provides an input field with dynamic suggestions as you type.
+preview: true
+new: true
+links:
+  doc: https://base-ui.com/react/components/autocomplete#api-reference
+---
+
+<ComponentTabs name="autocomplete-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+    ```package-install 
+    npx shadcn@latest add @eo-n/autocomplete
+    ```
+</TabsContent>
+
+  <TabsContent value="manual">
+    <Steps>
+
+      <Step>
+        Copy and paste the following code into your project.
+
+        <ComponentSource name="autocomplete" />
+
+      </Step>
+
+      <Step>Update the import paths to match your project setup.</Step>
+
+    </Steps>
+
+  </TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+Import all parts and piece them together.
+
+```tsx
+import {
+  Autocomplete,
+  AutocompleteContent,
+  AutocompleteEmpty,
+  AutocompleteInput,
+  AutocompleteItem,
+  AutocompleteList,
+} from "@components/ui/autocomplete";
+```
+
+```tsx
+interface Fruit {
+  id: string;
+  value: string;
+}
+
+const fruits = [
+  { id: "a", value: "Apple" },
+  { id: "b", value: "Banana" },
+  { id: "c", value: "Cherry" },
+  { id: "d", value: "Durian" },
+];
+
+<Autocomplete items={fruits}>
+  <AutocompleteInput />
+  <AutocompleteContent>
+    <AutocompleteEmpty>No fruits found.</AutocompleteEmpty>
+    <AutocompleteList>
+      {(fruit: Fruit) => (
+        <AutocompleteItem key={fruit.id} value={fruit}>
+          {fruit.value}
+        </AutocompleteItem>
+      )}
+    </AutocompleteList>
+  </AutocompleteContent>
+</Autocomplete>;
+```
+
+## Examples
+
+### Disabled
+
+<ComponentTabs name="autocomplete-disabled" />
+
+### Open On Input Click
+
+<ComponentTabs name="autocomplete-input-click" />
+
+### Async Search
+
+<ComponentTabs name="autocomplete-async-search" />
+
+### Limit Results
+
+<ComponentTabs name="autocomplete-limit-result" />

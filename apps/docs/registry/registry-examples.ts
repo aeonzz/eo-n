@@ -1062,6 +1062,106 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "autocomplete-demo",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/autocomplete-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "autocomplete-disabled",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/autocomplete-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "autocomplete-input-click",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/autocomplete-input-click.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "autocomplete-async-search",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/autocomplete-async-search.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "autocomplete-limit-result",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/autocomplete-limit-result.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "combobox-demo",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/combobox-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "combobox-multi-select",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/combobox-multi-select.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "combobox-popup",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/combobox-popup.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "combobox-grouped",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/combobox-grouped.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "combobox-creatable",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/combobox-creatable.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "mode-toggle",
     type: "registry:example",
     files: [

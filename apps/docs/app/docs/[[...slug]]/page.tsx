@@ -70,11 +70,8 @@ export default async function DocPage(props: DocPageParams) {
         single: false,
       }}
       full={customData.full}
-      footer={{
-        className: "!border !border-white !bg-white",
-      }}
     >
-      <div className="mb-2.5">
+      <div className="my-4">
         <div className="flex items-start justify-between">
           <DocsTitle>{page.data.title}</DocsTitle>
           <div className="bg-background/80 border-border/50 fixed inset-x-0 bottom-0 isolate z-50 flex items-center gap-2 border-t px-6 py-4 backdrop-blur-sm sm:static sm:z-0 sm:border-t-0 sm:bg-transparent sm:px-0 sm:pt-1.5 sm:backdrop-blur-none">

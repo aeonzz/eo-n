@@ -441,4 +441,26 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "autocomplete",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/autocomplete.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "combobox",
+    type: "registry:ui",
+    dependencies: ["@base-ui-components/react"],
+    files: [
+      {
+        path: "ui/combobox.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];
