@@ -165,6 +165,7 @@ export default function ComboboxMultiSelect() {
             setOpenDialog(true);
           }
         }}
+        autoHighlight
       >
         <div className="flex w-full max-w-sm flex-col gap-2">
           <Label htmlFor="tags">Tags</Label>

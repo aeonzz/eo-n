@@ -5,11 +5,7 @@ import { PreviewCard as PreviewCardPrimitive } from "@base-ui-components/react/p
 
 import { cn } from "@/lib/utils";
 
-function PreviewCard({
-  ...props
-}: React.ComponentProps<typeof PreviewCardPrimitive.Root>) {
-  return <PreviewCardPrimitive.Root data-slot="preview-card" {...props} />;
-}
+const PreviewCard = PreviewCardPrimitive.Root;
 
 function PreviewCardTrigger({
   ...props

@@ -2409,6 +2409,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "autocomplete-input-group": {
+      name: "autocomplete-input-group",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/autocomplete-input-group.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/autocomplete-input-group.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "autocomplete-async-search": {
       name: "autocomplete-async-search",
       description: "",

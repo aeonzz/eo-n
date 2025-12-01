@@ -4,6 +4,7 @@ import * as React from "react";
 import { Autocomplete as AutocompletePrimitive } from "@base-ui-components/react/autocomplete";
 
 import { cn } from "@/lib/utils";
+import { Input } from "@/registry/default/ui/input";
 
 const useFilter = AutocompletePrimitive.useFilter;
 
@@ -15,16 +16,14 @@ const AutocompleteCollection = AutocompletePrimitive.Collection;
 
 function AutocompleteInput({
   className,
+  render,
   ...props
 }: React.ComponentProps<typeof AutocompletePrimitive.Input>) {
   return (
     <AutocompletePrimitive.Input
       data-slot="autocomplete-input"
-      className={cn(
-        "placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-        "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
-        className
-      )}
+      className={cn(className)}
+      render={render ?? <Input />}
       {...props}
     />
   );

@@ -8,13 +8,13 @@ import { cn } from "@/lib/utils";
 
 function Accordion({
   className,
-  openMultiple = false,
+  multiple = false,
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Root>) {
   return (
     <AccordionPrimitive.Root
       data-slot="accordion"
-      openMultiple={openMultiple}
+      multiple={multiple}
       className={cn("flex w-full max-w-lg flex-col justify-center", className)}
       {...props}
     />

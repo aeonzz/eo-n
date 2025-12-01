@@ -6,11 +6,7 @@ import { AlertDialog as AlertDialogPrimitive } from "@base-ui-components/react/a
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/registry/default/ui/button";
 
-function AlertDialog({
-  ...props
-}: React.ComponentProps<typeof AlertDialogPrimitive.Root>) {
-  return <AlertDialogPrimitive.Root data-slot="alert-dialog" {...props} />;
-}
+const AlertDialog = AlertDialogPrimitive.Root;
 
 function AlertDialogTrigger({
   ...props
@@ -36,7 +32,7 @@ function AlertDialogBackdrop({
     <AlertDialogPrimitive.Backdrop
       data-slot="alert-dialog-backdrop"
       className={cn(
-        "fixed inset-0 z-50 bg-black/50 backdrop-blur-[1.5px] transition-colors duration-150 ease-out data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",
+        "fixed inset-0 bg-black/50 backdrop-blur-[1.5px] transition-colors duration-150 ease-out data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",
         className
       )}
       {...props}
@@ -55,7 +51,7 @@ function AlertDialogContent({
       <AlertDialogPrimitive.Popup
         data-slot="alert-dialog-content"
         className={cn(
-          "bg-background fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg transition-all duration-150 ease-out outline-none sm:max-w-lg",
+          "bg-background fixed top-[50%] left-[50%] grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg transition-all duration-150 ease-out outline-none sm:max-w-lg",
           "top-[calc(50%+1rem*var(--nested-dialogs))] scale-[calc(1-0.05*var(--nested-dialogs))] data-[ending-style]:top-[50.25%] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:top-[50.25%] data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
           "data-[nested-dialog-open]:after:absolute data-[nested-dialog-open]:after:inset-0 data-[nested-dialog-open]:after:rounded-[inherit] data-[nested-dialog-open]:after:bg-black/5 data-[nested-dialog-open]:after:backdrop-blur-[1.5px]",
           className

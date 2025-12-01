@@ -6,11 +6,9 @@ import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-function ContextMenu({
-  ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.Root>) {
-  return <ContextMenuPrimitive.Root data-slot="context-menu" {...props} />;
-}
+const ContextMenu = ContextMenuPrimitive.Root;
+
+const ContextMenuSub = ContextMenuPrimitive.SubmenuRoot;
 
 function ContextMenuTrigger({
   ...props
@@ -101,21 +99,13 @@ function ContextMenuItem({
   );
 }
 
-function ContextMenuSub({
-  ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.SubmenuRoot>) {
-  return (
-    <ContextMenuPrimitive.SubmenuRoot data-slot="context-menu-sub" {...props} />
-  );
-}
-
 function ContextMenuSubTrigger({
   className,
   inset,
   children,
   ...props
 }: React.ComponentProps<typeof ContextMenuPrimitive.SubmenuTrigger> & {
-  inset?: boolean
+  inset?: boolean;
 }) {
   return (
     <ContextMenuPrimitive.SubmenuTrigger
