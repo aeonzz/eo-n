@@ -11,11 +11,7 @@ import {
 
 import { cn } from "@/lib/utils";
 
-function Select({
-  ...props
-}: React.ComponentProps<typeof SelectPrimitive.Root>) {
-  return <SelectPrimitive.Root data-slot="select" {...props} />;
-}
+const Select = SelectPrimitive.Root;
 
 interface SelectTriggerProps
   extends React.ComponentProps<typeof SelectPrimitive.Trigger> {
@@ -94,12 +90,6 @@ function SelectContent({
         className="relative z-50 size-auto"
         {...props}
       >
-        <SelectPrimitive.ScrollUpArrow
-          data-slot="select-scroll-up-arrow"
-          className="top-0 z-[1] flex w-full cursor-default items-center justify-center py-1"
-        >
-          <ChevronUpIcon className="size-4" />
-        </SelectPrimitive.ScrollUpArrow>
         <SelectPrimitive.Popup
           data-slot="select-content"
           className={cn(
@@ -108,14 +98,10 @@ function SelectContent({
             className
           )}
         >
-          {children}
+          <SelectScrollUpArrow />
+          <SelectList>{children}</SelectList>
+          <SelectScrollDownArrow />
         </SelectPrimitive.Popup>
-        <SelectPrimitive.ScrollDownArrow
-          data-slot="select-scroll-down-arrow"
-          className="bottom-0 z-[1] flex w-full cursor-default items-center justify-center py-1"
-        >
-          <ChevronDownIcon className="size-4" />
-        </SelectPrimitive.ScrollDownArrow>
       </SelectPrimitive.Positioner>
     </SelectPortal>
   );
@@ -142,6 +128,22 @@ function SelectItem({
       </span>
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
     </SelectPrimitive.Item>
+  );
+}
+
+function SelectList({
+  className,
+  ...props
+}: React.ComponentProps<typeof SelectPrimitive.List>) {
+  return (
+    <SelectPrimitive.List
+      data-slot="select-list"
+      className={cn(
+        "max-h-[var(--available-height)] overflow-y-auto",
+        className
+      )}
+      {...props}
+    />
   );
 }
 
@@ -172,7 +174,7 @@ function SelectScrollUpArrow({
     <SelectPrimitive.ScrollUpArrow
       data-slot="select-scroll-up-arrow"
       className={cn(
-        "top-0 z-[1] flex w-full cursor-default items-center justify-center py-2",
+        "top-0 z-[1] hidden w-full cursor-default items-center justify-center py-2 data-[side=none]:flex",
         className
       )}
       {...props}
@@ -190,7 +192,7 @@ function SelectScrollDownArrow({
     <SelectPrimitive.ScrollUpArrow
       data-slot="select-scroll-down-arrow"
       className={cn(
-        "bottom-0 z-[1] flex w-full cursor-default items-center justify-center py-2",
+        "bottom-0 z-[1] hidden w-full cursor-default items-center justify-center py-2 data-[side=none]:flex",
         className
       )}
       {...props}
@@ -223,6 +225,7 @@ export {
   SelectBackdrop,
   SelectPortal,
   SelectItem,
+  SelectList,
   SelectContent,
   SelectGroup,
   SelectGroupLabel,

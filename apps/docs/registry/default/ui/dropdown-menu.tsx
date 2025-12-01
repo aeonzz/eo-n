@@ -6,11 +6,9 @@ import { Check, ChevronRightIcon, Circle } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-function DropdownMenu({
-  ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {
-  return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
-}
+const DropdownMenu = DropdownMenuPrimitive.Root;
+
+const DropdownMenuSub = DropdownMenuPrimitive.SubmenuRoot;
 
 function DropdownMenuTrigger({
   ...props
@@ -99,17 +97,6 @@ function DropdownMenuItem({
         "data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:data-[highlighted]:bg-destructive/10 dark:data-[variant=destructive]:data-[highlighted]:bg-destructive/20 data-[variant=destructive]:data-[highlighted]:text-destructive data-[variant=destructive]:*:[svg]:!text-destructive [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden transition-colors outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-8 [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
-      {...props}
-    />
-  );
-}
-
-function DropdownMenuSub({
-  ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.SubmenuRoot>) {
-  return (
-    <DropdownMenuPrimitive.SubmenuRoot
-      data-slot="dropdown-menu-sub"
       {...props}
     />
   );

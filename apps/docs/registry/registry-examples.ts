@@ -1092,6 +1092,16 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "autocomplete-input-group",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/autocomplete-input-group.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "autocomplete-async-search",
     type: "registry:example",
     files: [

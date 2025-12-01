@@ -7,7 +7,7 @@ import {
 
 export default function ToggleGroupMultiple() {
   return (
-    <ToggleGroup toggleMultiple>
+    <ToggleGroup multiple>
       <ToggleGroupItem value="bold" aria-label="Toggle bold">
         <Bold />
       </ToggleGroupItem>

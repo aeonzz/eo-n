@@ -55,7 +55,7 @@ export default function HomePage() {
                   <span className="line">
                     {`{
   "registries": {
-    "@eo-n": "https://https://eo-n.vercel.app/r/{name}.json"
+    "@eo-n": "https://eo-n.vercel.app/r/{name}.json"
   }
 }`}
                   </span>

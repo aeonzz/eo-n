@@ -1,0 +1,12 @@
+{
+  "name": "autocomplete-input-group",
+  "type": "registry:example",
+  "files": [
+    {
+      "path": "examples/autocomplete-input-group.tsx",
+      "content": "import * as React from \"react\";\r\nimport { SearchIcon } from \"lucide-react\";\r\n\r\nimport {\r\n  Autocomplete,\r\n  AutocompleteContent,\r\n  AutocompleteEmpty,\r\n  AutocompleteInput,\r\n  AutocompleteItem,\r\n  AutocompleteList,\r\n} from \"@/registry/default/ui/autocomplete\";\r\nimport {\r\n  InputGroup,\r\n  InputGroupAddon,\r\n  InputGroupButton,\r\n  InputGroupInput,\r\n} from \"@/registry/default/ui/input-group\";\r\n\r\ninterface Department {\r\n  id: string;\r\n  value: string;\r\n}\r\n\r\nconst departments: Department[] = [\r\n  { id: \"eng\", value: \"Engineering\" },\r\n  { id: \"educ\", value: \"Education\" },\r\n  { id: \"nursing\", value: \"Nursing\" },\r\n  { id: \"bus\", value: \"Business Administration\" },\r\n  { id: \"acct\", value: \"Accountancy\" },\r\n  { id: \"arch\", value: \"Architecture\" },\r\n  { id: \"agri\", value: \"Agriculture\" },\r\n  { id: \"math\", value: \"Mathematics\" },\r\n  { id: \"sci\", value: \"Science\" },\r\n  { id: \"arts\", value: \"Arts and Humanities\" },\r\n  { id: \"soc\", value: \"Social Sciences\" },\r\n];\r\n\r\nexport default function AutocompleteInputGroup() {\r\n  const containerRef = React.useRef<HTMLDivElement | null>(null);\r\n\r\n  return (\r\n    <Autocomplete items={departments} mode=\"both\">\r\n      <InputGroup ref={containerRef} className=\"max-w-xs\">\r\n        <AutocompleteInput\r\n          render={<InputGroupInput placeholder=\"Search department...\" />}\r\n        />\r\n        <InputGroupAddon>\r\n          <SearchIcon />\r\n        </InputGroupAddon>\r\n        <InputGroupAddon align=\"inline-end\">\r\n          <InputGroupButton variant=\"secondary\">Search</InputGroupButton>\r\n        </InputGroupAddon>\r\n      </InputGroup>\r\n\r\n      <AutocompleteContent anchor={containerRef}>\r\n        <AutocompleteEmpty>No departments found.</AutocompleteEmpty>\r\n        <AutocompleteList>\r\n          {(department: Department) => (\r\n            <AutocompleteItem key={department.id} value={department}>\r\n              {department.value}\r\n            </AutocompleteItem>\r\n          )}\r\n        </AutocompleteList>\r\n      </AutocompleteContent>\r\n    </Autocomplete>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

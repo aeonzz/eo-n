@@ -7,7 +7,7 @@ import {
 
 export default function AccordionDemo() {
   return (
-    <Accordion className="">
+    <Accordion>
       <AccordionItem value="item-1">
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
         <AccordionContent>

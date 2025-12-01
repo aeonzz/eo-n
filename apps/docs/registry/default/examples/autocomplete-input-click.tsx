@@ -46,7 +46,7 @@ const languages = [
   { id: "vb", value: "Visual Basic" },
 ];
 
-export default function AccordionDemo() {
+export default function AutocompleteInputClick() {
   return (
     <Autocomplete items={languages} mode="both" openOnInputClick>
       <AutocompleteInput
