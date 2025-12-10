@@ -64,7 +64,7 @@ export default function AutocompleteInputClick() {
       />
       <AutocompleteContent>
         <AutocompleteEmpty>No languages found.</AutocompleteEmpty>
-        <AutocompleteList className="">
+        <AutocompleteList>
           {(language: Language) => (
             <AutocompleteItem key={language.id} value={language}>
               {language.value}

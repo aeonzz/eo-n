@@ -5,6 +5,8 @@ import { Popover as PopoverPrimitive } from "@base-ui-components/react/popover";
 
 import { cn } from "@/lib/utils";
 
+const PopoverCreateHandle = PopoverPrimitive.createHandle;
+
 const Popover = PopoverPrimitive.Root;
 
 function PopoverTrigger({
@@ -43,18 +45,18 @@ function PopoverContent({
       <PopoverPrimitive.Positioner
         data-slot="popover-positioner"
         sideOffset={sideOffset}
-        className="z-50 size-auto"
+        className="z-50 h-(--positioner-height) max-h-[var(--available-height)] w-(--positioner-width) max-w-(--available-width) transition-[top,left,right,bottom,transform] duration-150 ease-out"
         {...props}
       >
         <PopoverPrimitive.Popup
           data-slot="popover-content"
           className={cn(
-            "group bg-popover text-popover-foreground max-h-[var(--available-height)] w-72 max-w-[var(--available-width)] overflow-x-hidden overflow-y-auto overscroll-contain rounded-md border p-4 shadow-md transition-[transform,scale,opacity] duration-150 ease-out",
+            "group bg-popover text-popover-foreground relative h-(--popup-height,auto) max-h-[var(--available-height)] w-(--popup-width,auto) max-w-[var(--available-width)] overflow-x-hidden overflow-y-auto overscroll-contain rounded-md border p-4 shadow-md transition-[width,height,opacity,scale] duration-150 ease-out",
             "origin-[var(--transform-origin)] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
             className
           )}
         >
-          {children}
+          <PopoverViewport>{children}</PopoverViewport>
         </PopoverPrimitive.Popup>
       </PopoverPrimitive.Positioner>
     </PopoverPortal>
@@ -103,7 +105,25 @@ function PopoverCLose({
   return <PopoverPrimitive.Close data-slot="popover-close" {...props} />;
 }
 
+function PopoverViewport({
+  className,
+  ...props
+}: React.ComponentProps<typeof PopoverPrimitive.Viewport>) {
+  return (
+    <PopoverPrimitive.Viewport
+      data-slot="popover-viewport"
+      className={cn(
+        "relative size-full overflow-visible",
+        "**:data-current:w-[calc(var(--popup-width)-2)] **:data-current:opacity-100 **:data-current:transition-opacity **:data-current:data-ending-style:opacity-0 **:data-previous:w-[calc(var(--popup-width)-2)] **:data-previous:opacity-100 **:data-previous:transition-opacity **:data-previous:data-ending-style:opacity-0 **:data-current:data-starting-style:opacity-0 **:data-previous:data-starting-style:opacity-0",
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
 export {
+  PopoverCreateHandle,
   Popover,
   PopoverTrigger,
   PopoverBackdrop,
@@ -113,4 +133,5 @@ export {
   PopoverTitle,
   PopoverDescription,
   PopoverCLose,
+  PopoverViewport,
 };

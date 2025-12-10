@@ -12,7 +12,7 @@ export default function PopoverDemo() {
   return (
     <Popover>
       <PopoverTrigger render={<Button variant="outline">Open</Button>} />
-      <PopoverContent>
+      <PopoverContent className="w-80">
         <PopoverHeader>
           <PopoverTitle>Event Details</PopoverTitle>
           <PopoverDescription>

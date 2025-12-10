@@ -33,8 +33,9 @@ export function ComponentDialogCode({
         {description}
       </p>
       <Dialog>
-        <Tooltip delay={0}>
+        <Tooltip>
           <TooltipTrigger
+            delay={0}
             render={
               <DialogTrigger
                 render={

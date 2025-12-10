@@ -46,15 +46,21 @@ interface ContextMenuContentProps
 function ContextMenuContent({
   className,
   sideOffset = 4,
+  align,
+  alignOffset,
   children,
   ...props
 }: ContextMenuContentProps) {
+  const defaultAlignOffset = align !== "center" ? -4 : undefined;
+
   return (
     <ContextMenuPortal>
       <ContextMenuBackdrop />
       <ContextMenuPrimitive.Positioner
         data-slot="context-menu-positioner"
         sideOffset={sideOffset}
+        align={align}
+        alignOffset={alignOffset ?? defaultAlignOffset}
         className="z-50 size-auto"
         {...props}
       >

@@ -10,8 +10,11 @@ import {
 
 export default function DropdownMenuHover() {
   return (
-    <DropdownMenu openOnHover>
-      <DropdownMenuTrigger render={<Button variant="outline">Menu</Button>} />
+    <DropdownMenu>
+      <DropdownMenuTrigger
+        openOnHover
+        render={<Button variant="outline">Menu</Button>}
+      />
       <DropdownMenuContent className="w-52">
         <DropdownMenuItem>
           <Home />

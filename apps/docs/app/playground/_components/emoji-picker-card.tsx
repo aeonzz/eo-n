@@ -16,16 +16,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/registry/default/ui/popover";
-import { useToastManager } from "@/registry/default/ui/toast";
+import { toastManager } from "@/registry/default/ui/toast";
 
 export default function EmojiPickerCard() {
-  const toast = useToastManager();
-
   return (
     <ComponentCard name="Emoji Picker">
       <EmojiPicker
         onEmojiSelect={({ emoji, label }) => {
-          toast.add({
+          toastManager.add({
             title: `${emoji} ${label}`,
           });
         }}
@@ -42,7 +40,7 @@ export default function EmojiPickerCard() {
         <PopoverContent side="bottom" align="start" className="w-fit p-0">
           <EmojiPicker
             onEmojiSelect={({ emoji, label }) => {
-              toast.add({
+              toastManager.add({
                 title: `${emoji} ${label}`,
               });
             }}

@@ -122,6 +122,16 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "dialog-scrollable",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/dialog-scrollable.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "input-demo",
     type: "registry:example",
     files: [
@@ -292,6 +302,16 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "accordion-multiple",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/accordion-multiple.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "checkbox-demo",
     type: "registry:example",
     files: [
@@ -402,6 +422,16 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "tooltip-animated",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/tooltip-animated.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "toggle-demo",
     type: "registry:example",
     files: [
@@ -467,6 +497,16 @@ export const examples: Registry = [
     files: [
       {
         path: "examples/popover-hover.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "popover-animated",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/popover-animated.tsx",
         type: "registry:example",
       },
     ],
@@ -647,6 +687,16 @@ export const examples: Registry = [
     files: [
       {
         path: "examples/scroll-area-horizontal.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "scroll-area-both",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/scroll-area-both.tsx",
         type: "registry:example",
       },
     ],
@@ -932,6 +982,16 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "toast-test",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/toast-test.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "toast-demo",
     type: "registry:example",
     files: [
@@ -957,6 +1017,26 @@ export const examples: Registry = [
     files: [
       {
         path: "examples/toast-promise.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toast-anchored",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/toast-anchored.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toast-varying-height",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/toast-varying-height.tsx",
         type: "registry:example",
       },
     ],

@@ -1,0 +1,12 @@
+{
+  "name": "scroll-area-both",
+  "type": "registry:example",
+  "files": [
+    {
+      "path": "examples/scroll-area-both.tsx",
+      "content": "import { ScrollArea } from \"@/registry/default/ui/scroll-area\";\r\n\r\nexport default function ScrollAreaBoth() {\r\n  return (\r\n    <ScrollArea\r\n      scrollbars=\"both\"\r\n      className=\"size-80 rounded-[12px] border\"\r\n    >\r\n      <ul\r\n        style={{\r\n          margin: 0,\r\n          padding: 0,\r\n        }}\r\n        className=\"grid list-none grid-cols-[repeat(10,6.25rem)] grid-rows-[repeat(10,6.25rem)] gap-2 p-0\"\r\n      >\r\n        {Array.from({ length: 100 }, (_, i) => (\r\n          <li\r\n            style={{\r\n              margin: 0,\r\n              padding: 0,\r\n            }}\r\n            key={i}\r\n            className=\"bg-muted text-muted-foreground flex items-center justify-center rounded-lg text-sm font-medium\"\r\n          >\r\n            {i + 1}\r\n          </li>\r\n        ))}\r\n      </ul>\r\n    </ScrollArea>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

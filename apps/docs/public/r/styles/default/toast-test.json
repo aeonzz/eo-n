@@ -1,0 +1,12 @@
+{
+  "name": "toast-test",
+  "type": "registry:example",
+  "files": [
+    {
+      "path": "examples/toast-test.tsx",
+      "content": "\"use client\";\r\n\r\nimport * as React from \"react\";\r\nimport { Check, Copy } from \"lucide-react\";\r\n\r\nimport { Button } from \"@/registry/default/ui/button\";\r\nimport {\r\n  anchoredToastManager,\r\n  AnchoredToastProvider,\r\n} from \"@/registry/default/ui/toast\";\r\n\r\nexport default function ToastAnchoredDemo() {\r\n  return (\r\n    <AnchoredToastProvider>\r\n      <CopyButton />\r\n    </AnchoredToastProvider>\r\n  );\r\n}\r\n\r\nfunction CopyButton() {\r\n  const [copied, setCopied] = React.useState(false);\r\n  const buttonRef = React.useRef<HTMLButtonElement | null>(null);\r\n\r\n  function handleCopy() {\r\n    setCopied(true);\r\n\r\n    anchoredToastManager.add({\r\n      description: \"Copied to clipboard!\",\r\n      positionerProps: {\r\n        anchor: buttonRef.current,\r\n        sideOffset: 8,\r\n      },\r\n      timeout: 1500,\r\n      onClose() {\r\n        setCopied(false);\r\n      },\r\n    });\r\n  }\r\n\r\n  return (\r\n    <Button\r\n      ref={buttonRef}\r\n      variant=\"outline\"\r\n      size=\"icon\"\r\n      onClick={handleCopy}\r\n      disabled={copied}\r\n      aria-label=\"Copy to clipboard\"\r\n    >\r\n      {copied ? <Check className=\"size-4\" /> : <Copy className=\"size-4\" />}\r\n    </Button>\r\n  );\r\n}\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

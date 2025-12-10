@@ -2,6 +2,7 @@
 title: Button
 description: Triggers actions or navigation when clicked.
 preview: true
+new: true
 links:
   api: /docs/ui/button#api-reference
 ---
@@ -12,16 +13,14 @@ links:
 
 <CodeTabs>
 
-  <TabsList>
-    <TabsTrigger value="cli">CLI</TabsTrigger>
-    <TabsTrigger value="manual">Manual</TabsTrigger>
-  </TabsList>
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
 
-  <TabsContent value="cli">
-    ```package-install 
-    npx shadcn@latest add @eo-n/button
-    ```
-  </TabsContent>
+<TabsContent value="cli">
+  ```package-install npx shadcn@latest add @eo-n/button ```
+</TabsContent>
 
   <TabsContent value="manual">
     <Steps>
@@ -32,10 +31,11 @@ links:
         <ComponentSource name="button" />
 
       </Step>
-      
+
       <Step>Update the import paths to match your project setup.</Step>
 
     </Steps>
+
   </TabsContent>
 
 </CodeTabs>
@@ -85,12 +85,3 @@ import { Button } from "@/components/ui/button";
 ### Loading
 
 <ComponentTabs name="button-loading" />
-
-## API Reference
-
-### Root
-
-The main container component for handling button props.
-
-<AutoTypeTable path="./types/docs/button.ts" name="RootProps" />
-

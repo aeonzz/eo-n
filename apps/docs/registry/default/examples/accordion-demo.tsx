@@ -8,7 +8,7 @@ import {
 export default function AccordionDemo() {
   return (
     <Accordion>
-      <AccordionItem value="item-1">
+      <AccordionItem>
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
         <AccordionContent>
           Yes. It adheres to the WAI-ARIA design pattern and is fully keyboard
@@ -16,7 +16,7 @@ export default function AccordionDemo() {
           ARIA attributes for screen reader compatibility.
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-2">
+      <AccordionItem>
         <AccordionTrigger>Is it styled?</AccordionTrigger>
         <AccordionContent>
           Yes. The component comes with default styling using Tailwind CSS
@@ -25,7 +25,7 @@ export default function AccordionDemo() {
           interactions.
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-3">
+      <AccordionItem>
         <AccordionTrigger>Is it responsive?</AccordionTrigger>
         <AccordionContent>
           Absolutely. The accordion adapts to different screen sizes and works

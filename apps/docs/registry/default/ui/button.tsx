@@ -1,10 +1,11 @@
 import * as React from "react";
+import { Button as ButtonPrimitive } from "@base-ui-components/react/button";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
   {
     variants: {
       variant: {
@@ -28,24 +29,58 @@ const buttonVariants = cva(
         "icon-sm": "size-8",
         "icon-lg": "size-10",
       },
+      active: {
+        true: "",
+      },
     },
+    compoundVariants: [
+      {
+        variant: "default",
+        active: true,
+        class: "bg-primary/90",
+      },
+      {
+        variant: "destructive",
+        active: true,
+        class: "bg-destructive/90 dark:bg-destructive/90",
+      },
+      {
+        variant: "outline",
+        active: true,
+        class: "bg-accent text-accent-foreground dark:bg-accent",
+      },
+      {
+        variant: "secondary",
+        active: true,
+        class: "bg-secondary/80",
+      },
+      {
+        variant: "ghost",
+        active: true,
+        class: "bg-accent text-accent-foreground dark:bg-accent",
+      },
+    ],
     defaultVariants: {
       variant: "default",
       size: "default",
+      active: false,
     },
   }
 );
+
 export type ButtonVariants = VariantProps<typeof buttonVariants>;
 
-export interface ButtonProps
-  extends React.ComponentProps<"button">,
-    ButtonVariants {}
+export type ButtonProps = React.ComponentProps<typeof ButtonPrimitive> &
+  ButtonVariants & {
+    active?: boolean;
+  };
 
-function Button({ className, variant, size, ...props }: ButtonProps) {
+function Button({ className, variant, size, active, ...props }: ButtonProps) {
   return (
-    <button
+    <ButtonPrimitive
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
+      data-active={active}
+      className={cn(buttonVariants({ variant, size, active, className }))}
       {...props}
     />
   );

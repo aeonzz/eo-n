@@ -32,7 +32,23 @@ function AlertDialogBackdrop({
     <AlertDialogPrimitive.Backdrop
       data-slot="alert-dialog-backdrop"
       className={cn(
-        "fixed inset-0 bg-black/50 backdrop-blur-[1.5px] transition-colors duration-150 ease-out data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",
+        "fixed inset-0 z-50 bg-black/50 backdrop-blur-[1.5px] transition-colors duration-150 ease-out data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
+function AlertDialogViewport({
+  className,
+  ...props
+}: React.ComponentProps<typeof AlertDialogPrimitive.Viewport>) {
+  return (
+    <AlertDialogPrimitive.Viewport
+      data-slot="alert-dialog-viewport"
+      className={cn(
+        "fixed inset-0 z-50 flex items-center justify-center p-4",
         className
       )}
       {...props}
@@ -43,23 +59,30 @@ function AlertDialogBackdrop({
 function AlertDialogContent({
   className,
   children,
+  flush = false,
   ...props
-}: React.ComponentProps<typeof AlertDialogPrimitive.Popup>) {
+}: React.ComponentProps<typeof AlertDialogPrimitive.Popup> & {
+  flush?: boolean;
+}) {
   return (
     <AlertDialogPortal>
       <AlertDialogBackdrop />
-      <AlertDialogPrimitive.Popup
-        data-slot="alert-dialog-content"
-        className={cn(
-          "bg-background fixed top-[50%] left-[50%] grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg transition-all duration-150 ease-out outline-none sm:max-w-lg",
-          "top-[calc(50%+1rem*var(--nested-dialogs))] scale-[calc(1-0.05*var(--nested-dialogs))] data-[ending-style]:top-[50.25%] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:top-[50.25%] data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
-          "data-[nested-dialog-open]:after:absolute data-[nested-dialog-open]:after:inset-0 data-[nested-dialog-open]:after:rounded-[inherit] data-[nested-dialog-open]:after:bg-black/5 data-[nested-dialog-open]:after:backdrop-blur-[1.5px]",
-          className
-        )}
-        {...props}
-      >
-        {children}
-      </AlertDialogPrimitive.Popup>
+      <AlertDialogViewport>
+        <AlertDialogPrimitive.Popup
+          data-slot="alert-dialog-content"
+          data-flush={flush}
+          className={cn(
+            "bg-background group fixed top-[50%] left-[50%] flex max-h-[calc(100%-2rem)] w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] flex-col gap-4 overflow-hidden rounded-lg border p-6 shadow-lg transition-all duration-150 ease-out outline-none sm:max-w-lg",
+            "top-[calc(50%+1rem*var(--nested-dialogs))] scale-[calc(1-0.05*var(--nested-dialogs))] data-[ending-style]:top-[50.25%] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:top-[50.25%] data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
+            "data-[nested-dialog-open]:after:absolute data-[nested-dialog-open]:after:inset-0 data-[nested-dialog-open]:after:rounded-[inherit] data-[nested-dialog-open]:after:bg-black/5 data-[nested-dialog-open]:after:backdrop-blur-[1.5px]",
+            flush && "gap-0 p-0",
+            className
+          )}
+          {...props}
+        >
+          {children}
+        </AlertDialogPrimitive.Popup>
+      </AlertDialogViewport>
     </AlertDialogPortal>
   );
 }
@@ -71,7 +94,11 @@ function AlertDialogHeader({
   return (
     <div
       data-slot="alert-dialog-header"
-      className={cn("flex flex-col gap-2 text-center sm:text-left", className)}
+      className={cn(
+        "flex flex-col gap-2 text-center sm:text-left",
+        "group-data-[flush=true]:p-6",
+        className
+      )}
       {...props}
     />
   );
@@ -83,9 +110,10 @@ function AlertDialogFooter({
 }: React.ComponentProps<"div">) {
   return (
     <div
-      data-slot="dialog-footer"
+      data-slot="alert-dialog-footer"
       className={cn(
         "flex flex-col-reverse gap-2 sm:flex-row sm:justify-end",
+        "group-data-[flush=true]:bg-muted/30 group-data-[flush=true]:border-t group-data-[flush=true]:p-6",
         className
       )}
       {...props}
@@ -99,7 +127,7 @@ function AlertDialogTitle({
 }: React.ComponentProps<typeof AlertDialogPrimitive.Title>) {
   return (
     <AlertDialogPrimitive.Title
-      data-slot="dialog-title"
+      data-slot="alert-dialog-title"
       className={cn("text-lg font-semibold", className)}
       {...props}
     />
@@ -112,7 +140,7 @@ function AlertDialogDescription({
 }: React.ComponentProps<typeof AlertDialogPrimitive.Description>) {
   return (
     <AlertDialogPrimitive.Description
-      data-slot="dialog-description"
+      data-slot="alert-dialog-description"
       className={cn("text-muted-foreground text-sm", className)}
       {...props}
     />
@@ -137,6 +165,7 @@ export {
   AlertDialogTrigger,
   AlertDialogPortal,
   AlertDialogBackdrop,
+  AlertDialogViewport,
   AlertDialogContent,
   AlertDialogHeader,
   AlertDialogFooter,
