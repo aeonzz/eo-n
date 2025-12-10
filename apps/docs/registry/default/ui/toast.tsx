@@ -155,20 +155,20 @@ interface ToastListsProps {
   closeButton?: boolean;
 }
 
+const swipeDirectionMap: Record<
+  Position,
+  NonNullable<ToastPrimitive.Root.Props["swipeDirection"]>
+> = {
+  "bottom-center": "down",
+  "bottom-left": ["down", "left"],
+  "bottom-right": ["down", "right"],
+  "top-center": "up",
+  "top-left": ["up", "left"],
+  "top-right": ["up", "right"],
+};
+
 function ToastLists({ position, richColors, closeButton }: ToastListsProps) {
   const { toasts } = useToastManager();
-
-  const swipeDirectionMap: Record<
-    Position,
-    NonNullable<ToastPrimitive.Root.Props["swipeDirection"]>
-  > = {
-    "bottom-center": "down",
-    "bottom-left": ["down", "left"],
-    "bottom-right": ["down", "right"],
-    "top-center": "up",
-    "top-left": ["up", "left"],
-    "top-right": ["up", "right"],
-  };
 
   const swipeDirection = swipeDirectionMap[position] ?? ["down", "right"];
 
