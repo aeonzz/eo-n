@@ -6,7 +6,8 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format:write": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "build:registry": "pnpm --filter=docs build:registry"
+    "build:registry": "pnpm --filter=docs build:registry",
+    "typecheck": "pnpm --filter=docs typecheck"
   },
   "devDependencies": {
     "prettier": "^3.4.2",
