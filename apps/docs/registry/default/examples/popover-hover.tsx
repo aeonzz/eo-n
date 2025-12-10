@@ -12,8 +12,9 @@ import {
 
 export default function PopoverHover() {
   return (
-    <Popover openOnHover>
+    <Popover>
       <PopoverTrigger
+        openOnHover
         render={<Button variant="outline">Event Details</Button>}
       />
       <PopoverContent className="w-[325px] space-y-3">

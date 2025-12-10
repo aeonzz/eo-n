@@ -45,7 +45,10 @@ const frameworks: Framework[] = [
 
 export default function ComboboxDemo() {
   return (
-    <Combobox items={frameworks} itemToStringLabel={(item) => item.label}>
+    <Combobox
+      items={frameworks}
+      itemToStringLabel={(item: Framework) => item.label}
+    >
       <ComboboxInput
         render={(props) => (
           <Label className="flex w-full max-w-[229px] flex-col gap-2">
@@ -55,11 +58,7 @@ export default function ComboboxDemo() {
               <div className="absolute top-0 right-2 flex h-full items-center gap-1">
                 <ComboboxClear
                   render={
-                    <Button
-                      size="icon"
-                      variant="ghost"
-                      className="[&]:size-5"
-                    >
+                    <Button size="icon" variant="ghost" className="[&]:size-5">
                       <XIcon className="size-3.5" />
                     </Button>
                   }

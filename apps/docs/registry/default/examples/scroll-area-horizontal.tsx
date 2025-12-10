@@ -31,9 +31,9 @@ export default function ScrollAreaHorizontal() {
   return (
     <ScrollArea
       className="h-fit w-[550px] rounded-md border"
-      orientation="horizontal"
+      scrollbars="horizontal"
     >
-      <div className="flex space-x-2 py-4">
+      <div className="flex space-x-2">
         {components.map((comp, i) => (
           <Link
             key={i}

@@ -8,61 +8,45 @@ import { ComponentSource } from "@/components/component-source";
 
 export default function HomePage() {
   return (
-    <main className="flex h-full flex-col">
-      <div className="max-w-fd-container mx-auto flex h-full w-full items-center px-3 sm:px-24">
-        <div className="flex h-auto w-full flex-col justify-between gap-6 px-4 py-12 sm:flex-row sm:items-center sm:gap-24 sm:py-0">
-          <div className="relative flex h-full w-fit flex-col items-start justify-center gap-4 sm:gap-6">
-            <h1 className="from-foreground tracking-lose text-left text-5xl leading-[1.1] font-semibold sm:text-7xl">
-              Craft Your Component <br /> Library
-            </h1>
-            <p className="text-muted-foreground tracking-lose max-w-sm text-left text-sm leading-[1.1] font-normal sm:max-w-2xl sm:text-lg md:max-w-3xl lg:max-w-4xl">
-              {siteConfig.description}
-            </p>
-            <div className="flex gap-1.5 sm:gap-3">
-              <Link
-                href="/docs/ui"
-                prefetch
-                className={cn(
-                  buttonVariants({ variant: "default" }),
-                  "w-full max-w-xs"
-                )}
-              >
-                Get Started
-              </Link>
-              <Link
-                href="/docs/ui/accordion"
-                prefetch
-                className={cn(
-                  buttonVariants({ variant: "ghost" }),
-                  "w-full max-w-xs"
-                )}
-              >
-                Explore Components
-              </Link>
-            </div>
-          </div>
-          <div className="flex-1 px-0 sm:px-6">
-            <h3 className="tracking-lose text-base font-medium">
-              Setup Registry
-            </h3>
-            <p className="text-muted-foreground text-sm font-normal">
-              Use the code below to configure the @eo-n registry for your
-              project.
-            </p>
-            <CodeBlock title="components.json">
-              <Pre>
-                <code>
-                  <span className="line">
-                    {`{
-  "registries": {
-    "@eo-n": "https://eo-n.vercel.app/r/{name}.json"
-  }
-}`}
-                  </span>
-                </code>
-              </Pre>
-            </CodeBlock>
-            <ComponentSource src="accordion" />
+    <main className="relative flex h-full flex-col justify-center overflow-hidden">
+      <div className="bg-background absolute inset-0 -z-10 h-full w-full">
+        <div className="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] [background-size:16px_16px] dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)]"></div>
+      </div>
+      <div className="max-w-fd-container mx-auto flex h-full w-full flex-col items-center justify-center px-4 py-24 sm:px-24">
+        <div className="relative flex w-full max-w-4xl flex-col items-center justify-center gap-6 text-center">
+          <h1 className="tracking-lose text-center text-4xl leading-[1.1] font-semibold sm:text-6xl md:text-7xl">
+            <span className="from-foreground to-muted-foreground/70 bg-gradient-to-b bg-clip-text text-transparent">
+              Craft Your Component
+            </span>{" "}
+            <br />
+            <span className="from-foreground to-muted-foreground/70 bg-gradient-to-b bg-clip-text text-transparent">
+              Library
+            </span>
+          </h1>
+          <p className="text-muted-foreground tracking-lose max-w-2xl text-center text-lg leading-[1.3] font-normal sm:text-xl">
+            {siteConfig.description}
+          </p>
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link
+              href="/docs/ui"
+              prefetch
+              className={cn(
+                buttonVariants({ variant: "default", size: "lg" }),
+                "min-w-[160px] rounded-full"
+              )}
+            >
+              Get Started
+            </Link>
+            <Link
+              href="/docs/ui/accordion"
+              prefetch
+              className={cn(
+                buttonVariants({ variant: "outline", size: "lg" }),
+                "min-w-[160px] rounded-full"
+              )}
+            >
+              Explore Components
+            </Link>
           </div>
         </div>
       </div>

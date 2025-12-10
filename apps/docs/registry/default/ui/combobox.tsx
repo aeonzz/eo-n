@@ -117,7 +117,7 @@ function ComboboxList({
     <ComboboxPrimitive.List
       data-slot="combobox-list"
       className={cn(
-        "max-h-[min(23rem,var(--available-height))] overflow-y-auto overscroll-contain p-1 empty:m-0 empty:p-0",
+        "max-h-[min(23rem,var(--available-height))] overflow-y-auto overscroll-contain p-1 data-[empty]:m-0 data-[empty]:p-0",
         className
       )}
       {...props}

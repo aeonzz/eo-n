@@ -12,16 +12,14 @@ links:
 
 <CodeTabs>
 
-  <TabsList>
-    <TabsTrigger value="cli">CLI</TabsTrigger>
-    <TabsTrigger value="manual">Manual</TabsTrigger>
-  </TabsList>
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
 
-  <TabsContent value="cli">
-    ```package-install 
-    npx shadcn@latest add @eo-n/scroll-area
-    ```
-  </TabsContent>
+<TabsContent value="cli">
+  ```package-install npx shadcn@latest add @eo-n/scroll-area ```
+</TabsContent>
 
   <TabsContent value="manual">
     <Steps>
@@ -32,10 +30,11 @@ links:
         <ComponentSource name="scroll-area" />
 
       </Step>
-      
+
       <Step>Update the import paths to match your project setup.</Step>
 
     </Steps>
+
   </TabsContent>
 
 </CodeTabs>
@@ -64,3 +63,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 ### Horizontal Scroll
 
 <ComponentTabs name="scroll-area-horizontal" />
+
+### Both Scrollbars
+
+<ComponentTabs name="scroll-area-both" />

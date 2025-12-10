@@ -8,4 +8,10 @@ export interface ContentProps extends EmptyProps<"button"> {
    * @default false
    */
   hideCloseIcon?: boolean;
+  /**
+   * Whether to remove the default padding and gap from the dialog content.
+   * Useful for edge-to-edge content like scroll areas.
+   * @default false
+   */
+  flush?: boolean;
 }

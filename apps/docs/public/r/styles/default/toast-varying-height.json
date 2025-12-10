@@ -1,0 +1,12 @@
+{
+  "name": "toast-varying-height",
+  "type": "registry:example",
+  "files": [
+    {
+      "path": "examples/toast-varying-height.tsx",
+      "content": "import { Button } from \"@/registry/default/ui/button\";\r\nimport { toastManager } from \"@/registry/default/ui/toast\";\r\n\r\nexport default function ToastVaryingHeight() {\r\n  return (\r\n    <Button\r\n      onClick={() => {\r\n        const description = TEXTS[Math.floor(Math.random() * TEXTS.length)];\r\n        toastManager.add({\r\n          title: \"Varying Height\",\r\n          description,\r\n        });\r\n      }}\r\n    >\r\n      Show Toast\r\n    </Button>\r\n  );\r\n}\r\n\r\nconst TEXTS = [\r\n  \"Short message.\",\r\n  \"A bit longer message that spans two lines.\",\r\n  \"This is a longer description that intentionally takes more vertical space to demonstrate stacking with varying heights.\",\r\n  \"An even longer description that should span multiple lines so we can verify the clamped collapsed height and smooth expansion animation when hovering or focusing the viewport.\",\r\n];\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

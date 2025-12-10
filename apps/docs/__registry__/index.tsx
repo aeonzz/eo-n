@@ -857,6 +857,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "dialog-scrollable": {
+      name: "dialog-scrollable",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/dialog-scrollable.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/dialog-scrollable.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "input-demo": {
       name: "input-demo",
       description: "",
@@ -1129,6 +1145,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "accordion-multiple": {
+      name: "accordion-multiple",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/accordion-multiple.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/accordion-multiple.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "checkbox-demo": {
       name: "checkbox-demo",
       description: "",
@@ -1305,6 +1337,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "tooltip-animated": {
+      name: "tooltip-animated",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/tooltip-animated.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/tooltip-animated.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "toggle-demo": {
       name: "toggle-demo",
       description: "",
@@ -1412,6 +1460,22 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/popover-hover.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "popover-animated": {
+      name: "popover-animated",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/popover-animated.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/popover-animated.tsx")),
       source: "",
       category: "",
       subcategory: "",
@@ -1700,6 +1764,22 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/scroll-area-horizontal.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "scroll-area-both": {
+      name: "scroll-area-both",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/scroll-area-both.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/scroll-area-both.tsx")),
       source: "",
       category: "",
       subcategory: "",
@@ -2153,6 +2233,22 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "toast-test": {
+      name: "toast-test",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/toast-test.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/toast-test.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
     "toast-demo": {
       name: "toast-demo",
       description: "",
@@ -2196,6 +2292,38 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: React.lazy(() => import("@/registry/default/examples/toast-promise.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "toast-anchored": {
+      name: "toast-anchored",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/toast-anchored.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/toast-anchored.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
+    "toast-varying-height": {
+      name: "toast-varying-height",
+      description: "",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/examples/toast-varying-height.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      component: React.lazy(() => import("@/registry/default/examples/toast-varying-height.tsx")),
       source: "",
       category: "",
       subcategory: "",

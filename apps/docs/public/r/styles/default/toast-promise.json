@@ -4,7 +4,7 @@
   "files": [
     {
       "path": "examples/toast-promise.tsx",
-      "content": "import { Button } from \"@/registry/default/ui/button\";\r\nimport { useToastManager } from \"@/registry/default/ui/toast\";\r\n\r\nexport default function ToastPromise() {\r\n  const toast = useToastManager();\r\n\r\n  const handleClick = () => {\r\n    toast.promise(\r\n      new Promise((resolve) => {\r\n        setTimeout(() => resolve(\"Done\"), 3000);\r\n      }),\r\n      {\r\n        loading: {\r\n          title: \"Loading...\",\r\n        },\r\n        success: {\r\n          title: \"Success!\",\r\n        },\r\n        error: {\r\n          title: \"Error\",\r\n        },\r\n      }\r\n    );\r\n  };\r\n\r\n  return <Button onClick={handleClick}>Show Toast</Button>;\r\n}\r\n",
+      "content": "import { Button } from \"@/registry/default/ui/button\";\r\nimport { toastManager } from \"@/registry/default/ui/toast\";\r\n\r\nexport default function ToastPromise() {\r\n  const handleClick = () => {\r\n    toastManager.promise(\r\n      new Promise((resolve) => {\r\n        setTimeout(() => resolve(\"Done\"), 3000);\r\n      }),\r\n      {\r\n        loading: {\r\n          title: \"Loading...\",\r\n        },\r\n        success: {\r\n          title: \"Success!\",\r\n        },\r\n        error: {\r\n          title: \"Error\",\r\n        },\r\n      }\r\n    );\r\n  };\r\n\r\n  return <Button onClick={handleClick}>Show Toast</Button>;\r\n}\r\n",
       "type": "registry:example",
       "target": ""
     }

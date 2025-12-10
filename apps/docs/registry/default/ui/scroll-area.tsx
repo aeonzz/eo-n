@@ -6,22 +6,42 @@ import { ScrollArea as ScrollAreaPrimitive } from "@base-ui-components/react/scr
 import { cn } from "@/lib/utils";
 
 function ScrollArea({
-  orientation,
+  scrollbars = "vertical",
+  className,
   children,
   ...props
-}: React.ComponentProps<typeof ScrollAreaPrimitive.Root> &
-  Pick<ScrollAreaPrimitive.Scrollbar.Props, "orientation">) {
+}: React.ComponentProps<typeof ScrollAreaPrimitive.Root> & {
+  scrollbars?: "vertical" | "horizontal" | "both";
+}) {
   return (
     <ScrollAreaPrimitive.Root
       data-slot="scroll-area"
-      className="relative"
+      className={cn("relative flex min-h-0 overflow-hidden", className)}
       {...props}
     >
-      <ScrollAreaPrimitive.Viewport className="focus-visible:ring-ring/50 size-full overflow-hidden overscroll-contain rounded-[inherit] px-3 transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:outline-1">
+      <ScrollAreaPrimitive.Viewport
+        className={cn(
+          "focus-visible:ring-ring/50 min-h-0 flex-1 overscroll-contain rounded-[inherit] p-3 transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:outline-1",
+          scrollbars === "vertical" && "overflow-y-auto",
+          scrollbars === "horizontal" && "overflow-x-auto",
+          scrollbars === "both" && "overflow-auto"
+        )}
+      >
         <ScrollAreaPrimitive.Content>{children}</ScrollAreaPrimitive.Content>
       </ScrollAreaPrimitive.Viewport>
-      <ScrollAreaScrollbar orientation={orientation} />
-      <ScrollAreaPrimitive.Corner />
+      {scrollbars === "vertical" && (
+        <ScrollAreaScrollbar orientation="vertical" />
+      )}
+      {scrollbars === "horizontal" && (
+        <ScrollAreaScrollbar orientation="horizontal" />
+      )}
+      {scrollbars === "both" && (
+        <>
+          <ScrollAreaScrollbar orientation="vertical" />
+          <ScrollAreaScrollbar orientation="horizontal" />
+        </>
+      )}
+      <ScrollAreaCorner />
     </ScrollAreaPrimitive.Root>
   );
 }
@@ -48,4 +68,17 @@ function ScrollAreaScrollbar({
   );
 }
 
-export { ScrollArea, ScrollAreaScrollbar };
+function ScrollAreaCorner({
+  className,
+  ...props
+}: React.ComponentProps<typeof ScrollAreaPrimitive.Corner>) {
+  return (
+    <ScrollAreaPrimitive.Corner
+      data-slot="scroll-area-corner"
+      className={cn(className)}
+      {...props}
+    />
+  );
+}
+
+export { ScrollArea, ScrollAreaScrollbar, ScrollAreaCorner };

@@ -13,16 +13,16 @@ links:
 
 <CodeTabs>
 
-  <TabsList>
-    <TabsTrigger value="cli">CLI</TabsTrigger>
-    <TabsTrigger value="manual">Manual</TabsTrigger>
-  </TabsList>
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
 
-  <TabsContent value="cli">
-    ```package-install 
-    npx shadcn@latest add @eo-n/toast
-    ```
-  </TabsContent>
+<TabsContent value="cli">
+  ```package-install
+   npx shadcn@latest add @eo-n/toast 
+   ```
+</TabsContent>
 
   <TabsContent value="manual">
     <Steps>
@@ -33,49 +33,44 @@ links:
         <ComponentSource name="toast" />
 
       </Step>
-      
+
       <Step>Update the import paths to match your project setup.</Step>
 
     </Steps>
+
   </TabsContent>
 
 </CodeTabs>
 
 ## Usage
 
-    Add the ```ToastProvider``` to your app layout.
+Add the `ToastProvider` to your app layout.
 
-    ```tsx title="layout.tsx"
-      // [!code highlight:1]
-    import { ToastProvider } from "@/components/ui/toast";
+```tsx title="layout.tsx"
+import { ToastProvider } from "@/components/ui/toast";
 
-    <html lang="en">
-      <body>
-      // [!code highlight:3]
-        <ToastProvider>
-          {children}
-        </ToastProvider>
-      </body>
-    </html>
-    ```
-
-```tsx
-import { useToastManager } from "@/components/ui/toast";
+<html lang="en">
+  <body>
+    <ToastProvider>{children}</ToastProvider>
+  </body>
+</html>;
 ```
 
-```tsx
-const toast = useToastManager()
+Then use `toastManager` to show toasts from anywhere in your app:
 
-<Button
-  onClick={() => {
-    toast.add({
-      title: "This is a toast",
-    });
-  }}
->
-  Show Toast
-</Button>
+```tsx
+import { toastManager } from "@/components/ui/toast";
+
+toastManager.add({
+  title: "Profile Updated",
+  description: "Your changes have been saved.",
+});
 ```
+
+<Callout title="Note">
+  The `toastManager` can be called from anywhere, including outside of React
+  components. No hooks required.
+</Callout>
 
 ## Examples
 
@@ -86,6 +81,66 @@ const toast = useToastManager()
 ### Promise
 
 <ComponentTabs name="toast-promise" />
+
+### Varying Height
+
+Demonstrates stacking behavior with toasts of different content lengths.
+
+<ComponentTabs name="toast-varying-height" />
+
+### Anchored
+
+Anchored toasts attach to a specific element on the page, useful for contextual feedback like copy-to-clipboard actions.
+
+<ComponentTabs name="toast-anchored" />
+
+<Callout title="Usage">
+  Add the `AnchoredToastProvider` to your app layout (can be nested with `ToastProvider`):
+
+```tsx title="layout.tsx"
+import { AnchoredToastProvider, ToastProvider } from "@/components/ui/toast";
+
+<ToastProvider>
+  <AnchoredToastProvider>{children}</AnchoredToastProvider>
+</ToastProvider>;
+```
+
+Then use `anchoredToastManager` with a ref to the anchor element:
+
+```tsx
+import { useRef, useState } from "react";
+
+import { anchoredToastManager } from "@/components/ui/toast";
+
+function CopyButton() {
+  const [copied, setCopied] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  function handleCopy() {
+    setCopied(true);
+
+    anchoredToastManager.add({
+      description: "Copied to clipboard!",
+      positionerProps: {
+        anchor: buttonRef.current,
+        sideOffset: 8,
+      },
+      timeout: 1500,
+      onClose() {
+        setCopied(false);
+      },
+    });
+  }
+
+  return (
+    <button ref={buttonRef} onClick={handleCopy}>
+      Copy
+    </button>
+  );
+}
+```
+
+</Callout>
 
 ## API Reference
 

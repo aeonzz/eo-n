@@ -3,7 +3,7 @@ import { ScrollArea } from "@/registry/default/ui/scroll-area";
 export default function ScrollAreaDemo() {
   return (
     <ScrollArea className="h-40 max-w-[450px] rounded-md border">
-      <div className="flex flex-col gap-2 py-3">
+      <div className="flex flex-col gap-2">
         <h4 className="text-sm font-medium">Recent Updates</h4>
         <div className="text-sm">
           <p className="py-1">✅ Task 1: Updated inventory system.</p>

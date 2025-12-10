@@ -11,18 +11,16 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/registry/default/ui/popover";
-import { useToastManager } from "@/registry/default/ui/toast";
+import { toastManager } from "@/registry/default/ui/toast";
 
 export default function EmojiPickerDemo() {
-  const toast = useToastManager();
-
   return (
     <Popover>
       <PopoverTrigger render={<Button>Open emoji picker</Button>} />
       <PopoverContent className="w-fit p-0">
         <EmojiPicker
           onEmojiSelect={({ emoji, label }) => {
-            toast.add({
+            toastManager.add({
               title: `${emoji} ${label}`,
             });
           }}
