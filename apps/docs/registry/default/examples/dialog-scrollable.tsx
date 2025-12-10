@@ -17,7 +17,7 @@ export default function DialogScrollable() {
         render={<Button variant="outline">Terms of Service</Button>}
       />
       <DialogContent className="sm:max-w-[415px]" flush>
-        <DialogHeader className="group-data-[flush=true]:pb-2">
+        <DialogHeader>
           <DialogTitle>Terms of Service</DialogTitle>
           <DialogDescription>
             Read the terms and conditions carefully.

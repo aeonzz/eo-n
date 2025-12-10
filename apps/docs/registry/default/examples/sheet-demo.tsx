@@ -25,7 +25,7 @@ export default function SheetDemo() {
             Update the details below and click save to apply changes.
           </SheetDescription>
         </SheetHeader>
-        <div className="flex flex-col gap-4 px-4">
+        <div className="flex flex-col gap-4 px-6">
           <div className="relative aspect-video w-full overflow-hidden">
             <Image
               src="/images/dialog-demo-image.jpg"

@@ -100,7 +100,7 @@ function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="dialog-header"
       className={cn(
         "flex flex-col gap-2 text-center sm:text-left",
-        "group-data-[flush=true]:p-6",
+        "group-data-[flush=true]:border-b group-data-[flush=true]:p-6",
         className
       )}
       {...props}
@@ -114,7 +114,7 @@ function DialogFooter({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="dialog-footer"
       className={cn(
         "flex flex-col-reverse gap-2 sm:flex-row sm:justify-end",
-        "group-data-[flush=true]:bg-muted/30 group-data-[flush=true]:border-t group-data-[flush=true]:p-6",
+        "group-data-[flush=true]:bg-muted/60 group-data-[flush=true]:border-t group-data-[flush=true]:p-6",
         className
       )}
       {...props}
