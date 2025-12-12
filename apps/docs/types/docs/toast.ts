@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Toast as ToastPrimitive } from "@base-ui-components/react/toast";
+import { Toast as ToastPrimitive } from "@base-ui/react";
 
 export interface ProviderProps
   extends Omit<

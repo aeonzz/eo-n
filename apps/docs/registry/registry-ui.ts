@@ -4,7 +4,7 @@ export const ui: Registry = [
   {
     name: "button",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/button.tsx",
@@ -15,7 +15,7 @@ export const ui: Registry = [
   {
     name: "dialog",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react", "lucide-react"],
+    dependencies: ["@base-ui/react", "lucide-react"],
     files: [
       {
         path: "ui/dialog.tsx",
@@ -26,7 +26,7 @@ export const ui: Registry = [
   {
     name: "input",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/input.tsx",
@@ -47,7 +47,7 @@ export const ui: Registry = [
   {
     name: "number-input",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/number-input.tsx",
@@ -58,7 +58,7 @@ export const ui: Registry = [
   {
     name: "dropdown-menu",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/dropdown-menu.tsx",
@@ -69,7 +69,7 @@ export const ui: Registry = [
   {
     name: "accordion",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/accordion.tsx",
@@ -80,7 +80,7 @@ export const ui: Registry = [
   {
     name: "checkbox",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/checkbox.tsx",
@@ -91,7 +91,7 @@ export const ui: Registry = [
   {
     name: "tabs",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/tabs.tsx",
@@ -102,7 +102,7 @@ export const ui: Registry = [
   {
     name: "avatar",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/avatar.tsx",
@@ -113,7 +113,7 @@ export const ui: Registry = [
   {
     name: "tooltip",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/tooltip.tsx",
@@ -124,7 +124,7 @@ export const ui: Registry = [
   {
     name: "select",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/select.tsx",
@@ -135,7 +135,7 @@ export const ui: Registry = [
   {
     name: "toggle",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/toggle.tsx",
@@ -146,7 +146,7 @@ export const ui: Registry = [
   {
     name: "popover",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/popover.tsx",
@@ -157,7 +157,7 @@ export const ui: Registry = [
   {
     name: "separator",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/separator.tsx",
@@ -168,7 +168,7 @@ export const ui: Registry = [
   {
     name: "toolbar",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/toolbar.tsx",
@@ -179,7 +179,7 @@ export const ui: Registry = [
   {
     name: "alert-dialog",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/alert-dialog.tsx",
@@ -190,7 +190,7 @@ export const ui: Registry = [
   {
     name: "checkbox-group",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/checkbox-group.tsx",
@@ -201,7 +201,7 @@ export const ui: Registry = [
   {
     name: "preview-card",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/preview-card.tsx",
@@ -212,7 +212,7 @@ export const ui: Registry = [
   {
     name: "progress",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/progress.tsx",
@@ -223,7 +223,7 @@ export const ui: Registry = [
   {
     name: "radio-group",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/radio-group.tsx",
@@ -234,7 +234,7 @@ export const ui: Registry = [
   {
     name: "collapsible",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/collapsible.tsx",
@@ -245,7 +245,7 @@ export const ui: Registry = [
   {
     name: "scroll-area",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/scroll-area.tsx",
@@ -256,7 +256,7 @@ export const ui: Registry = [
   {
     name: "slider",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/slider.tsx",
@@ -277,7 +277,7 @@ export const ui: Registry = [
   {
     name: "switch",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/switch.tsx",
@@ -288,7 +288,7 @@ export const ui: Registry = [
   {
     name: "toggle-group",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/toggle-group.tsx",
@@ -357,7 +357,7 @@ export const ui: Registry = [
   {
     name: "meter",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/meter.tsx",
@@ -368,7 +368,7 @@ export const ui: Registry = [
   {
     name: "toast",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     registryDependencies: ["https://eo-n.vercel.app/r/button"],
     files: [
       {
@@ -390,7 +390,7 @@ export const ui: Registry = [
   {
     name: "context-menu",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/context-menu.tsx",
@@ -401,7 +401,7 @@ export const ui: Registry = [
   {
     name: "menubar",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/menubar.tsx",
@@ -412,7 +412,7 @@ export const ui: Registry = [
   {
     name: "navigation-menu",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/navigation-menu.tsx",
@@ -423,7 +423,7 @@ export const ui: Registry = [
   {
     name: "sheet",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/sheet.tsx",
@@ -445,7 +445,7 @@ export const ui: Registry = [
   {
     name: "autocomplete",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/autocomplete.tsx",
@@ -456,7 +456,7 @@ export const ui: Registry = [
   {
     name: "combobox",
     type: "registry:ui",
-    dependencies: ["@base-ui-components/react"],
+    dependencies: ["@base-ui/react"],
     files: [
       {
         path: "ui/combobox.tsx",

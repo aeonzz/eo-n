@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Autocomplete as AutocompletePrimitive } from "@base-ui-components/react/autocomplete";
+import { Autocomplete as AutocompletePrimitive } from "@base-ui/react";
 
 import { cn } from "@/lib/utils";
 import { Input } from "@/registry/default/ui/input";

@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Toast as ToastPrimitive } from "@base-ui-components/react/toast";
+import { Toast as ToastPrimitive } from "@base-ui/react";
 import { cva, type VariantProps } from "class-variance-authority";
 import {
   CircleAlert,
