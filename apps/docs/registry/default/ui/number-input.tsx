@@ -1,5 +1,5 @@
 import * as React from "react";
-import { NumberField as NumberInputPrimitive } from "@base-ui-components/react/number-field";
+import { NumberField as NumberInputPrimitive } from "@base-ui/react";
 import { Minus, MoveHorizontal, MoveVertical, Plus } from "lucide-react";
 
 import { cn } from "@/lib/utils";

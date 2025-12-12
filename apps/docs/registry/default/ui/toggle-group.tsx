@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ToggleGroup as ToggleGroupRoot } from "@base-ui-components/react/toggle-group";
+import { ToggleGroup as ToggleGroupRoot } from "@base-ui/react";
 import { type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";

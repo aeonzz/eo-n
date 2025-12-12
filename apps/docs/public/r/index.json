@@ -3,7 +3,7 @@
     "name": "button",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -16,7 +16,7 @@
     "name": "dialog",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react",
+      "@base-ui/react",
       "lucide-react"
     ],
     "files": [
@@ -30,7 +30,7 @@
     "name": "input",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -53,7 +53,7 @@
     "name": "number-input",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -66,7 +66,7 @@
     "name": "dropdown-menu",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -79,7 +79,7 @@
     "name": "accordion",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -92,7 +92,7 @@
     "name": "checkbox",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -105,7 +105,7 @@
     "name": "tabs",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -118,7 +118,7 @@
     "name": "avatar",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -131,7 +131,7 @@
     "name": "tooltip",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -144,7 +144,7 @@
     "name": "select",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -157,7 +157,7 @@
     "name": "toggle",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -170,7 +170,7 @@
     "name": "popover",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -183,7 +183,7 @@
     "name": "separator",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -196,7 +196,7 @@
     "name": "toolbar",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -209,7 +209,7 @@
     "name": "alert-dialog",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -222,7 +222,7 @@
     "name": "checkbox-group",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -235,7 +235,7 @@
     "name": "preview-card",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -248,7 +248,7 @@
     "name": "progress",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -261,7 +261,7 @@
     "name": "radio-group",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -274,7 +274,7 @@
     "name": "collapsible",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -287,7 +287,7 @@
     "name": "scroll-area",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -300,7 +300,7 @@
     "name": "slider",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -323,7 +323,7 @@
     "name": "switch",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -336,7 +336,7 @@
     "name": "toggle-group",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -407,7 +407,7 @@
     "name": "meter",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -420,7 +420,7 @@
     "name": "toast",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "registryDependencies": [
       "https://eo-n.vercel.app/r/button"
@@ -446,7 +446,7 @@
     "name": "context-menu",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -459,7 +459,7 @@
     "name": "menubar",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -472,7 +472,7 @@
     "name": "navigation-menu",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -485,7 +485,7 @@
     "name": "sheet",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -511,7 +511,7 @@
     "name": "autocomplete",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {
@@ -524,7 +524,7 @@
     "name": "combobox",
     "type": "registry:ui",
     "dependencies": [
-      "@base-ui-components/react"
+      "@base-ui/react"
     ],
     "files": [
       {

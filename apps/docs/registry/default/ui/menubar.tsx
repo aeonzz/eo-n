@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Menubar as MenubarRoot } from "@base-ui-components/react/menubar";
+import { Menubar as MenubarRoot } from "@base-ui/react";
 
 import { cn } from "@/lib/utils";
 

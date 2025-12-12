@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { NavigationMenu as NavigationMenuPrimitive } from "@base-ui-components/react/navigation-menu";
+import { NavigationMenu as NavigationMenuPrimitive } from "@base-ui/react";
 import { cva } from "class-variance-authority";
 import { ChevronDownIcon } from "lucide-react";
 
@@ -173,7 +173,6 @@ function NavigationMenuViewport({
   contentProps,
   ...props
 }: NavigationMenuViewportProps) {
-  
   const {
     sideOffset = 6,
     collisionPadding = { top: 5, bottom: 5, left: 20, right: 20 },
@@ -197,7 +196,7 @@ function NavigationMenuViewport({
         <NavigationMenuPrimitive.Popup
           data-slot="navigation-menu-content"
           className={cn(
-            "bg-popover relative h-[var(--popup-height)] rounded-md border shadow transition-all duration-150 ease-out w-[var(--popup-width)]",
+            "bg-popover relative h-[var(--popup-height)] w-[var(--popup-width)] rounded-md border shadow transition-all duration-150 ease-out",
             "origin-[var(--transform-origin)] data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
             className
           )}
